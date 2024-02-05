@@ -9,6 +9,111 @@ html {
 }
 
 body {
-    background: $black;
-    color: $white;
+    background: $light-grey;
+    color: $black;
+}
+
+header,
+section {
+    max-width: $content-width;
+    margin: auto;
+}
+
+header {
+    // border: $test;
+    @include row-between;
+    position: sticky;
+    top: 0;
+    padding: 24px $body-padding;
+    
+    @include mq-max('xxl') {
+        padding: 64px $body-padding;
+    }
+
+    @include mq-max('md') {
+        padding: 48px $body-padding-md;
+    }
+
+    .header-logo {
+        @include row-center;
+        gap: 6px;
+        // scale: 0.8;
+        // transform-origin: left;
+
+        .logo-icon {
+            width: 32px;
+        }
+
+        .logo-text {
+            width: 58px;
+            translate: 0 2px;
+        }
+    }
+}
+
+section {
+    // background: $test-bg;
+    padding: 96px $body-padding;
+    
+    @include mq-max('xxl') {
+        padding: 64px $body-padding;
+    }
+
+    @include mq-max('md') {
+        padding: 48px $body-padding-md;
+    }
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Saira', sans-serif;
+    line-height: 100%;
+    font-weight: 500;
+}
+
+p,
+a {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+a {
+    color: $black;
+    text-decoration: none;
+}
+
+.cta-wrapper {
+    // border: $test;
+    display: flex;
+    gap: 24px;
+
+    a {
+        padding: 12px 16px;
+    }
+
+    .cta-1 {
+        background: $green;
+        color: $white;
+        border-radius: 4px;
+    }
+
+    .cta-2 {
+        @include row-center;
+        gap: 12px;
+
+        svg {
+            transition: 0.3s ease;
+
+            path {
+                fill: $green;
+            }
+        }
+
+        &:hover {
+
+            svg {
+                translate: 4px 0;
+            }
+        }
+    }
 }
