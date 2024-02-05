@@ -25,10 +25,11 @@ header {
     position: sticky;
     top: 0;
     padding: 24px $body-padding;
+    z-index: 1;
     
-    @include mq-max('xxl') {
-        padding: 64px $body-padding;
-    }
+    // @include mq-max('xxl') {
+    //     padding: 64px $body-padding;
+    // }
 
     @include mq-max('md') {
         padding: 48px $body-padding-md;
@@ -49,14 +50,26 @@ header {
             translate: 0 2px;
         }
     }
+
+    .cta-wrapper {
+        transition: 0.3s ease;
+    }
+
+    &.scroll-active {
+
+        .cta-wrapper {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
 }
 
 section {
     // background: $test-bg;
-    padding: 96px $body-padding;
+    padding: 196px $body-padding;
     
     @include mq-max('xxl') {
-        padding: 64px $body-padding;
+        padding: 128px $body-padding;
     }
 
     @include mq-max('md') {

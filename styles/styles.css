@@ -26,11 +26,7 @@ header {
   position: sticky;
   top: 0;
   padding: 24px 64px;
-}
-@media screen and (max-width: 1440px) {
-  header {
-    padding: 64px 64px;
-  }
+  z-index: 1;
 }
 @media screen and (max-width: 768px) {
   header {
@@ -50,13 +46,20 @@ header .header-logo .logo-text {
   width: 58px;
   translate: 0 2px;
 }
+header .cta-wrapper {
+  transition: 0.3s ease;
+}
+header.scroll-active .cta-wrapper {
+  opacity: 0;
+  pointer-events: none;
+}
 
 section {
-  padding: 96px 64px;
+  padding: 196px 64px;
 }
 @media screen and (max-width: 1440px) {
   section {
-    padding: 64px 64px;
+    padding: 128px 64px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -111,7 +114,14 @@ a {
   translate: 4px 0;
 }
 
+#hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: flex-start;
+}
 #hero-section .hero-headline {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -125,9 +135,14 @@ a {
   flex-direction: column;
   align-items: flex-start;
   border-left: 4px solid #6CA793;
-  font-size: 96px;
+  font-size: 104px;
   text-transform: uppercase;
   margin-bottom: 48px;
+}
+@media (max-width: 1664px) {
+  #hero-section .hero-headline h1 {
+    font-size: 96px;
+  }
 }
 @media screen and (max-width: 1440px) {
   #hero-section .hero-headline h1 {
@@ -136,4 +151,27 @@ a {
 }
 #hero-section .hero-headline h1 span:last-of-type {
   align-self: flex-end;
+}
+#hero-section .hero-headline .companion-text {
+  font-family: "Saira", sans-serif;
+  font-size: 18px;
+}
+#hero-section .hero-image {
+  width: 50%;
+}
+#hero-section .hero-image img {
+  width: 48%;
+}
+#hero-section .hero-image img:first-of-type {
+  translate: 20% 0;
+}
+#hero-section .hero-image img:last-of-type {
+  translate: -20% 0;
+}
+
+#video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
 }/*# sourceMappingURL=styles.css.map */
