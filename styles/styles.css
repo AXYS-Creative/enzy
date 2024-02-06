@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+*::selection {
+  background: rgba(108, 167, 147, 0.5);
+}
 
 html {
   scroll-behavior: smooth;
@@ -19,6 +22,9 @@ section {
   margin: auto;
 }
 
+header > * {
+  z-index: 3;
+}
 header .header-logo {
   position: fixed;
   top: 56px;
@@ -31,7 +37,7 @@ header .header-logo {
 }
 @media screen and (min-width: 1921px) {
   header .header-logo {
-    left: calc(128px + 5vw);
+    left: calc(50% - 960px + 64px);
   }
 }
 @media screen and (max-width: 1024px) {
@@ -71,12 +77,21 @@ header .cta-wrapper {
   position: fixed;
   top: 44px;
   right: 64px;
-  transition: 0.2s ease 0.12s;
+  transition: 0.2s ease 0.12s, right 0s;
+}
+@media screen and (min-width: 1921px) {
+  header .cta-wrapper {
+    right: calc(50% - 960px + 64px);
+  }
 }
 @media screen and (max-width: 1024px) {
   header .cta-wrapper {
     display: none;
   }
+}
+header .cta-wrapper.menu-active {
+  opacity: 0;
+  pointer-events: none;
 }
 header .menu-btn {
   position: fixed;
@@ -91,8 +106,13 @@ header .menu-btn {
   padding: 8px;
   opacity: 0;
   pointer-events: none;
-  transition: 0.2s ease 0s;
+  transition: 0.2s ease 0s, right 0s;
   mix-blend-mode: difference;
+}
+@media screen and (min-width: 1921px) {
+  header .menu-btn {
+    right: calc(50% - 960px + 64px);
+  }
 }
 @media screen and (max-width: 1024px) {
   header .menu-btn {
@@ -106,10 +126,37 @@ header .menu-btn {
     right: 24px;
   }
 }
+header .menu-btn::before {
+  content: "OPEN";
+  font-family: "Saira", sans-serif;
+  color: #f8f8f8;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  translate: -80% -50%;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+header .menu-btn:hover, header .menu-btn:focus {
+  translate: 4px -50%;
+}
+header .menu-btn:hover::before, header .menu-btn:focus::before {
+  translate: -120% -50%;
+  opacity: 1;
+}
 header .menu-btn-dot {
   width: 4px;
   height: 4px;
   background: #f8f8f8;
+  transition: 0.3s ease;
+}
+header .menu-btn.active {
+  opacity: 1;
+  pointer-events: all;
+}
+header .menu-btn.active .menu-btn-dot:nth-of-type(even) {
+  opacity: 0;
 }
 header.scroll-active .header-logo .logo-text {
   width: 0px;
@@ -123,7 +170,40 @@ header.scroll-active .cta-wrapper {
 header.scroll-active .menu-btn {
   opacity: 1;
   pointer-events: all;
-  transition: 0.2s ease 0.12s;
+  transition: all 0.3s ease, opacity 0.2s ease 0.12s;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  background: #D6D6D6;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s ease 0.3s;
+}
+nav .width-constraint {
+  border: 2px dashed coral;
+  position: relative;
+  max-width: 1920px;
+  height: 100vh;
+  margin: auto;
+}
+nav .nav-links {
+  position: absolute;
+  top: 50%;
+  left: 64px;
+  translate: 0 -50%;
+  list-style: none;
+}
+nav .nav-links a {
+  font-family: "Saira", sans-serif;
+}
+nav.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 section {
@@ -204,7 +284,7 @@ button {
 .cta-wrapper .cta-2 svg path {
   fill: #6CA793;
 }
-.cta-wrapper .cta-2:hover svg {
+.cta-wrapper .cta-2:hover svg, .cta-wrapper .cta-2:focus svg {
   translate: 4px 0;
 }
 
@@ -215,7 +295,7 @@ button {
   align-items: flex-start;
   margin-top: 96px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   #hero-section {
     flex-direction: column;
   }
@@ -226,6 +306,11 @@ button {
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+}
+@media screen and (max-width: 1024px) {
+  #hero-section .hero-headline {
+    width: 100%;
+  }
 }
 #hero-section .hero-headline > * {
   padding-left: 48px;
@@ -261,12 +346,17 @@ button {
 }
 @media screen and (max-width: 1200px) {
   #hero-section .hero-headline h1 {
-    font-size: 56px;
+    font-size: 64px;
   }
 }
 @media screen and (max-width: 1024px) {
   #hero-section .hero-headline h1 {
-    font-size: 48px;
+    font-size: 86px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #hero-section .hero-headline h1 {
+    font-size: 64px;
   }
 }
 #hero-section .hero-headline h1 span:last-of-type {
@@ -291,7 +381,7 @@ button {
 }
 @media screen and (max-width: 1024px) {
   #hero-section .hero-image {
-    width: 42%;
+    width: 100%;
   }
 }
 #hero-section .hero-image img {
@@ -311,4 +401,5 @@ button {
   background: #000;
   max-width: unset;
   width: 100vw;
+  height: 200vh;
 }/*# sourceMappingURL=styles.css.map */

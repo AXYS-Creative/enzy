@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    // font-family: 'Plus Jakarta Sans', sans-serif;
+    // font-family: 'Saira', sans-serif;
+
+    &::selection {
+        background: rgba($green, 0.5);
+    }
 }
 
 html {
@@ -20,17 +26,10 @@ section {
 }
 
 header {
-    // border: $test;
-    // position: fixed;
-    // @include row-between;
-    // position: sticky;
-    // top: 0;
-    // padding: 24px $body-padding;
-    // z-index: 1;
 
-    // @include mq-max('md') {
-    //     padding: 48px $body-padding-md;
-    // }
+    & > * {
+        z-index: 3;
+    }
 
     .header-logo {
         position: fixed;
@@ -41,7 +40,7 @@ header {
         mix-blend-mode: difference;
 
         @include mq-min('xxxl') {
-            left: calc(128px + 5vw);
+            left: calc(50% - calc(1920px / 2) + $body-padding);
         }
         
         @include mq-max('lg') {
@@ -80,10 +79,19 @@ header {
         position: fixed;
         top: 44px;
         right: $body-padding;
-        transition: 0.2s ease 0.12s;
+        transition: 0.2s ease 0.12s, right 0s;
+
+        @include mq-min('xxxl') {
+            right: calc(50% - calc(1920px / 2) + $body-padding);
+        }
 
         @include mq-max('lg') {
             display: none;
+        }
+
+        &.menu-active {
+            opacity: 0;
+            pointer-events: none;
         }
     }
 
@@ -100,8 +108,12 @@ header {
         padding: 8px;
         opacity: 0;
         pointer-events: none;
-        transition: 0.2s ease 0s;
+        transition: 0.2s ease 0s, right 0s;
         mix-blend-mode: difference;
+
+        @include mq-min('xxxl') {
+            right: calc(50% - calc(1920px / 2) + $body-padding);
+        }
         
         @include mq-max('lg') {
             right: $body-padding-lg;
@@ -113,11 +125,43 @@ header {
             right: $body-padding-md;
         }
 
+        &::before {
+         content: "OPEN";
+         font-family: 'Saira', sans-serif;
+         color: $white;
+         font-size: 14px;
+         position: absolute;
+         top: 50%;
+         left: 0;
+         translate: -80% -50%;
+         opacity: 0;
+         transition: 0.3s ease;
+        }
+
+        &:hover,
+        &:focus {
+            translate: 4px -50%;
+
+            &::before {
+                translate: -120% -50%;
+                opacity: 1;
+            }
+        }
+
         &-dot {
             width: 4px;
             height: 4px;
-            // background: $dark-grey;
             background: $white;
+            transition: 0.3s ease;
+        }
+
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+
+            .menu-btn-dot:nth-of-type(even) {
+                opacity: 0;
+            }
         }
     }
 
@@ -140,10 +184,47 @@ header {
         .menu-btn {
             opacity: 1;
             pointer-events: all;
-            transition: 0.2s ease 0.12s;
+            transition: all 0.3s ease, opacity 0.2s ease 0.12s;
         }
 
 
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    background: $light-grey;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity 0.3s ease 0.3s;
+
+    .width-constraint {
+        border: $test;
+        position: relative;
+        max-width: $content-width;
+        height: 100vh;
+        margin: auto;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 50%;
+        left: $body-padding;
+        translate: 0 -50%;
+        list-style: none;
+
+        a {
+            font-family: 'Saira', sans-serif;
+        }
+    }
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
     }
 }
 
@@ -189,7 +270,6 @@ button {
 }
 
 .cta-wrapper {
-    // border: $test;
     display: flex;
     gap: 24px;
 
@@ -224,7 +304,8 @@ button {
             }
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
 
             svg {
                 translate: 4px 0;

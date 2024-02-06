@@ -18,7 +18,7 @@
 </head>
 <body>
     <header class="site-header">
-        <a class="header-logo" href="">
+        <a class="header-logo" href="#">
             <img class="logo-icon" src="./public/enzy-logo-icon-light.svg" alt="">
             <img class="logo-text" src="./public/enzy-logo-text-light.svg" alt="">
         </a>
@@ -31,7 +31,12 @@
             </a>
             <a class="cta-1" href="">Request a demo</a>
         </div>
-        <button class="menu-btn">
+        <button 
+            class="menu-btn" 
+            aria-controls="site-navigation"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+        >
             <span class="menu-btn-dot top-left"></span>
             <span class="menu-btn-dot top-center"></span>
             <span class="menu-btn-dot top-right"></span>
@@ -46,6 +51,24 @@
         </button>
     </header>
 
+    <nav class="nav-menu" id="site-navigation" aria-label="Main navigation" aria-hidden="true">
+        <div class="width-constraint">
+            <ul class="nav-links">
+                <li>
+                    <a class="nav-link tab-element-nav" href="">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link tab-element-nav" href="">Discover</a>
+                </li>
+                <li>
+                    <a class="nav-link tab-element-nav" href="">Platform</a>
+                </li>
+                <li>
+                    <a class="nav-link tab-element-nav" href="">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <main>
         <section id="hero-section">
             <div class="hero-headline">
@@ -56,8 +79,8 @@
                     <span>culture</span>
                 </h1>
                 <div class="cta-wrapper">
-                    <a class="cta-1" href="">Request a demo</a>
-                    <a class="cta-2" href="">
+                    <a class="cta-1 tab-element-page" href="">Request a demo</a>
+                    <a class="cta-2 tab-element-page" href="">
                         Explore our platform
                         <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.83125 7.41563L8.125 8.12187L2.125 14.1219L1.41562 14.8312L0 13.4156L0.70625 12.7094L6 7.41563L0.709375 2.12187L0 1.41562L1.41562 0L2.12187 0.70625L8.12187 6.70625L8.83125 7.41563Z"/>

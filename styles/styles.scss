@@ -7,7 +7,7 @@
     align-items: flex-start;
     margin-top: 96px;
 
-    @include mq-max('md') {
+    @include mq-max('lg') {
         flex-direction: column;
     }
 
@@ -19,6 +19,10 @@
         width: 50%;
         @include column-left;
         gap: 24px;
+
+        @include mq-max('lg') {
+            width: 100%;
+        }
 
         & > * {
             padding-left: 48px;
@@ -48,11 +52,15 @@
             }
 
             @include mq-max('xl') {
-                font-size: 56px;
+                font-size: 64px;
             }
             
             @include mq-max('lg') {
-                font-size: 48px;
+                font-size: 86px;
+            }
+
+            @include mq-max('md') {
+                font-size: 64px;
             }
 
         
@@ -79,7 +87,7 @@
         }
 
         @include mq-max('lg') {
-            width: 42%;
+            width: 100%;
         }
 
         img {
@@ -100,4 +108,5 @@
     background: #000;
     max-width: unset;
     width: 100vw;
+    height: 200vh;
 }
