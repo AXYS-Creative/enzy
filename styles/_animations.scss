@@ -1,0 +1,45 @@
+@keyframes nav-abstract-open {
+    0% {
+        top: unset;
+        bottom: 0;
+        height: 0;
+    }
+    33% {
+        top: unset;
+        bottom: 0;
+        height: 100vh;
+    }
+    66% {
+        top: 0;
+        bottom: unset;
+        height: 100vh;
+    }
+    100% {
+        top: 0;
+        bottom: unset;
+        height: 0;
+    }
+}
+
+@keyframes nav-abstract-default {
+    0% {
+        top: 0;
+        bottom: unset;
+        height: 0;
+    }
+    33% {
+        top: 0;
+        bottom: unset;
+        height: 100vh;
+    }
+    66% {
+        top: unset;
+        bottom: 0;
+        height: 100vh;
+    }
+    100% {
+        top: unset;
+        bottom: 0;
+        height: 0;
+    }
+}

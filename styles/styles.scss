@@ -1,6 +1,7 @@
 @import 'variables',
 'mixins',
-'globals';
+'globals',
+'animations';
 
 #hero-section {
     @include row-between;

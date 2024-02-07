@@ -216,13 +216,13 @@ header {
 nav {
     position: fixed;
     top: 0;
-    background: $light-grey;
+    background: transparent;
     width: 100vw;
     height: 100vh;
     opacity: 0;
     pointer-events: none;
     z-index: 2;
-    transition: opacity 0.3s ease 0.3s;
+    transition: background 0s ease 0.4s, opacity 0s ease 1s;
 
     .width-constraint {
         position: relative;
@@ -231,21 +231,35 @@ nav {
         margin: auto;
     }
 
+    .nav-links,
+    .nav-footer-links,
+    .nav-social-media {
+        position: absolute;
+        left: $body-padding;
+        list-style: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0s ease 0.3s;
+
+        li {
+
+            a {
+                font-family: 'Saira', sans-serif;
+            }
+        }
+    }
+
     .nav-links {
         @include column-left;
         gap: 12px;
-        position: absolute;
         top: 50%;
-        left: $body-padding;
         translate: 0 -50%;
-        list-style: none;
 
         li {
             display: flex;
         }
 
         .nav-link {
-            font-family: 'Saira', sans-serif;
             font-size: 96px;
             text-transform: uppercase;
             line-height: 100%;
@@ -269,9 +283,83 @@ nav {
         }
     }
 
+    .nav-footer-links {
+        @include row-center;
+        bottom: $body-padding;
+        gap: 48px;
+
+        li {
+
+            .nav-footer-link {
+                border-bottom: 2px solid transparent;
+                transition: 0.2s ease;
+                
+                &:hover,
+                &:focus {
+                    border-color: $green;
+
+                }
+            }
+        }
+    }
+
+    .nav-social-media {
+        display: flex;
+        gap: 48px;
+        bottom: $body-padding;
+        right: $body-padding;
+        left: unset;
+
+        .social-media-link {
+            
+            &:hover,
+            &:focus {
+                
+                .social-media-icon {
+
+                    path {
+                        fill: $green;
+                    }
+                }
+            }
+
+            .social-media-icon {
+
+                path {
+
+                    transition: 0.2s ease;
+                }
+            }
+        }
+    }
+
+    .nav-abstract {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        height: 24px;
+        background: $black;
+        // transition: 0.4s ease;
+        animation: nav-abstract-default 1s ease 0s forwards;
+
+    }
+
     &.active {
         opacity: 1;
         pointer-events: all;
+        background: $light-grey;
+        transition: background 0s ease 0.4s;
+
+        .nav-abstract {
+            animation: nav-abstract-open 1s ease 0s forwards;
+        }
+
+        .nav-links,
+        .nav-footer-links,
+        .nav-social-media {
+            opacity: 1;
+            pointer-events: all;
+        }
     }
 }
 
