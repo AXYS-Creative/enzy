@@ -98,12 +98,8 @@ header .menu-btn {
   top: 64px;
   right: 64px;
   translate: 0 -50%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
   width: 36px;
   height: 36px;
-  padding: 8px;
   opacity: 0;
   pointer-events: none;
   transition: 0.2s ease 0s, right 0s;
@@ -126,24 +122,39 @@ header .menu-btn {
     right: 24px;
   }
 }
-header .menu-btn::before {
-  content: "OPEN";
-  font-family: "Saira", sans-serif;
-  color: #f8f8f8;
-  font-size: 14px;
+header .menu-btn:hover, header .menu-btn:focus {
+  translate: 4px -50%;
+}
+header .menu-btn:hover .menu-btn-text-wrapper, header .menu-btn:focus .menu-btn-text-wrapper {
+  translate: -120% -50%;
+  opacity: 1;
+}
+header .menu-btn .menu-btn-dots-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 8px;
+  transition: 0.2s ease;
+}
+header .menu-btn .menu-btn-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   position: absolute;
   top: 50%;
   left: 0;
   translate: -80% -50%;
+  height: 24px;
   opacity: 0;
   transition: 0.3s ease;
+  overflow: hidden;
 }
-header .menu-btn:hover, header .menu-btn:focus {
-  translate: 4px -50%;
-}
-header .menu-btn:hover::before, header .menu-btn:focus::before {
-  translate: -120% -50%;
-  opacity: 1;
+header .menu-btn .menu-btn-text {
+  font-family: "Saira", sans-serif;
+  text-transform: uppercase;
+  color: #f8f8f8;
+  font-size: 14px;
+  transition: 0.2s ease;
 }
 header .menu-btn-dot {
   width: 4px;
@@ -155,8 +166,17 @@ header .menu-btn.active {
   opacity: 1;
   pointer-events: all;
 }
-header .menu-btn.active .menu-btn-dot:nth-of-type(even) {
+header .menu-btn.active .menu-btn-text {
+  translate: 0 -100%;
+}
+header .menu-btn.active .menu-btn-dots-wrapper {
+  rotate: 45deg;
+}
+header .menu-btn.active .menu-btn-dot:nth-of-type(odd) {
   opacity: 0;
+}
+header .menu-btn.active .menu-btn-dot:nth-of-type(5) {
+  opacity: 1;
 }
 header.scroll-active .header-logo .logo-text {
   width: 0px;
@@ -179,27 +199,34 @@ nav {
   background: #D6D6D6;
   width: 100vw;
   height: 100vh;
-  opacity: 0;
-  pointer-events: none;
   z-index: 2;
   transition: opacity 0.3s ease 0.3s;
 }
 nav .width-constraint {
-  border: 2px dashed coral;
   position: relative;
   max-width: 1920px;
   height: 100vh;
   margin: auto;
 }
 nav .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   position: absolute;
   top: 50%;
   left: 64px;
   translate: 0 -50%;
   list-style: none;
 }
-nav .nav-links a {
+nav .nav-links li {
+  border: 2px dashed coral;
+}
+nav .nav-links .nav-link {
   font-family: "Saira", sans-serif;
+  font-size: 64px;
+  text-transform: uppercase;
+  line-height: 100%;
 }
 nav.active {
   opacity: 1;

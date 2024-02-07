@@ -100,12 +100,8 @@ header {
         top: 64px;
         right: $body-padding;
         translate: 0 -50%;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px;
         width: 36px;
         height: 36px;
-        padding: 8px;
         opacity: 0;
         pointer-events: none;
         transition: 0.2s ease 0s, right 0s;
@@ -125,28 +121,43 @@ header {
             right: $body-padding-md;
         }
 
-        &::before {
-         content: "OPEN";
-         font-family: 'Saira', sans-serif;
-         color: $white;
-         font-size: 14px;
-         position: absolute;
-         top: 50%;
-         left: 0;
-         translate: -80% -50%;
-         opacity: 0;
-         transition: 0.3s ease;
-        }
-
         &:hover,
         &:focus {
             translate: 4px -50%;
 
-            &::before {
+            .menu-btn-text-wrapper {
                 translate: -120% -50%;
                 opacity: 1;
             }
         }
+
+        .menu-btn-dots-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 8px;
+            transition: 0.2s ease;
+        }
+
+        .menu-btn-text-wrapper {
+            @include column-left;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            translate: -80% -50%;
+            height: 24px;
+            opacity: 0;
+            transition: 0.3s ease;
+            overflow: hidden;
+        }
+
+        .menu-btn-text {
+            font-family: 'Saira', sans-serif;
+            text-transform: uppercase;
+            color: $white;
+            font-size: 14px;
+            transition: 0.2s ease;
+           }
 
         &-dot {
             width: 4px;
@@ -159,8 +170,19 @@ header {
             opacity: 1;
             pointer-events: all;
 
-            .menu-btn-dot:nth-of-type(even) {
+            .menu-btn-text {
+                translate: 0 -100%;
+            }
+            
+            .menu-btn-dots-wrapper {
+                rotate: 45deg;
+            }
+
+            .menu-btn-dot:nth-of-type(odd) {
                 opacity: 0;
+            }
+            .menu-btn-dot:nth-of-type(5) {
+                opacity: 1;
             }
         }
     }
@@ -197,13 +219,12 @@ nav {
     background: $light-grey;
     width: 100vw;
     height: 100vh;
-    opacity: 0;
-    pointer-events: none;
+    // opacity: 0;
+    // pointer-events: none;
     z-index: 2;
     transition: opacity 0.3s ease 0.3s;
 
     .width-constraint {
-        border: $test;
         position: relative;
         max-width: $content-width;
         height: 100vh;
@@ -211,14 +232,23 @@ nav {
     }
 
     .nav-links {
+        @include column-left;
+        gap: 12px;
         position: absolute;
         top: 50%;
         left: $body-padding;
         translate: 0 -50%;
         list-style: none;
 
-        a {
+        li {
+            border: $test;
+        }
+
+        .nav-link {
             font-family: 'Saira', sans-serif;
+            font-size: 64px;
+            text-transform: uppercase;
+            line-height: 100%;
         }
     }
 
