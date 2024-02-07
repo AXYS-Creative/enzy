@@ -26,22 +26,24 @@ function toggleNav() {
   );
 }
 
-// function closeNav() {
-//   navMenu.classList.remove("active");
-//   menuBtn.classList.remove("active");
+function closeNav() {
+  navMenu.classList.remove("active");
+  menuBtn.classList.remove("active");
+  headerCtaWrapper.classList.remove("menu-active");
 
-//   navMenu.setAttribute("aria-hidden", "true");
-//   menuBtn.setAttribute("aria-expanded", "false");
+  navMenu.setAttribute("aria-hidden", "true");
+  menuBtn.setAttribute("aria-expanded", "false");
 
-//   // Reset tabindex for tabElementsPage and tabElementsNav
-//   tabElementsPage.forEach((el) => el.setAttribute("tabindex", "0"));
-//   tabElementsNav.forEach((el) => el.setAttribute("tabindex", "-1"));
-// }
+  // Reset tabindex for tabElementsPage and tabElementsNav
+  tabElementsPage.forEach((el) => el.setAttribute("tabindex", "0"));
+  tabElementsNav.forEach((el) => el.setAttribute("tabindex", "-1"));
+}
 
 // [...navLinks, ...navFooterLinks].forEach((link) => {
-//   if (!link.classList.contains("prevent-nav-close")) {
-//     link.addEventListener("click", closeNav);
-//   }
-// });
+[...navLinks].forEach((link) => {
+  if (!link.classList.contains("prevent-nav-close")) {
+    link.addEventListener("click", closeNav);
+  }
+});
 
 menuBtn.addEventListener("click", toggleNav);

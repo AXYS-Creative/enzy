@@ -199,6 +199,8 @@ nav {
   background: #D6D6D6;
   width: 100vw;
   height: 100vh;
+  opacity: 0;
+  pointer-events: none;
   z-index: 2;
   transition: opacity 0.3s ease 0.3s;
 }
@@ -220,13 +222,30 @@ nav .nav-links {
   list-style: none;
 }
 nav .nav-links li {
-  border: 2px dashed coral;
+  display: flex;
 }
 nav .nav-links .nav-link {
   font-family: "Saira", sans-serif;
-  font-size: 64px;
+  font-size: 96px;
   text-transform: uppercase;
   line-height: 100%;
+  transition: 0.2s ease;
+  height: 100%;
+  border-left: 4px solid transparent;
+}
+@media screen and (max-width: 1440px) {
+  nav .nav-links .nav-link {
+    font-size: 64px;
+  }
+}
+nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
+  padding-left: 36px;
+  border-color: #6CA793;
+}
+@media screen and (max-width: 1440px) {
+  nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
+    padding-left: 24px;
+  }
 }
 nav.active {
   opacity: 1;

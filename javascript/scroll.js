@@ -29,12 +29,15 @@ const siteHeader = document.querySelector(".site-header"),
   headerCta1 = headerCtaWrapper.querySelector(".cta-1"),
   headerCta2 = headerCtaWrapper.querySelector(".cta-2");
 
+const navMenu = document.querySelector(".nav-menu");
+const isNavOpen = navMenu.classList.contains("active");
+
 if (mqMinlg.matches) {
   menuBtn.setAttribute("tabindex", "-1");
 
   const toggleClassOnScroll = () => {
     const checkScroll = () => {
-      if (window.scrollY >= 24) {
+      if (window.scrollY >= 24 && !isNavOpen) {
         siteHeader.classList.add("scroll-active");
         headerCtaWrapper.setAttribute("aria-hidden", "true");
         menuBtn.setAttribute("aria-hidden", "false");
