@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+*::-moz-selection {
+  background: rgba(108, 167, 147, 0.5);
+}
 *::selection {
   background: rgba(108, 167, 147, 0.5);
 }
@@ -63,8 +66,10 @@ header .header-logo .logo-text {
   width: 52px;
   height: 20px;
   translate: 0 2px;
-  object-fit: cover;
-  object-position: left;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
   transition: 0.2s ease;
 }
 @media screen and (max-width: 1440px) {
@@ -89,54 +94,57 @@ header .cta-wrapper {
     display: none;
   }
 }
-header .cta-wrapper.menu-active {
-  opacity: 0;
-  pointer-events: none;
+header .cta-wrapper .cta-2,
+header .cta-wrapper .cta-1 {
+  transition: 0.3s ease 0.75s;
 }
-header .menu-btn {
+header .menu-btn-wrapper {
   position: fixed;
   top: 64px;
   right: 64px;
   translate: 0 -50%;
-  width: 36px;
-  height: 36px;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.2s ease 0s, right 0s;
+  transition: 0.3s ease 0.3s;
   mix-blend-mode: difference;
 }
 @media screen and (min-width: 1921px) {
-  header .menu-btn {
+  header .menu-btn-wrapper {
     right: calc(50% - 960px + 64px);
   }
 }
 @media screen and (max-width: 1024px) {
-  header .menu-btn {
+  header .menu-btn-wrapper {
     right: 40px;
     opacity: 1;
     pointer-events: all;
   }
 }
 @media screen and (max-width: 768px) {
-  header .menu-btn {
+  header .menu-btn-wrapper {
     right: 24px;
   }
 }
-header .menu-btn:hover, header .menu-btn:focus {
-  translate: 4px -50%;
+header .menu-btn-wrapper .menu-btn {
+  width: 36px;
+  height: 36px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease 0s;
 }
-header .menu-btn:hover .menu-btn-text-wrapper, header .menu-btn:focus .menu-btn-text-wrapper {
+header .menu-btn-wrapper .menu-btn:hover, header .menu-btn-wrapper .menu-btn:focus {
+  translate: 4px 0;
+}
+header .menu-btn-wrapper .menu-btn:hover .menu-btn-text-wrapper, header .menu-btn-wrapper .menu-btn:focus .menu-btn-text-wrapper {
   translate: -120% -50%;
   opacity: 1;
 }
-header .menu-btn .menu-btn-dots-wrapper {
+header .menu-btn-wrapper .menu-btn .menu-btn-dots-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   padding: 8px;
   transition: 0.2s ease;
 }
-header .menu-btn .menu-btn-text-wrapper {
+header .menu-btn-wrapper .menu-btn .menu-btn-text-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -149,33 +157,33 @@ header .menu-btn .menu-btn-text-wrapper {
   transition: 0.3s ease;
   overflow: hidden;
 }
-header .menu-btn .menu-btn-text {
+header .menu-btn-wrapper .menu-btn .menu-btn-text {
   font-family: "Saira", sans-serif;
   text-transform: uppercase;
   color: #f8f8f8;
   font-size: 14px;
   transition: 0.2s ease;
 }
-header .menu-btn-dot {
+header .menu-btn-wrapper .menu-btn-dot {
   width: 4px;
   height: 4px;
   background: #f8f8f8;
   transition: 0.3s ease;
 }
-header .menu-btn.active {
+header .menu-btn-wrapper .menu-btn.menu-active {
   opacity: 1;
   pointer-events: all;
 }
-header .menu-btn.active .menu-btn-text {
+header .menu-btn-wrapper .menu-btn.menu-active .menu-btn-text {
   translate: 0 -100%;
 }
-header .menu-btn.active .menu-btn-dots-wrapper {
+header .menu-btn-wrapper .menu-btn.menu-active .menu-btn-dots-wrapper {
   rotate: 45deg;
 }
-header .menu-btn.active .menu-btn-dot:nth-of-type(odd) {
+header .menu-btn-wrapper .menu-btn.menu-active .menu-btn-dot:nth-of-type(odd) {
   opacity: 0;
 }
-header .menu-btn.active .menu-btn-dot:nth-of-type(5) {
+header .menu-btn-wrapper .menu-btn.menu-active .menu-btn-dot:nth-of-type(5) {
   opacity: 1;
 }
 header.scroll-active .header-logo .logo-text {
@@ -192,6 +200,11 @@ header.scroll-active .menu-btn {
   pointer-events: all;
   transition: all 0.3s ease, opacity 0.2s ease 0.12s;
 }
+header.menu-active .cta-2,
+header.menu-active .cta-1 {
+  opacity: 0;
+  pointer-events: none;
+}
 
 nav {
   position: fixed;
@@ -202,12 +215,13 @@ nav {
   opacity: 0;
   pointer-events: none;
   z-index: 2;
-  transition: background 0s ease 0.4s, opacity 0s ease 1s;
+  transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 }
 nav .width-constraint {
   position: relative;
   max-width: 1920px;
   height: 100vh;
+  min-height: 768px;
   margin: auto;
 }
 nav .nav-links,
@@ -235,14 +249,29 @@ nav .nav-links {
 }
 nav .nav-links li {
   display: flex;
+  overflow: hidden;
+  border-radius: 4px;
+}
+nav .nav-links li:focus-within {
+  box-shadow: 0 0 0 4px #2525ff;
+}
+nav .nav-links li:nth-of-type(2) .nav-link {
+  transition: padding 0.2s ease, translate 0.3s ease 0.65s;
+}
+nav .nav-links li:nth-of-type(3) .nav-link {
+  transition: padding 0.2s ease, translate 0.3s ease 0.7s;
+}
+nav .nav-links li:nth-of-type(4) .nav-link {
+  transition: padding 0.2s ease, translate 0.3s ease 0.75s;
 }
 nav .nav-links .nav-link {
   font-size: 96px;
   text-transform: uppercase;
   line-height: 100%;
-  transition: 0.2s ease;
   height: 100%;
+  translate: 0 100%;
   border-left: 4px solid transparent;
+  transition: padding 0.2s ease, translate 0.3s ease 0.6s;
 }
 @media screen and (max-width: 1440px) {
   nav .nav-links .nav-link {
@@ -291,22 +320,48 @@ nav .nav-abstract {
   width: 100vw;
   height: 24px;
   background: #020202;
-  animation: nav-abstract-default 1s ease 0s forwards;
+  animation: nav-abstract-default 0.75s ease 0s forwards;
 }
-nav.active {
+nav.menu-active {
   opacity: 1;
   pointer-events: all;
   background: #D6D6D6;
   transition: background 0s ease 0.4s;
 }
-nav.active .nav-abstract {
-  animation: nav-abstract-open 1s ease 0s forwards;
+nav.menu-active .nav-abstract {
+  animation: nav-abstract-open 0.75s ease 0s forwards;
 }
-nav.active .nav-links,
-nav.active .nav-footer-links,
-nav.active .nav-social-media {
+nav.menu-active .nav-links,
+nav.menu-active .nav-footer-links,
+nav.menu-active .nav-social-media {
   opacity: 1;
   pointer-events: all;
+}
+nav.menu-active .nav-links .nav-link,
+nav.menu-active .nav-footer-links .nav-link,
+nav.menu-active .nav-social-media .nav-link {
+  translate: 0 0;
+}
+
+div[data-netlify-identity-menu] {
+  position: fixed;
+  top: 64px;
+  left: 50%;
+  translate: -50% 0;
+}
+div[data-netlify-identity-menu] ul.netlify-identity-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+div[data-netlify-identity-menu] ul.netlify-identity-menu span.netlify-identity-user {
+  font-family: "Saira", sans-serif;
+}
+
+#netlify-identity-widget {
+  border: 2px dashed coral;
 }
 
 section {
@@ -545,7 +600,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: #6CA793;
   max-width: unset;
   width: 100vw;
   height: 200vh;

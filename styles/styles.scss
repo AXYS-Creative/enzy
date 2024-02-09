@@ -106,7 +106,7 @@
 
 #video-section {
     @include row-center;
-    background: #000;
+    background: $green;
     max-width: unset;
     width: 100vw;
     height: 200vh;

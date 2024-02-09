@@ -10,6 +10,10 @@
     <link rel="icon" href="./public/enzy-logo-icon-light.svg" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="./public/enzy-logo-icon-dark.svg" media="(prefers-color-scheme: light)">
 
+    <!-- Authentication -->
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Authentication -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Saira:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -22,6 +26,9 @@
             <img class="logo-icon" src="./public/enzy-logo-icon-light.svg" alt="">
             <img class="logo-text" src="./public/enzy-logo-text-light.svg" alt="">
         </a>
+        <div data-netlify-identity-menu>
+            <!-- <div data-netlify-identity-button>Login with Netlify Identity</div> -->
+        </div>
         <div class="cta-wrapper header-cta-wrapper">
             <a class="cta-2" href="">
                 Sign in
@@ -31,30 +38,32 @@
             </a>
             <a class="cta-1" href="">Request a demo</a>
         </div>
-        <button 
-            class="menu-btn" 
-            aria-controls="site-navigation"
-            aria-label="Toggle navigation menu"
-            aria-expanded="false"
-        >
-            <div class="menu-btn-text-wrapper" aria-hidden="true" role="complementary">
-                <span class="menu-btn-text">Open</span>
-                <span class="menu-btn-text">Close</span>
-            </div>
-            <div class="menu-btn-dots-wrapper">
-                <span class="menu-btn-dot top-left"></span>
-                <span class="menu-btn-dot top-center"></span>
-                <span class="menu-btn-dot top-right"></span>
-        
-                <span class="menu-btn-dot middle-left"></span>
-                <span class="menu-btn-dot middle-center"></span>
-                <span class="menu-btn-dot middle-right"></span>
-                
-                <span class="menu-btn-dot bottom-left"></span>
-                <span class="menu-btn-dot bottom-center"></span>
-                <span class="menu-btn-dot bottom-right"></span>
-            </div>
-        </button>
+        <div class="menu-btn-wrapper">
+            <button 
+                class="menu-btn" 
+                aria-controls="site-navigation"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+            >
+                <div class="menu-btn-text-wrapper" aria-hidden="true" role="complementary">
+                    <span class="menu-btn-text">Open</span>
+                    <span class="menu-btn-text">Close</span>
+                </div>
+                <div class="menu-btn-dots-wrapper">
+                    <span class="menu-btn-dot top-left"></span>
+                    <span class="menu-btn-dot top-center"></span>
+                    <span class="menu-btn-dot top-right"></span>
+            
+                    <span class="menu-btn-dot middle-left"></span>
+                    <span class="menu-btn-dot middle-center"></span>
+                    <span class="menu-btn-dot middle-right"></span>
+                    
+                    <span class="menu-btn-dot bottom-left"></span>
+                    <span class="menu-btn-dot bottom-center"></span>
+                    <span class="menu-btn-dot bottom-right"></span>
+                </div>
+            </button>
+        </div>
     </header>
 
     <nav class="nav-menu" id="site-navigation" aria-label="Main navigation" aria-hidden="true">
