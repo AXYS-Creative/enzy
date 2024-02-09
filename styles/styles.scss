@@ -71,7 +71,7 @@
         }
 
         .companion-text {
-            font-family: 'Saira', sans-serif;
+            font-family: $primary-font;
             font-size: 18px;
 
             @include mq-max('xxl') {
@@ -102,12 +102,36 @@
             }
         }
     }
+
+    .hero-background-text {
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        translate: -50% 0;
+
+        p {
+            font-family: $primary-font;
+            font-size: 45vw;
+            opacity: 0.025;
+            line-height: 0;
+            user-select: none;
+        }
+    }
 }
 
 #video-section {
     @include row-center;
-    background: $green;
+    background: $dark-grey;
     max-width: unset;
     width: 100vw;
     height: 200vh;
+
+    .video-section-paragraph {
+        font-family: $primary-font;
+        font-size: 64px;
+        font-weight: 800;
+        color: $white;
+        text-transform: uppercase;
+        text-align: center;
+    }
 }

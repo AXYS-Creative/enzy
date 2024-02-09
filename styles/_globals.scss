@@ -275,18 +275,19 @@ nav {
         li {
             display: flex;
             overflow: hidden;
-            border-radius: 4px;
-
+            
             &:focus-within {
-                box-shadow: 0 0 0 4px #2525ff;
+                border-radius: 4px;
+                box-shadow: 0 0 0 3px rgba(#2353C1, 0.75), 0 0 0 5px rgba(#fff, 0.75);
             }
         
             @for $i from 2 through 4 {
                 &:nth-of-type(#{$i}) {
-                    $delay: 0.65s + ($i - 2) * 0.05s; // Calculate delay dynamically
+                    $transition: 0.25s + ($i - 2) * 0.2s;
+                    $delay: 0.65s + ($i - 2) * 0.05s;
         
                     .nav-link {
-                        transition: padding 0.2s ease, translate 0.3s ease $delay;
+                        transition: padding 0.2s ease, translate $transition ease $delay;
                     }
                 }
             }
@@ -403,34 +404,34 @@ nav {
 }
 
 // Exploring Netlify Identity (sign up / login controls)
-div[data-netlify-identity-menu] {
-    position: fixed;
-    top: $body-padding;
-    left: 50%;
-    translate: -50% 0;
+// div[data-netlify-identity-menu] {
+//     position: fixed;
+//     top: $body-padding;
+//     left: 50%;
+//     translate: -50% 0;
     
-    ul.netlify-identity-menu {
-        list-style: none;
-        @include row-center;
-        gap: 12px;
+//     ul.netlify-identity-menu {
+//         list-style: none;
+//         @include row-center;
+//         gap: 12px;
 
-        // a.netlify-identity-signup {
-        //     text-decoration: underline;
-        // }
+//         // a.netlify-identity-signup {
+//         //     text-decoration: underline;
+//         // }
 
-        // a.netlify-identity-login {
-        //     text-decoration: underline;
-        // }
+//         // a.netlify-identity-login {
+//         //     text-decoration: underline;
+//         // }
 
-        span.netlify-identity-user {
-            font-family: 'Saira', sans-serif;
-        }
-    }
-}
+//         span.netlify-identity-user {
+//             font-family: 'Saira', sans-serif;
+//         }
+//     }
+// }
 
-#netlify-identity-widget {
-    border: $test;
-}
+// #netlify-identity-widget {
+//     border: $test;
+// }
 
 section {
     // background: $test-bg;

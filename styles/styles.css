@@ -250,19 +250,19 @@ nav .nav-links {
 nav .nav-links li {
   display: flex;
   overflow: hidden;
-  border-radius: 4px;
 }
 nav .nav-links li:focus-within {
-  box-shadow: 0 0 0 4px #2525ff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 3px rgba(35, 83, 193, 0.75), 0 0 0 5px rgba(255, 255, 255, 0.75);
 }
 nav .nav-links li:nth-of-type(2) .nav-link {
-  transition: padding 0.2s ease, translate 0.3s ease 0.65s;
+  transition: padding 0.2s ease, translate 0.25s ease 0.65s;
 }
 nav .nav-links li:nth-of-type(3) .nav-link {
-  transition: padding 0.2s ease, translate 0.3s ease 0.7s;
+  transition: padding 0.2s ease, translate 0.45s ease 0.7s;
 }
 nav .nav-links li:nth-of-type(4) .nav-link {
-  transition: padding 0.2s ease, translate 0.3s ease 0.75s;
+  transition: padding 0.2s ease, translate 0.65s ease 0.75s;
 }
 nav .nav-links .nav-link {
   font-size: 96px;
@@ -341,27 +341,6 @@ nav.menu-active .nav-links .nav-link,
 nav.menu-active .nav-footer-links .nav-link,
 nav.menu-active .nav-social-media .nav-link {
   translate: 0 0;
-}
-
-div[data-netlify-identity-menu] {
-  position: fixed;
-  top: 64px;
-  left: 50%;
-  translate: -50% 0;
-}
-div[data-netlify-identity-menu] ul.netlify-identity-menu {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-}
-div[data-netlify-identity-menu] ul.netlify-identity-menu span.netlify-identity-user {
-  font-family: "Saira", sans-serif;
-}
-
-#netlify-identity-widget {
-  border: 2px dashed coral;
 }
 
 section {
@@ -595,13 +574,36 @@ button {
 #hero-section .hero-image img:last-of-type {
   translate: -20% 0;
 }
+#hero-section .hero-background-text {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  translate: -50% 0;
+}
+#hero-section .hero-background-text p {
+  font-family: "Saira", sans-serif;
+  font-size: 45vw;
+  opacity: 0.025;
+  line-height: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
 
 #video-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #6CA793;
+  background: #262626;
   max-width: unset;
   width: 100vw;
   height: 200vh;
+}
+#video-section .video-section-paragraph {
+  font-family: "Saira", sans-serif;
+  font-size: 64px;
+  font-weight: 800;
+  color: #f8f8f8;
+  text-transform: uppercase;
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */
