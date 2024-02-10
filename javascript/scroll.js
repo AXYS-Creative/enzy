@@ -25,18 +25,20 @@ const throttle = (func, limit) => {
 
 const siteHeader = document.querySelector(".site-header"),
   headerCtaWrapper = document.querySelector(".header-cta-wrapper"),
+  menuBtnWrapper = document.querySelector(".menu-btn-wrapper"),
   menuBtn = document.querySelector(".menu-btn"),
   headerCta1 = headerCtaWrapper.querySelector(".cta-1"),
   headerCta2 = headerCtaWrapper.querySelector(".cta-2");
 
 const navMenu = document.querySelector(".nav-menu");
-const isNavOpen = navMenu.classList.contains("active");
 
 if (mqMinlg.matches) {
   menuBtn.setAttribute("tabindex", "-1");
 
   const toggleClassOnScroll = () => {
     const checkScroll = () => {
+      const isNavOpen = navMenu.classList.contains("menu-active");
+
       if (window.scrollY >= 24 && !isNavOpen) {
         siteHeader.classList.add("scroll-active");
         headerCtaWrapper.setAttribute("aria-hidden", "true");
@@ -51,6 +53,12 @@ if (mqMinlg.matches) {
         menuBtn.setAttribute("tabindex", "-1");
         headerCta1.removeAttribute("tabindex");
         headerCta2.removeAttribute("tabindex");
+      }
+
+      if (window.scrollY < 24 && isNavOpen) {
+        menuBtnWrapper.classList.add('menu-wrapper-page-top');
+      } else {
+        menuBtnWrapper.classList.remove('menu-wrapper-page-top');
       }
     };
 

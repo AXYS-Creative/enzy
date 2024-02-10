@@ -2,11 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // font-family: 'Plus Jakarta Sans', sans-serif;
-  // font-family: 'Saira', sans-serif;
 
   &::selection {
-      background: rgba($green, 0.5);
+    background: rgba($green, 0.5);
   }
 } 
 
@@ -100,7 +98,9 @@ header {
     top: 64px;
     right: $body-padding;
     translate: 0 -50%;
-    transition: 0.3s ease 0.3s;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
     mix-blend-mode: difference;
 
     @include mq-min('xxxl') {
@@ -120,8 +120,6 @@ header {
     .menu-btn {
       width: 36px;
       height: 36px;
-      opacity: 0;
-      pointer-events: none;
       transition: 0.2s ease 0s;
 
       &:hover,
@@ -155,7 +153,7 @@ header {
       }
 
       .menu-btn-text {
-        font-family: 'Saira', sans-serif;
+        font-family: $primary-font;
         text-transform: uppercase;
         color: $white;
         font-size: 14px;
@@ -189,6 +187,10 @@ header {
         }
       }
     }
+
+    &.menu-wrapper-page-top {
+      transition: opacity 0.3s ease 0.3s;
+    }
   }
 
   &.scroll-active {
@@ -207,10 +209,7 @@ header {
       transition: 0.2s ease 0s;
     }
 
-    // .menu-btn-wrapper {
-    //   opacity: 1;
-    // }
-    .menu-btn {
+    .menu-btn-wrapper {
       opacity: 1;
       pointer-events: all;
       transition: all 0.3s ease, opacity 0.2s ease 0.12s;
@@ -218,6 +217,11 @@ header {
   }
 
   &.menu-active {
+
+    .menu-btn-wrapper {
+      opacity: 1;
+      pointer-events: all;
+    }
   
     .cta-2,
     .cta-1 {
@@ -239,29 +243,29 @@ nav {
   transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 
   .width-constraint {
-      position: relative;
-      max-width: $content-width;
-      height: 100vh;
-      min-height: 768px;
-      margin: auto;
+    position: relative;
+    max-width: $content-width;
+    height: 100vh;
+    min-height: 768px;
+    margin: auto;
   }
 
   .nav-links,
   .nav-footer-links,
   .nav-social-media {
-      position: absolute;
-      left: $body-padding;
-      list-style: none;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0s ease 0.3s;
+    position: absolute;
+    left: $body-padding;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0s ease 0.3s;
 
-      li {
+    li {
 
-          a {
-              font-family: 'Saira', sans-serif;
-          }
+      a {
+        font-family: $primary-font;
       }
+    }
   }
 
   .nav-links {
@@ -400,32 +404,32 @@ nav {
 
 // Exploring Netlify Identity (sign up / login controls)
 // div[data-netlify-identity-menu] {
-//     position: fixed;
-//     top: $body-padding;
-//     left: 50%;
-//     translate: -50% 0;
-    
-//     ul.netlify-identity-menu {
-//         list-style: none;
-//         @include row-center;
-//         gap: 12px;
+//   position: fixed;
+//   top: $body-padding;
+//   left: 50%;
+//   translate: -50% 0;
+  
+//   ul.netlify-identity-menu {
+//     list-style: none;
+//     @include row-center;
+//     gap: 12px;
 
-//         // a.netlify-identity-signup {
-//         //     text-decoration: underline;
-//         // }
+//     // a.netlify-identity-signup {
+//     //   text-decoration: underline;
+//     // }
 
-//         // a.netlify-identity-login {
-//         //     text-decoration: underline;
-//         // }
+//     // a.netlify-identity-login {
+//     //   text-decoration: underline;
+//     // }
 
-//         span.netlify-identity-user {
-//             font-family: 'Saira', sans-serif;
-//         }
+//     span.netlify-identity-user {
+//       font-family: $primary-font;
 //     }
+//   }
 // }
 
 // #netlify-identity-widget {
-//     border: $test;
+//   border: $test;
 // }
 
 section {
@@ -441,21 +445,21 @@ section {
   }
 
   @include mq-max('md') {
-    padding: 48px $body-padding-md;
+    padding: 148px $body-padding-md;
   }
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Saira', sans-serif;
+  font-family: $primary-font;
   line-height: 100%;
   font-weight: 500;
 }
 
 p,
 a {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: $secondary-font;
 }
 
 a {

@@ -4,6 +4,7 @@
 'animations';
 
 #hero-section {
+  position: relative;
   @include row-between;
   align-items: flex-start;
   margin-top: 96px;
@@ -61,7 +62,7 @@
       }
 
       @include mq-max('md') {
-        font-size: 64px;
+        font-size: 56px;
       }
 
       span:last-of-type {
@@ -107,10 +108,19 @@
     top: 32%;
     left: 50%;
     translate: -50% 0;
+    z-index: -1;
+
+    @include mq-max('lg') {
+      top: 12%;
+    }
+
+    @include mq-max('md') {
+      display: none;
+    }
 
     p {
       font-family: $primary-font;
-      font-size: 45vw;
+      font-size: min(45vw, 800px);
       opacity: 0.025;
       line-height: 0;
       user-select: none;
@@ -127,8 +137,9 @@
 
   .video-section-paragraph {
     font-family: $primary-font;
-    font-size: 64px;
-    font-weight: 800;
+    font-size: 78px;
+    font-weight: 700;
+    line-height: 100%;
     color: $white;
     text-transform: uppercase;
     text-align: center;
