@@ -1,406 +1,401 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    // font-family: 'Plus Jakarta Sans', sans-serif;
-    // font-family: 'Saira', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // font-family: 'Plus Jakarta Sans', sans-serif;
+  // font-family: 'Saira', sans-serif;
 
-    &::selection {
-        background: rgba($green, 0.5);
-    }
-}
+  &::selection {
+      background: rgba($green, 0.5);
+  }
+} 
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background: $light-grey;
-    color: $black;
+  background: $light-grey;
+  color: $black;
 }
 
 header,
 section {
-    max-width: $content-width;
-    margin: auto;
+  max-width: $content-width;
+  margin: auto;
 }
 
 header {
 
-    & > * {
-        z-index: 3;
+  & > * {
+    z-index: 3;
+  }
+
+  .header-logo {
+    position: fixed;
+    top: 56px;
+    left: $body-padding;
+    @include row-center;
+    gap: 6px;
+    mix-blend-mode: difference;
+
+    @include mq-min('xxxl') {
+      left: calc(50% - calc(1920px / 2) + $body-padding);
+    }
+    
+    @include mq-max('lg') {
+      left: $body-padding-lg;
     }
 
-    .header-logo {
-        position: fixed;
-        top: 56px;
-        left: $body-padding;
-        @include row-center;
-        gap: 6px;
-        mix-blend-mode: difference;
+    @include mq-max('md') {
+      left: $body-padding-md;
+    }
 
-        @include mq-min('xxxl') {
-            left: calc(50% - calc(1920px / 2) + $body-padding);
+    .logo-icon {
+      width: 32px;
+      transition: 0.2s ease;
+
+      @include mq-max('xxl') {
+        width: 24px;
+      }
+    }
+
+    .logo-text {
+      width: 52px;
+      height: 20px;
+      translate: 0 2px;
+      object-fit: cover;
+      object-position: left;
+      transition: 0.2s ease;
+      
+      @include mq-max('xxl') {
+        scale: 0.8;
+        transform-origin: left;
+      }
+    }
+  }
+
+  .cta-wrapper {
+    position: fixed;
+    top: 44px;
+    right: $body-padding;
+    transition: 0.2s ease 0.12s, right 0s;
+
+    @include mq-min('xxxl') {
+      right: calc(50% - calc(1920px / 2) + $body-padding);
+    }
+
+    @include mq-max('lg') {
+      display: none;
+    }
+
+    .cta-2,
+    .cta-1 {
+      transition: 0.3s ease 0.75s;
+    }
+  }
+
+  .menu-btn-wrapper {
+    position: fixed;
+    top: 64px;
+    right: $body-padding;
+    translate: 0 -50%;
+    transition: 0.3s ease 0.3s;
+    mix-blend-mode: difference;
+
+    @include mq-min('xxxl') {
+      right: calc(50% - calc(1920px / 2) + $body-padding);
+    }
+    
+    @include mq-max('lg') {
+      right: $body-padding-lg;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @include mq-max('md') {
+      right: $body-padding-md;
+    }
+
+    .menu-btn {
+      width: 36px;
+      height: 36px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.2s ease 0s;
+
+      &:hover,
+      &:focus {
+        translate: 4px 0;
+
+        .menu-btn-text-wrapper {
+          translate: -120% -50%;
+          opacity: 1;
+        }
+      }
+
+      .menu-btn-dots-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 8px;
+        transition: 0.2s ease;
+      }
+
+      .menu-btn-text-wrapper {
+        @include column-left;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        translate: -80% -50%;
+        height: 24px;
+        opacity: 0;
+        transition: 0.3s ease;
+        overflow: hidden;
+      }
+
+      .menu-btn-text {
+        font-family: 'Saira', sans-serif;
+        text-transform: uppercase;
+        color: $white;
+        font-size: 14px;
+        transition: 0.2s ease;
+      }
+
+      &-dot {
+        width: 4px;
+        height: 4px;
+        background: $white;
+        transition: 0.3s ease;
+      }
+
+      &.menu-active {
+        opacity: 1;
+        pointer-events: all;
+
+        .menu-btn-text {
+          translate: 0 -100%;
         }
         
-        @include mq-max('lg') {
-            left: $body-padding-lg;
+        .menu-btn-dots-wrapper {
+          rotate: 45deg;
         }
 
-        @include mq-max('md') {
-            left: $body-padding-md;
+        .menu-btn-dot:nth-of-type(odd) {
+          opacity: 0;
         }
-
-        .logo-icon {
-            width: 32px;
-            transition: 0.2s ease;
-
-            @include mq-max('xxl') {
-                width: 24px;
-            }
+        .menu-btn-dot:nth-of-type(5) {
+          opacity: 1;
         }
+      }
+    }
+  }
 
-        .logo-text {
-            width: 52px;
-            height: 20px;
-            translate: 0 2px;
-            object-fit: cover;
-            object-position: left;
-            transition: 0.2s ease;
-            
-            @include mq-max('xxl') {
-                scale: 0.8;
-                transform-origin: left;
-            }
-        }
+  &.scroll-active {
+
+    .header-logo {
+
+      .logo-text {
+        width: 0px;
+        height: 20px;
+      }
     }
 
     .cta-wrapper {
-        position: fixed;
-        top: 44px;
-        right: $body-padding;
-        transition: 0.2s ease 0.12s, right 0s;
-
-        @include mq-min('xxxl') {
-            right: calc(50% - calc(1920px / 2) + $body-padding);
-        }
-
-        @include mq-max('lg') {
-            display: none;
-        }
-
-        .cta-2,
-        .cta-1 {
-            transition: 0.3s ease 0.75s;
-        }
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.2s ease 0s;
     }
 
-    .menu-btn-wrapper {
-        position: fixed;
-        top: 64px;
-        right: $body-padding;
-        translate: 0 -50%;
-        transition: 0.3s ease 0.3s;
-        mix-blend-mode: difference;
-
-        @include mq-min('xxxl') {
-            right: calc(50% - calc(1920px / 2) + $body-padding);
-        }
-        
-        @include mq-max('lg') {
-            right: $body-padding-lg;
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        @include mq-max('md') {
-            right: $body-padding-md;
-        }
-
-        .menu-btn {
-            width: 36px;
-            height: 36px;
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.2s ease 0s;
-
-            &:hover,
-            &:focus {
-                translate: 4px 0;
-    
-                .menu-btn-text-wrapper {
-                    translate: -120% -50%;
-                    opacity: 1;
-                }
-            }
-    
-            .menu-btn-dots-wrapper {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 4px;
-                padding: 8px;
-                transition: 0.2s ease;
-            }
-    
-            .menu-btn-text-wrapper {
-                @include column-left;
-                position: absolute;
-                top: 50%;
-                left: 0;
-                translate: -80% -50%;
-                height: 24px;
-                opacity: 0;
-                transition: 0.3s ease;
-                overflow: hidden;
-            }
-    
-            .menu-btn-text {
-                font-family: 'Saira', sans-serif;
-                text-transform: uppercase;
-                color: $white;
-                font-size: 14px;
-                transition: 0.2s ease;
-               }
-    
-            &-dot {
-                width: 4px;
-                height: 4px;
-                background: $white;
-                transition: 0.3s ease;
-            }
-    
-            &.menu-active {
-                opacity: 1;
-                pointer-events: all;
-    
-                .menu-btn-text {
-                    translate: 0 -100%;
-                }
-                
-                .menu-btn-dots-wrapper {
-                    rotate: 45deg;
-                }
-    
-                .menu-btn-dot:nth-of-type(odd) {
-                    opacity: 0;
-                }
-                .menu-btn-dot:nth-of-type(5) {
-                    opacity: 1;
-                }
-            }
-        }
+    // .menu-btn-wrapper {
+    //   opacity: 1;
+    // }
+    .menu-btn {
+      opacity: 1;
+      pointer-events: all;
+      transition: all 0.3s ease, opacity 0.2s ease 0.12s;
     }
+  }
 
-    &.scroll-active {
-
-        .header-logo {
-
-            .logo-text {
-                width: 0px;
-                height: 20px;
-            }
-        }
-
-        .cta-wrapper {
-            opacity: 0;
-            pointer-events: none;
-            transition: 0.2s ease 0s;
-        }
-
-        // .menu-btn-wrapper {
-        //     opacity: 1;
-        // }
-        .menu-btn {
-            opacity: 1;
-            pointer-events: all;
-            transition: all 0.3s ease, opacity 0.2s ease 0.12s;
-        }
-
-
+  &.menu-active {
+  
+    .cta-2,
+    .cta-1 {
+      opacity: 0;
+      pointer-events: none;
     }
-
-    &.menu-active {
-    
-        .cta-2,
-        .cta-1 {
-            opacity: 0;
-            pointer-events: none;
-        }
-    }
+  }
 }
 
 nav {
-    position: fixed;
-    top: 0;
-    background: transparent;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
+  position: fixed;
+  top: 0;
+  background: transparent;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 
-    .width-constraint {
-        position: relative;
-        max-width: $content-width;
-        height: 100vh;
-        min-height: 768px;
-        margin: auto;
+  .width-constraint {
+      position: relative;
+      max-width: $content-width;
+      height: 100vh;
+      min-height: 768px;
+      margin: auto;
+  }
+
+  .nav-links,
+  .nav-footer-links,
+  .nav-social-media {
+      position: absolute;
+      left: $body-padding;
+      list-style: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0s ease 0.3s;
+
+      li {
+
+          a {
+              font-family: 'Saira', sans-serif;
+          }
+      }
+  }
+
+  .nav-links {
+    @include column-left;
+    gap: 12px;
+    top: 50%;
+    translate: 0 -50%;
+
+    li {
+      display: flex;
+      overflow: hidden;
+      
+      &:focus-within {
+        border-radius: 4px;
+        box-shadow: 0 0 0 3px rgba(#2353C1, 0.75), 0 0 0 5px rgba(#fff, 0.75);
+      }
+  
+      @for $i from 2 through 4 {
+        &:nth-of-type(#{$i}) {
+          $transition: 0.25s + ($i - 2) * 0.2s;
+          $delay: 0.65s + ($i - 2) * 0.05s;
+
+          .nav-link {
+            transition: padding 0.2s ease, translate $transition ease $delay;
+          }
+        }
+      }
+    }
+    
+
+    .nav-link {
+      font-size: 96px;
+      text-transform: uppercase;
+      line-height: 100%;
+      height: 100%;
+      translate: 0 100%;
+      border-left: 4px solid transparent;
+      transition: padding 0.2s ease, translate 0.3s ease 0.6s;
+
+      @include mq-max('xxl') {
+        font-size: 64px;
+      }
+
+      &:hover,
+      &:focus {
+        padding-left: 36px;
+        border-color: $green;
+
+        @include mq-max('xxl') {
+          padding-left: 24px;
+        }
+      }
+    }
+  }
+
+  .nav-footer-links {
+    @include row-center;
+    bottom: $body-padding;
+    gap: 48px;
+
+    li {
+
+      .nav-footer-link {
+        border-bottom: 2px solid transparent;
+        transition: 0.2s ease;
+        
+        &:hover,
+        &:focus {
+          border-color: $green;
+        }
+      }
+    }
+  }
+
+  .nav-social-media {
+    display: flex;
+    gap: 48px;
+    bottom: $body-padding;
+    right: $body-padding;
+    left: unset;
+
+    .social-media-link {
+        
+      &:hover,
+      &:focus {
+        
+        .social-media-icon {
+
+          path {
+            fill: $green;
+          }
+        }
+      }
+
+      .social-media-icon {
+
+        path {
+          transition: 0.2s ease;
+        }
+      }
+    }
+  }
+
+  .nav-abstract {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 24px;
+    background: $black;
+    // transition: 0.4s ease;
+    animation: nav-abstract-default 0.75s ease 0s forwards;
+  }
+
+  &.menu-active {
+    opacity: 1;
+    pointer-events: all;
+    background: $light-grey;
+    transition: background 0s ease 0.4s;
+
+    .nav-abstract {
+      animation: nav-abstract-open 0.75s ease 0s forwards;
     }
 
     .nav-links,
     .nav-footer-links,
     .nav-social-media {
-        position: absolute;
-        left: $body-padding;
-        list-style: none;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0s ease 0.3s;
+      opacity: 1;
+      pointer-events: all;
 
-        li {
-
-            a {
-                font-family: 'Saira', sans-serif;
-            }
-        }
+      .nav-link {
+        translate: 0 0;
+      }
     }
-
-    .nav-links {
-        @include column-left;
-        gap: 12px;
-        top: 50%;
-        translate: 0 -50%;
-
-        li {
-            display: flex;
-            overflow: hidden;
-            
-            &:focus-within {
-                border-radius: 4px;
-                box-shadow: 0 0 0 3px rgba(#2353C1, 0.75), 0 0 0 5px rgba(#fff, 0.75);
-            }
-        
-            @for $i from 2 through 4 {
-                &:nth-of-type(#{$i}) {
-                    $transition: 0.25s + ($i - 2) * 0.2s;
-                    $delay: 0.65s + ($i - 2) * 0.05s;
-        
-                    .nav-link {
-                        transition: padding 0.2s ease, translate $transition ease $delay;
-                    }
-                }
-            }
-        }
-        
-
-        .nav-link {
-            font-size: 96px;
-            text-transform: uppercase;
-            line-height: 100%;
-            height: 100%;
-            translate: 0 100%;
-            border-left: 4px solid transparent;
-            transition: padding 0.2s ease, translate 0.3s ease 0.6s;
-
-            @include mq-max('xxl') {
-                font-size: 64px;
-            }
-
-            &:hover,
-            &:focus {
-                padding-left: 36px;
-                border-color: $green;
-
-                @include mq-max('xxl') {
-                    padding-left: 24px;
-                }
-            }
-        }
-    }
-
-    .nav-footer-links {
-        @include row-center;
-        bottom: $body-padding;
-        gap: 48px;
-
-        li {
-
-            .nav-footer-link {
-                border-bottom: 2px solid transparent;
-                transition: 0.2s ease;
-                
-                &:hover,
-                &:focus {
-                    border-color: $green;
-
-                }
-            }
-        }
-    }
-
-    .nav-social-media {
-        display: flex;
-        gap: 48px;
-        bottom: $body-padding;
-        right: $body-padding;
-        left: unset;
-
-        .social-media-link {
-            
-            &:hover,
-            &:focus {
-                
-                .social-media-icon {
-
-                    path {
-                        fill: $green;
-                    }
-                }
-            }
-
-            .social-media-icon {
-
-                path {
-
-                    transition: 0.2s ease;
-                }
-            }
-        }
-    }
-
-    .nav-abstract {
-        position: absolute;
-        bottom: 0;
-        width: 100vw;
-        height: 24px;
-        background: $black;
-        // transition: 0.4s ease;
-        animation: nav-abstract-default 0.75s ease 0s forwards;
-
-    }
-
-    &.menu-active {
-        opacity: 1;
-        pointer-events: all;
-        background: $light-grey;
-        transition: background 0s ease 0.4s;
-
-        .nav-abstract {
-            animation: nav-abstract-open 0.75s ease 0s forwards;
-        }
-
-        .nav-links,
-        .nav-footer-links,
-        .nav-social-media {
-            opacity: 1;
-            pointer-events: all;
-
-            .nav-link {
-                translate: 0 0;
-            }
-        }
-    }
+  }
 }
 
 // Exploring Netlify Identity (sign up / login controls)
@@ -434,87 +429,87 @@ nav {
 // }
 
 section {
-    // background: $test-bg;
-    padding: 196px $body-padding;
-    
-    @include mq-max('xxl') {
-        padding: 156px $body-padding;
-    }
+  // background: $test-bg;
+  padding: 196px $body-padding;
+  
+  @include mq-max('xxl') {
+    padding: 156px $body-padding;
+  }
 
-    @include mq-max('lg') {
-        padding: 124px $body-padding-lg;
-    }
+  @include mq-max('lg') {
+    padding: 124px $body-padding-lg;
+  }
 
-    @include mq-max('md') {
-        padding: 48px $body-padding-md;
-    }
+  @include mq-max('md') {
+    padding: 48px $body-padding-md;
+  }
 }
 
 h1,
 h2,
 h3 {
-    font-family: 'Saira', sans-serif;
-    line-height: 100%;
-    font-weight: 500;
+  font-family: 'Saira', sans-serif;
+  line-height: 100%;
+  font-weight: 500;
 }
 
 p,
 a {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 a {
-    color: $black;
-    text-decoration: none;
+  color: $black;
+  text-decoration: none;
 }
 
 button {
-    background: none;
-    border: none;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .cta-wrapper {
-    display: flex;
-    gap: 24px;
+  display: flex;
+  gap: 24px;
 
-    @include mq-max('lg') {
-        gap: 12px;
+  @include mq-max('lg') {
+    gap: 12px;
+  }
+
+  a {
+    padding: 12px 16px;
+
+    @include mq-max('xxl') {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+  }
+
+  .cta-1 {
+    background: $green;
+    color: $white;
+    border-radius: 4px;
+  }
+
+  .cta-2 {
+    @include row-center;
+    gap: 12px;
+
+    svg {
+      transition: 0.3s ease;
+
+      path {
+        fill: $green;
+      }
     }
 
-    a {
-        padding: 12px 16px;
+    &:hover,
+    &:focus {
 
-        @include mq-max('xxl') {
-            padding: 10px 14px;
-            font-size: 14px;
-        }
+      svg {
+        translate: 4px 0;
+      }
     }
-
-    .cta-1 {
-        background: $green;
-        color: $white;
-        border-radius: 4px;
-    }
-
-    .cta-2 {
-        @include row-center;
-        gap: 12px;
-
-        svg {
-            transition: 0.3s ease;
-
-            path {
-                fill: $green;
-            }
-        }
-
-        &:hover,
-        &:focus {
-
-            svg {
-                translate: 4px 0;
-            }
-        }
-    }
+  }
 }
