@@ -207,7 +207,6 @@ header .menu-btn-wrapper.menu-wrapper-page-top {
 }
 header.scroll-active .header-logo .logo-text {
   width: 0px;
-  height: 20px;
 }
 header.scroll-active .cta-wrapper {
   opacity: 0;
@@ -218,6 +217,9 @@ header.scroll-active .menu-btn-wrapper {
   opacity: 1;
   pointer-events: all;
   transition: all 0.3s ease, opacity 0.2s ease 0.12s;
+}
+header.menu-active .header-logo .logo-text {
+  width: 52px;
 }
 header.menu-active .menu-btn-wrapper {
   opacity: 1;
@@ -330,6 +332,11 @@ nav .nav-links .nav-link {
 @media screen and (max-width: 768px) {
   nav .nav-links .nav-link {
     font-size: 48px;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav .nav-links .nav-link {
+    font-size: 40px;
   }
 }
 nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
@@ -635,6 +642,18 @@ button {
     height: 0;
   }
 }
+@keyframes hero-img-1-fade {
+  to {
+    opacity: 1;
+    translate: 20% 0;
+  }
+}
+@keyframes hero-img-2-fade {
+  to {
+    opacity: 1;
+    translate: -20% 0;
+  }
+}
 #hero-section {
   position: relative;
   display: flex;
@@ -762,12 +781,15 @@ button {
 }
 #hero-section .hero-image img {
   width: 48%;
+  opacity: 0;
 }
 #hero-section .hero-image img:first-of-type {
-  translate: 20% 0;
+  translate: 20% 6%;
+  animation: hero-img-1-fade 0.8s ease 0.12s forwards;
 }
 #hero-section .hero-image img:last-of-type {
-  translate: -20% 0;
+  translate: -20% -6%;
+  animation: hero-img-2-fade 0.8s ease 0.12s forwards;
 }
 #hero-section .hero-background-text {
   position: absolute;

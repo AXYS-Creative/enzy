@@ -204,7 +204,6 @@ header {
 
       .logo-text {
         width: 0px;
-        height: 20px;
       }
     }
 
@@ -222,6 +221,13 @@ header {
   }
 
   &.menu-active {
+
+    .header-logo {
+
+      .logo-text {
+        width: 52px;
+      }
+    }
 
     .menu-btn-wrapper {
       opacity: 1;
@@ -325,6 +331,10 @@ nav {
 
       @include mq-max('md') {
         font-size: 48px;
+      }
+
+      @include mq-max('md') {
+        font-size: 40px;
       }
 
       &:hover,

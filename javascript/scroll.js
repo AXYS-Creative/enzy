@@ -39,7 +39,7 @@ if (mqMinlg.matches) {
     const checkScroll = () => {
       const isNavOpen = navMenu.classList.contains("menu-active");
 
-      if (window.scrollY >= 24 && !isNavOpen) {
+      if (window.scrollY >= 24) {
         siteHeader.classList.add("scroll-active");
         headerCtaWrapper.setAttribute("aria-hidden", "true");
         menuBtn.setAttribute("aria-hidden", "false");

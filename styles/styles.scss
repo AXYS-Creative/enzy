@@ -119,12 +119,16 @@
 
     img {
       width: 48%;
+      opacity: 0;
 
       &:first-of-type {
-        translate: 20% 0;
+        translate: 20% 6%;
+        animation: hero-img-1-fade 0.8s ease 0.12s forwards;
       }
+
       &:last-of-type {
-        translate: -20% 0;
+        translate: -20% -6%;
+        animation: hero-img-2-fade 0.8s ease 0.12s forwards;
       }
     }
   }

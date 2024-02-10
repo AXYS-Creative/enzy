@@ -43,3 +43,17 @@
         height: 0;
     }
 }
+
+@keyframes hero-img-1-fade {
+    to {
+        opacity: 1;
+        translate: 20% 0;
+    }
+}
+
+@keyframes hero-img-2-fade {
+    to {
+        opacity: 1;
+        translate: -20% 0;
+    }
+}
