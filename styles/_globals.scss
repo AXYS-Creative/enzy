@@ -30,9 +30,9 @@ header {
   }
 
   .header-logo {
+    @include left-spacing;
     position: fixed;
     top: 56px;
-    left: $body-padding;
     @include row-center;
     gap: 6px;
     mix-blend-mode: difference;
@@ -40,13 +40,9 @@ header {
     @include mq-min('xxxl') {
       left: calc(50% - calc(1920px / 2) + $body-padding);
     }
-    
-    @include mq-max('lg') {
-      left: $body-padding-lg;
-    }
 
     @include mq-max('md') {
-      left: $body-padding-md;
+      top: 38px;
     }
 
     .logo-icon {
@@ -89,7 +85,7 @@ header {
 
     .cta-2,
     .cta-1 {
-      transition: 0.3s ease 0.75s;
+      transition: 0.3s ease 0.75s, outline 0s;
     }
   }
 
@@ -114,6 +110,7 @@ header {
     }
 
     @include mq-max('md') {
+      top: 48px;
       right: $body-padding-md;
     }
 
@@ -126,9 +123,17 @@ header {
       &:focus {
         translate: 4px 0;
 
+        @include mq-max('sm') {
+          translate: unset;
+        }
+
         .menu-btn-text-wrapper {
           translate: -120% -50%;
           opacity: 1;
+
+          @include mq-max('sm') {
+            display: none;
+          }
         }
       }
 
@@ -237,6 +242,7 @@ nav {
   background: transparent;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   opacity: 0;
   pointer-events: none;
   z-index: 2;
@@ -246,15 +252,20 @@ nav {
     position: relative;
     max-width: $content-width;
     height: 100vh;
+    height: 100dvh;
     min-height: 768px;
     margin: auto;
+    
+    @include mq-max('sm') {
+      min-height: 520px;
+    }
   }
 
   .nav-links,
   .nav-footer-links,
   .nav-social-media {
+    @include left-spacing;
     position: absolute;
-    left: $body-padding;
     list-style: none;
     opacity: 0;
     pointer-events: none;
@@ -295,7 +306,6 @@ nav {
       }
     }
     
-
     .nav-link {
       font-size: 96px;
       text-transform: uppercase;
@@ -306,7 +316,15 @@ nav {
       transition: padding 0.2s ease, translate 0.3s ease 0.6s;
 
       @include mq-max('xxl') {
+        font-size: 80px;
+      }
+
+      @include mq-max('lg') {
         font-size: 64px;
+      }
+
+      @include mq-max('md') {
+        font-size: 48px;
       }
 
       &:hover,
@@ -325,6 +343,21 @@ nav {
     @include row-center;
     bottom: $body-padding;
     gap: 48px;
+    
+    @include mq-max('lg') {
+      gap: 24px;
+    }
+
+    @include mq-max('md') {
+      @include column-left;
+      gap: 12px;
+      bottom: $body-padding-lg;
+    }
+
+    @include mq-max('sm') {
+      gap: 4px;
+      bottom: $body-padding-md;
+    }
 
     li {
 
@@ -346,6 +379,19 @@ nav {
     bottom: $body-padding;
     right: $body-padding;
     left: unset;
+
+    @include mq-max('lg') {
+      gap: 32px;
+    }
+
+    @include mq-max('lg') {
+      right: $body-padding-lg;
+    }
+
+    @include mq-max('sm') {
+      gap: 24px;
+      bottom: $body-padding-md;
+    }
 
     .social-media-link {
         
@@ -447,6 +493,10 @@ section {
   @include mq-max('md') {
     padding: 148px $body-padding-md;
   }
+
+  @include mq-max('sm') {
+    padding: 96px $body-padding-md;
+  }
 }
 
 h1,
@@ -481,6 +531,11 @@ button {
     gap: 12px;
   }
 
+  @include mq-max('sm') {
+    gap: 0px;
+    width: 90vw;
+  }
+
   a {
     padding: 12px 16px;
 
@@ -498,9 +553,9 @@ button {
 
   .cta-2 {
     @include row-center;
-    gap: 12px;
 
     svg {
+      margin-left: 12px;
       transition: 0.3s ease;
 
       path {
@@ -515,5 +570,68 @@ button {
         translate: 4px 0;
       }
     }
+  }
+}
+
+// Utility
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+// Media query classes
+
+.lg-screen-and-up {
+  display: none;
+
+  @include mq-min('lg') {
+      display: flex; // Flex for cta-wrapper
+  }
+}
+
+.lg-screen-and-below {
+  display: none;
+
+  @include mq-max('lg') {
+      display: flex;
+  }
+}
+
+.md-screen-and-up {
+  display: none;
+
+  @include mq-min('md') {
+      display: flex;
+  }
+}
+
+.md-screen-and-below {
+  display: none;
+
+  @include mq-max('md') {
+      display: flex;
+  }
+}
+
+.sm-screen-and-up {
+  display: none;
+
+  @include mq-min('sm') {
+      display: flex;
+  }
+}
+
+.sm-screen-and-below {
+  display: none;
+
+  @include mq-max('sm') {
+      display: flex;
   }
 }

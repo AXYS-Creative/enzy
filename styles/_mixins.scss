@@ -74,3 +74,15 @@ $min-breakpoints: (
     @content;
   }
 }
+
+@mixin left-spacing {
+  left: $body-padding;
+  
+  @include mq-max('lg') {
+    left: $body-padding-lg;
+  }
+
+  @include mq-max('md') {
+    left: $body-padding-md;
+  }
+}
