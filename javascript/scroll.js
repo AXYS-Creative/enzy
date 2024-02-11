@@ -1,4 +1,4 @@
-let mqMinlg = window.matchMedia("(min-width: 1024px)");
+// let mqMinlg = window.matchMedia("(min-width: 1024px)");
 // let mqMaxSm = window.matchMedia("(max-width: 480px)");
 // let mqMouse = window.matchMedia("(hover: hover)");
 
@@ -32,38 +32,52 @@ const siteHeader = document.querySelector(".site-header"),
 
 const navMenu = document.querySelector(".nav-menu");
 
-if (mqMinlg.matches) {
-  menuBtn.setAttribute("tabindex", "-1");
+menuBtn.setAttribute("tabindex", "-1");
 
-  const toggleClassOnScroll = () => {
-    const checkScroll = () => {
-      const isNavOpen = navMenu.classList.contains("menu-active");
+const checkScroll = () => {
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
 
-      if (window.scrollY >= 24) {
-        siteHeader.classList.add("scroll-active");
-        headerCtaWrapper.setAttribute("aria-hidden", "true");
-        menuBtn.setAttribute("aria-hidden", "false");
-        menuBtn.removeAttribute("tabindex");
-        headerCta1.setAttribute("tabindex", "-1");
-        headerCta2.setAttribute("tabindex", "-1");
-      } else {
-        siteHeader.classList.remove("scroll-active");
-        headerCtaWrapper.setAttribute("aria-hidden", "false");
-        menuBtn.setAttribute("aria-hidden", "true");
-        menuBtn.setAttribute("tabindex", "-1");
-        headerCta1.removeAttribute("tabindex");
-        headerCta2.removeAttribute("tabindex");
-      }
+  // Header/Nav scroll logic
+  const isNavOpen = navMenu.classList.contains("menu-active");
 
-      if (window.scrollY < 24 && isNavOpen) {
-        menuBtnWrapper.classList.add('menu-wrapper-page-top');
-      } else {
-        menuBtnWrapper.classList.remove('menu-wrapper-page-top');
-      }
-    };
+  if (scrollPosition >= 24) {
+    siteHeader.classList.add("scroll-active");
+    headerCtaWrapper.setAttribute("aria-hidden", "true");
+    menuBtn.setAttribute("aria-hidden", "false");
+    menuBtn.removeAttribute("tabindex");
+    headerCta1.setAttribute("tabindex", "-1");
+    headerCta2.setAttribute("tabindex", "-1");
+  } else {
+    siteHeader.classList.remove("scroll-active");
+    headerCtaWrapper.setAttribute("aria-hidden", "false");
+    menuBtn.setAttribute("aria-hidden", "true");
+    menuBtn.setAttribute("tabindex", "-1");
+    headerCta1.removeAttribute("tabindex");
+    headerCta2.removeAttribute("tabindex");
+  }
 
-    window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed
-  };
+  if (scrollPosition < 24 && isNavOpen) {
+    menuBtnWrapper.classList.add('menu-wrapper-page-top');
+  } else {
+    menuBtnWrapper.classList.remove('menu-wrapper-page-top');
+  }
 
-  toggleClassOnScroll();
-}
+  // Video Section scroll logic
+  const vidText = document.querySelector('.video-section-paragraph');
+  const vidTextOffsetTop = vidText.offsetTop;
+  const vidTextHeight = vidText.offsetHeight;
+  const isVidTextVisible = (scrollPosition + windowHeight) > vidTextOffsetTop && scrollPosition < (vidTextOffsetTop + vidTextHeight);
+  
+  if (isVidTextVisible) {
+    // const scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight); // Adjust this to control when the animation ends
+    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + (windowHeight / 3)); // Ends the animation a bit earlier adding the '/ 3'
+    scrollProgress = Math.min(scrollProgress, 1);
+    const backgroundSize = (scrollProgress * 100) + '% 100%';
+    vidText.style.backgroundSize = backgroundSize;
+  }
+
+};
+
+window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed
+

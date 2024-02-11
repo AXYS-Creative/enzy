@@ -33,7 +33,6 @@ header .header-logo {
   position: fixed;
   top: 56px;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 6px;
   mix-blend-mode: difference;
@@ -416,7 +415,7 @@ nav .nav-abstract {
   bottom: 0;
   width: 100vw;
   height: 24px;
-  background: #020202;
+  background: #262626;
   animation: nav-abstract-default 0.75s ease 0s forwards;
 }
 nav.menu-active {
@@ -820,21 +819,38 @@ button {
 
 #video-section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  background: #262626;
+  background: #000;
   max-width: unset;
   width: 100vw;
   height: 200vh;
+}
+#video-section .video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+}
+#video-section .video-wrapper video {
+  height: 100%;
+  cursor: pointer;
 }
 #video-section .video-section-paragraph {
   font-family: "Saira", sans-serif;
   font-size: 78px;
   font-weight: 700;
   line-height: 100%;
-  color: #f8f8f8;
   text-transform: uppercase;
   text-align: center;
+  display: inline;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(#f8f8f8, #f8f8f8);
+  -webkit-text-fill-color: rgba(248, 248, 248, 0.1);
+  transition: background 0.2s cubic-bezier(0.39, 0.92, 0.41, 1);
 }
 @media screen and (max-width: 1512px) {
   #video-section .video-section-paragraph {
