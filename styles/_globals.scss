@@ -26,7 +26,7 @@ section {
 header {
 
   & > * {
-    z-index: 3;
+    z-index: 5;
   }
 
   .header-logo {
@@ -227,6 +227,7 @@ header {
 
       .logo-text {
         width: 52px;
+        transition: 0.2s ease 0.65s;
       }
     }
 
@@ -252,7 +253,7 @@ nav {
   height: 100dvh;
   opacity: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 4;
   transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 
   .width-constraint {
@@ -460,54 +461,23 @@ nav {
   }
 }
 
-// Exploring Netlify Identity (sign up / login controls)
-// div[data-netlify-identity-menu] {
-//   position: fixed;
-//   top: $body-padding;
-//   left: 50%;
-//   translate: -50% 0;
-  
-//   ul.netlify-identity-menu {
-//     list-style: none;
-//     @include row-center;
-//     gap: 12px;
-
-//     // a.netlify-identity-signup {
-//     //   text-decoration: underline;
-//     // }
-
-//     // a.netlify-identity-login {
-//     //   text-decoration: underline;
-//     // }
-
-//     span.netlify-identity-user {
-//       font-family: $primary-font;
-//     }
-//   }
-// }
-
-// #netlify-identity-widget {
-//   border: $test;
-// }
-
 section {
-  // background: $test-bg;
-  padding: 196px $body-padding;
+  padding: $vertical-section-padding $body-padding;
   
   @include mq-max('xxl') {
-    padding: 156px $body-padding;
+    padding: $vertical-section-padding-xxl $body-padding;
   }
 
   @include mq-max('lg') {
-    padding: 124px $body-padding-lg;
+    padding: $vertical-section-padding-lg $body-padding-lg;
   }
 
   @include mq-max('md') {
-    padding: 148px $body-padding-md;
+    padding: $vertical-section-padding-md $body-padding-md;
   }
 
   @include mq-max('sm') {
-    padding: 96px $body-padding-md;
+    padding: $vertical-section-padding-sm $body-padding-md;
   }
 }
 
@@ -515,8 +485,8 @@ h1,
 h2,
 h3 {
   font-family: $primary-font;
+  text-transform: uppercase;
   line-height: 100%;
-  font-weight: 500;
 }
 
 p,
@@ -533,6 +503,37 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.headline-wrapper {
+
+  & > * {
+    padding-left: 48px;
+    
+    @include mq-max('xxl') {
+      padding-left: 24px;
+    }
+  }
+
+  .headline-text {
+    border-left: 4px solid $green;
+    // padding-left: 24px;
+    margin-bottom: 48px;
+
+    .headline-title {
+      font-size: 96px;
+      font-weight: 400;
+      margin-bottom: 24px;
+
+      @include mq-max('xxl') {
+        font-size: 72px;
+      }
+    }
+
+    .headline-subtext {
+      font-size: 18px;
+    }
+  }
 }
 
 .cta-wrapper {
@@ -581,6 +582,90 @@ button {
       svg {
         translate: 4px 0;
       }
+    }
+  }
+}
+
+.loading-screen {
+  @include row-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+
+  &-text-content {
+    background: $light-grey;
+    width: 100%;
+    height: 100%;
+    @include column-center;
+    justify-content: center;
+
+    p {
+      font-size: min(2.4vw, 128px);
+      text-transform: uppercase;
+    }
+
+    .top-row,
+    .bottom-row {
+      @include row-center;
+      overflow: hidden;
+      width: 80vw;
+      white-space: nowrap;
+      animation: collapse-width 0.4s ease 1.2s forwards;
+
+      span {
+        display: inline;
+        animation: reset-translate 0.4s ease 0.24s forwards;
+      }
+    }
+
+    .top-row {
+      translate: 0 -24px;
+
+      span {
+        translate: 0 100%;
+      }
+    }
+
+    .bottom-row {
+      translate: 0 24px;
+
+      span {
+        translate: 0 -100%;
+      }
+    }
+
+    .divider-dot {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      translate: 0 -60%;
+      display: flex;
+      animation: loading-dot 1.5s linear 0.2s forwards;
+    }
+  }
+
+  &-abstract {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 0;
+    background: $black;
+  }
+  
+  &.load-complete {
+    pointer-events: none;
+
+    .loading-screen-text-content {
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease 0.3s;
+    }
+    
+    .loading-screen-abstract {
+      animation: nav-abstract-open 0.75s ease 0s forwards;
     }
   }
 }
@@ -647,3 +732,33 @@ button {
       display: flex;
   }
 }
+
+// Exploring Netlify Identity (sign up / login controls)
+// div[data-netlify-identity-menu] {
+//   position: fixed;
+//   top: $body-padding;
+//   left: 50%;
+//   translate: -50% 0;
+  
+//   ul.netlify-identity-menu {
+//     list-style: none;
+//     @include row-center;
+//     gap: 12px;
+
+//     // a.netlify-identity-signup {
+//     //   text-decoration: underline;
+//     // }
+
+//     // a.netlify-identity-login {
+//     //   text-decoration: underline;
+//     // }
+
+//     span.netlify-identity-user {
+//       font-family: $primary-font;
+//     }
+//   }
+// }
+
+// #netlify-identity-widget {
+//   border: $test;
+// }

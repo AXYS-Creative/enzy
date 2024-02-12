@@ -1,5 +1,6 @@
 import "./nav.js";
 import "./scroll.js";
+import "./loading.js";
 
 // Clear focus from any element on mousemove (remove button :focus styles)
 (function clearFocusOnMouseMove() {

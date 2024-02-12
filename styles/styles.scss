@@ -52,7 +52,7 @@
       @include column-left;
       border-left: 4px solid $green;
       font-size: 104px;
-      text-transform: uppercase;
+      font-weight: 500;
       margin-bottom: 48px;
 
       @media (max-width: 1664px) {
@@ -106,7 +106,7 @@
     }
   }
 
-  .hero-image {
+  .hero-img {
     width: 50%;
 
     @include mq-max('xxl') {
@@ -123,12 +123,10 @@
 
       &:first-of-type {
         translate: 20% 6%;
-        animation: hero-img-1-fade 0.8s ease 0.12s forwards;
       }
 
       &:last-of-type {
         translate: -20% -6%;
-        animation: hero-img-2-fade 0.8s ease 0.12s forwards;
       }
     }
   }
@@ -156,20 +154,40 @@
       user-select: none;
     }
   }
+
+  &.load-complete {
+    
+    .hero-img {
+
+      img {
+  
+        &:first-of-type {
+          animation: hero-img-1-fade 0.8s ease 0.6s forwards;
+        }
+  
+        &:last-of-type {
+          animation: hero-img-2-fade 0.8s ease 0.6s forwards;
+        }
+      }
+    }
+  }
 }
 
 #video-section {
   @include column-center;
+  // position: relative;
   background: #000;
   max-width: unset;
   width: 100vw;
-  height: 200vh;
+  height: 250vh;
 
   .video-wrapper {
     // border: $test;
     @include row-center;
+    position: sticky;
+    top: $body-padding;
     width: 50%;
-    height: 50%;
+    height: 80vh;
 
     video {
       height: 100%;
@@ -177,25 +195,28 @@
     }
   }
 
-  .video-section-paragraph {
-    // color: $white;
+  .video-paragraph {
+    // position: absolute;
+    // bottom: 196px;
+    max-width: $content-width;
     font-family: $primary-font;
     font-size: 78px;
     font-weight: 700;
     line-height: 100%;
-    
     text-transform: uppercase;
     text-align: center;
-    display: inline;
+
+    // translate: 0 200%;
     
     background-repeat: no-repeat;
     background-clip: text;
     -webkit-background-clip: text;
     background-image: linear-gradient($white, $white);
     -webkit-text-fill-color: rgba($white, 0.1);
-    // background-size: 0% 100%; // Set with JS
+    // background-size: 20% 100%; // Set with JS
 
     transition: background 0.2s cubic-bezier(.39,.92,.41,1);
+    z-index: 2;
 
     @include mq-max('xxl') {
       font-size: 56px;
@@ -203,6 +224,34 @@
 
     @include mq-max('lg') {
       font-size: 40px;
+    }
+  }
+}
+
+#platform-section {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 548px 196px $vertical-section-padding;
+  
+  @include mq-max('xxl') {
+    padding: 420px 148px ;
+  }
+
+  .headline-wrapper {
+    position: sticky;
+    top: 50%;
+    translate: 0 -50%;
+  }
+
+  .device-showcase {
+    border: $test;
+    @include column-center;
+    width: 50%;
+
+    img {
+      width: 64%;
     }
   }
 }

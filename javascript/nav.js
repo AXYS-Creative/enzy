@@ -24,9 +24,14 @@ function toggleNav() {
   tabElementsNav.forEach((el) =>
     el.setAttribute("tabindex", isNavOpen ? "-1" : "0")
   );
+
+  // Pevent scroll when nav is open
+  // document.body.style = `overflow: ${!isNavOpen ? 'hidden' : 'auto'}`;
 }
 
 function closeNav() {
+  document.body.style = "overflow: auto;"
+
   navMenu.classList.remove("menu-active");
   menuBtn.classList.remove("menu-active");
   siteHeader.classList.remove("menu-active");

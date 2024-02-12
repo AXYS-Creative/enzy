@@ -64,19 +64,18 @@ const checkScroll = () => {
   }
 
   // Video Section scroll logic
-  const vidText = document.querySelector('.video-section-paragraph');
+  const vidText = document.querySelector('.video-paragraph');
   const vidTextOffsetTop = vidText.offsetTop;
   const vidTextHeight = vidText.offsetHeight;
   const isVidTextVisible = (scrollPosition + windowHeight) > vidTextOffsetTop && scrollPosition < (vidTextOffsetTop + vidTextHeight);
-  
+
   if (isVidTextVisible) {
-    // const scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight); // Adjust this to control when the animation ends
-    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + (windowHeight / 3)); // Ends the animation a bit earlier adding the '/ 3'
+    // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight); // Adjust this to control when the animation ends
+    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + (windowHeight / 4)); // Ends the animation a bit earlier adding the '/ 3'
     scrollProgress = Math.min(scrollProgress, 1);
     const backgroundSize = (scrollProgress * 100) + '% 100%';
     vidText.style.backgroundSize = backgroundSize;
   }
-
 };
 
 window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed
