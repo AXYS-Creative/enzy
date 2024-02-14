@@ -939,7 +939,7 @@ button {
 }
 #hero-section .hero-background-text p {
   font-family: "Saira", sans-serif;
-  font-size: min(45vw, 800px);
+  font-size: min(42vw, 800px);
   opacity: 0.025;
   line-height: 0;
   -webkit-user-select: none;
@@ -960,7 +960,6 @@ button {
   background: #000;
   max-width: unset;
   width: 100vw;
-  height: 250vh;
 }
 #video-section .video-wrapper {
   display: flex;
@@ -968,8 +967,9 @@ button {
   align-items: center;
   position: sticky;
   top: 64px;
-  width: 50%;
+  margin-bottom: 164px;
   height: 80vh;
+  z-index: 1;
 }
 #video-section .video-wrapper video {
   height: 100%;
@@ -988,6 +988,7 @@ button {
   -webkit-background-clip: text;
   background-image: linear-gradient(#f8f8f8, #f8f8f8);
   -webkit-text-fill-color: rgba(248, 248, 248, 0.1);
+  background-size: 0% 100%;
   transition: background 0.2s cubic-bezier(0.39, 0.92, 0.41, 1);
   z-index: 2;
 }

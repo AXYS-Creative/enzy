@@ -148,7 +148,8 @@
 
     p {
       font-family: $primary-font;
-      font-size: min(45vw, 800px);
+      // font-size: min(45vw, 800px); // Revisit to determine max font-size
+      font-size: min(42vw, 800px);
       opacity: 0.025;
       line-height: 0;
       user-select: none;
@@ -177,27 +178,35 @@
   @include column-center;
   // position: relative;
   background: #000;
+  // background: linear-gradient(to bottom, navy, darkblue);
   max-width: unset;
   width: 100vw;
-  height: 250vh;
+  // padding-top: 480px;
+  // padding-bottom: unset;
+  // height: 250vh;
 
   .video-wrapper {
-    // border: $test;
     @include row-center;
     position: sticky;
     top: $body-padding;
-    width: 50%;
+    //  top: 50%;
+    //  translate: 0 -50%;
+     margin-bottom: 164px; 
     height: 80vh;
+    z-index: 1;
 
     video {
       height: 100%;
+      // width: 100%;
       cursor: pointer;
     }
   }
 
   .video-paragraph {
+    // border: $test;
     // position: absolute;
     // bottom: 196px;
+    // translate: 0 -100%; // Distorts the animation
     max-width: $content-width;
     font-family: $primary-font;
     font-size: 78px;
@@ -205,15 +214,13 @@
     line-height: 100%;
     text-transform: uppercase;
     text-align: center;
-
-    // translate: 0 200%;
     
     background-repeat: no-repeat;
     background-clip: text;
     -webkit-background-clip: text;
     background-image: linear-gradient($white, $white);
     -webkit-text-fill-color: rgba($white, 0.1);
-    // background-size: 20% 100%; // Set with JS
+    background-size: 0% 100%; // Set with JS
 
     transition: background 0.2s cubic-bezier(.39,.92,.41,1);
     z-index: 2;

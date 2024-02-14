@@ -70,8 +70,8 @@ const checkScroll = () => {
   const isVidTextVisible = (scrollPosition + windowHeight) > vidTextOffsetTop && scrollPosition < (vidTextOffsetTop + vidTextHeight);
 
   if (isVidTextVisible) {
-    // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight); // Adjust this to control when the animation ends
-    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + (windowHeight / 4)); // Ends the animation a bit earlier adding the '/ 3'
+    // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight);
+    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop - 128) / (vidTextHeight + (windowHeight / 16)); // Tweak the start and end of the animation
     scrollProgress = Math.min(scrollProgress, 1);
     const backgroundSize = (scrollProgress * 100) + '% 100%';
     vidText.style.backgroundSize = backgroundSize;

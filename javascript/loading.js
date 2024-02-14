@@ -24,4 +24,5 @@ window.addEventListener('load', () => {
 setTimeout(() => {
   timerDone = true;
   attemptCompleteLoading();
-}, 1600);
+}, 1800);
+// }, 3000);
