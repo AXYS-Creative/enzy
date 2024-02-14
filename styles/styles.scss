@@ -189,9 +189,8 @@
     @include row-center;
     position: sticky;
     top: $body-padding;
-    //  top: 50%;
-    //  translate: 0 -50%;
-     margin-bottom: 164px; 
+    //  margin-bottom: 164px; // Adjust space between video and paragraph
+     margin-bottom: 96px; // Adjust space between video and paragraph
     height: 80vh;
     z-index: 1;
 
@@ -199,6 +198,37 @@
       height: 100%;
       // width: 100%;
       cursor: pointer;
+
+      &:hover {
+
+        & + .video-btn-wrapper {
+          background: rgba($white, 0.25);
+          scale: 0.96;
+        }
+      }
+    }
+
+    .video-btn-wrapper {
+      @include absolute-center;
+      @include row-center;
+      background: rgba($white, 0.1);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      transition: 0.2s ease;
+      
+      .video-play-btn {
+        @include row-center;
+        width: 100%;
+        height: 100%;
+
+        svg {
+          width: 32%;
+          translate: 12% 0;
+
+          fill: white;
+        }
+      }
     }
   }
 
