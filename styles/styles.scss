@@ -200,6 +200,7 @@
 
         & + .video-toggle-btn {
           opacity: 1 !important;
+          border: 2px solid rgba($white, 1);
           scale: 1.12;
 
           .play-icon-wrapper,
@@ -217,6 +218,7 @@
 
         & + .video-toggle-btn {
           scale: 1.12;
+          border: 2px solid rgba($white, 1);
 
           .play-icon-wrapper,
           .pause-icon-wrapper {
@@ -236,13 +238,14 @@
       background: $dark-grey;
       width: 64px;
       height: 64px;
-      border: 2px solid $white;
+      border: 2px solid rgba($white, 0.5);
       border-radius: 50%;
       overflow: hidden;
       transition: 0.25s ease;
 
       &:hover,
       &:focus {
+        border: 2px solid rgba($white, 1);
         opacity: 1 !important;
         scale: 1.12;
 

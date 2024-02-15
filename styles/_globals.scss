@@ -375,6 +375,7 @@ nav {
     li {
 
       .nav-footer-link {
+        padding: 4px;
         border-bottom: 2px solid transparent;
         transition: 0.2s ease;
         
@@ -403,26 +404,51 @@ nav {
 
     @include mq-max('sm') {
       gap: 24px;
+      right: $body-padding-md;
       bottom: $body-padding-md;
     }
 
     .social-media-link {
+      @include row-center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      transition: 0.25s ease;
+
+      @include mq-max('sm') {
+        width: 24px;
+        height: 24px;
+      }
         
       &:hover,
       &:focus {
+        scale: 1.12;
+
+        .social-media-icon-wrapper {
+          translate: 0 -40%;
+
+          .social-media-icon {
+  
+            path {
+              fill: $green;
+            }
+          }
+        }
         
+      }
+
+      .social-media-icon-wrapper {
+        @include column-center;
+        gap: 24px;
+        translate: 0 36%;
+        transition: 0.25s ease;
+
         .social-media-icon {
 
           path {
-            fill: $green;
+            transition: 0.2s ease;
           }
-        }
-      }
-
-      .social-media-icon {
-
-        path {
-          transition: 0.2s ease;
         }
       }
     }
@@ -435,7 +461,6 @@ nav {
     height: 24px;
     // background: $black;
     background: $dark-grey;
-    // transition: 0.4s ease;
     animation: nav-abstract-default 0.75s ease 0s forwards;
   }
 
