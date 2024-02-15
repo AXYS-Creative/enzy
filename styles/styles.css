@@ -978,7 +978,7 @@ button {
   align-items: center;
   position: sticky;
   top: 64px;
-  margin-bottom: 96px;
+  margin-bottom: 112px;
   height: 80vh;
   z-index: 1;
 }
@@ -987,7 +987,7 @@ button {
   cursor: pointer;
 }
 #video-section .video-wrapper video:hover + .video-toggle-btn, #video-section .video-wrapper video:focus-within + .video-toggle-btn {
-  background: rgba(248, 248, 248, 0.25);
+  opacity: 1 !important;
   scale: 1.12;
 }
 #video-section .video-wrapper video:hover + .video-toggle-btn .play-icon-wrapper,
@@ -1002,7 +1002,6 @@ button {
 }
 @media (hover: none) {
   #video-section .video-wrapper video + .video-toggle-btn {
-    background: rgba(248, 248, 248, 0.25);
     scale: 1.12;
   }
   #video-section .video-wrapper video + .video-toggle-btn .play-icon-wrapper,
@@ -1022,15 +1021,16 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(248, 248, 248, 0.1);
+  background: #262626;
   width: 64px;
   height: 64px;
+  border: 2px solid #f8f8f8;
   border-radius: 50%;
   overflow: hidden;
   transition: 0.25s ease;
 }
 #video-section .video-wrapper .video-toggle-btn:hover, #video-section .video-wrapper .video-toggle-btn:focus {
-  background: rgba(248, 248, 248, 0.25);
+  opacity: 1 !important;
   scale: 1.12;
 }
 #video-section .video-wrapper .video-toggle-btn:hover .play-icon-wrapper,
@@ -1072,7 +1072,7 @@ button {
   background-clip: text;
   -webkit-background-clip: text;
   background-image: linear-gradient(#f8f8f8, #f8f8f8);
-  -webkit-text-fill-color: rgba(248, 248, 248, 0.1);
+  -webkit-text-fill-color: rgba(248, 248, 248, 0.36);
   background-size: 0% 100%;
   transition: background 0.2s cubic-bezier(0.39, 0.92, 0.41, 1);
   z-index: 2;
