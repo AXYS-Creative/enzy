@@ -497,8 +497,7 @@ section {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: "Saira", sans-serif;
   text-transform: uppercase;
   line-height: 100%;
@@ -1159,4 +1158,174 @@ button {
 }
 #platform-section .device-showcase img {
   width: 64%;
+}
+
+#faq-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#faq-section .headline-wrapper,
+#faq-section .faq-list {
+  width: 58%;
+}
+#faq-section .faq-list {
+  display: flex;
+  flex-direction: column;
+  margin: 48px 0 124px;
+}
+@media screen and (max-width: 1200px) {
+  #faq-section .faq-list {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #faq-section .faq-list {
+    width: 100%;
+    margin: 48px 0 64px;
+  }
+}
+#faq-section .faq-list .faq-item {
+  position: relative;
+  border-bottom: 2px solid #262626;
+  margin-bottom: 24px;
+  padding-top: 42px;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: all 0.3s ease, margin 0.4s ease;
+}
+#faq-section .faq-list .faq-item:hover {
+  border-color: #6CA793;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .faq-item {
+    margin-bottom: 12px;
+    padding-top: 24px;
+  }
+}
+#faq-section .faq-list .faq-item.active {
+  grid-template-rows: 1fr;
+}
+#faq-section .faq-list .faq-item.active .question .angle-arrow {
+  rotate: 180deg;
+}
+#faq-section .faq-list .faq-item.active .answer {
+  opacity: 1;
+  pointer-events: all;
+  padding: 32px 0 16px;
+  translate: 0 0;
+  transition: 0.3s ease 0.12s;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .faq-item.active .answer {
+    padding: 16px 0 8px;
+  }
+}
+#faq-section .faq-list .question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 16px 0;
+  z-index: 1;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .question {
+    padding: 4px 0;
+  }
+}
+#faq-section .faq-list .question h3 {
+  font-family: "Saira", sans-serif;
+  color: #020202;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  gap: 12px;
+  transition: 0.3s ease;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .question h3 {
+    font-size: 16px;
+    gap: 8px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #faq-section .faq-list .question h3 {
+    font-size: 14px;
+    gap: 4px;
+  }
+}
+#faq-section .faq-list .question h3-indicator {
+  width: 24px;
+}
+#faq-section .faq-list .question .angle-arrow-wrapper {
+  transition: 0.4s ease;
+}
+#faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
+  width: 36px;
+  height: 36px;
+  transition: 0.3s ease;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
+    width: 24px;
+    height: 24px;
+  }
+}
+#faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow path {
+  fill: #6CA793;
+}
+#faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow.active {
+  rotate: 180deg;
+}
+@media screen and (max-width: 480px) {
+  #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
+    width: 2rem;
+  }
+}
+#faq-section .faq-list .answer {
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  translate: 0 -24px;
+  padding: 12px 0;
+  display: flex;
+  font-size: 20px;
+  line-height: 150%;
+  transition: 0.2s ease 0s;
+  cursor: pointer;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .answer {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #faq-section .faq-list .answer {
+    font-size: 14px;
+  }
+}
+#faq-section .faq-list .answer .answer-indicator {
+  font-family: "Saira", sans-serif;
+  font-weight: 500;
+  padding-right: 12px;
+}
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list .answer .answer-indicator {
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #faq-section .faq-list .answer .answer-indicator {
+    padding-right: 6px;
+  }
+}
+#faq-section .faq-list .answer .faq-inner-link {
+  text-decoration: underline;
+}
+#faq-section .faq-list .answer .faq-inner-link svg path {
+  fill: #f8f8f8;
 }/*# sourceMappingURL=styles.css.map */
