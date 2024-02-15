@@ -176,9 +176,7 @@
 
 #video-section {
   @include column-center;
-  // position: relative;
   background: #000;
-  // background: linear-gradient(to bottom, navy, darkblue);
   max-width: unset;
   width: 100vw;
   // padding-top: 480px;
@@ -189,45 +187,93 @@
     @include row-center;
     position: sticky;
     top: $body-padding;
-    //  margin-bottom: 164px; // Adjust space between video and paragraph
-     margin-bottom: 96px; // Adjust space between video and paragraph
+    margin-bottom: 96px; // Adjust space between video and paragraph
     height: 80vh;
     z-index: 1;
 
     video {
       height: 100%;
-      // width: 100%;
       cursor: pointer;
 
-      &:hover {
+      &:hover,
+      &:focus-within {
 
-        & + .video-btn-wrapper {
+        & + .video-toggle-btn {
           background: rgba($white, 0.25);
-          scale: 0.96;
+          scale: 1.12;
+
+          .play-icon-wrapper,
+          .pause-icon-wrapper {
+            translate: 0 -32%;
+
+            svg {
+              fill: rgba($white, 1);
+            }
+          }
+        }
+      }
+
+      @include mq-touch {
+
+        & + .video-toggle-btn {
+          background: rgba($white, 0.25);
+          scale: 1.12;
+
+          .play-icon-wrapper,
+          .pause-icon-wrapper {
+            translate: 0 -32%;
+
+            svg {
+              fill: rgba($white, 1);
+            }
+          }
         }
       }
     }
 
-    .video-btn-wrapper {
+    .video-toggle-btn {
       @include absolute-center;
       @include row-center;
       background: rgba($white, 0.1);
       width: 64px;
       height: 64px;
       border-radius: 50%;
-      transition: 0.2s ease;
+      overflow: hidden;
+      transition: 0.25s ease;
+
+      &:hover,
+      &:focus {
+        background: rgba($white, 0.25);
+        scale: 1.12;
+
+        .play-icon-wrapper,
+        .pause-icon-wrapper {
+          translate: 0 -32%;
+
+          svg {
+            fill: rgba($white, 1);
+          }
+        }
+      }
       
-      .video-play-btn {
-        @include row-center;
-        width: 100%;
-        height: 100%;
+      .play-icon-wrapper,
+      .pause-icon-wrapper {
+        @include column-center;
+        gap: 24px;
+        translate: 0 32%;
+        transition: 0.2s ease;
 
         svg {
           width: 32%;
-          translate: 12% 0;
-
-          fill: white;
+          fill: rgba($white, 0.5);
         }
+      }
+
+      // .play-icon-wrapper {
+      //   border: none;
+      // }
+      .pause-icon-wrapper {
+        display: none;
       }
     }
   }
@@ -236,7 +282,7 @@
     // border: $test;
     // position: absolute;
     // bottom: 196px;
-    // translate: 0 -100%; // Distorts the animation
+    // translate: 0 -100%; // Distorts the animation start
     max-width: $content-width;
     font-family: $primary-font;
     font-size: 78px;
@@ -262,6 +308,10 @@
     @include mq-max('lg') {
       font-size: 40px;
     }
+
+    @include mq-max('sm') {
+      font-size: 16px; // Revisit when in the office
+    }
   }
 }
 
@@ -274,6 +324,10 @@
   
   @include mq-max('xxl') {
     padding: 420px 148px ;
+  }
+
+  @include mq-max('sm') {
+    padding: 128px $body-padding-md;
   }
 
   .headline-wrapper {

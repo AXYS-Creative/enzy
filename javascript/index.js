@@ -1,4 +1,5 @@
 import "./nav.js";
+import "./video.js";
 import "./scroll.js";
 import "./loading.js";
 
