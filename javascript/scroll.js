@@ -24,13 +24,17 @@ const throttle = (func, limit) => {
 };
 
 const siteHeader = document.querySelector(".site-header"),
+  navMenu = document.querySelector(".nav-menu"),
   headerCtaWrapper = document.querySelector(".header-cta-wrapper"),
   menuBtnWrapper = document.querySelector(".menu-btn-wrapper"),
   menuBtn = document.querySelector(".menu-btn"),
   headerCta1 = headerCtaWrapper.querySelector(".cta-1"),
-  headerCta2 = headerCtaWrapper.querySelector(".cta-2");
+  headerCta2 = headerCtaWrapper.querySelector(".cta-2"),
+  vidText = document.querySelector('.video-paragraph'),
+  platformHeadline = document.querySelector('.platform-headline');
 
-const navMenu = document.querySelector(".nav-menu");
+const vidTextOffsetTop = vidText.offsetTop;
+const vidTextHeight = vidText.offsetHeight;
 
 menuBtn.setAttribute("tabindex", "-1");
 
@@ -64,18 +68,36 @@ const checkScroll = () => {
   }
 
   // Video Section scroll logic
-  const vidText = document.querySelector('.video-paragraph');
-  const vidTextOffsetTop = vidText.offsetTop;
-  const vidTextHeight = vidText.offsetHeight;
   const isVidTextVisible = (scrollPosition + windowHeight) > vidTextOffsetTop && scrollPosition < (vidTextOffsetTop + vidTextHeight);
 
   if (isVidTextVisible) {
     // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight);
-    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop - 128) / (vidTextHeight + (windowHeight / 16)); // Tweak the start and end of the animation
+    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop - 56) / (vidTextHeight + (windowHeight / 16)); // Tweak the start and end of the animation
     scrollProgress = Math.min(scrollProgress, 1);
     const backgroundSize = (scrollProgress * 100) + '% 100%';
     vidText.style.backgroundSize = backgroundSize;
   }
+
+  // Platform logic
+  function checkDeviceVisibility(deviceClass, multiplier, addClass) {
+    const device = document.querySelector(deviceClass);
+    const deviceTop = device.getBoundingClientRect().top;
+    const deviceBottom = device.getBoundingClientRect().bottom;
+    const deviceVisible = (deviceTop * multiplier) < window.innerHeight && deviceBottom > 0;
+  
+    if (deviceVisible) {
+      console.log('device is visible');
+      platformHeadline.classList.add(addClass);
+    } else {
+      platformHeadline.classList.remove(addClass);
+    }
+  }
+  
+  checkDeviceVisibility('.device-img-1', 4, 'device-1');
+  checkDeviceVisibility('.device-img-2', 3, 'device-2');
+  checkDeviceVisibility('.device-img-3', 3, 'device-3');
+  checkDeviceVisibility('.device-img-4', 3, 'device-4');
+  checkDeviceVisibility('.device-img-5', 3, 'device-5');
 };
 
 window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed

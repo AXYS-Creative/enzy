@@ -497,7 +497,8 @@ section {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Saira", sans-serif;
   text-transform: uppercase;
   line-height: 100%;
@@ -1136,7 +1137,7 @@ button {
 }
 @media screen and (max-width: 1512px) {
   #platform-section {
-    padding: 420px 148px;
+    padding: 420px 148px 196px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1148,13 +1149,75 @@ button {
   position: sticky;
   top: 50%;
   translate: 0 -50%;
+  width: 50%;
+}
+#platform-section .headline-wrapper .device-text {
+  height: 213px;
+}
+#platform-section .headline-wrapper .device-text h3 {
+  font-size: 56px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+#platform-section .headline-wrapper .device-1-text,
+#platform-section .headline-wrapper .device-2-text,
+#platform-section .headline-wrapper .device-3-text,
+#platform-section .headline-wrapper .device-4-text,
+#platform-section .headline-wrapper .device-5-text {
+  display: none;
+}
+#platform-section .headline-wrapper.device-1 .headline-text {
+  display: none;
+}
+#platform-section .headline-wrapper.device-1 .device-1-text {
+  display: block;
+}
+#platform-section .headline-wrapper.device-2 .headline-text {
+  display: none;
+}
+#platform-section .headline-wrapper.device-2 .device-2-text {
+  display: block;
+}
+#platform-section .headline-wrapper.device-3 .headline-text {
+  display: none;
+}
+#platform-section .headline-wrapper.device-3 .device-3-text {
+  display: block;
+}
+#platform-section .headline-wrapper.device-4 .headline-text {
+  display: none;
+}
+#platform-section .headline-wrapper.device-4 .device-4-text {
+  display: block;
+}
+#platform-section .headline-wrapper.device-5 .headline-text {
+  display: none;
+}
+#platform-section .headline-wrapper.device-5 .device-5-text {
+  display: block;
+}
+#platform-section .platform-headline-img {
+  position: sticky;
+  top: 420px;
+  translate: 340% 0;
+  width: 0;
+  z-index: -1;
+}
+@media screen and (max-width: 1512px) {
+  #platform-section .platform-headline-img {
+    right: 0;
+  }
+}
+#platform-section .platform-headline-img img {
+  width: 248px;
+  translate: 72% -50%;
 }
 #platform-section .device-showcase {
-  border: 2px dashed coral;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
+  margin-top: 280px;
 }
 #platform-section .device-showcase img {
   width: 64%;
@@ -1237,10 +1300,10 @@ button {
   }
 }
 #faq-section .faq-list .question h3 {
-  font-family: "Saira", sans-serif;
   color: #020202;
   font-size: 20px;
   font-weight: 500;
+  text-transform: capitalize;
   text-align: left;
   display: flex;
   gap: 12px;

@@ -326,7 +326,7 @@
   padding: 548px 196px $vertical-section-padding;
   
   @include mq-max('xxl') {
-    padding: 420px 148px ;
+    padding: 420px 148px $vertical-section-padding;
   }
 
   @include mq-max('sm') {
@@ -337,12 +337,110 @@
     position: sticky;
     top: 50%;
     translate: 0 -50%;
+    width: 50%;
+
+    // .headline-text {
+
+    //   .headline-title {
+    //     transition: 0.3s ease;
+    //   }
+    // }
+
+    .device-text {
+      height: 213px;
+
+      h3 {
+        font-size: 56px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+    }
+
+    .device-1-text,
+    .device-2-text,
+    .device-3-text,
+    .device-4-text,
+    .device-5-text {
+      display: none;
+    }
+
+    &.device-1 {
+
+      .headline-text {
+        display: none;
+      }
+      
+      .device-1-text {
+        display: block;
+      }
+    }
+
+    &.device-2 {
+
+      .headline-text {
+        display: none;
+      }
+      
+      .device-2-text {
+        display: block;
+      }
+    }
+
+    &.device-3 {
+
+      .headline-text {
+        display: none;
+      }
+      
+      .device-3-text {
+        display: block;
+      }
+    }
+
+    &.device-4 {
+
+      .headline-text {
+        display: none;
+      }
+      
+      .device-4-text {
+        display: block;
+      }
+    }
+
+    &.device-5 {
+
+      .headline-text {
+        display: none;
+      }
+      
+      .device-5-text {
+        display: block;
+      }
+    }
+  }
+
+  .platform-headline-img {
+    position: sticky;
+    top: 420px;
+    translate: 340% 0;
+    width: 0;
+    z-index: -1;
+
+    @include mq-max('xxl') {
+      right: 0;
+    }
+
+    img {
+      width: 248px;
+      translate: 72% -50%;
+    }
   }
 
   .device-showcase {
-    border: $test;
     @include column-center;
     width: 50%;
+    margin-top: 280px;
 
     img {
       width: 64%;
@@ -427,10 +525,10 @@
       }
 
       h3 {
-        font-family: $primary-font;
         color: $black;
         font-size: 20px;
         font-weight: 500;
+        text-transform: capitalize;
         text-align: left;
         display: flex;
         gap: 12px;
