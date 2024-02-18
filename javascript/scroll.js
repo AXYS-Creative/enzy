@@ -93,11 +93,11 @@ const checkScroll = () => {
     }
   }
   
-  checkDeviceVisibility('.device-img-1', 4, 'device-1');
-  checkDeviceVisibility('.device-img-2', 3, 'device-2');
-  checkDeviceVisibility('.device-img-3', 3, 'device-3');
-  checkDeviceVisibility('.device-img-4', 3, 'device-4');
-  checkDeviceVisibility('.device-img-5', 3, 'device-5');
+  checkDeviceVisibility('.device-img-1', 3, 'device-1');
+  checkDeviceVisibility('.device-img-2', 4, 'device-2');
+  checkDeviceVisibility('.device-img-3', 4, 'device-3');
+  checkDeviceVisibility('.device-img-4', 4, 'device-4');
+  checkDeviceVisibility('.device-img-5', 4, 'device-5');
 };
 
 window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed

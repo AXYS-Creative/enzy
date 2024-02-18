@@ -442,8 +442,16 @@
     width: 50%;
     margin-top: 280px;
 
+    overflow: auto;
+    scroll-snap-type: both mandatory;
+    overscroll-behavior-x: contain;
+
     img {
       width: 64%;
+
+      scroll-snap-align: center;
+      // scroll-snap-align: center center;
+      scroll-snap-stop: normal;
     }
   }
 }
