@@ -326,7 +326,13 @@
   padding: 548px 196px $vertical-section-padding;
   
   @include mq-max('xxl') {
-    padding: 420px 148px $vertical-section-padding;
+    padding: 420px 96px $vertical-section-padding 148px;
+    // padding: 420px 148px $vertical-section-padding;
+  }
+
+  @include mq-max('xl') {
+    border: $test;
+    padding: 420px 64px $vertical-section-padding 96px;
   }
 
   @include mq-max('sm') {
@@ -338,84 +344,121 @@
     top: 50%;
     translate: 0 -50%;
     width: 50%;
+    height: 296px;
 
-    // .headline-text {
+    .headline-text {
+      position: absolute;
+      top: 0;
+    }
 
-    //   .headline-title {
-    //     transition: 0.3s ease;
-    //   }
-    // }
+    .cta-wrapper {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .base-headline {
+      transition: 0.3s ease 0.2s;
+    }
 
     .device-text {
       height: 213px;
+
+      h3,
+      p {
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease;
+      }
 
       h3 {
         font-size: 56px;
         font-weight: 400;
         text-transform: uppercase;
+        
+        @include mq-max('xl') {
+          font-size: 48px;
+        }
+      }
+
+      p {
+
+        @include mq-max('xl') {
+          font-size: 14px;
+        }
       }
     }
 
-    .device-1-text,
-    .device-2-text,
-    .device-3-text,
-    .device-4-text,
-    .device-5-text {
-      display: none;
+    // Hide section title
+    .device-text-1,
+    .device-text-2,
+    .device-text-3,
+    .device-text-4,
+    .device-text-5 {
+      
+      .headline-text {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
+
+    // &.device-1,
+    // &.device-2,
+    // &.device-3,
+    // &.device-4,
+    // &.device-5 {
+
+    //   .base-headline {
+    //     opacity: 0;
+    //     pointer-events: none;
+    //     transition: 0.3s ease 0s;
+    //   }
+    // }
 
     &.device-1 {
-
-      .headline-text {
-        display: none;
-      }
       
-      .device-1-text {
-        display: block;
+      .base-headline {
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease 0s;
+      }
+
+      .device-text-1 {
+        // opacity: 1;
+
+        h3,
+        p {
+          opacity: 1;
+          pointer-events: all;
+          transition: 0.3s ease 0.2s;
+        }
       }
     }
 
     &.device-2 {
-
-      .headline-text {
+      
+      .base-headline {
         display: none;
       }
       
-      .device-2-text {
-        display: block;
-      }
-    }
+      .device-text-2 {
+        // opacity: 1;
 
-    &.device-3 {
-
-      .headline-text {
-        display: none;
+        h3,
+        p {
+          opacity: 1;
+          pointer-events: all;
+          transition: 0.3s ease 0.2s;
+        }
       }
-      
-      .device-3-text {
-        display: block;
-      }
-    }
-
-    &.device-4 {
-
-      .headline-text {
-        display: none;
-      }
-      
-      .device-4-text {
-        display: block;
-      }
-    }
-
-    &.device-5 {
-
-      .headline-text {
-        display: none;
-      }
-      
-      .device-5-text {
-        display: block;
+      .device-text-1 {
+        // opacity: 0 !important; // Ensure only ONE is showing. Hide previous.
+        
+        h3,
+        p {
+          opacity: 0;
+          pointer-events: none;
+          transition: 0.3s ease 0s;
+        }
       }
     }
   }
@@ -427,13 +470,14 @@
     width: 0;
     z-index: -1;
 
-    @include mq-max('xxl') {
-      right: 0;
-    }
+    // @include mq-max('xxl') {
+    //   right: 0;
+    // }
 
     img {
-      width: 248px;
-      translate: 72% -50%;
+      // width: 248px;
+      width: 15vw; // min() this property
+      translate: 82% -50%;
     }
   }
 
@@ -441,17 +485,13 @@
     @include column-center;
     width: 50%;
     margin-top: 280px;
-
-    overflow: auto;
-    scroll-snap-type: both mandatory;
-    overscroll-behavior-x: contain;
+    
+    @include mq-max('xl') {
+      width: 40%;
+    }
 
     img {
       width: 64%;
-
-      scroll-snap-align: center;
-      // scroll-snap-align: center center;
-      scroll-snap-stop: normal;
     }
   }
 }

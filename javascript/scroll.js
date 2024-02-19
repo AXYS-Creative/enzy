@@ -33,10 +33,19 @@ const siteHeader = document.querySelector(".site-header"),
   vidText = document.querySelector('.video-paragraph'),
   platformHeadline = document.querySelector('.platform-headline');
 
+const allDeviceText = document.querySelectorAll('.device-text');
+
+// Video Section Defaults
 const vidTextOffsetTop = vidText.offsetTop;
 const vidTextHeight = vidText.offsetHeight;
 
+// Header Defaults
 menuBtn.setAttribute("tabindex", "-1");
+
+// Platform Section Defaults
+allDeviceText.forEach(textblock => textblock.setAttribute("aria-hidden", "true"))
+
+// Scroll Animations
 
 const checkScroll = () => {
   const scrollPosition = window.scrollY;
@@ -77,28 +86,80 @@ const checkScroll = () => {
     const backgroundSize = (scrollProgress * 100) + '% 100%';
     vidText.style.backgroundSize = backgroundSize;
   }
-
-  // Platform logic
-  function checkDeviceVisibility(deviceClass, multiplier, addClass) {
-    const device = document.querySelector(deviceClass);
-    const deviceTop = device.getBoundingClientRect().top;
-    const deviceBottom = device.getBoundingClientRect().bottom;
-    const deviceVisible = (deviceTop * multiplier) < window.innerHeight && deviceBottom > 0;
-  
-    if (deviceVisible) {
-      console.log('device is visible');
-      platformHeadline.classList.add(addClass);
-    } else {
-      platformHeadline.classList.remove(addClass);
-    }
-  }
-  
-  checkDeviceVisibility('.device-img-1', 3, 'device-1');
-  checkDeviceVisibility('.device-img-2', 4, 'device-2');
-  checkDeviceVisibility('.device-img-3', 4, 'device-3');
-  checkDeviceVisibility('.device-img-4', 4, 'device-4');
-  checkDeviceVisibility('.device-img-5', 4, 'device-5');
 };
 
 window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed
 
+// Platform Intersection Observer
+
+const platformDeviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const targetId = entry.target.dataset.id;
+    const deviceClass = `device-${targetId}`;
+    const deviceTextSelector = `.device-text-${targetId}`;
+    const deviceTextElement = document.querySelector(deviceTextSelector);
+
+    if (entry.isIntersecting) {
+      platformHeadline.classList.add(deviceClass);
+      deviceTextElement.setAttribute('aria-hidden', 'false');
+    } else {
+      platformHeadline.classList.remove(deviceClass);
+      if (!platformHeadline.classList.contains(deviceClass)) {
+        deviceTextElement.setAttribute('aria-hidden', 'true');
+      }
+    }
+  });
+}, {
+  root: null, // Viewport
+  rootMargin: '0px',
+  threshold: window.innerHeight < 480 ? 0.1 : 0.5
+});
+
+document.querySelectorAll('.device-img').forEach((img, index) => {
+  img.setAttribute('data-id', index + 1);
+  platformDeviceObserver.observe(img);
+});
+
+// Platform Scroll Snap
+
+let allowScrollSnap = true;
+
+const platformScrollSnap = () => {
+  const deviceImg = document.querySelectorAll('.device-img');
+  
+  const scrollSnapObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && allowScrollSnap) {
+        // Debounce scroll snapping to prevent it from interfering with user-initiated scrolls
+        clearTimeout(window.snapTimeout);
+        window.snapTimeout = setTimeout(() => {
+          entry.target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }, 100); // Adjust debounce time as needed
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  });
+  
+  deviceImg.forEach(image => {
+    scrollSnapObserver.observe(image);
+  });
+};
+
+// Function to disable and enable scroll snap around smooth scrolling
+const handleSmoothScroll = (e) => {
+  const target = e.target.closest('a[href^="#"]');
+  if (target) {
+    allowScrollSnap = false;
+    setTimeout(() => { allowScrollSnap = true; }, 1000);
+  }
+};
+
+document.addEventListener('click', handleSmoothScroll);
+
+window.addEventListener("scroll", throttle(platformScrollSnap, 500));

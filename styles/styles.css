@@ -238,6 +238,7 @@ nav {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  overflow: auto;
   opacity: 0;
   pointer-events: none;
   z-index: 4;
@@ -1137,7 +1138,13 @@ button {
 }
 @media screen and (max-width: 1512px) {
   #platform-section {
-    padding: 420px 148px 196px;
+    padding: 420px 96px 196px 148px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #platform-section {
+    border: 2px dashed coral;
+    padding: 420px 64px 196px 96px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1150,51 +1157,76 @@ button {
   top: 50%;
   translate: 0 -50%;
   width: 50%;
+  height: 296px;
+}
+#platform-section .headline-wrapper .headline-text {
+  position: absolute;
+  top: 0;
+}
+#platform-section .headline-wrapper .cta-wrapper {
+  position: absolute;
+  bottom: 0;
+}
+#platform-section .headline-wrapper .base-headline {
+  transition: 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper .device-text {
   height: 213px;
+}
+#platform-section .headline-wrapper .device-text h3,
+#platform-section .headline-wrapper .device-text p {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
 }
 #platform-section .headline-wrapper .device-text h3 {
   font-size: 56px;
   font-weight: 400;
   text-transform: uppercase;
 }
-#platform-section .headline-wrapper .device-1-text,
-#platform-section .headline-wrapper .device-2-text,
-#platform-section .headline-wrapper .device-3-text,
-#platform-section .headline-wrapper .device-4-text,
-#platform-section .headline-wrapper .device-5-text {
+@media screen and (max-width: 1200px) {
+  #platform-section .headline-wrapper .device-text h3 {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #platform-section .headline-wrapper .device-text p {
+    font-size: 14px;
+  }
+}
+#platform-section .headline-wrapper .device-text-1 .headline-text,
+#platform-section .headline-wrapper .device-text-2 .headline-text,
+#platform-section .headline-wrapper .device-text-3 .headline-text,
+#platform-section .headline-wrapper .device-text-4 .headline-text,
+#platform-section .headline-wrapper .device-text-5 .headline-text {
+  opacity: 0;
+  pointer-events: none;
+}
+#platform-section .headline-wrapper.device-1 .base-headline {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease 0s;
+}
+#platform-section .headline-wrapper.device-1 .device-text-1 h3,
+#platform-section .headline-wrapper.device-1 .device-text-1 p {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-2 .base-headline {
   display: none;
 }
-#platform-section .headline-wrapper.device-1 .headline-text {
-  display: none;
+#platform-section .headline-wrapper.device-2 .device-text-2 h3,
+#platform-section .headline-wrapper.device-2 .device-text-2 p {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-1 .device-1-text {
-  display: block;
-}
-#platform-section .headline-wrapper.device-2 .headline-text {
-  display: none;
-}
-#platform-section .headline-wrapper.device-2 .device-2-text {
-  display: block;
-}
-#platform-section .headline-wrapper.device-3 .headline-text {
-  display: none;
-}
-#platform-section .headline-wrapper.device-3 .device-3-text {
-  display: block;
-}
-#platform-section .headline-wrapper.device-4 .headline-text {
-  display: none;
-}
-#platform-section .headline-wrapper.device-4 .device-4-text {
-  display: block;
-}
-#platform-section .headline-wrapper.device-5 .headline-text {
-  display: none;
-}
-#platform-section .headline-wrapper.device-5 .device-5-text {
-  display: block;
+#platform-section .headline-wrapper.device-2 .device-text-1 h3,
+#platform-section .headline-wrapper.device-2 .device-text-1 p {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease 0s;
 }
 #platform-section .platform-headline-img {
   position: sticky;
@@ -1203,14 +1235,9 @@ button {
   width: 0;
   z-index: -1;
 }
-@media screen and (max-width: 1512px) {
-  #platform-section .platform-headline-img {
-    right: 0;
-  }
-}
 #platform-section .platform-headline-img img {
-  width: 248px;
-  translate: 72% -50%;
+  width: 15vw;
+  translate: 82% -50%;
 }
 #platform-section .device-showcase {
   display: flex;
@@ -1218,14 +1245,14 @@ button {
   align-items: center;
   width: 50%;
   margin-top: 280px;
-  overflow: auto;
-  scroll-snap-type: both mandatory;
-  overscroll-behavior-x: contain;
+}
+@media screen and (max-width: 1200px) {
+  #platform-section .device-showcase {
+    width: 40%;
+  }
 }
 #platform-section .device-showcase img {
   width: 64%;
-  scroll-snap-align: center;
-  scroll-snap-stop: normal;
 }
 
 #faq-section {
