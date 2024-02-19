@@ -555,6 +555,10 @@ button {
         font-size: 72px;
       }
 
+      @include mq-max('xl') {
+        font-size: 56px;
+      }
+
       @include mq-max('sm') {
         font-size: 36px; // Revist me
       }
@@ -562,6 +566,10 @@ button {
 
     .headline-subtext {
       font-size: 18px;
+
+      @include mq-max('xl') {
+        font-size: 16px;
+      }
     }
   }
 }

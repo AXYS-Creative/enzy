@@ -327,12 +327,14 @@
   
   @include mq-max('xxl') {
     padding: 420px 96px $vertical-section-padding 148px;
-    // padding: 420px 148px $vertical-section-padding;
   }
 
   @include mq-max('xl') {
-    border: $test;
-    padding: 420px 64px $vertical-section-padding 96px;
+    padding: 420px 0 $vertical-section-padding 96px;
+  }
+
+  @include mq-max('lg') {
+    padding: 320px 0 $vertical-section-padding $body-padding-lg;
   }
 
   @include mq-max('sm') {
@@ -340,6 +342,7 @@
   }
 
   .headline-wrapper {
+    // border: $test;
     position: sticky;
     top: 50%;
     translate: 0 -50%;
@@ -348,6 +351,10 @@
 
     @include mq-max('xxl') {
       height: 296px;
+    }
+
+    @include mq-max('xl') {
+      height: 264px;
     }
 
     .cta-wrapper {
@@ -386,6 +393,10 @@
 
       @include mq-max('xxl') {
         height: 213px;
+      }
+
+      @include mq-max('xl') {
+        height: 196px;
       }
 
       .headline-title,
@@ -594,33 +605,46 @@
 
   .platform-headline-img {
     position: sticky;
-    top: 556px;
-    translate: 340% 0;
+    top: 50%;
+    translate: 0 -50%;
     width: 0;
     z-index: -1;
-    
-    @include mq-max('xxl') {
-      top: 420px;
-    }
 
     img {
-      // width: 248px;
       width: min(15vw, 288px);
-      translate: 82% -50%;
+      translate: 96% 0;
+      
+      @include mq-max('xxl') {
+        translate: 108% 0;
+      }
+
+      @include mq-max('xl') {
+        translate: 120% 0;
+      }
+
+      @include mq-max('lg') {
+        translate: 148% 0;
+      }
     }
   }
 
   .device-showcase {
+    // border: $test;
     @include column-center;
     width: 50%;
-    margin-top: 280px;
+    margin-top: 360px;
+    margin-left: 56px;
     
-    @include mq-max('xl') {
-      width: 40%;
+    @include mq-max('lg') {
+      margin-left: 280px;
     }
 
     img {
-      width: 64%;
+      width: 68%;
+
+      @include mq-max('xxl') {
+        margin: 64px 0;
+      }
     }
   }
 }

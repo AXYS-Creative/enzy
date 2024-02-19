@@ -543,6 +543,11 @@ button {
     font-size: 72px;
   }
 }
+@media screen and (max-width: 1200px) {
+  .headline-wrapper .headline-text .headline-title {
+    font-size: 56px;
+  }
+}
 @media screen and (max-width: 480px) {
   .headline-wrapper .headline-text .headline-title {
     font-size: 36px;
@@ -550,6 +555,11 @@ button {
 }
 .headline-wrapper .headline-text .headline-subtext {
   font-size: 18px;
+}
+@media screen and (max-width: 1200px) {
+  .headline-wrapper .headline-text .headline-subtext {
+    font-size: 16px;
+  }
 }
 
 .cta-wrapper {
@@ -1165,8 +1175,12 @@ button {
 }
 @media screen and (max-width: 1200px) {
   #platform-section {
-    border: 2px dashed coral;
-    padding: 420px 64px 196px 96px;
+    padding: 420px 0 196px 96px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #platform-section {
+    padding: 320px 0 196px 40px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1184,6 +1198,11 @@ button {
 @media screen and (max-width: 1512px) {
   #platform-section .headline-wrapper {
     height: 296px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #platform-section .headline-wrapper {
+    height: 264px;
   }
 }
 #platform-section .headline-wrapper .cta-wrapper {
@@ -1218,6 +1237,11 @@ button {
 @media screen and (max-width: 1512px) {
   #platform-section .headline-wrapper .device-text {
     height: 213px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #platform-section .headline-wrapper .device-text {
+    height: 196px;
   }
 }
 #platform-section .headline-wrapper .device-text .headline-title,
@@ -1375,34 +1399,50 @@ button {
 }
 #platform-section .platform-headline-img {
   position: sticky;
-  top: 556px;
-  translate: 340% 0;
+  top: 50%;
+  translate: 0 -50%;
   width: 0;
   z-index: -1;
 }
-@media screen and (max-width: 1512px) {
-  #platform-section .platform-headline-img {
-    top: 420px;
-  }
-}
 #platform-section .platform-headline-img img {
   width: min(15vw, 288px);
-  translate: 82% -50%;
+  translate: 96% 0;
+}
+@media screen and (max-width: 1512px) {
+  #platform-section .platform-headline-img img {
+    translate: 108% 0;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #platform-section .platform-headline-img img {
+    translate: 120% 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #platform-section .platform-headline-img img {
+    translate: 148% 0;
+  }
 }
 #platform-section .device-showcase {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
-  margin-top: 280px;
+  margin-top: 360px;
+  margin-left: 56px;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1024px) {
   #platform-section .device-showcase {
-    width: 40%;
+    margin-left: 280px;
   }
 }
 #platform-section .device-showcase img {
-  width: 64%;
+  width: 68%;
+}
+@media screen and (max-width: 1512px) {
+  #platform-section .device-showcase img {
+    margin: 64px 0;
+  }
 }
 
 #faq-section {
