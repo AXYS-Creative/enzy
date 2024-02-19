@@ -112,7 +112,7 @@ const platformDeviceObserver = new IntersectionObserver((entries) => {
 }, {
   root: null, // Viewport
   rootMargin: '0px',
-  threshold: window.innerHeight < 480 ? 0.1 : 0.5
+  threshold: window.innerHeight < 580 ? 0.1 : 0.5
 });
 
 document.querySelectorAll('.device-img').forEach((img, index) => {
@@ -120,7 +120,7 @@ document.querySelectorAll('.device-img').forEach((img, index) => {
   platformDeviceObserver.observe(img);
 });
 
-// Platform Scroll Snap
+// Platform Section Scroll Snap
 
 let allowScrollSnap = true;
 
@@ -151,7 +151,7 @@ const platformScrollSnap = () => {
   });
 };
 
-// Function to disable and enable scroll snap around smooth scrolling
+// Toggle scroll snap when clicking page links
 const handleSmoothScroll = (e) => {
   const target = e.target.closest('a[href^="#"]');
   if (target) {

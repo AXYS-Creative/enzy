@@ -829,6 +829,28 @@ button {
     opacity: 0;
   }
 }
+@keyframes platform-text-bar {
+  0% {
+    top: 0;
+    bottom: unset;
+    height: 0;
+  }
+  33% {
+    top: 0;
+    bottom: unset;
+    height: 100%;
+  }
+  66% {
+    top: unset;
+    bottom: 0;
+    height: 100%;
+  }
+  100% {
+    top: unset;
+    bottom: 0;
+    height: 0;
+  }
+}
 #hero-section {
   position: relative;
   display: flex;
@@ -1157,86 +1179,214 @@ button {
   top: 50%;
   translate: 0 -50%;
   width: 50%;
-  height: 296px;
+  height: 364px;
 }
-#platform-section .headline-wrapper .headline-text {
-  position: absolute;
-  top: 0;
+@media screen and (max-width: 1512px) {
+  #platform-section .headline-wrapper {
+    height: 296px;
+  }
 }
 #platform-section .headline-wrapper .cta-wrapper {
   position: absolute;
   bottom: 0;
 }
+#platform-section .headline-wrapper .headline-text {
+  position: absolute;
+  top: 0;
+}
+#platform-section .headline-wrapper .headline-text::before {
+  content: "";
+  background-color: #D6D6D6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  translate: -100% 0;
+  width: 4px;
+  height: 0;
+}
 #platform-section .headline-wrapper .base-headline {
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper .device-text {
-  height: 213px;
+#platform-section .headline-wrapper .base-headline .headline-title,
+#platform-section .headline-wrapper .base-headline .headline-subtext {
+  transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper .device-text h3,
-#platform-section .headline-wrapper .device-text p {
-  opacity: 0;
+#platform-section .headline-wrapper .device-text {
+  height: 262px;
   pointer-events: none;
+}
+@media screen and (max-width: 1512px) {
+  #platform-section .headline-wrapper .device-text {
+    height: 213px;
+  }
+}
+#platform-section .headline-wrapper .device-text .headline-title,
+#platform-section .headline-wrapper .device-text .headline-subtext {
+  opacity: 0;
   transition: 0.3s ease;
 }
-#platform-section .headline-wrapper .device-text h3 {
-  font-size: 56px;
+#platform-section .headline-wrapper .device-text .headline-title {
+  font-size: 80px;
   font-weight: 400;
   text-transform: uppercase;
 }
+@media screen and (max-width: 1512px) {
+  #platform-section .headline-wrapper .device-text .headline-title {
+    font-size: 56px;
+  }
+}
 @media screen and (max-width: 1200px) {
-  #platform-section .headline-wrapper .device-text h3 {
+  #platform-section .headline-wrapper .device-text .headline-title {
     font-size: 48px;
   }
 }
+@media screen and (max-width: 1512px) {
+  #platform-section .headline-wrapper .device-text .headline-subtext {
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 1200px) {
-  #platform-section .headline-wrapper .device-text p {
+  #platform-section .headline-wrapper .device-text .headline-subtext {
     font-size: 14px;
   }
 }
-#platform-section .headline-wrapper .device-text-1 .headline-text,
-#platform-section .headline-wrapper .device-text-2 .headline-text,
-#platform-section .headline-wrapper .device-text-3 .headline-text,
-#platform-section .headline-wrapper .device-text-4 .headline-text,
-#platform-section .headline-wrapper .device-text-5 .headline-text {
-  opacity: 0;
+#platform-section .headline-wrapper.device-1 .base-headline, #platform-section .headline-wrapper.device-2 .base-headline, #platform-section .headline-wrapper.device-3 .base-headline, #platform-section .headline-wrapper.device-4 .base-headline, #platform-section .headline-wrapper.device-5 .base-headline {
   pointer-events: none;
 }
-#platform-section .headline-wrapper.device-1 .base-headline {
+#platform-section .headline-wrapper.device-1 .base-headline .headline-title,
+#platform-section .headline-wrapper.device-1 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-2 .base-headline .headline-title,
+#platform-section .headline-wrapper.device-2 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-3 .base-headline .headline-title,
+#platform-section .headline-wrapper.device-3 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-4 .base-headline .headline-title,
+#platform-section .headline-wrapper.device-4 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-5 .base-headline .headline-title,
+#platform-section .headline-wrapper.device-5 .base-headline .headline-subtext {
   opacity: 0;
+  transition: 0.3s ease;
+}
+#platform-section .headline-wrapper.device-1 .headline-text {
   pointer-events: none;
+}
+#platform-section .headline-wrapper.device-1 .headline-text .headline-title,
+#platform-section .headline-wrapper.device-1 .headline-text .headline-subtext {
+  opacity: 0;
   transition: 0.3s ease 0s;
 }
-#platform-section .headline-wrapper.device-1 .device-text-1 h3,
-#platform-section .headline-wrapper.device-1 .device-text-1 p {
+#platform-section .headline-wrapper.device-1 .device-text-1 {
+  z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-2 .base-headline {
-  display: none;
+#platform-section .headline-wrapper.device-1 .device-text-1::before {
+  animation: platform-text-bar 0.6s ease 0.1s forwards;
 }
-#platform-section .headline-wrapper.device-2 .device-text-2 h3,
-#platform-section .headline-wrapper.device-2 .device-text-2 p {
+#platform-section .headline-wrapper.device-1 .device-text-1 .headline-title,
+#platform-section .headline-wrapper.device-1 .device-text-1 .headline-subtext {
+  opacity: 1;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-2 .device-text-1 {
+  pointer-events: none;
+}
+#platform-section .headline-wrapper.device-2 .device-text-1 .headline-title,
+#platform-section .headline-wrapper.device-2 .device-text-1 .headline-subtext {
+  opacity: 0;
+  transition: 0.3s ease 0s;
+}
+#platform-section .headline-wrapper.device-2 .device-text-2 {
+  z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-2 .device-text-1 h3,
-#platform-section .headline-wrapper.device-2 .device-text-1 p {
-  opacity: 0;
+#platform-section .headline-wrapper.device-2 .device-text-2::before {
+  animation: platform-text-bar 0.6s ease 0.1s forwards;
+}
+#platform-section .headline-wrapper.device-2 .device-text-2 .headline-title,
+#platform-section .headline-wrapper.device-2 .device-text-2 .headline-subtext {
+  opacity: 1;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-3 .device-text-2 {
   pointer-events: none;
+}
+#platform-section .headline-wrapper.device-3 .device-text-2 .headline-title,
+#platform-section .headline-wrapper.device-3 .device-text-2 .headline-subtext {
+  opacity: 0;
   transition: 0.3s ease 0s;
+}
+#platform-section .headline-wrapper.device-3 .device-text-3 {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-3 .device-text-3::before {
+  animation: platform-text-bar 0.6s ease 0.1s forwards;
+}
+#platform-section .headline-wrapper.device-3 .device-text-3 .headline-title,
+#platform-section .headline-wrapper.device-3 .device-text-3 .headline-subtext {
+  opacity: 1;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-4 .device-text-3 {
+  pointer-events: none;
+}
+#platform-section .headline-wrapper.device-4 .device-text-3 .headline-title,
+#platform-section .headline-wrapper.device-4 .device-text-3 .headline-subtext {
+  opacity: 0;
+  transition: 0.3s ease 0s;
+}
+#platform-section .headline-wrapper.device-4 .device-text-4 {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-4 .device-text-4::before {
+  animation: platform-text-bar 0.6s ease 0.1s forwards;
+}
+#platform-section .headline-wrapper.device-4 .device-text-4 .headline-title,
+#platform-section .headline-wrapper.device-4 .device-text-4 .headline-subtext {
+  opacity: 1;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-5 .device-text-4 {
+  pointer-events: none;
+}
+#platform-section .headline-wrapper.device-5 .device-text-4 .headline-title,
+#platform-section .headline-wrapper.device-5 .device-text-4 .headline-subtext {
+  opacity: 0;
+  transition: 0.3s ease 0s;
+}
+#platform-section .headline-wrapper.device-5 .device-text-5 {
+  z-index: 1;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease 0.2s;
+}
+#platform-section .headline-wrapper.device-5 .device-text-5::before {
+  animation: platform-text-bar 0.6s ease 0.1s forwards;
+}
+#platform-section .headline-wrapper.device-5 .device-text-5 .headline-title,
+#platform-section .headline-wrapper.device-5 .device-text-5 .headline-subtext {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.3s ease 0.2s;
 }
 #platform-section .platform-headline-img {
   position: sticky;
-  top: 420px;
+  top: 556px;
   translate: 340% 0;
   width: 0;
   z-index: -1;
 }
+@media screen and (max-width: 1512px) {
+  #platform-section .platform-headline-img {
+    top: 420px;
+  }
+}
 #platform-section .platform-headline-img img {
-  width: 15vw;
+  width: min(15vw, 288px);
   translate: 82% -50%;
 }
 #platform-section .device-showcase {

@@ -344,11 +344,10 @@
     top: 50%;
     translate: 0 -50%;
     width: 50%;
-    height: 296px;
+    height: 364px;
 
-    .headline-text {
-      position: absolute;
-      top: 0;
+    @include mq-max('xxl') {
+      height: 296px;
     }
 
     .cta-wrapper {
@@ -356,31 +355,64 @@
       bottom: 0;
     }
 
+    .headline-text {
+      position: absolute;
+      top: 0;
+
+      &::before {
+        content: "";
+        background-color: $light-grey;
+        position: absolute;
+        top: 0;
+        left: 0;
+        translate: -100% 0;
+        width: 4px;
+        height: 0;
+      }
+    }
+
     .base-headline {
       transition: 0.3s ease 0.2s;
+
+      .headline-title,
+      .headline-subtext {
+        transition: 0.3s ease 0.2s;
+      }
     }
 
     .device-text {
-      height: 213px;
+      height: 262px;
+      pointer-events: none;
 
-      h3,
-      p {
+      @include mq-max('xxl') {
+        height: 213px;
+      }
+
+      .headline-title,
+      .headline-subtext {
         opacity: 0;
-        pointer-events: none;
         transition: 0.3s ease;
       }
 
-      h3 {
-        font-size: 56px;
+      .headline-title {
+        font-size: 80px;
         font-weight: 400;
         text-transform: uppercase;
         
+        @include mq-max('xxl') {
+          font-size: 56px;
+        }
+
         @include mq-max('xl') {
           font-size: 48px;
         }
       }
 
-      p {
+      .headline-subtext {
+
+        @include mq-max('xxl') {
+          font-size: 16px;
+        }
 
         @include mq-max('xl') {
           font-size: 14px;
@@ -388,76 +420,173 @@
       }
     }
 
-    // Hide section title
-    .device-text-1,
-    .device-text-2,
-    .device-text-3,
-    .device-text-4,
-    .device-text-5 {
-      
-      .headline-text {
-        opacity: 0;
+    &.device-1,
+    &.device-2,
+    &.device-3,
+    &.device-4,
+    &.device-5 {
+
+      .base-headline {
+        // opacity: 0;
         pointer-events: none;
+        // transition: 0.3s ease 0s;
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 0;
+          // pointer-events: none;
+          transition: 0.3s ease;
+        }
       }
     }
 
-    // &.device-1,
-    // &.device-2,
-    // &.device-3,
-    // &.device-4,
-    // &.device-5 {
-
-    //   .base-headline {
-    //     opacity: 0;
-    //     pointer-events: none;
-    //     transition: 0.3s ease 0s;
-    //   }
-    // }
-
     &.device-1 {
-      
-      .base-headline {
-        opacity: 0;
+
+      .headline-text {
         pointer-events: none;
-        transition: 0.3s ease 0s;
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 0;
+          transition: 0.3s ease 0s;
+        }
       }
-
+      
       .device-text-1 {
-        // opacity: 1;
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        transition: 0.3s ease 0.2s;
 
-        h3,
-        p {
+        &::before {
+          animation: platform-text-bar 0.6s ease 0.1s forwards;
+        }
+
+        .headline-title,
+        .headline-subtext {
           opacity: 1;
-          pointer-events: all;
           transition: 0.3s ease 0.2s;
         }
       }
     }
 
     &.device-2 {
-      
-      .base-headline {
-        display: none;
+
+      .device-text-1 {
+        pointer-events: none;
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 0;
+          transition: 0.3s ease 0s;
+        }
       }
       
       .device-text-2 {
-        // opacity: 1;
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        transition: 0.3s ease 0.2s;
 
-        h3,
-        p {
+        &::before {
+          animation: platform-text-bar 0.6s ease 0.1s forwards;
+        }
+
+        .headline-title,
+        .headline-subtext {
           opacity: 1;
-          pointer-events: all;
           transition: 0.3s ease 0.2s;
         }
       }
-      .device-text-1 {
-        // opacity: 0 !important; // Ensure only ONE is showing. Hide previous.
-        
-        h3,
-        p {
+    }
+
+    &.device-3 {
+
+      .device-text-2 {
+        pointer-events: none;
+
+        .headline-title,
+        .headline-subtext {
           opacity: 0;
-          pointer-events: none;
           transition: 0.3s ease 0s;
+        }
+      }
+      
+      .device-text-3 {
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        transition: 0.3s ease 0.2s;
+
+        &::before {
+          animation: platform-text-bar 0.6s ease 0.1s forwards;
+        }
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 1;
+          transition: 0.3s ease 0.2s;
+        }
+      }
+    }
+
+    &.device-4 {
+
+      .device-text-3 {
+        pointer-events: none;
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 0;
+          transition: 0.3s ease 0s;
+        }
+      }
+      
+      .device-text-4 {
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        transition: 0.3s ease 0.2s;
+
+        &::before {
+          animation: platform-text-bar 0.6s ease 0.1s forwards;
+        }
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 1;
+          transition: 0.3s ease 0.2s;
+        }
+      }
+    }
+
+    &.device-5 {
+
+      .device-text-4 {
+        pointer-events: none;
+        
+        .headline-title,
+        .headline-subtext {
+          opacity: 0;
+          transition: 0.3s ease 0s;
+        }
+      }
+      
+      .device-text-5 {
+        z-index: 1;
+        opacity: 1;
+        pointer-events: all;
+        transition: 0.3s ease 0.2s;
+
+        &::before {
+          animation: platform-text-bar 0.6s ease 0.1s forwards;
+        }
+
+        .headline-title,
+        .headline-subtext {
+          opacity: 1;
+          pointer-events: all;
+          transition: 0.3s ease 0.2s;
         }
       }
     }
@@ -465,18 +594,18 @@
 
   .platform-headline-img {
     position: sticky;
-    top: 420px;
+    top: 556px;
     translate: 340% 0;
     width: 0;
     z-index: -1;
-
-    // @include mq-max('xxl') {
-    //   right: 0;
-    // }
+    
+    @include mq-max('xxl') {
+      top: 420px;
+    }
 
     img {
       // width: 248px;
-      width: 15vw; // min() this property
+      width: min(15vw, 288px);
       translate: 82% -50%;
     }
   }
