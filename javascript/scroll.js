@@ -1,4 +1,4 @@
-// let mqMinlg = window.matchMedia("(min-width: 1024px)");
+let minMd = window.matchMedia("(min-width: 768px)");
 // let mqMaxSm = window.matchMedia("(max-width: 480px)");
 // let mqMouse = window.matchMedia("(hover: hover)");
 
@@ -130,14 +130,10 @@ const platformScrollSnap = () => {
   const scrollSnapObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && allowScrollSnap) {
-        // Debounce scroll snapping to prevent it from interfering with user-initiated scrolls
-        clearTimeout(window.snapTimeout);
-        window.snapTimeout = setTimeout(() => {
-          entry.target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-        }, 100); // Adjust debounce time as needed
+        entry.target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
       }
     });
   }, {
@@ -160,6 +156,13 @@ const handleSmoothScroll = (e) => {
   }
 };
 
-document.addEventListener('click', handleSmoothScroll);
+const watchQueryMd = (e) => {
+  if (e.matches) {
+    document.addEventListener('click', handleSmoothScroll);
+    window.addEventListener("scroll", throttle(platformScrollSnap, 500));
+  }
+}
 
-window.addEventListener("scroll", throttle(platformScrollSnap, 500));
+minMd.addEventListener('change', watchQueryMd);
+
+watchQueryMd(minMd);

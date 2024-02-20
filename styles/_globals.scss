@@ -1,8 +1,8 @@
 * {
+  // border: $test;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  // border: $test;
 
   &::selection {
     background: rgba($green, 0.5);
@@ -642,7 +642,7 @@ button {
     justify-content: center;
 
     p {
-      font-size: min(2.4vw, 128px);
+      font-size: min(2.4vw, 64px);
       text-transform: uppercase;
 
       @include mq-max('sm') {

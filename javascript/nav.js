@@ -30,7 +30,8 @@ function toggleNav() {
 }
 
 function closeNav() {
-  document.body.style = "overflow: auto;"
+  // Pevent scroll when nav is open
+  // document.body.style = "overflow: auto;"
 
   navMenu.classList.remove("menu-active");
   menuBtn.classList.remove("menu-active");

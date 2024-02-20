@@ -2,7 +2,6 @@ let pageLoaded = false;
 let timerDone = false;
 document.body.style = "overflow: hidden;"
 
-
 const attemptCompleteLoading = () => {
   if (pageLoaded && timerDone) {
     const loadingScreen = document.querySelector('.loading-screen');

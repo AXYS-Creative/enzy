@@ -334,7 +334,7 @@
   }
 
   @include mq-max('lg') {
-    padding: 320px 0 $vertical-section-padding $body-padding-lg;
+    padding: 320px 0 $vertical-section-padding $body-padding;
   }
 
   @include mq-max('sm') {
@@ -357,6 +357,18 @@
       height: 264px;
     }
 
+    @include mq-max('md') {
+      @include column-left;
+      // position: static;
+      position: absolute;
+      top: $vertical-section-padding-md;
+      left: 50%;
+      translate: -50% 0;
+      // width: 658px;
+      width: 80%;
+      // height: unset;
+    }
+
     .cta-wrapper {
       position: absolute;
       bottom: 0;
@@ -365,6 +377,10 @@
     .headline-text {
       position: absolute;
       top: 0;
+
+      @include mq-max('md') {
+        position: static;
+      }
 
       &::before {
         content: "";
@@ -380,6 +396,10 @@
 
     .base-headline {
       transition: 0.3s ease 0.2s;
+
+      @include mq-max('md') {
+        margin-bottom: 248px;
+      }
 
       .headline-title,
       .headline-subtext {
@@ -399,10 +419,18 @@
         height: 196px;
       }
 
+      @include mq-max('md') {
+        margin-bottom: 720px;
+      }
+
       .headline-title,
       .headline-subtext {
         opacity: 0;
         transition: 0.3s ease;
+
+        @include mq-max('md') {
+          opacity: 1 !important;
+        }
       }
 
       .headline-title {
@@ -610,6 +638,10 @@
     width: 0;
     z-index: -1;
 
+    @include mq-max('md') {
+      display: none;
+    }
+
     img {
       width: min(15vw, 288px);
       translate: 96% 0;
@@ -623,7 +655,7 @@
       }
 
       @include mq-max('lg') {
-        translate: 148% 0;
+        translate: 132% 0;
       }
     }
   }
@@ -636,7 +668,13 @@
     margin-left: 56px;
     
     @include mq-max('lg') {
-      margin-left: 280px;
+      // margin-left: 196px;
+      margin-left: 48px;
+    }
+
+    @include mq-max('md') {
+      margin-left: unset;
+      width: 420px;
     }
 
     img {
@@ -644,6 +682,15 @@
 
       @include mq-max('xxl') {
         margin: 64px 0;
+      }
+
+      @include mq-max('lg') {
+        width: 80%;
+      }
+
+      @include mq-max('md') {
+        margin: 80px 0;
+        width: 100%;
       }
     }
   }
