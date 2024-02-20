@@ -629,8 +629,23 @@ button {
   justify-content: center;
 }
 .loading-screen-text-content p {
-  font-size: min(2.4vw, 64px);
+  font-size: 48px;
   text-transform: uppercase;
+}
+@media screen and (max-width: 1200px) {
+  .loading-screen-text-content p {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .loading-screen-text-content p {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .loading-screen-text-content p {
+    font-size: 24px;
+  }
 }
 @media screen and (max-width: 480px) {
   .loading-screen-text-content p {
@@ -655,11 +670,31 @@ button {
 .loading-screen-text-content .top-row {
   translate: 0 -24px;
 }
+@media screen and (max-width: 768px) {
+  .loading-screen-text-content .top-row {
+    translate: 0 -16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .loading-screen-text-content .top-row {
+    translate: 0 -12px;
+  }
+}
 .loading-screen-text-content .top-row span {
   translate: 0 100%;
 }
 .loading-screen-text-content .bottom-row {
   translate: 0 24px;
+}
+@media screen and (max-width: 768px) {
+  .loading-screen-text-content .bottom-row {
+    translate: 0 16px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .loading-screen-text-content .bottom-row {
+    translate: 0 12px;
+  }
 }
 .loading-screen-text-content .bottom-row span {
   translate: 0 -100%;

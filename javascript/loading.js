@@ -24,4 +24,4 @@ setTimeout(() => {
   timerDone = true;
   attemptCompleteLoading();
 }, 1800);
-// }, 3000);
+// }, 30000);
