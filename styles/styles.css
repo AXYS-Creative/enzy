@@ -1577,6 +1577,9 @@ button {
 #faq-section .faq-list .faq-item:hover {
   border-color: #6CA793;
 }
+#faq-section .faq-list .faq-item:hover .question .angle-arrow {
+  rotate: 45deg;
+}
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .faq-item {
     margin-bottom: 12px;
@@ -1587,7 +1590,7 @@ button {
   grid-template-rows: 1fr;
 }
 #faq-section .faq-list .faq-item.active .question .angle-arrow {
-  rotate: 180deg;
+  rotate: 135deg;
 }
 #faq-section .faq-list .faq-item.active .answer {
   opacity: 1;
@@ -1638,28 +1641,26 @@ button {
     gap: 4px;
   }
 }
-#faq-section .faq-list .question h3-indicator {
+#faq-section .faq-list .question h3 .question-indicator {
   width: 24px;
+  margin-right: 24px;
 }
 #faq-section .faq-list .question .angle-arrow-wrapper {
   transition: 0.4s ease;
 }
 #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
-  width: 36px;
-  height: 36px;
+  width: 16px;
+  height: 16px;
   transition: 0.3s ease;
 }
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
-    width: 24px;
-    height: 24px;
+    width: 12px;
+    height: 12px;
   }
 }
 #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow path {
-  fill: #6CA793;
-}
-#faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow.active {
-  rotate: 180deg;
+  fill: #020202;
 }
 @media screen and (max-width: 480px) {
   #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
@@ -1689,19 +1690,7 @@ button {
   }
 }
 #faq-section .faq-list .answer .answer-indicator {
-  font-family: "Saira", sans-serif;
-  font-weight: 500;
-  padding-right: 12px;
-}
-@media screen and (max-width: 1512px) {
-  #faq-section .faq-list .answer .answer-indicator {
-    padding-right: 10px;
-  }
-}
-@media screen and (max-width: 768px) {
-  #faq-section .faq-list .answer .answer-indicator {
-    padding-right: 6px;
-  }
+  padding-right: 60px;
 }
 #faq-section .faq-list .answer .faq-inner-link {
   text-decoration: underline;

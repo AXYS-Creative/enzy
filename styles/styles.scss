@@ -733,6 +733,13 @@
 
       &:hover {
         border-color: $green;
+
+        .question {
+
+          .angle-arrow {
+            rotate: 45deg;
+          }
+        }
       }
       
       @include mq-max('xxl') {
@@ -746,7 +753,7 @@
         .question {
 
           .angle-arrow {
-            rotate: 180deg;
+            rotate: 135deg;
           }
         }
 
@@ -796,8 +803,9 @@
           gap: 4px;
         }
         
-        &-indicator {
+        .question-indicator {
           width: 24px;
+          margin-right: 24px;
         }
       }
       
@@ -805,21 +813,17 @@
         transition: 0.4s ease;
 
         .angle-arrow {
-          width: 36px;
-          height: 36px;
+          width: 16px;
+          height: 16px;
           transition: 0.3s ease;
           
           @include mq-max('xxl') {
-            width: 24px;
-            height: 24px;
+            width: 12px;
+            height: 12px;
           }
 
           path {
-            fill: $green;
-          }
-
-          &.active {
-            rotate: 180deg;
+            fill: $black;
           }
 
           @include mq-max('sm') {
@@ -850,17 +854,17 @@
       }
 
       .answer-indicator {
-        font-family: $primary-font;
-        font-weight: 500;
-        padding-right: 12px;
+        // font-family: $primary-font;
+        // font-weight: 500;
+        padding-right: 60px;
         
-        @include mq-max('xxl') {
-          padding-right: 10px;
-        }
+        // @include mq-max('xxl') {
+        //   padding-right: 10px;
+        // }
 
-        @include mq-max('md') {
-          padding-right: 6px;
-        }
+        // @include mq-max('md') {
+        //   padding-right: 6px;
+        // }
       }
 
       .faq-inner-link {
