@@ -1540,6 +1540,11 @@ button {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  #faq-section {
+    align-items: flex-start;
+  }
+}
 #faq-section .headline-wrapper,
 #faq-section .faq-list {
   width: 58%;

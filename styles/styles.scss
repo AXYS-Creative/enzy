@@ -699,6 +699,10 @@
 #faq-section {
   @include column-center;
 
+  @include mq-max('md') {
+    align-items: flex-start;
+  }
+
   .headline-wrapper,
   .faq-list {
     width: 58%;
