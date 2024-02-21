@@ -110,3 +110,26 @@
         height: 0;
     }
 }
+
+@keyframes faq-item-hover {
+    0% {
+        left: 0;
+        right: unset;
+        width: 0;
+    }
+    33% {
+        left: 0;
+        right: unset;
+        width: 100%;
+    }
+    66% {
+        left: unset;
+        right: 0;
+        width: 100%;
+    }
+    100% {
+        left: unset;
+        right: 0;
+        width: 0;
+    }
+}

@@ -705,13 +705,14 @@
 
   .headline-wrapper,
   .faq-list {
-    width: 58%;
+    width: 88%;
   }
 
   .faq-list {
     display: flex;
     flex-direction: column;
-    margin: 48px 0 124px;
+    gap: 12px;
+    margin: 64px 0 124px;
     
     @include mq-max('xl') {
       width: 80%;
@@ -723,28 +724,34 @@
     }
     
     .faq-item {
+      border-bottom: 2px solid $green;
       position: relative;
-      border-bottom: 2px solid $dark-grey;
-      margin-bottom: 24px;
-      padding-top: 42px;
+      // padding-top: 42px;
       display: grid;
       grid-template-rows: 0fr;
       transition: all 0.3s ease, margin 0.4s ease;
 
       &:hover {
-        border-color: $green;
 
-        .question {
-
-          .angle-arrow {
-            rotate: 45deg;
-          }
+        &::before {
+          animation: faq-item-hover 0.75s ease-in-out forwards;
         }
       }
       
       @include mq-max('xxl') {
         margin-bottom: 12px;
         padding-top: 24px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        translate: 0 100%;
+        width: 0;
+        height: 2px;
+        background: $black;
       }
 
       &.active {
@@ -772,6 +779,7 @@
     }
 
     .question {
+      // background: $test-bg;
       @include row-between;
       position: absolute;
       top: 0;
@@ -779,9 +787,9 @@
       padding: 16px 0;
       z-index: 1;
       
-      @include mq-max('xxl') {
-        padding: 4px 0;
-      }
+      // @include mq-max('xxl') {
+      //   padding: 4px 0;
+      // }
 
       h3 {
         color: $black;
@@ -804,12 +812,16 @@
         }
         
         .question-indicator {
+          // background: $test-bg;
           width: 24px;
           margin-right: 24px;
+          margin-left: 32px;
         }
       }
       
       .angle-arrow-wrapper {
+        // background: $test-bg;
+        margin-right: 32px;
         transition: 0.4s ease;
 
         .angle-arrow {
@@ -834,10 +846,12 @@
     }
 
     .answer {
+      // background: lightgreen;
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
-      translate: 0 -24px;
+      // translate: 0 -24px;
+      translate: 0 0;
       padding: 12px 0;
       display: flex;
       font-size: 20px;
@@ -856,7 +870,7 @@
       .answer-indicator {
         // font-family: $primary-font;
         // font-weight: 500;
-        padding-right: 60px;
+        padding-right: 92px;
         
         // @include mq-max('xxl') {
         //   padding-right: 10px;
@@ -865,6 +879,10 @@
         // @include mq-max('md') {
         //   padding-right: 6px;
         // }
+      }
+
+      p {
+        width: 88%;
       }
 
       .faq-inner-link {
