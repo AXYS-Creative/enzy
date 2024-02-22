@@ -901,18 +901,8 @@ button {
     height: 0;
   }
 }
-@keyframes faq-item-hover {
+@keyframes faq-item-default {
   0% {
-    left: 0;
-    right: unset;
-    width: 0;
-  }
-  33% {
-    left: 0;
-    right: unset;
-    width: 100%;
-  }
-  66% {
     left: unset;
     right: 0;
     width: 100%;
@@ -921,6 +911,18 @@ button {
     left: unset;
     right: 0;
     width: 0;
+  }
+}
+@keyframes faq-item-hover {
+  0% {
+    left: 0;
+    right: unset;
+    width: 0;
+  }
+  100% {
+    left: 0;
+    right: unset;
+    width: 100%;
   }
 }
 #hero-section {
@@ -1563,6 +1565,7 @@ button {
 }
 
 #faq-section {
+  padding: 196px 196px 64px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1574,18 +1577,12 @@ button {
 }
 #faq-section .headline-wrapper,
 #faq-section .faq-list {
-  width: 88%;
+  width: 100%;
 }
 #faq-section .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 64px 0 124px;
-}
-@media screen and (max-width: 1200px) {
-  #faq-section .faq-list {
-    width: 80%;
-  }
+  margin: 64px 124px;
 }
 @media screen and (max-width: 768px) {
   #faq-section .faq-list {
@@ -1594,14 +1591,15 @@ button {
   }
 }
 #faq-section .faq-list .faq-item {
-  border-bottom: 2px solid #6CA793;
+  border-bottom: 3px solid #6CA793;
   position: relative;
+  padding-top: 56px;
   display: grid;
   grid-template-rows: 0fr;
   transition: all 0.3s ease, margin 0.4s ease;
 }
 #faq-section .faq-list .faq-item:hover::before {
-  animation: faq-item-hover 0.75s ease-in-out forwards;
+  animation: faq-item-hover 0.3s ease-in-out forwards;
 }
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .faq-item {
@@ -1616,8 +1614,9 @@ button {
   left: 0;
   translate: 0 100%;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: #020202;
+  animation: faq-item-default 0.3s ease-in-out forwards;
 }
 #faq-section .faq-list .faq-item.active {
   grid-template-rows: 1fr;
@@ -1628,7 +1627,7 @@ button {
 #faq-section .faq-list .faq-item.active .answer {
   opacity: 1;
   pointer-events: all;
-  padding: 32px 0 16px;
+  padding: 12px 0 16px;
   translate: 0 0;
   transition: 0.3s ease 0.12s;
 }
@@ -1644,7 +1643,7 @@ button {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 16px 0;
+  padding: 30px 0;
   z-index: 1;
 }
 #faq-section .faq-list .question h3 {
@@ -1671,11 +1670,10 @@ button {
 }
 #faq-section .faq-list .question h3 .question-indicator {
   width: 24px;
-  margin-right: 24px;
-  margin-left: 32px;
+  margin: 0 56px;
 }
 #faq-section .faq-list .question .angle-arrow-wrapper {
-  margin-right: 32px;
+  margin-right: 56px;
   transition: 0.4s ease;
 }
 #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {
@@ -1720,7 +1718,7 @@ button {
   }
 }
 #faq-section .faq-list .answer .answer-indicator {
-  padding-right: 92px;
+  padding-right: 150px;
 }
 #faq-section .faq-list .answer p {
   width: 88%;

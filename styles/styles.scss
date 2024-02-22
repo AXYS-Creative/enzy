@@ -697,6 +697,7 @@
 }
 
 #faq-section {
+  padding: $vertical-section-padding 196px $body-padding;
   @include column-center;
 
   @include mq-max('md') {
@@ -705,18 +706,18 @@
 
   .headline-wrapper,
   .faq-list {
-    width: 88%;
+    // width: 88%;
+    width: 100%;
   }
 
   .faq-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin: 64px 0 124px;
+    margin: 64px 124px;
     
-    @include mq-max('xl') {
-      width: 80%;
-    }
+    // @include mq-max('xl') {
+    //   width: 80%;
+    // }
 
     @include mq-max('md') {
       width: 100%;
@@ -724,9 +725,10 @@
     }
     
     .faq-item {
-      border-bottom: 2px solid $green;
+      // border: 1px solid black;
+      border-bottom: 3px solid $green;
       position: relative;
-      // padding-top: 42px;
+      padding-top: 56px;
       display: grid;
       grid-template-rows: 0fr;
       transition: all 0.3s ease, margin 0.4s ease;
@@ -734,7 +736,7 @@
       &:hover {
 
         &::before {
-          animation: faq-item-hover 0.75s ease-in-out forwards;
+          animation: faq-item-hover 0.3s ease-in-out forwards;
         }
       }
       
@@ -750,8 +752,9 @@
         left: 0;
         translate: 0 100%;
         width: 0;
-        height: 2px;
+        height: 3px;
         background: $black;
+        animation: faq-item-default 0.3s ease-in-out forwards;
       }
 
       &.active {
@@ -767,7 +770,7 @@
         .answer {
           opacity: 1;
           pointer-events: all;
-          padding: 32px 0 16px;
+          padding: 12px 0 16px;
           translate: 0 0;
           transition: 0.3s ease 0.12s;
           
@@ -779,12 +782,12 @@
     }
 
     .question {
-      // background: $test-bg;
+      // background-color: $test-bg;
       @include row-between;
       position: absolute;
       top: 0;
       width: 100%;
-      padding: 16px 0;
+      padding: 30px 0;
       z-index: 1;
       
       // @include mq-max('xxl') {
@@ -812,16 +815,13 @@
         }
         
         .question-indicator {
-          // background: $test-bg;
           width: 24px;
-          margin-right: 24px;
-          margin-left: 32px;
+          margin: 0 56px;
         }
       }
       
       .angle-arrow-wrapper {
-        // background: $test-bg;
-        margin-right: 32px;
+        margin-right: 56px;
         transition: 0.4s ease;
 
         .angle-arrow {
@@ -870,7 +870,7 @@
       .answer-indicator {
         // font-family: $primary-font;
         // font-weight: 500;
-        padding-right: 92px;
+        padding-right: 150px;
         
         // @include mq-max('xxl') {
         //   padding-right: 10px;
