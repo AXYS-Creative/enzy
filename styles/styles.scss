@@ -188,11 +188,13 @@
     position: sticky;
     top: $body-padding;
     margin-bottom: 112px; // Adjust space between video and paragraph
-    height: 80vh;
+    // height: 80vh;
+    width: 30%;
     z-index: 1;
 
     video {
-      height: 100%;
+      // height: 100%;
+      width: 100%;
       cursor: pointer;
 
       &:hover,
@@ -206,6 +208,10 @@
           .play-icon-wrapper,
           .pause-icon-wrapper {
             translate: 0 -32%;
+
+            @include mq-max('xxl') {
+              translate: 0 -35%;
+            }
 
             svg {
               fill: rgba($white, 1);
@@ -243,6 +249,11 @@
       overflow: hidden;
       transition: 0.25s ease;
 
+      @include mq-max('xxl') {
+        width: 48px;
+        height: 48px;
+      }
+
       &:hover,
       &:focus {
         border: 2px solid rgba($white, 1);
@@ -265,6 +276,10 @@
         gap: 24px;
         translate: 0 32%;
         transition: 0.2s ease;
+        
+        @include mq-max('xxl') {
+          translate: 0 35%;
+        }
 
         svg {
           width: 32%;
@@ -272,9 +287,6 @@
         }
       }
 
-      // .play-icon-wrapper {
-      //   border: none;
-      // }
       .pause-icon-wrapper {
         display: none;
       }
@@ -283,16 +295,21 @@
 
   .video-paragraph {
     // border: $test;
+    // width: 1440px;
+    width: min(86%, 1440px);
+    text-align: justify;
+    // @include column-center;
     // position: absolute;
     // bottom: 196px;
     // translate: 0 -100%; // Distorts the animation start
     max-width: $content-width;
     font-family: $primary-font;
-    font-size: 78px;
+    // font-size: 68px;
+    font-size: min(3.7vw, 68px);
     font-weight: 700;
     line-height: 100%;
     text-transform: uppercase;
-    text-align: center;
+    // text-align: center;
     
     background-repeat: no-repeat;
     background-clip: text;
@@ -305,15 +322,22 @@
     z-index: 2;
 
     @include mq-max('xxl') {
-      font-size: 56px;
+      // font-size: 56px;
+      font-size: 3.5vw;
     }
 
-    @include mq-max('lg') {
-      font-size: 40px;
-    }
+    // @include mq-max('lg') {
+    //   font-size: 40px;
+    // }
 
     @include mq-max('sm') {
       font-size: 16px; // Revisit when in the office
+    }
+
+    span {
+      // background: $test-bg;
+      width: 100%;
+      text-align: justify;
     }
   }
 }
