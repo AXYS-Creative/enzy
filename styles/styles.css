@@ -1130,8 +1130,18 @@ button {
   position: sticky;
   top: 64px;
   margin-bottom: 112px;
-  width: 30%;
+  width: 480px;
   z-index: 1;
+}
+@media screen and (max-width: 1512px) {
+  #video-section .video-wrapper {
+    width: 360px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #video-section .video-wrapper {
+    width: 320px;
+  }
 }
 #video-section .video-wrapper video {
   width: 100%;
@@ -1234,11 +1244,11 @@ button {
   display: none;
 }
 #video-section .video-paragraph {
-  width: min(86%, 1440px);
+  width: min(85%, 1440px);
   text-align: justify;
   max-width: 1920px;
   font-family: "Saira", sans-serif;
-  font-size: min(3.7vw, 68px);
+  font-size: min(3.7vw, 68.9px);
   font-weight: 700;
   line-height: 100%;
   text-transform: uppercase;
@@ -1253,7 +1263,22 @@ button {
 }
 @media screen and (max-width: 1512px) {
   #video-section .video-paragraph {
+    font-size: 3.6vw;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #video-section .video-paragraph {
     font-size: 3.5vw;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #video-section .video-paragraph {
+    font-size: 3.6vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  #video-section .video-paragraph {
+    font-size: 3.64vw;
   }
 }
 @media screen and (max-width: 480px) {
