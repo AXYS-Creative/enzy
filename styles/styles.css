@@ -592,9 +592,31 @@ button {
   }
 }
 .cta-wrapper .cta-1 {
-  background: #6CA793;
+  position: relative;
   color: #f8f8f8;
   border-radius: 4px;
+  transition: 0.3s ease;
+}
+.cta-wrapper .cta-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #6CA793;
+  transition: 0.24s ease;
+  z-index: -1;
+}
+.cta-wrapper .cta-1:hover, .cta-wrapper .cta-1:focus {
+  color: #020202;
+  translate: 4px 0;
+}
+.cta-wrapper .cta-1:hover::before, .cta-wrapper .cta-1:focus::before {
+  border-radius: 0;
+  width: 4px;
+  translate: -4px 0;
 }
 .cta-wrapper .cta-2 {
   display: flex;

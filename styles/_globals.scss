@@ -601,9 +601,37 @@ button {
   }
 
   .cta-1 {
-    background: $green;
+    // background: $green;
+    position: relative;
     color: $white;
     border-radius: 4px;
+    transition: 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      background-color: $green;
+      transition: 0.24s ease;
+      z-index: -1;
+    }
+    
+    &:hover,
+    &:focus {
+      // background: $black;
+      color: $black;
+      translate: 4px 0;
+
+      &::before {
+        border-radius: 0;
+        width: 4px;
+        translate: -4px 0;
+      }
+    }
   }
 
   .cta-2 {
