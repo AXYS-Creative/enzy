@@ -100,7 +100,7 @@ header .cta-wrapper {
 }
 header .cta-wrapper .cta-2,
 header .cta-wrapper .cta-1 {
-  transition: 0.3s ease 0.75s, outline 0s;
+  transition: 0.3s ease 0.75s, outline 0s, color 0.3s ease 0s, translate 0.3s ease 0s;
 }
 header .menu-btn-wrapper {
   position: fixed;

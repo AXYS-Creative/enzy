@@ -87,7 +87,10 @@ header {
 
     .cta-2,
     .cta-1 {
-      transition: 0.3s ease 0.75s, outline 0s;
+      transition: 0.3s ease 0.75s, 
+       outline 0s,
+       color 0.3s ease 0s,
+       translate 0.3s ease 0s;
     }
   }
 
