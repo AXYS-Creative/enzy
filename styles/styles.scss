@@ -374,6 +374,10 @@
     padding: 320px 0 $vertical-section-padding $body-padding;
   }
 
+  @include mq-max('md') {
+    padding: $vertical-section-padding-md $body-padding-md;
+  }
+
   @include mq-max('sm') {
     padding: 128px $body-padding-md;
   }
@@ -396,14 +400,15 @@
 
     @include mq-max('md') {
       @include column-left;
-      // position: static;
-      position: absolute;
-      top: $vertical-section-padding-md;
-      left: 50%;
-      translate: -50% 0;
-      // width: 658px;
+      position: static;
+      translate: unset;
       width: 80%;
-      // height: unset;
+      height: unset;
+      // position: absolute;
+      // top: $vertical-section-padding-md;
+      // left: 50%;
+      // translate: -50% 0;
+      
     }
 
     .cta-wrapper {
@@ -457,7 +462,7 @@
       }
 
       @include mq-max('md') {
-        margin-bottom: 720px;
+        // margin-bottom: 720px;
       }
 
       .headline-title,
@@ -698,20 +703,20 @@
   }
 
   .device-showcase {
-    // border: $test;
+    border: $test;
     @include column-center;
     width: 50%;
     margin-top: 360px;
     margin-left: 56px;
     
     @include mq-max('lg') {
-      // margin-left: 196px;
       margin-left: 48px;
     }
 
     @include mq-max('md') {
       margin-left: unset;
       width: 420px;
+      display: none;
     }
 
     img {
@@ -759,10 +764,6 @@
     display: flex;
     flex-direction: column;
     margin: 64px 124px;
-    
-    // @include mq-max('xl') {
-    //   width: 80%;
-    // }
 
     @include mq-max('md') {
       width: 100%;
@@ -770,7 +771,6 @@
     }
     
     .faq-item {
-      // border: 1px solid black;
       border-bottom: 3px solid $green;
       position: relative;
       padding-top: 56px;
@@ -827,7 +827,6 @@
     }
 
     .question {
-      // background-color: $test-bg;
       @include row-between;
       position: absolute;
       top: 0;
@@ -912,11 +911,9 @@
     }
 
     .answer {
-      // background: lightgreen;
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
-      // translate: 0 -24px;
       translate: 0 0;
       padding: 12px 0;
       display: flex;
@@ -957,16 +954,16 @@
         }
       }
 
-      .faq-inner-link {
-        text-decoration: underline;
+      // .faq-inner-link {
+      //   text-decoration: underline;
 
-        svg {
+      //   svg {
 
-          path {
-            fill: $white;
-          }
-        }
-      }
+      //     path {
+      //       fill: $white;
+      //     }
+      //   }
+      // }
     }
   }  
 }

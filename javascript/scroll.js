@@ -120,48 +120,48 @@ document.querySelectorAll('.device-img').forEach((img, index) => {
   platformDeviceObserver.observe(img);
 });
 
-// Platform Section Scroll Snap
-let allowScrollSnap = true;
+// // Platform Section Scroll Snap
+// let allowScrollSnap = true;
 
-const platformScrollSnap = () => {
-  const deviceImg = document.querySelectorAll('.device-img');
+// const platformScrollSnap = () => {
+//   const deviceImg = document.querySelectorAll('.device-img');
   
-  const scrollSnapObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && allowScrollSnap) {
-        entry.target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-      }
-    });
-  }, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5
-  });
+//   const scrollSnapObserver = new IntersectionObserver((entries, observer) => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting && allowScrollSnap) {
+//         entry.target.scrollIntoView({
+//           behavior: 'smooth',
+//           block: 'center'
+//         });
+//       }
+//     });
+//   }, {
+//     root: null,
+//     rootMargin: '0px',
+//     threshold: 0.5
+//   });
   
-  deviceImg.forEach(image => {
-    scrollSnapObserver.observe(image);
-  });
-};
+//   deviceImg.forEach(image => {
+//     scrollSnapObserver.observe(image);
+//   });
+// };
 
-// Toggle scroll snap when clicking page links
-const handleSmoothScroll = (e) => {
-  const target = e.target.closest('a[href^="#"]');
-  if (target) {
-    allowScrollSnap = false;
-    setTimeout(() => { allowScrollSnap = true; }, 1000);
-  }
-};
+// // Toggle scroll snap when clicking page links
+// const handleSmoothScroll = (e) => {
+//   const target = e.target.closest('a[href^="#"]');
+//   if (target) {
+//     allowScrollSnap = false;
+//     setTimeout(() => { allowScrollSnap = true; }, 1000);
+//   }
+// };
 
-const watchQueryMd = (e) => {
-  if (e.matches) {
-    document.addEventListener('click', handleSmoothScroll);
-    window.addEventListener("scroll", throttle(platformScrollSnap, 500));
-  }
-}
+// const watchQueryMd = (e) => {
+//   if (e.matches) {
+//     document.addEventListener('click', handleSmoothScroll);
+//     window.addEventListener("scroll", throttle(platformScrollSnap, 500));
+//   }
+// }
 
-minMd.addEventListener('change', watchQueryMd);
+// minMd.addEventListener('change', watchQueryMd);
 
-watchQueryMd(minMd);
+// watchQueryMd(minMd);

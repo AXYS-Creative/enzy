@@ -1313,6 +1313,11 @@ button {
     padding: 320px 0 196px 64px;
   }
 }
+@media screen and (max-width: 768px) {
+  #platform-section {
+    padding: 148px 24px;
+  }
+}
 @media screen and (max-width: 480px) {
   #platform-section {
     padding: 128px 24px;
@@ -1340,11 +1345,10 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: absolute;
-    top: 148px;
-    left: 50%;
-    translate: -50% 0;
+    position: static;
+    translate: unset;
     width: 80%;
+    height: unset;
   }
 }
 #platform-section .headline-wrapper .cta-wrapper {
@@ -1394,11 +1398,6 @@ button {
 @media screen and (max-width: 1200px) {
   #platform-section .headline-wrapper .device-text {
     height: 196px;
-  }
-}
-@media screen and (max-width: 768px) {
-  #platform-section .headline-wrapper .device-text {
-    margin-bottom: 720px;
   }
 }
 #platform-section .headline-wrapper .device-text .headline-title,
@@ -1592,6 +1591,7 @@ button {
   }
 }
 #platform-section .device-showcase {
+  border: 2px dashed coral;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1608,6 +1608,7 @@ button {
   #platform-section .device-showcase {
     margin-left: unset;
     width: 420px;
+    display: none;
   }
 }
 #platform-section .device-showcase img {
@@ -1849,10 +1850,4 @@ button {
   #faq-section .faq-list .answer p {
     width: 84%;
   }
-}
-#faq-section .faq-list .answer .faq-inner-link {
-  text-decoration: underline;
-}
-#faq-section .faq-list .answer .faq-inner-link svg path {
-  fill: #f8f8f8;
 }/*# sourceMappingURL=styles.css.map */
