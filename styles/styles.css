@@ -1598,14 +1598,8 @@ button {
   grid-template-rows: 0fr;
   transition: all 0.3s ease, margin 0.4s ease;
 }
-#faq-section .faq-list .faq-item:hover::before {
+#faq-section .faq-list .faq-item:hover::before, #faq-section .faq-list .faq-item:focus-within::before {
   animation: faq-item-hover 0.3s ease-in-out forwards;
-}
-@media screen and (max-width: 1512px) {
-  #faq-section .faq-list .faq-item {
-    margin-bottom: 12px;
-    padding-top: 24px;
-  }
 }
 #faq-section .faq-list .faq-item::before {
   content: "";
@@ -1721,7 +1715,7 @@ button {
   padding-right: 150px;
 }
 #faq-section .faq-list .answer p {
-  width: 88%;
+  width: 76%;
 }
 #faq-section .faq-list .answer .faq-inner-link {
   text-decoration: underline;
