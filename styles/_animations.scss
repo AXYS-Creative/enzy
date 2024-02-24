@@ -111,28 +111,51 @@
     }
 }
 
-// @keyframes faq-item-hover {
-//     0% {
-//         left: 0;
-//         right: unset;
-//         width: 0;
-//     }
-//     33% {
-//         left: 0;
-//         right: unset;
-//         width: 100%;
-//     }
-//     66% {
-//         left: unset;
-//         right: 0;
-//         width: 100%;
-//     }
-//     100% {
-//         left: unset;
-//         right: 0;
-//         width: 0;
-//     }
-// }
+@keyframes cta-2-default {
+    0% {
+        left: unset;
+        right: 0;
+        width: 0;
+    }
+    33% {
+        left: unset;
+        right: 0;
+        width: 100%;
+    }
+    66% {
+        left: 0;
+        right: unset;
+        width: 100%;
+    }
+    100% {
+        left: 0;
+        right: unset;
+        width: 0;
+    }
+}
+
+@keyframes cta-2-hover {
+    0% {
+        left: 0;
+        right: unset;
+        width: 0;
+    }
+    33% {
+        left: 0;
+        right: unset;
+        width: 100%;
+    }
+    66% {
+        left: unset;
+        right: 0;
+        width: 100%;
+    }
+    100% {
+        left: unset;
+        right: 0;
+        width: 0;
+    }
+}
 
 @keyframes faq-item-default {
     0% {
@@ -145,11 +168,6 @@
         right: 0;
         width: 0;
     }
-    // 100% {
-    //     left: 0;
-    //     right: unset;
-    //     width: 0;
-    // }
 }
 
 @keyframes faq-item-hover {
@@ -163,14 +181,4 @@
         right: unset;
         width: 100%;
     }
-    // 66% {
-    //     left: unset;
-    //     right: 0;
-    //     width: 100%;
-    // }
-    // 100% {
-    //     left: unset;
-    //     right: 0;
-    //     width: 0;
-    // }
 }

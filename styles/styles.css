@@ -100,7 +100,7 @@ header .cta-wrapper {
 }
 header .cta-wrapper .cta-2,
 header .cta-wrapper .cta-1 {
-  transition: 0.3s ease 0.75s, outline 0s, color 0.3s ease 0.2s, translate 0.3s ease 0s !important;
+  transition: 0.3s ease 0.75s, outline 0s, color 0.3s ease 0.12s, translate 0.3s ease 0s !important;
 }
 header .cta-wrapper .cta-2::before {
   display: none;
@@ -631,35 +631,50 @@ button {
   transition: height 0.24s ease 0s, width 0.24s ease 0.2s;
 }
 .cta-wrapper .cta-2 {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s ease;
 }
-.cta-wrapper .cta-2::before {
+.cta-wrapper .cta-2:hover .cta-2-text::before, .cta-wrapper .cta-2:focus .cta-2-text::before {
+  width: 100%;
+  animation: cta-2-hover 0.5s ease forwards;
+}
+.cta-wrapper .cta-2:hover svg, .cta-wrapper .cta-2:focus svg {
+  background: #6CA793;
+  translate: 6px 0;
+}
+.cta-wrapper .cta-2:hover svg path, .cta-wrapper .cta-2:focus svg path {
+  fill: #D6D6D6;
+}
+.cta-wrapper .cta-2-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.cta-wrapper .cta-2-text::before {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 16px;
+  bottom: -12px;
+  left: 0;
   width: 0;
   height: 3px;
   background-color: #6CA793;
-  transition: 0.3s ease;
+  animation: cta-2-default 0.5s ease forwards;
 }
 .cta-wrapper .cta-2 svg {
+  width: 16px;
+  height: 16px;
+  padding: 4px;
+  scale: 2;
+  border-radius: 50%;
   margin-left: 12px;
-  transition: 0.3s ease 0.2s;
+  transition: 0.3s ease;
 }
 .cta-wrapper .cta-2 svg path {
   fill: #6CA793;
-  transition: 0.3s ease 0.2s;
-}
-.cta-wrapper .cta-2:hover::before, .cta-wrapper .cta-2:focus::before {
-  width: 74%;
-}
-.cta-wrapper .cta-2:hover svg, .cta-wrapper .cta-2:focus svg {
-  translate: 6px 0;
+  transition: 0.3s ease;
 }
 
 .loading-screen {
@@ -951,6 +966,50 @@ button {
     height: 0;
   }
 }
+@keyframes cta-2-default {
+  0% {
+    left: unset;
+    right: 0;
+    width: 0;
+  }
+  33% {
+    left: unset;
+    right: 0;
+    width: 100%;
+  }
+  66% {
+    left: 0;
+    right: unset;
+    width: 100%;
+  }
+  100% {
+    left: 0;
+    right: unset;
+    width: 0;
+  }
+}
+@keyframes cta-2-hover {
+  0% {
+    left: 0;
+    right: unset;
+    width: 0;
+  }
+  33% {
+    left: 0;
+    right: unset;
+    width: 100%;
+  }
+  66% {
+    left: unset;
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    left: unset;
+    right: 0;
+    width: 0;
+  }
+}
 @keyframes faq-item-default {
   0% {
     left: unset;
@@ -1176,6 +1235,11 @@ button {
     width: 320px;
   }
 }
+@media screen and (max-width: 480px) {
+  #video-section .video-wrapper {
+    margin-bottom: 0;
+  }
+}
 #video-section .video-wrapper video {
   width: 100%;
   cursor: pointer;
@@ -1209,7 +1273,7 @@ button {
   }
   #video-section .video-wrapper video + .video-toggle-btn .play-icon-wrapper,
   #video-section .video-wrapper video + .video-toggle-btn .pause-icon-wrapper {
-    translate: 0 -32%;
+    translate: 0 -42%;
   }
   #video-section .video-wrapper video + .video-toggle-btn .play-icon-wrapper svg,
   #video-section .video-wrapper video + .video-toggle-btn .pause-icon-wrapper svg {
@@ -1335,12 +1399,9 @@ button {
 }
 @media screen and (max-width: 480px) {
   #video-section .video-paragraph {
-    font-size: 16px;
+    font-size: 15px;
+    width: 96%;
   }
-}
-#video-section .video-paragraph span {
-  width: 100%;
-  text-align: justify;
 }
 
 #platform-section {
@@ -1422,6 +1483,11 @@ button {
     margin-bottom: 196px;
   }
 }
+@media screen and (max-width: 480px) {
+  #platform-section .headline-wrapper .cta-wrapper {
+    margin-bottom: 124px;
+  }
+}
 #platform-section .headline-wrapper .headline-text {
   position: absolute;
   top: 0;
@@ -1475,6 +1541,7 @@ button {
 @media screen and (max-width: 768px) {
   #platform-section .headline-wrapper .device-text {
     height: auto;
+    border: none;
   }
 }
 #platform-section .headline-wrapper .device-text .headline-title,
@@ -1510,7 +1577,7 @@ button {
 }
 @media screen and (max-width: 480px) {
   #platform-section .headline-wrapper .device-text .headline-title {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
 #platform-section .headline-wrapper.device-1 .base-headline, #platform-section .headline-wrapper.device-2 .base-headline, #platform-section .headline-wrapper.device-3 .base-headline, #platform-section .headline-wrapper.device-4 .base-headline, #platform-section .headline-wrapper.device-5 .base-headline {
@@ -1644,6 +1711,11 @@ button {
     display: block;
     width: 50%;
     margin-bottom: 196px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #platform-section .headline-wrapper .device-img-mobile {
+    margin-bottom: 64px;
   }
 }
 #platform-section .platform-headline-img {

@@ -89,7 +89,7 @@ header {
     .cta-1 {
       transition: 0.3s ease 0.75s, 
        outline 0s,
-       color 0.3s ease 0.2s,
+       color 0.3s ease 0.12s,
        translate 0.3s ease 0s !important;
     }
 
@@ -657,40 +657,60 @@ button {
   }
 
   .cta-2 {
-    position: relative;
     @include row-center;
     transition: 0.3s ease;
-
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 16px;
-      width: 0;
-      height: 3px;
-      background-color: $green;
-      transition: 0.3s ease;
-    }
-
-    svg {
-      margin-left: 12px;
-      transition: 0.3s ease 0.2s;
-
-      path {
-        fill: $green;
-        transition: 0.3s ease 0.2s;
-      }
-    }
 
     &:hover,
     &:focus {
 
-      &::before {
-        width: 74%;
+      .cta-2-text {
+
+        &::before {
+          width: 100%;
+          animation: cta-2-hover 0.5s ease forwards;
+        }
       }
 
       svg {
+        background: $green;
         translate: 6px 0;
+
+        path {
+          fill: $light-grey;
+        }
+      }
+    }
+    
+    &-text {
+      @include row-center;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background-color: $green;
+        animation: cta-2-default 0.5s ease forwards;
+        // transition: 0.3s ease;
+      }
+    }
+
+    svg {
+      // border: 2px solid $green;
+      width: 16px;
+      height: 16px;
+      padding: 4px;
+      scale: 2;
+      border-radius: 50%;
+      margin-left: 12px;
+      transition: 0.3s ease;
+
+      path {
+        fill: $green;
+        transition: 0.3s ease;
       }
     }
   }
