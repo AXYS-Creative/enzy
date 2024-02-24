@@ -90,7 +90,21 @@ header {
       transition: 0.3s ease 0.75s, 
        outline 0s,
        color 0.3s ease 0.2s,
-       translate 0.3s ease 0s;
+       translate 0.3s ease 0s !important;
+    }
+
+    .cta-2 {
+
+      &::before {
+        display: none;
+      }
+
+      &:hover {
+
+        &::before {
+          width: 50%;
+        }
+      }
     }
   }
 
@@ -239,7 +253,7 @@ header {
       opacity: 1;
       pointer-events: all;
     }
-  
+
     .cta-2,
     .cta-1 {
       opacity: 0;
@@ -401,19 +415,21 @@ nav {
     bottom: $body-padding;
     right: $body-padding;
     left: unset;
-
+    
     @include mq-max('lg') {
       gap: 32px;
-    }
-
-    @include mq-max('lg') {
       right: $body-padding-lg;
+      translate: 0 4px;
+    }
+    
+    @include mq-max('md') {
+      bottom: $body-padding-md;
+      right: $body-padding-md;
+      translate: 0 -12px;
     }
 
     @include mq-max('sm') {
       gap: 24px;
-      right: $body-padding-md;
-      bottom: $body-padding-md;
     }
 
     .social-media-link {
@@ -431,7 +447,6 @@ nav {
         
       &:hover,
       &:focus {
-        scale: 1.12;
 
         .social-media-icon-wrapper {
           translate: 0 -40%;
@@ -574,8 +589,12 @@ button {
     .headline-subtext {
       font-size: 18px;
 
-      @include mq-max('xl') {
+      @include mq-max('xxl') {
         font-size: 16px;
+      }
+
+      @include mq-max('sm') {
+        font-size: 14px;
       }
     }
   }
@@ -604,7 +623,6 @@ button {
   }
 
   .cta-1 {
-    // background: $green;
     position: relative;
     color: $white;
     border-radius: 4px;
@@ -626,39 +644,53 @@ button {
     
     &:hover,
     &:focus {
-      // background: $black;
       color: $black;
-      // translate: 4px 0;
       transition: color 0.3s ease 0s;
 
       &::before {
         border-radius: 0;
-        // width: 4px;
         width: 80%;
         height: 3px;
-        // translate: -4px 0;
         transition: height 0.24s ease 0s, width 0.24s ease 0.2s;
       }
     }
   }
 
   .cta-2 {
+    position: relative;
     @include row-center;
+    transition: 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 16px;
+      width: 0;
+      height: 3px;
+      background-color: $green;
+      transition: 0.3s ease;
+    }
 
     svg {
       margin-left: 12px;
-      transition: 0.3s ease;
+      transition: 0.3s ease 0.2s;
 
       path {
         fill: $green;
+        transition: 0.3s ease 0.2s;
       }
     }
 
     &:hover,
     &:focus {
 
+      &::before {
+        width: 74%;
+      }
+
       svg {
-        translate: 4px 0;
+        translate: 6px 0;
       }
     }
   }

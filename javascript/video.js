@@ -4,6 +4,7 @@ const enzyVideo = document.querySelector('.enzy-video'),
       pauseIconWrapper = document.querySelector('.pause-icon-wrapper');
 
 const toggleVideoPlayState = () => {
+  
   if (enzyVideo.paused || enzyVideo.ended) {
     enzyVideo.play();
     videoToggleBtn.style.opacity = "0";
@@ -18,7 +19,6 @@ const toggleVideoPlayState = () => {
 }
 
 enzyVideo.addEventListener('click', toggleVideoPlayState);
-
 videoToggleBtn.addEventListener('click', toggleVideoPlayState);
 
 enzyVideo.addEventListener('keydown', (e) => {

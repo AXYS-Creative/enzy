@@ -8,16 +8,16 @@
   @include row-between;
   align-items: flex-start;
   margin-top: 96px;
+  
+  @include mq-max('xxl') {
+    margin-top: 72px;
+  }
 
   @include mq-max('lg') {
     flex-direction: column;
     align-items: center;
     gap: 96px;
   }
-
-  // & > * {
-  //   border: $test;
-  // }
   
   .hero-headline {
     width: 50%;
@@ -68,7 +68,7 @@
       }
       
       @include mq-max('lg') {
-        font-size: 86px;
+        font-size: 72px;
       }
 
       @include mq-max('md') {
@@ -216,10 +216,10 @@
 
           .play-icon-wrapper,
           .pause-icon-wrapper {
-            translate: 0 -32%;
+            translate: 0 -40%;
 
-            @include mq-max('xxl') {
-              translate: 0 -35%;
+            @include mq-max('md') {
+              translate: 0 -42%;
             }
 
             svg {
@@ -251,16 +251,21 @@
       @include absolute-center;
       @include row-center;
       background: $dark-grey;
-      width: 64px;
-      height: 64px;
+      width: 96px;
+      height: 96px;
       border: 2px solid rgba($white, 0.5);
       border-radius: 50%;
       overflow: hidden;
       transition: 0.25s ease;
 
       @include mq-max('xxl') {
-        width: 48px;
-        height: 48px;
+        width: 72px;
+        height: 72px;
+      }
+
+      @include mq-max('md') {
+        width: 64px;
+        height: 64px;
       }
 
       &:hover,
@@ -271,7 +276,11 @@
 
         .play-icon-wrapper,
         .pause-icon-wrapper {
-          translate: 0 -32%;
+          translate: 0 -40%;
+
+          @include mq-max('md') {
+            translate: 0 -42%;
+          }
 
           svg {
             fill: rgba($white, 1);
@@ -282,17 +291,21 @@
       .play-icon-wrapper,
       .pause-icon-wrapper {
         @include column-center;
-        gap: 24px;
-        translate: 0 32%;
+        gap: 64px;
+        translate: 0 40%;
         transition: 0.2s ease;
         
-        @include mq-max('xxl') {
-          translate: 0 35%;
+        @include mq-max('md') {
+          translate: 0 42%;
         }
 
         svg {
-          width: 32%;
+          width: 16px;
           fill: rgba($white, 0.5);
+
+          @include mq-max('md') {
+            width: 12px;
+          }
         }
       }
 
@@ -383,7 +396,6 @@
   }
 
   .headline-wrapper {
-    // border: $test;
     position: sticky;
     top: 50%;
     translate: 0 -50%;
@@ -398,11 +410,16 @@
       height: 264px;
     }
 
+    @include mq-max('lg') {
+      height: 296px;
+    }
+
     @include mq-max('md') {
       @include column-left;
       position: static;
       translate: unset;
-      width: 80%;
+      // width: 80%;
+      width: 100%;
       height: unset;
 
       & > * {
@@ -466,8 +483,12 @@
         height: 196px;
       }
 
+      @include mq-max('lg') {
+        height: 216px;
+      }
+
       @include mq-max('md') {
-        // margin-bottom: 720px;
+        height: auto;
       }
 
       .headline-title,
@@ -492,16 +513,13 @@
         @include mq-max('xl') {
           font-size: 48px;
         }
-      }
 
-      .headline-subtext {
-
-        @include mq-max('xxl') {
-          font-size: 16px;
+        @include mq-max('md') {
+          font-size: 36px;
         }
 
-        @include mq-max('xl') {
-          font-size: 14px;
+        @include mq-max('sm') {
+          font-size: 24px;
         }
       }
     }
@@ -690,13 +708,17 @@
     }
   }
 
-  // Both below are hidden on mobile
   .platform-headline-img {
     position: sticky;
     top: 50%;
     translate: 0 -50%;
     width: 0;
     z-index: -1;
+    
+    @include mq-max('lg') {
+      translate: 0 -64%;
+      margin-bottom: 64px;
+    }
 
     @include mq-max('md') {
       display: none;
@@ -731,8 +753,6 @@
     }
 
     @include mq-max('md') {
-      // margin-left: unset;
-      // width: 420px;
       display: none;
     }
 
@@ -747,9 +767,15 @@
         width: 80%;
       }
 
-      @include mq-max('md') {
-        margin: 80px 0;
-        width: 100%;
+      &:last-of-type {
+
+        @include mq-max('xxl') {
+          margin-bottom: 0;
+        }
+
+        @include mq-max('xl') {
+          margin-bottom: 64px;
+        }
       }
     }
   }
