@@ -89,7 +89,7 @@ header {
     .cta-1 {
       transition: 0.3s ease 0.75s, 
        outline 0s,
-       color 0.3s ease 0s,
+       color 0.3s ease 0.2s,
        translate 0.3s ease 0s;
     }
   }
@@ -317,7 +317,7 @@ nav {
           $delay: 0.65s + ($i - 2) * 0.05s;
 
           .nav-link {
-            transition: padding 0.2s ease, translate $transition ease $delay;
+            transition: 0.2s ease, translate $transition ease $delay;
           }
         }
       }
@@ -330,7 +330,7 @@ nav {
       height: 100%;
       translate: 0 100%;
       border-left: 4px solid transparent;
-      transition: padding 0.2s ease, translate 0.3s ease 0.6s;
+      transition: 0.2s ease, translate 0.3s ease 0.6s;
 
       @include mq-max('xxl') {
         font-size: 72px;
@@ -350,11 +350,11 @@ nav {
 
       &:hover,
       &:focus {
-        padding-left: 36px;
+        padding-left: 24px;
         border-color: $green;
 
         @include mq-max('xxl') {
-          padding-left: 24px;
+          padding-left: 16px;
         }
       }
     }
@@ -608,18 +608,19 @@ button {
     position: relative;
     color: $white;
     border-radius: 4px;
-    transition: 0.3s ease;
+    transition: color 0.3s ease 0.2s;
 
     &::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
+      bottom: 0;
+      left: 50%;
+      translate: -50% 0;
       width: 100%;
       height: 100%;
       border-radius: 4px;
       background-color: $green;
-      transition: 0.24s ease;
+      transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
       z-index: -1;
     }
     
@@ -627,12 +628,16 @@ button {
     &:focus {
       // background: $black;
       color: $black;
-      translate: 4px 0;
+      // translate: 4px 0;
+      transition: color 0.3s ease 0s;
 
       &::before {
         border-radius: 0;
-        width: 4px;
-        translate: -4px 0;
+        // width: 4px;
+        width: 80%;
+        height: 3px;
+        // translate: -4px 0;
+        transition: height 0.24s ease 0s, width 0.24s ease 0.2s;
       }
     }
   }
