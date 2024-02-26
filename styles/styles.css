@@ -1828,6 +1828,11 @@ button {
   display: flex;
   flex-direction: column;
   margin: 64px 124px;
+  /* 
+    Experimental style for long FAQ questions.
+    Ideally the height will be dynamic
+    and this wouldn't be needed.
+   */
 }
 @media screen and (max-width: 768px) {
   #faq-section .faq-list {
@@ -1887,7 +1892,7 @@ button {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 30px 0;
+  padding: 32px 0;
   z-index: 1;
 }
 #faq-section .faq-list .question h3 {
@@ -2018,6 +2023,17 @@ button {
     width: 84%;
   }
 }
+@media screen and (max-width: 480px) {
+  #faq-section .faq-list .long-faq-item {
+    padding-top: 56px;
+  }
+  #faq-section .faq-list .long-faq-item .question {
+    padding: 20px 0;
+  }
+  #faq-section .faq-list .long-faq-item .question h3 {
+    line-height: 150%;
+  }
+}
 
 #statement-section {
   display: flex;
@@ -2076,6 +2092,11 @@ button {
 @media screen and (max-width: 768px) {
   #statement-section .statement-divider {
     width: 280px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #statement-section .statement-divider {
+    width: 224px;
   }
 }
 #statement-section .statement-img {
