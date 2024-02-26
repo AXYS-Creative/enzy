@@ -419,6 +419,7 @@ nav .nav-social-media {
 @media screen and (max-width: 480px) {
   nav .nav-social-media {
     gap: 24px;
+    translate: 0 0;
   }
 }
 nav .nav-social-media .social-media-link {
@@ -2035,21 +2036,47 @@ button {
     font-size: 32px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+  #statement-section .statement-text {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 1024px) {
   #statement-section .statement-text {
     font-size: 24px;
   }
 }
 @media screen and (max-width: 480px) {
   #statement-section .statement-text {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 400;
   }
 }
 #statement-section .statement-divider {
-  width: 32%;
+  width: 520px;
   height: 2px;
   background-color: #6CA793;
   border: none;
+}
+@media screen and (max-width: 1512px) {
+  #statement-section .statement-divider {
+    width: 464px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #statement-section .statement-divider {
+    width: 412px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #statement-section .statement-divider {
+    width: 348px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #statement-section .statement-divider {
+    width: 280px;
+  }
 }
 #statement-section .statement-img {
   width: 148px;
@@ -2057,5 +2084,15 @@ button {
 @media screen and (max-width: 1512px) {
   #statement-section .statement-img {
     width: 96px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #statement-section .statement-img {
+    width: 80px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #statement-section .statement-img {
+    width: 64px;
   }
 }/*# sourceMappingURL=styles.css.map */

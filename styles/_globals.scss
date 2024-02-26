@@ -430,6 +430,7 @@ nav {
 
     @include mq-max('sm') {
       gap: 24px;
+      translate: 0 0;
     }
 
     .social-media-link {
