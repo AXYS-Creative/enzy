@@ -664,8 +664,8 @@ button {
   animation: cta-2-default 0.5s ease forwards;
 }
 .cta-wrapper .cta-2 svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   padding: 4px;
   scale: 2;
   border-radius: 50%;
@@ -2015,5 +2015,47 @@ button {
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .answer p {
     width: 84%;
+  }
+}
+
+#statement-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+#statement-section .statement-text {
+  font-family: "Saira", sans-serif;
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+}
+@media screen and (max-width: 1512px) {
+  #statement-section .statement-text {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #statement-section .statement-text {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #statement-section .statement-text {
+    font-size: 20px;
+  }
+}
+#statement-section .statement-divider {
+  width: 32%;
+  height: 2px;
+  background-color: #6CA793;
+  border: none;
+}
+#statement-section .statement-img {
+  width: 148px;
+}
+@media screen and (max-width: 1512px) {
+  #statement-section .statement-img {
+    width: 96px;
   }
 }/*# sourceMappingURL=styles.css.map */
