@@ -248,7 +248,7 @@
     .video-toggle-btn {
       @include absolute-center;
       @include row-center;
-      background: $dark-grey;
+      background: $grey-dark;
       width: 96px;
       height: 96px;
       border: 2px solid rgba($white, 0.5);
@@ -451,7 +451,7 @@
 
       &::before {
         content: "";
-        background-color: $light-grey;
+        background-color: $grey-light;
         position: absolute;
         top: 0;
         left: 0;
@@ -1110,4 +1110,182 @@
     }
   }
 
+}
+
+#demo-section {
+
+  .mail-form {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    flex-shrink: 0;
+    transition: 0.3s ease;
+    
+    @include mq-max('xxl') {
+      height: 48px;
+    }
+    
+    &.active {
+      translate: 0 -24px;
+    }
+
+    &:hover {
+
+      // .input {
+      //   border-color: $blue;
+      // }
+
+      // .label {
+      //   color: $grey;
+      // }
+
+      .submit-btn {
+          
+        @include mq-max('sm') {
+          scale: 1;
+          // border: 1px solid $blue;
+          translate: 0 -20px;
+        }
+        
+        svg {
+          scale: 0.8;
+
+          // path {
+          //   fill: $blue;
+          // }
+        }
+      }
+    }
+
+    .input,
+    .label {
+      font-family: $secondary-font;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+
+      @include mq-max('xxl') {
+        font-size: 16px;
+      }
+    }
+
+    .input {
+      bottom: 0;
+      color: $black;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid $grey-dark;
+      border-radius: 0;
+      transition: border 0.36s ease;
+
+      // &:focus {
+      //   border-color: $blue;
+      // }
+    }
+
+    .label {
+      top: 32%;
+      color: $grey-dark;
+      pointer-events: none;
+      transition: 0.24s ease;
+    }
+
+    .input:focus ~ .label,
+    .input:not(:placeholder-shown).input:not(focus) ~ .label {
+      transform: translate(0, -68%);
+      // color: $blue;
+      font-size: 16px;
+      
+      @include mq-max('xxl') {
+        transform: translate(0, -80%);
+        font-size: 12px;
+      }
+    }
+      
+    .submit-btn {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      translate: 0 -12px;
+      // transition: 0.4s $cubic-ease-back-dramatic;
+
+      svg {
+        width: 32px;
+        height: 32px;
+        transition: 0.3s ease;
+        
+        @include mq-max('xxl') {
+          width: 20px;
+          height: 20px;
+        }
+
+        path {
+          fill: $grey-light;
+          transition: 0.36s ease;
+        }
+      }
+    }
+
+    .confirmation-message,
+    .error-message {
+      position: absolute;
+      bottom: 0;
+      translate: 0 148%;
+      @include row-between;
+      gap: 12px;
+      font-size: 14px;
+      color: $green;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.24s ease 0.12s;
+
+      @include mq-max('sm') {
+        font-size: 13px;
+      }
+      
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+
+        .check-icon,
+        .error-icon {
+          scale: 1.2;
+        }
+      }
+
+      .check-icon,
+      .error-icon {
+        width: 24px;
+        height: 24px;
+        border: 1px solid $green;
+        border-radius: 50%;
+        padding: 4px;
+        scale: 0.5;
+        transition: 0.3s ease 0.24s;
+
+        path {
+          fill: $green;
+        }
+      }
+    }
+
+    .error-message {
+      // color: $yellow;
+
+      .error-icon {
+        border-color: transparent;
+        border-radius: 0;
+        margin-right: -6px;
+
+        // path {
+        //   fill: $yellow;
+        // }
+      }
+    }
+  }
 }

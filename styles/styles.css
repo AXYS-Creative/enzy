@@ -2116,4 +2116,158 @@ button {
   #statement-section .statement-img {
     width: 64px;
   }
+}
+
+#demo-section .mail-form {
+  position: relative;
+  width: 100%;
+  height: 56px;
+  flex-shrink: 0;
+  transition: 0.3s ease;
+}
+@media screen and (max-width: 1512px) {
+  #demo-section .mail-form {
+    height: 48px;
+  }
+}
+#demo-section .mail-form.active {
+  translate: 0 -24px;
+}
+@media screen and (max-width: 480px) {
+  #demo-section .mail-form:hover .submit-btn {
+    scale: 1;
+    translate: 0 -20px;
+  }
+}
+#demo-section .mail-form:hover .submit-btn svg {
+  scale: 0.8;
+}
+#demo-section .mail-form .input,
+#demo-section .mail-form .label {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+@media screen and (max-width: 1512px) {
+  #demo-section .mail-form .input,
+  #demo-section .mail-form .label {
+    font-size: 16px;
+  }
+}
+#demo-section .mail-form .input {
+  bottom: 0;
+  color: #020202;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #262626;
+  border-radius: 0;
+  transition: border 0.36s ease;
+}
+#demo-section .mail-form .label {
+  top: 32%;
+  color: #262626;
+  pointer-events: none;
+  transition: 0.24s ease;
+}
+#demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
+  transform: translate(0, -68%);
+  font-size: 16px;
+}
+#demo-section .mail-form .input:focus ~ .label,
+#demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
+  transform: translate(0, -68%);
+  font-size: 16px;
+}
+@media screen and (max-width: 1512px) {
+  #demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
+    transform: translate(0, -80%);
+    font-size: 12px;
+  }
+  #demo-section .mail-form .input:focus ~ .label,
+  #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
+    transform: translate(0, -80%);
+    font-size: 12px;
+  }
+}
+#demo-section .mail-form .submit-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  translate: 0 -12px;
+}
+#demo-section .mail-form .submit-btn svg {
+  width: 32px;
+  height: 32px;
+  transition: 0.3s ease;
+}
+@media screen and (max-width: 1512px) {
+  #demo-section .mail-form .submit-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+#demo-section .mail-form .submit-btn svg path {
+  fill: #D6D6D6;
+  transition: 0.36s ease;
+}
+#demo-section .mail-form .confirmation-message,
+#demo-section .mail-form .error-message {
+  position: absolute;
+  bottom: 0;
+  translate: 0 148%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #6CA793;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.24s ease 0.12s;
+}
+@media screen and (max-width: 480px) {
+  #demo-section .mail-form .confirmation-message,
+  #demo-section .mail-form .error-message {
+    font-size: 13px;
+  }
+}
+#demo-section .mail-form .confirmation-message.active,
+#demo-section .mail-form .error-message.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#demo-section .mail-form .confirmation-message.active .check-icon,
+#demo-section .mail-form .confirmation-message.active .error-icon,
+#demo-section .mail-form .error-message.active .check-icon,
+#demo-section .mail-form .error-message.active .error-icon {
+  scale: 1.2;
+}
+#demo-section .mail-form .confirmation-message .check-icon,
+#demo-section .mail-form .confirmation-message .error-icon,
+#demo-section .mail-form .error-message .check-icon,
+#demo-section .mail-form .error-message .error-icon {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #6CA793;
+  border-radius: 50%;
+  padding: 4px;
+  scale: 0.5;
+  transition: 0.3s ease 0.24s;
+}
+#demo-section .mail-form .confirmation-message .check-icon path,
+#demo-section .mail-form .confirmation-message .error-icon path,
+#demo-section .mail-form .error-message .check-icon path,
+#demo-section .mail-form .error-message .error-icon path {
+  fill: #6CA793;
+}
+#demo-section .mail-form .error-message .error-icon {
+  border-color: transparent;
+  border-radius: 0;
+  margin-right: -6px;
 }/*# sourceMappingURL=styles.css.map */
