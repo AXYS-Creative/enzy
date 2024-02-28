@@ -521,9 +521,18 @@ a {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-a {
+a,
+button {
   color: #020202;
   text-decoration: none;
+  padding: 12px 16px;
+}
+@media screen and (max-width: 1512px) {
+  a,
+  button {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
 }
 
 button {
@@ -593,22 +602,14 @@ button {
     width: 90vw;
   }
 }
-.cta-wrapper a {
-  padding: 12px 16px;
-}
-@media screen and (max-width: 1512px) {
-  .cta-wrapper a {
-    padding: 10px 14px;
-    font-size: 14px;
-  }
-}
-.cta-wrapper .cta-1 {
+
+.cta-1 {
   position: relative;
   color: #f8f8f8;
   border-radius: 4px;
   transition: color 0.3s ease 0.2s;
 }
-.cta-wrapper .cta-1::before {
+.cta-1::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -621,40 +622,41 @@ button {
   transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
   z-index: -1;
 }
-.cta-wrapper .cta-1:hover, .cta-wrapper .cta-1:focus {
+.cta-1:hover, .cta-1:focus {
   color: #020202;
   transition: color 0.3s ease 0s;
 }
-.cta-wrapper .cta-1:hover::before, .cta-wrapper .cta-1:focus::before {
+.cta-1:hover::before, .cta-1:focus::before {
   border-radius: 0;
   width: 80%;
   height: 3px;
   transition: height 0.24s ease 0s, width 0.24s ease 0.2s;
 }
-.cta-wrapper .cta-2 {
+
+.cta-2 {
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.3s ease;
 }
-.cta-wrapper .cta-2:hover .cta-2-text::before, .cta-wrapper .cta-2:focus .cta-2-text::before {
+.cta-2:hover .cta-2-text::before, .cta-2:focus .cta-2-text::before {
   width: 100%;
   animation: cta-2-hover 0.5s ease forwards;
 }
-.cta-wrapper .cta-2:hover svg, .cta-wrapper .cta-2:focus svg {
+.cta-2:hover svg, .cta-2:focus svg {
   background: #6CA793;
   translate: 6px 0;
 }
-.cta-wrapper .cta-2:hover svg path, .cta-wrapper .cta-2:focus svg path {
+.cta-2:hover svg path, .cta-2:focus svg path {
   fill: #D6D6D6;
 }
-.cta-wrapper .cta-2-text {
+.cta-2-text {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
-.cta-wrapper .cta-2-text::before {
+.cta-2-text::before {
   content: "";
   position: absolute;
   bottom: -12px;
@@ -664,7 +666,7 @@ button {
   background-color: #6CA793;
   animation: cta-2-default 0.5s ease forwards;
 }
-.cta-wrapper .cta-2 svg {
+.cta-2 svg {
   width: 14px;
   height: 14px;
   padding: 4px;
@@ -673,7 +675,7 @@ button {
   margin-left: 12px;
   transition: 0.3s ease;
 }
-.cta-wrapper .cta-2 svg path {
+.cta-2 svg path {
   fill: #6CA793;
   transition: 0.3s ease;
 }
@@ -2118,9 +2120,25 @@ button {
   }
 }
 
+#demo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#demo-section .headline-wrapper {
+  width: 40%;
+}
+#demo-section .headline-wrapper .headline-text {
+  border: none;
+}
+#demo-section .demo-divider {
+  height: 540px;
+  width: 4px;
+  background: #6CA793;
+}
 #demo-section .mail-form {
+  width: 40%;
   position: relative;
-  width: 100%;
   height: 56px;
   flex-shrink: 0;
   transition: 0.3s ease;
@@ -2132,15 +2150,6 @@ button {
 }
 #demo-section .mail-form.active {
   translate: 0 -24px;
-}
-@media screen and (max-width: 480px) {
-  #demo-section .mail-form:hover .submit-btn {
-    scale: 1;
-    translate: 0 -20px;
-  }
-}
-#demo-section .mail-form:hover .submit-btn svg {
-  scale: 0.8;
 }
 #demo-section .mail-form .input,
 #demo-section .mail-form .label {
@@ -2191,15 +2200,6 @@ button {
     transform: translate(0, -80%);
     font-size: 12px;
   }
-}
-#demo-section .mail-form .submit-btn {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  translate: 0 -12px;
 }
 #demo-section .mail-form .submit-btn svg {
   width: 32px;

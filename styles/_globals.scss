@@ -544,9 +544,16 @@ a {
   font-family: $secondary-font;
 }
 
-a {
+a,
+button {
   color: $black;
   text-decoration: none;
+  padding: 12px 16px;
+
+  @include mq-max('xxl') {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
 }
 
 button {
@@ -614,105 +621,105 @@ button {
     width: 90vw;
   }
 
-  a {
-    padding: 12px 16px;
+  // a {
+  //   padding: 12px 16px;
 
-    @include mq-max('xxl') {
-      padding: 10px 14px;
-      font-size: 14px;
-    }
-  }
+  //   @include mq-max('xxl') {
+  //     padding: 10px 14px;
+  //     font-size: 14px;
+  //   }
+  // }
+}
 
-  .cta-1 {
-    position: relative;
-    color: $white;
+.cta-1 {
+  position: relative;
+  color: $white;
+  border-radius: 4px;
+  transition: color 0.3s ease 0.2s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: 100%;
+    height: 100%;
     border-radius: 4px;
-    transition: color 0.3s ease 0.2s;
+    background-color: $green;
+    transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
+    z-index: -1;
+  }
+  
+  &:hover,
+  &:focus {
+    color: $black;
+    transition: color 0.3s ease 0s;
 
     &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      translate: -50% 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 4px;
-      background-color: $green;
-      transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
-      z-index: -1;
-    }
-    
-    &:hover,
-    &:focus {
-      color: $black;
-      transition: color 0.3s ease 0s;
-
-      &::before {
-        border-radius: 0;
-        width: 80%;
-        height: 3px;
-        transition: height 0.24s ease 0s, width 0.24s ease 0.2s;
-      }
+      border-radius: 0;
+      width: 80%;
+      height: 3px;
+      transition: height 0.24s ease 0s, width 0.24s ease 0.2s;
     }
   }
+}
 
-  .cta-2 {
-    @include row-center;
-    transition: 0.3s ease;
+.cta-2 {
+  @include row-center;
+  transition: 0.3s ease;
 
-    &:hover,
-    &:focus {
+  &:hover,
+  &:focus {
 
-      .cta-2-text {
-
-        &::before {
-          width: 100%;
-          animation: cta-2-hover 0.5s ease forwards;
-        }
-      }
-
-      svg {
-        background: $green;
-        translate: 6px 0;
-
-        path {
-          fill: $grey-light;
-        }
-      }
-    }
-    
-    &-text {
-      @include row-center;
-      position: relative;
+    .cta-2-text {
 
       &::before {
-        content: "";
-        position: absolute;
-        bottom: -12px;
-        left: 0;
-        width: 0;
-        height: 3px;
-        background-color: $green;
-        animation: cta-2-default 0.5s ease forwards;
-        // transition: 0.3s ease;
+        width: 100%;
+        animation: cta-2-hover 0.5s ease forwards;
       }
     }
 
     svg {
-      // border: 2px solid $green;
-      width: 14px;
-      height: 14px;
-      padding: 4px;
-      scale: 2;
-      border-radius: 50%;
-      margin-left: 12px;
-      transition: 0.3s ease;
+      background: $green;
+      translate: 6px 0;
 
       path {
-        fill: $green;
-        transition: 0.3s ease;
+        fill: $grey-light;
       }
+    }
+  }
+  
+  &-text {
+    @include row-center;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: $green;
+      animation: cta-2-default 0.5s ease forwards;
+      // transition: 0.3s ease;
+    }
+  }
+
+  svg {
+    // border: 2px solid $green;
+    width: 14px;
+    height: 14px;
+    padding: 4px;
+    scale: 2;
+    border-radius: 50%;
+    margin-left: 12px;
+    transition: 0.3s ease;
+
+    path {
+      fill: $green;
+      transition: 0.3s ease;
     }
   }
 }
