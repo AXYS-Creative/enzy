@@ -2121,9 +2121,11 @@ button {
 }
 
 #demo-section {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 340px 124px;
 }
 #demo-section .headline-wrapper {
   width: 40%;
@@ -2132,14 +2134,21 @@ button {
   border: none;
 }
 #demo-section .demo-divider {
-  height: 540px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  height: 448px;
   width: 4px;
   background: #6CA793;
 }
 #demo-section .mail-form {
-  width: 40%;
-  position: relative;
-  height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  width: 36%;
+  height: 100%;
   flex-shrink: 0;
   transition: 0.3s ease;
 }
@@ -2150,6 +2159,14 @@ button {
 }
 #demo-section .mail-form.active {
   translate: 0 -24px;
+}
+#demo-section .mail-form .form-input-block {
+  position: relative;
+  width: 100%;
+  height: 48px;
+}
+#demo-section .mail-form .form-input-block:last-of-type {
+  margin-bottom: 24px;
 }
 #demo-section .mail-form .input,
 #demo-section .mail-form .label {
@@ -2175,99 +2192,31 @@ button {
   border-radius: 0;
   transition: border 0.36s ease;
 }
+#demo-section .mail-form .input:-internal-autofill-selected {
+  background-color: #6CA793 !important;
+}
 #demo-section .mail-form .label {
-  top: 32%;
-  color: #262626;
+  top: 12px;
+  color: rgba(38, 38, 38, 0.36);
   pointer-events: none;
   transition: 0.24s ease;
 }
 #demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
-  transform: translate(0, -68%);
+  color: rgba(38, 38, 38, 0.75);
+  transform: translate(0, 80%);
   font-size: 16px;
 }
 #demo-section .mail-form .input:focus ~ .label,
 #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
-  transform: translate(0, -68%);
+  color: rgba(38, 38, 38, 0.75);
+  transform: translate(0, 80%);
   font-size: 16px;
 }
-@media screen and (max-width: 1512px) {
-  #demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
-    transform: translate(0, -80%);
-    font-size: 12px;
-  }
-  #demo-section .mail-form .input:focus ~ .label,
-  #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
-    transform: translate(0, -80%);
-    font-size: 12px;
-  }
+#demo-section .mail-form .submit-btn {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  padding: 12px 48px;
 }
-#demo-section .mail-form .submit-btn svg {
-  width: 32px;
-  height: 32px;
-  transition: 0.3s ease;
-}
-@media screen and (max-width: 1512px) {
-  #demo-section .mail-form .submit-btn svg {
-    width: 20px;
-    height: 20px;
-  }
-}
-#demo-section .mail-form .submit-btn svg path {
-  fill: #D6D6D6;
-  transition: 0.36s ease;
-}
-#demo-section .mail-form .confirmation-message,
-#demo-section .mail-form .error-message {
-  position: absolute;
-  bottom: 0;
-  translate: 0 148%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: #6CA793;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.24s ease 0.12s;
-}
-@media screen and (max-width: 480px) {
-  #demo-section .mail-form .confirmation-message,
-  #demo-section .mail-form .error-message {
-    font-size: 13px;
-  }
-}
-#demo-section .mail-form .confirmation-message.active,
-#demo-section .mail-form .error-message.active {
-  opacity: 1;
-  pointer-events: all;
-}
-#demo-section .mail-form .confirmation-message.active .check-icon,
-#demo-section .mail-form .confirmation-message.active .error-icon,
-#demo-section .mail-form .error-message.active .check-icon,
-#demo-section .mail-form .error-message.active .error-icon {
-  scale: 1.2;
-}
-#demo-section .mail-form .confirmation-message .check-icon,
-#demo-section .mail-form .confirmation-message .error-icon,
-#demo-section .mail-form .error-message .check-icon,
-#demo-section .mail-form .error-message .error-icon {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #6CA793;
-  border-radius: 50%;
-  padding: 4px;
-  scale: 0.5;
-  transition: 0.3s ease 0.24s;
-}
-#demo-section .mail-form .confirmation-message .check-icon path,
-#demo-section .mail-form .confirmation-message .error-icon path,
-#demo-section .mail-form .error-message .check-icon path,
-#demo-section .mail-form .error-message .error-icon path {
-  fill: #6CA793;
-}
-#demo-section .mail-form .error-message .error-icon {
-  border-color: transparent;
-  border-radius: 0;
-  margin-right: -6px;
+#demo-section .mail-form .submit-btn:hover::before, #demo-section .mail-form .submit-btn:focus::before {
+  width: 40%;
 }/*# sourceMappingURL=styles.css.map */

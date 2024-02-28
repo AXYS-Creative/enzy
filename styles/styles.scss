@@ -1113,8 +1113,10 @@
 }
 
 #demo-section {
+  position: relative;
   @include row-between;
-
+  // padding: $vertical-section-padding 196px $body-padding;
+  padding: 340px 124px;
 
   .headline-wrapper {
     width: 40%;
@@ -1125,15 +1127,19 @@
   }
 
   .demo-divider {
-    height: 540px;
+    @include absolute-center;
+    height: 448px;
     width: 4px;
     background: $green;
   }
 
   .mail-form {
-    width: 40%;
-    position: relative;
-    height: 56px;
+    // border: $test;
+    @include column-left;
+    gap: 48px;
+    width: 36%;
+    // position: relative;
+    height: 100%;
     flex-shrink: 0;
     transition: 0.3s ease;
     
@@ -1173,6 +1179,17 @@
     //   }
     // }
 
+    .form-input-block {
+      // background: $test-bg;
+      position: relative;
+      width: 100%;
+      height: 48px;
+
+      &:last-of-type {
+        margin-bottom: 24px;
+      }
+    }
+
     .input,
     .label {
       font-family: $secondary-font;
@@ -1199,28 +1216,38 @@
       // &:focus {
       //   border-color: $blue;
       // }
+
+      &:-internal-autofill-selected {
+        background-color: $green !important;
+      }
+
     }
 
     .label {
-      top: 32%;
-      color: $grey-dark;
+      top: 12px;
+      color: rgba($grey-dark, 0.36);
       pointer-events: none;
       transition: 0.24s ease;
     }
 
     .input:focus ~ .label,
     .input:not(:placeholder-shown).input:not(focus) ~ .label {
-      transform: translate(0, -68%);
-      // color: $blue;
+      color: rgba($grey-dark, 0.75);
+      transform: translate(0, 80%);
       font-size: 16px;
+
       
-      @include mq-max('xxl') {
-        transform: translate(0, -80%);
-        font-size: 12px;
-      }
+      // @include mq-max('xxl') {
+      //   transform: translate(0, -80%);
+      //   font-size: 12px;
+      // }
     }
       
     .submit-btn {
+      font-family: $secondary-font;
+      font-size: 16px;
+      padding: 12px 48px;
+      // font-weight: 300;
       // position: absolute;
       // top: 50%;
       // right: 0;
@@ -1230,78 +1257,70 @@
       // translate: 0 -12px;
       // transition: 0.4s $cubic-ease-back-dramatic;
 
-      svg {
-        width: 32px;
-        height: 32px;
-        transition: 0.3s ease;
-        
-        @include mq-max('xxl') {
-          width: 20px;
-          height: 20px;
-        }
+      &:hover,
+      &:focus {
 
-        path {
-          fill: $grey-light;
-          transition: 0.36s ease;
+        &::before {
+          width: 40%;
         }
       }
     }
 
-    .confirmation-message,
-    .error-message {
-      position: absolute;
-      bottom: 0;
-      translate: 0 148%;
-      @include row-between;
-      gap: 12px;
-      font-size: 14px;
-      color: $green;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.24s ease 0.12s;
+    // .confirmation-message,
+    // .error-message {
+    //   position: absolute;
+    //   bottom: 0;
+    //   translate: 0 148%;
+    //   @include row-between;
+    //   gap: 12px;
+    //   font-size: 14px;
+    //   color: $green;
+    //   opacity: 0;
+    //   pointer-events: none;
+    //   transition: 0.24s ease 0.12s;
 
-      @include mq-max('sm') {
-        font-size: 13px;
-      }
+    //   @include mq-max('sm') {
+    //     font-size: 13px;
+    //   }
       
-      &.active {
-        opacity: 1;
-        pointer-events: all;
+    //   &.active {
+    //     opacity: 1;
+    //     pointer-events: all;
 
-        .check-icon,
-        .error-icon {
-          scale: 1.2;
-        }
-      }
+    //     .check-icon,
+    //     .error-icon {
+    //       scale: 1.2;
+    //     }
+    //   }
 
-      .check-icon,
-      .error-icon {
-        width: 24px;
-        height: 24px;
-        border: 1px solid $green;
-        border-radius: 50%;
-        padding: 4px;
-        scale: 0.5;
-        transition: 0.3s ease 0.24s;
+    //   .check-icon,
+    //   .error-icon {
+    //     width: 24px;
+    //     height: 24px;
+    //     border: 1px solid $green;
+    //     border-radius: 50%;
+    //     padding: 4px;
+    //     scale: 0.5;
+    //     transition: 0.3s ease 0.24s;
 
-        path {
-          fill: $green;
-        }
-      }
-    }
+    //     path {
+    //       fill: $green;
+    //     }
+    //   }
+    // }
 
-    .error-message {
-      // color: $yellow;
+    // .error-message {
+    //   // color: $yellow;
 
-      .error-icon {
-        border-color: transparent;
-        border-radius: 0;
-        margin-right: -6px;
+    //   .error-icon {
+    //     border-color: transparent;
+    //     border-radius: 0;
+    //     margin-right: -6px;
 
-        // path {
-        //   fill: $yellow;
-        // }
-      }
-    }
+    //     // path {
+    //     //   fill: $yellow;
+    //     // }
+    //   }
+    // }
   }
 }
