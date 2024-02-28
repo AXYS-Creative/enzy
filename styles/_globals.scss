@@ -544,14 +544,11 @@ a {
   font-family: $secondary-font;
 }
 
-a,
-button {
+a {
   color: $black;
   text-decoration: none;
-  padding: 12px 16px;
 
   @include mq-max('xxl') {
-    padding: 10px 14px;
     font-size: 14px;
   }
 }
@@ -629,6 +626,15 @@ button {
   //     font-size: 14px;
   //   }
   // }
+}
+
+.cta-1,
+.cta-2 {
+  padding: 12px 16px;
+
+  @include mq-max('xxl') {
+    padding: 10px 14px;
+  }
 }
 
 .cta-1 {
