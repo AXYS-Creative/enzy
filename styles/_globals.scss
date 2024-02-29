@@ -8,11 +8,10 @@
     background: rgba($green, 0.5);
   }
 
-  // Auto fill for form fields: input, textarea, select, etc.
+  // Autofill for form fields: input, textarea, select, etc.
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    /* border: 1px solid green; */
     -webkit-text-fill-color: $black;
     -webkit-box-shadow: 0 0 0px 1000px $grey-light inset;
     transition: background-color 5000s ease-in-out 0s;
@@ -433,6 +432,7 @@ nav {
     }
     
     @include mq-max('md') {
+      gap: 12px;
       bottom: $body-padding-md;
       right: $body-padding-md;
       translate: 0 -12px;
