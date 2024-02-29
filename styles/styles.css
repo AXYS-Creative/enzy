@@ -9,6 +9,13 @@
 *::selection {
   background: rgba(108, 167, 147, 0.5);
 }
+*:-webkit-autofill, *:-webkit-autofill:hover, *:-webkit-autofill:focus {
+  /* border: 1px solid green; */
+  -webkit-text-fill-color: #020202;
+  -webkit-box-shadow: 0 0 0px 1000px #D6D6D6 inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 html {
   scroll-behavior: smooth;
@@ -100,7 +107,7 @@ header .cta-wrapper {
 }
 header .cta-wrapper .cta-2,
 header .cta-wrapper .cta-1 {
-  transition: 0.3s ease 0.75s, outline 0s, color 0.3s ease 0.12s, translate 0.3s ease 0s !important;
+  transition: 0.3s ease 0.75s, outline 0s, color 0.3s ease 0s, translate 0.3s ease 0s !important;
 }
 header .cta-wrapper .cta-2::before {
   display: none;
@@ -2049,6 +2056,27 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  padding: 392px 64px;
+}
+@media screen and (max-width: 1512px) {
+  #statement-section {
+    padding: 156px 64px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #statement-section {
+    padding: 124px 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #statement-section {
+    padding: 148px 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #statement-section {
+    padding: 96px 24px;
+  }
 }
 #statement-section .statement-text {
   font-family: "Saira", sans-serif;
@@ -2132,7 +2160,12 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 340px 124px;
+  padding: 196px 124px;
+}
+@media screen and (max-width: 768px) {
+  #demo-section {
+    flex-direction: column;
+  }
 }
 #demo-section .headline-wrapper {
   width: 40%;
@@ -2172,6 +2205,21 @@ button {
   width: 100%;
   height: 48px;
 }
+#demo-section .mail-form .form-input-block:hover::before, #demo-section .mail-form .form-input-block:focus-within::before {
+  animation: faq-item-hover 0.3s ease-in-out forwards;
+}
+#demo-section .mail-form .form-input-block::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #6CA793;
+  transition: 0.3s ease;
+  z-index: 1;
+  animation: faq-item-default 0.3s ease-in-out forwards;
+}
 #demo-section .mail-form .form-input-block:last-of-type {
   margin-bottom: 24px;
 }
@@ -2182,7 +2230,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  font-size: 24px;
+  font-size: 20px;
 }
 @media screen and (max-width: 1512px) {
   #demo-section .mail-form .input,
@@ -2195,12 +2243,9 @@ button {
   color: #020202;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #262626;
+  border-bottom: 3px solid #262626;
   border-radius: 0;
   transition: border 0.36s ease;
-}
-#demo-section .mail-form .input:-internal-autofill-selected {
-  background-color: #6CA793 !important;
 }
 #demo-section .mail-form .label {
   top: 12px;
@@ -2210,13 +2255,13 @@ button {
 }
 #demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
   color: rgba(38, 38, 38, 0.75);
-  transform: translate(0, 80%);
+  transform: translate(0, -75%);
   font-size: 16px;
 }
 #demo-section .mail-form .input:focus ~ .label,
 #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
   color: rgba(38, 38, 38, 0.75);
-  transform: translate(0, 80%);
+  transform: translate(0, -75%);
   font-size: 16px;
 }
 #demo-section .mail-form .submit-btn {

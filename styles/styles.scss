@@ -884,6 +884,7 @@
       width: 100%;
       padding: 32px 0;
       z-index: 1;
+      // outline: none; // Visit for keyboard tabbing, when button is open
 
       h3 {
         color: $black;
@@ -1042,6 +1043,23 @@
 #statement-section {
   @include column-center;
   gap: 48px;
+  padding: calc($vertical-section-padding * 2) $body-padding;
+
+  @include mq-max('xxl') {
+    padding: $vertical-section-padding-xxl $body-padding;
+  }
+
+  @include mq-max('lg') {
+    padding: $vertical-section-padding-lg $body-padding-lg;
+  }
+
+  @include mq-max('md') {
+    padding: $vertical-section-padding-md $body-padding-md;
+  }
+
+  @include mq-max('sm') {
+    padding: $vertical-section-padding-sm $body-padding-md;
+  }
 
   .statement-text {
     font-family: $primary-font;
@@ -1115,8 +1133,11 @@
 #demo-section {
   position: relative;
   @include row-between;
-  // padding: $vertical-section-padding 196px $body-padding;
-  padding: 340px 124px;
+  padding: $vertical-section-padding 124px;
+
+  @include mq-max('md') {
+    flex-direction: column;
+  }
 
   .headline-wrapper {
     width: 40%;
@@ -1134,11 +1155,9 @@
   }
 
   .mail-form {
-    // border: $test;
     @include column-left;
     gap: 48px;
     width: 36%;
-    // position: relative;
     height: 100%;
     flex-shrink: 0;
     transition: 0.3s ease;
@@ -1151,39 +1170,32 @@
       translate: 0 -24px;
     }
 
-    // &:hover {
-
-    //   // .input {
-    //   //   border-color: $blue;
-    //   // }
-
-    //   // .label {
-    //   //   color: $grey;
-    //   // }
-
-    //   .submit-btn {
-          
-    //     @include mq-max('sm') {
-    //       scale: 1;
-    //       // border: 1px solid $blue;
-    //       translate: 0 -20px;
-    //     }
-        
-    //     svg {
-    //       scale: 0.8;
-
-    //       // path {
-    //       //   fill: $blue;
-    //       // }
-    //     }
-    //   }
-    // }
-
     .form-input-block {
       // background: $test-bg;
       position: relative;
       width: 100%;
       height: 48px;
+
+      &:hover,
+      &:focus-within {
+
+        &::before {
+          animation: faq-item-hover 0.3s ease-in-out forwards;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: $green;
+        transition: 0.3s ease;
+        z-index: 1;
+        animation: faq-item-default 0.3s ease-in-out forwards;
+      }
 
       &:last-of-type {
         margin-bottom: 24px;
@@ -1197,7 +1209,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      font-size: 24px;
+      font-size: 20px;
 
       @include mq-max('xxl') {
         font-size: 16px;
@@ -1209,18 +1221,13 @@
       color: $black;
       background: transparent;
       border: none;
-      border-bottom: 2px solid $grey-dark;
+      border-bottom: 3px solid $grey-dark;
       border-radius: 0;
       transition: border 0.36s ease;
 
       // &:focus {
       //   border-color: $blue;
       // }
-
-      &:-internal-autofill-selected {
-        background-color: $green !important;
-      }
-
     }
 
     .label {
@@ -1233,7 +1240,8 @@
     .input:focus ~ .label,
     .input:not(:placeholder-shown).input:not(focus) ~ .label {
       color: rgba($grey-dark, 0.75);
-      transform: translate(0, 80%);
+      // transform: translate(0, 80%);
+      transform: translate(0, -75%);
       font-size: 16px;
 
       
