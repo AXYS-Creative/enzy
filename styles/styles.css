@@ -2162,13 +2162,23 @@ button {
   align-items: center;
   padding: 196px 124px;
 }
+@media screen and (max-width: 1512px) {
+  #demo-section {
+    padding: 156px 64px;
+  }
+}
 @media screen and (max-width: 768px) {
   #demo-section {
     flex-direction: column;
   }
 }
 #demo-section .headline-wrapper {
-  width: 40%;
+  width: 43%;
+}
+@media (max-width: 1668px) {
+  #demo-section .headline-wrapper {
+    width: 49%;
+  }
 }
 #demo-section .headline-wrapper .headline-text {
   border: none;
@@ -2208,6 +2218,9 @@ button {
 #demo-section .mail-form .form-input-block:hover::before, #demo-section .mail-form .form-input-block:focus-within::before {
   animation: faq-item-hover 0.3s ease-in-out forwards;
 }
+#demo-section .mail-form .form-input-block:hover .label, #demo-section .mail-form .form-input-block:focus-within .label {
+  padding-left: 8px;
+}
 #demo-section .mail-form .form-input-block::before {
   content: "";
   position: absolute;
@@ -2246,6 +2259,7 @@ button {
   border-bottom: 3px solid #262626;
   border-radius: 0;
   transition: border 0.36s ease;
+  padding-left: 8px;
 }
 #demo-section .mail-form .label {
   top: 12px;
@@ -2257,12 +2271,14 @@ button {
   color: rgba(38, 38, 38, 0.75);
   transform: translate(0, -75%);
   font-size: 16px;
+  padding-left: 8px;
 }
 #demo-section .mail-form .input:focus ~ .label,
 #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
   color: rgba(38, 38, 38, 0.75);
   transform: translate(0, -75%);
   font-size: 16px;
+  padding-left: 8px;
 }
 #demo-section .mail-form .submit-btn {
   font-family: "Plus Jakarta Sans", sans-serif;

@@ -1135,15 +1135,53 @@
   @include row-between;
   padding: $vertical-section-padding 124px;
 
-  @include mq-max('md') {
-    flex-direction: column;
+  @include mq-max('xxl') {
+    padding: $vertical-section-padding-xxl $body-padding;
   }
 
+  // @include mq-max('lg') {
+  //   padding: $vertical-section-padding-lg $body-padding-lg;
+  // }
+  
+  @include mq-max('md') {
+    flex-direction: column;
+    // padding: $vertical-section-padding-md $body-padding-md;
+  }
+
+  // @include mq-max('sm') {
+  //   padding: $vertical-section-padding-sm $body-padding-md;
+  // }
+
   .headline-wrapper {
-    width: 40%;
+    width: 43%;
+
+    @media (max-width: 1668px) {
+      width: 49%;
+    }
     
     .headline-text {
       border: none;
+
+      // .headline-title {
+
+        // @media (max-width: 1772px) {
+        //   font-size: 72px;
+        // }
+
+        // @include mq-max('xxl') {
+        //   // font-size: 72px;
+        //   border: $test;
+        //   font-size: 64px;
+        // }
+  
+        // @include mq-max('xl') {
+        //   font-size: 56px;
+        // }
+  
+        // @include mq-max('sm') {
+        //   font-size: 36px; // Revist me
+        // }
+      // }
     }
   }
 
@@ -1155,6 +1193,8 @@
   }
 
   .mail-form {
+    $input-spacing: 8px;
+
     @include column-left;
     gap: 48px;
     width: 36%;
@@ -1181,6 +1221,10 @@
 
         &::before {
           animation: faq-item-hover 0.3s ease-in-out forwards;
+        }
+
+        .label {
+          padding-left: $input-spacing;
         }
       }
 
@@ -1224,6 +1268,7 @@
       border-bottom: 3px solid $grey-dark;
       border-radius: 0;
       transition: border 0.36s ease;
+      padding-left: $input-spacing;
 
       // &:focus {
       //   border-color: $blue;
@@ -1243,6 +1288,7 @@
       // transform: translate(0, 80%);
       transform: translate(0, -75%);
       font-size: 16px;
+      padding-left: $input-spacing;
 
       
       // @include mq-max('xxl') {
