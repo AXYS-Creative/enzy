@@ -11,7 +11,7 @@
 }
 *:-webkit-autofill, *:-webkit-autofill:hover, *:-webkit-autofill:focus {
   -webkit-text-fill-color: #020202;
-  -webkit-box-shadow: 0 0 0px 1000px #D6D6D6 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #d6d6d6 inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  background: #D6D6D6;
+  background: #d6d6d6;
   color: #020202;
 }
 
@@ -359,7 +359,7 @@ nav .nav-links .nav-link {
 }
 nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
   padding-left: 24px;
-  border-color: #6CA793;
+  border-color: #6ca793;
 }
 @media screen and (max-width: 1512px) {
   nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
@@ -399,7 +399,7 @@ nav .nav-footer-links li .nav-footer-link {
   transition: 0.2s ease;
 }
 nav .nav-footer-links li .nav-footer-link:hover, nav .nav-footer-links li .nav-footer-link:focus {
-  border-color: #6CA793;
+  border-color: #6ca793;
 }
 nav .nav-social-media {
   display: flex;
@@ -449,7 +449,7 @@ nav .nav-social-media .social-media-link:hover .social-media-icon-wrapper, nav .
   translate: 0 -40%;
 }
 nav .nav-social-media .social-media-link:hover .social-media-icon-wrapper .social-media-icon path, nav .nav-social-media .social-media-link:focus .social-media-icon-wrapper .social-media-icon path {
-  fill: #6CA793;
+  fill: #6ca793;
 }
 nav .nav-social-media .social-media-link .social-media-icon-wrapper {
   display: flex;
@@ -473,7 +473,7 @@ nav .nav-abstract {
 nav.menu-active {
   opacity: 1;
   pointer-events: all;
-  background: #D6D6D6;
+  background: #d6d6d6;
   transition: background 0s ease 0.4s;
 }
 nav.menu-active .nav-abstract {
@@ -553,7 +553,7 @@ button {
   }
 }
 .headline-wrapper .headline-text {
-  border-left: 4px solid #6CA793;
+  border-left: 4px solid #6ca793;
   margin-bottom: 48px;
 }
 .headline-wrapper .headline-text .headline-title {
@@ -632,7 +632,7 @@ button {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background-color: #6CA793;
+  background-color: #6ca793;
   transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
   z-index: -1;
 }
@@ -658,11 +658,11 @@ button {
   animation: cta-2-hover 0.5s ease forwards;
 }
 .cta-2:hover svg, .cta-2:focus svg {
-  background: #6CA793;
+  background: #6ca793;
   translate: 6px 0;
 }
 .cta-2:hover svg path, .cta-2:focus svg path {
-  fill: #D6D6D6;
+  fill: #d6d6d6;
 }
 .cta-2-text {
   display: flex;
@@ -677,7 +677,7 @@ button {
   left: 0;
   width: 0;
   height: 3px;
-  background-color: #6CA793;
+  background-color: #6ca793;
   animation: cta-2-default 0.5s ease forwards;
 }
 .cta-2 svg {
@@ -690,7 +690,7 @@ button {
   transition: 0.3s ease;
 }
 .cta-2 svg path {
-  fill: #6CA793;
+  fill: #6ca793;
   transition: 0.3s ease;
 }
 
@@ -707,7 +707,7 @@ button {
   z-index: 10;
 }
 .loading-screen-text-content {
-  background: #D6D6D6;
+  background: #d6d6d6;
   width: 100%;
   height: 100%;
   display: flex;
@@ -1110,7 +1110,7 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-left: 4px solid #6CA793;
+  border-left: 4px solid #6ca793;
   font-size: 104px;
   font-weight: 500;
   margin-bottom: 48px;
@@ -1516,7 +1516,7 @@ button {
 }
 #platform-section .headline-wrapper .headline-text::before {
   content: "";
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
   position: absolute;
   top: 0;
   left: 0;
@@ -1726,12 +1726,7 @@ button {
 @media screen and (max-width: 768px) {
   #platform-section .headline-wrapper .device-img-mobile {
     display: block;
-    width: 50%;
-    margin-bottom: 196px;
-  }
-}
-@media screen and (max-width: 480px) {
-  #platform-section .headline-wrapper .device-img-mobile {
+    width: 90%;
     margin-bottom: 64px;
   }
 }
@@ -1860,7 +1855,7 @@ button {
   }
 }
 #faq-section .faq-list .faq-item {
-  border-bottom: 3px solid #6CA793;
+  border-bottom: 3px solid #6ca793;
   position: relative;
   padding-top: 56px;
   display: grid;
@@ -2111,7 +2106,7 @@ button {
 #statement-section .statement-divider {
   width: 520px;
   height: 2px;
-  background-color: #6CA793;
+  background-color: #6ca793;
   border: none;
 }
 @media screen and (max-width: 1512px) {
@@ -2210,7 +2205,7 @@ button {
 }
 @media screen and (max-width: 1024px) {
   #demo-section .headline-wrapper .headline-text {
-    border-left: 4px solid #6CA793;
+    border-left: 4px solid #6ca793;
   }
 }
 #demo-section .demo-divider {
@@ -2220,7 +2215,7 @@ button {
   translate: -50% -50%;
   height: 448px;
   width: 4px;
-  background: #6CA793;
+  background: #6ca793;
 }
 @media screen and (max-width: 1512px) {
   #demo-section .demo-divider {
@@ -2279,7 +2274,7 @@ button {
   left: 0;
   width: 0;
   height: 3px;
-  background: #6CA793;
+  background: #6ca793;
   transition: 0.3s ease;
   z-index: 1;
   animation: underline-item-default 0.3s ease-in-out forwards;

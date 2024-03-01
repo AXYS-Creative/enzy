@@ -1,5 +1,4 @@
 * {
-  // border: $test;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,7 +15,7 @@
     -webkit-box-shadow: 0 0 0px 1000px $grey-light inset;
     transition: background-color 5000s ease-in-out 0s;
   }
-} 
+}
 
 html {
   scroll-behavior: smooth;
@@ -34,7 +33,6 @@ section {
 }
 
 header {
-
   & > * {
     z-index: 5;
   }
@@ -48,11 +46,11 @@ header {
     gap: 6px;
     mix-blend-mode: difference;
 
-    @include mq-min('xxxl') {
+    @include mq-min("xxxl") {
       left: calc(50% - calc(1920px / 2) + $body-padding);
     }
 
-    @include mq-max('md') {
+    @include mq-max("md") {
       top: 38px;
     }
 
@@ -60,7 +58,7 @@ header {
       width: 32px;
       transition: 0.2s ease;
 
-      @include mq-max('xxl') {
+      @include mq-max("xxl") {
         width: 24px;
       }
     }
@@ -72,8 +70,8 @@ header {
       object-fit: cover;
       object-position: left;
       transition: 0.2s ease;
-      
-      @include mq-max('xxl') {
+
+      @include mq-max("xxl") {
         scale: 0.8;
         transform-origin: left;
       }
@@ -86,30 +84,26 @@ header {
     right: $body-padding;
     transition: 0.2s ease 0.12s, right 0s;
 
-    @include mq-min('xxxl') {
+    @include mq-min("xxxl") {
       right: calc(50% - calc(1920px / 2) + $body-padding);
     }
 
-    @include mq-max('lg') {
+    @include mq-max("lg") {
       display: none;
     }
 
     .cta-2,
     .cta-1 {
-      transition: 0.3s ease 0.75s, 
-       outline 0s,
-       color 0.3s ease 0s,
-       translate 0.3s ease 0s !important;
+      transition: 0.3s ease 0.75s, outline 0s, color 0.3s ease 0s,
+        translate 0.3s ease 0s !important;
     }
 
     .cta-2 {
-
       &::before {
         display: none;
       }
 
       &:hover {
-
         &::before {
           width: 50%;
         }
@@ -127,17 +121,17 @@ header {
     transition: opacity 0.3s ease;
     mix-blend-mode: difference;
 
-    @include mq-min('xxxl') {
+    @include mq-min("xxxl") {
       right: calc(50% - calc(1920px / 2) + $body-padding);
     }
-    
-    @include mq-max('lg') {
+
+    @include mq-max("lg") {
       right: $body-padding-lg;
       opacity: 1;
       pointer-events: all;
     }
 
-    @include mq-max('md') {
+    @include mq-max("md") {
       top: 48px;
       right: $body-padding-md;
     }
@@ -151,7 +145,7 @@ header {
       &:focus {
         translate: 4px 0;
 
-        @include mq-max('sm') {
+        @include mq-max("sm") {
           translate: unset;
         }
 
@@ -159,7 +153,7 @@ header {
           translate: -120% -50%;
           opacity: 1;
 
-          @include mq-max('sm') {
+          @include mq-max("sm") {
             display: none;
           }
         }
@@ -207,7 +201,7 @@ header {
         .menu-btn-text {
           translate: 0 -100%;
         }
-        
+
         .menu-btn-dots-wrapper {
           rotate: 45deg;
         }
@@ -227,9 +221,7 @@ header {
   }
 
   &.scroll-active {
-
     .header-logo {
-
       .logo-text {
         width: 0px;
       }
@@ -249,9 +241,7 @@ header {
   }
 
   &.menu-active {
-
     .header-logo {
-
       .logo-text {
         width: 52px;
         transition: 0.2s ease 0.65s;
@@ -291,12 +281,12 @@ nav {
     height: 100dvh;
     min-height: 768px;
     margin: auto;
-    
-    @include mq-max('xxl') {
+
+    @include mq-max("xxl") {
       min-height: 640px;
     }
 
-    @include mq-max('sm') {
+    @include mq-max("sm") {
       min-height: 520px;
     }
   }
@@ -312,7 +302,6 @@ nav {
     transition: opacity 0s ease 0.3s;
 
     li {
-
       a {
         font-family: $primary-font;
       }
@@ -328,12 +317,12 @@ nav {
     li {
       display: flex;
       overflow: hidden;
-      
+
       &:focus-within {
         border-radius: 4px;
-        box-shadow: 0 0 0 3px rgba(#2353C1, 0.75), 0 0 0 5px rgba(#fff, 0.75);
+        box-shadow: 0 0 0 3px rgba(#2353c1, 0.75), 0 0 0 5px rgba(#fff, 0.75);
       }
-  
+
       @for $i from 2 through 4 {
         &:nth-of-type(#{$i}) {
           $transition: 0.25s + ($i - 2) * 0.2s;
@@ -345,7 +334,7 @@ nav {
         }
       }
     }
-    
+
     .nav-link {
       font-size: 96px;
       text-transform: uppercase;
@@ -355,19 +344,19 @@ nav {
       border-left: 4px solid transparent;
       transition: 0.2s ease, translate 0.3s ease 0.6s;
 
-      @include mq-max('xxl') {
+      @include mq-max("xxl") {
         font-size: 72px;
       }
 
-      @include mq-max('lg') {
+      @include mq-max("lg") {
         font-size: 64px;
       }
 
-      @include mq-max('md') {
+      @include mq-max("md") {
         font-size: 48px;
       }
 
-      @include mq-max('md') {
+      @include mq-max("md") {
         font-size: 40px;
       }
 
@@ -376,7 +365,7 @@ nav {
         padding-left: 24px;
         border-color: $green;
 
-        @include mq-max('xxl') {
+        @include mq-max("xxl") {
           padding-left: 16px;
         }
       }
@@ -387,29 +376,28 @@ nav {
     @include row-center;
     bottom: $body-padding;
     gap: 48px;
-    
-    @include mq-max('lg') {
+
+    @include mq-max("lg") {
       gap: 24px;
     }
 
-    @include mq-max('md') {
+    @include mq-max("md") {
       @include column-left;
       gap: 12px;
       bottom: $body-padding-lg;
     }
 
-    @include mq-max('sm') {
+    @include mq-max("sm") {
       gap: 4px;
       bottom: $body-padding-md;
     }
 
     li {
-
       .nav-footer-link {
         padding: 4px;
         border-bottom: 2px solid transparent;
         transition: 0.2s ease;
-        
+
         &:hover,
         &:focus {
           border-color: $green;
@@ -424,21 +412,21 @@ nav {
     bottom: $body-padding;
     right: $body-padding;
     left: unset;
-    
-    @include mq-max('lg') {
+
+    @include mq-max("lg") {
       gap: 32px;
       right: $body-padding-lg;
       translate: 0 4px;
     }
-    
-    @include mq-max('md') {
+
+    @include mq-max("md") {
       gap: 12px;
       bottom: $body-padding-md;
       right: $body-padding-md;
       translate: 0 -12px;
     }
 
-    @include mq-max('sm') {
+    @include mq-max("sm") {
       gap: 24px;
       translate: 0 0;
     }
@@ -451,25 +439,22 @@ nav {
       overflow: hidden;
       transition: 0.25s ease;
 
-      @include mq-max('sm') {
+      @include mq-max("sm") {
         width: 24px;
         height: 24px;
       }
-        
+
       &:hover,
       &:focus {
-
         .social-media-icon-wrapper {
           translate: 0 -40%;
 
           .social-media-icon {
-  
             path {
               fill: $green;
             }
           }
         }
-        
       }
 
       .social-media-icon-wrapper {
@@ -479,7 +464,6 @@ nav {
         transition: 0.25s ease;
 
         .social-media-icon {
-
           path {
             transition: 0.2s ease;
           }
@@ -523,20 +507,20 @@ nav {
 
 section {
   padding: $vertical-section-padding $body-padding;
-  
-  @include mq-max('xxl') {
+
+  @include mq-max("xxl") {
     padding: $vertical-section-padding-xxl $body-padding;
   }
 
-  @include mq-max('lg') {
+  @include mq-max("lg") {
     padding: $vertical-section-padding-lg $body-padding-lg;
   }
 
-  @include mq-max('md') {
+  @include mq-max("md") {
     padding: $vertical-section-padding-md $body-padding-md;
   }
 
-  @include mq-max('sm') {
+  @include mq-max("sm") {
     padding: $vertical-section-padding-sm $body-padding-md;
   }
 }
@@ -558,7 +542,7 @@ a {
   color: $black;
   text-decoration: none;
 
-  @include mq-max('xxl') {
+  @include mq-max("xxl") {
     font-size: 14px;
   }
 }
@@ -570,11 +554,10 @@ button {
 }
 
 .headline-wrapper {
-
   & > * {
     padding-left: 48px;
-    
-    @include mq-max('xxl') {
+
+    @include mq-max("xxl") {
       padding-left: 24px;
     }
   }
@@ -588,15 +571,15 @@ button {
       font-weight: 400;
       margin-bottom: 24px;
 
-      @include mq-max('xxl') {
+      @include mq-max("xxl") {
         font-size: 72px;
       }
 
-      @include mq-max('xl') {
+      @include mq-max("xl") {
         font-size: 56px;
       }
 
-      @include mq-max('sm') {
+      @include mq-max("sm") {
         font-size: 36px; // Revist me
       }
     }
@@ -604,11 +587,11 @@ button {
     .headline-subtext {
       font-size: 18px;
 
-      @include mq-max('xxl') {
+      @include mq-max("xxl") {
         font-size: 16px;
       }
 
-      @include mq-max('sm') {
+      @include mq-max("sm") {
         font-size: 14px;
       }
     }
@@ -619,11 +602,11 @@ button {
   display: flex;
   gap: 24px;
 
-  @include mq-max('lg') {
+  @include mq-max("lg") {
     gap: 12px;
   }
 
-  @include mq-max('sm') {
+  @include mq-max("sm") {
     gap: 0px;
     width: 90vw;
   }
@@ -642,7 +625,7 @@ button {
 .cta-2 {
   padding: 12px 16px;
 
-  @include mq-max('xxl') {
+  @include mq-max("xxl") {
     padding: 10px 14px;
   }
 }
@@ -666,7 +649,7 @@ button {
     transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
     z-index: -1;
   }
-  
+
   &:hover,
   &:focus {
     color: $black;
@@ -687,9 +670,7 @@ button {
 
   &:hover,
   &:focus {
-
     .cta-2-text {
-
       &::before {
         width: 100%;
         animation: cta-2-hover 0.5s ease forwards;
@@ -705,7 +686,7 @@ button {
       }
     }
   }
-  
+
   &-text {
     @include row-center;
     position: relative;
@@ -761,19 +742,19 @@ button {
       font-size: 48px;
       text-transform: uppercase;
 
-      @include mq-max('xl') {
+      @include mq-max("xl") {
         font-size: 40px;
       }
 
-      @include mq-max('lg') {
+      @include mq-max("lg") {
         font-size: 32px;
       }
 
-      @include mq-max('md') {
+      @include mq-max("md") {
         font-size: 24px;
       }
 
-      @include mq-max('sm') {
+      @include mq-max("sm") {
         font-size: 16px;
       }
     }
@@ -794,12 +775,12 @@ button {
 
     .top-row {
       translate: 0 -24px;
-      
-      @include mq-max('md') {
+
+      @include mq-max("md") {
         translate: 0 -16px;
       }
 
-      @include mq-max('sm') {
+      @include mq-max("sm") {
         translate: 0 -12px;
       }
 
@@ -811,11 +792,11 @@ button {
     .bottom-row {
       translate: 0 24px;
 
-      @include mq-max('md') {
+      @include mq-max("md") {
         translate: 0 16px;
       }
 
-      @include mq-max('sm') {
+      @include mq-max("sm") {
         translate: 0 12px;
       }
 
@@ -841,7 +822,7 @@ button {
     height: 0;
     background: $black;
   }
-  
+
   &.load-complete {
     pointer-events: none;
 
@@ -850,7 +831,7 @@ button {
       pointer-events: none;
       transition: 0.3s ease 0.3s;
     }
-    
+
     .loading-screen-abstract {
       animation: nav-abstract-open 0.75s ease 0s forwards;
     }
@@ -866,7 +847,7 @@ button {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -875,48 +856,48 @@ button {
 .lg-screen-and-up {
   display: none;
 
-  @include mq-min('lg') {
-      display: flex; // Flex for cta-wrapper
+  @include mq-min("lg") {
+    display: flex; // Flex for cta-wrapper
   }
 }
 
 .lg-screen-and-below {
   display: none;
 
-  @include mq-max('lg') {
-      display: flex;
+  @include mq-max("lg") {
+    display: flex;
   }
 }
 
 .md-screen-and-up {
   display: none;
 
-  @include mq-min('md') {
-      display: flex;
+  @include mq-min("md") {
+    display: flex;
   }
 }
 
 .md-screen-and-below {
   display: none;
 
-  @include mq-max('md') {
-      display: flex;
+  @include mq-max("md") {
+    display: flex;
   }
 }
 
 .sm-screen-and-up {
   display: none;
 
-  @include mq-min('sm') {
-      display: flex;
+  @include mq-min("sm") {
+    display: flex;
   }
 }
 
 .sm-screen-and-below {
   display: none;
 
-  @include mq-max('sm') {
-      display: flex;
+  @include mq-max("sm") {
+    display: flex;
   }
 }
 
@@ -926,7 +907,7 @@ button {
 //   top: $body-padding;
 //   left: 50%;
 //   translate: -50% 0;
-  
+
 //   ul.netlify-identity-menu {
 //     list-style: none;
 //     @include row-center;

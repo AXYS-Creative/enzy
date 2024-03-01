@@ -1,184 +1,184 @@
 @keyframes nav-abstract-open {
-    0% {
-        top: unset;
-        bottom: 0;
-        height: 0;
-    }
-    33% {
-        top: unset;
-        bottom: 0;
-        height: 100vh;
-    }
-    66% {
-        top: 0;
-        bottom: unset;
-        height: 100vh;
-    }
-    100% {
-        top: 0;
-        bottom: unset;
-        height: 0;
-    }
+  0% {
+    top: unset;
+    bottom: 0;
+    height: 0;
+  }
+  33% {
+    top: unset;
+    bottom: 0;
+    height: 100vh;
+  }
+  66% {
+    top: 0;
+    bottom: unset;
+    height: 100vh;
+  }
+  100% {
+    top: 0;
+    bottom: unset;
+    height: 0;
+  }
 }
 
 @keyframes nav-abstract-default {
-    0% {
-        top: 0;
-        bottom: unset;
-        height: 0;
-    }
-    33% {
-        top: 0;
-        bottom: unset;
-        height: 100vh;
-    }
-    66% {
-        top: unset;
-        bottom: 0;
-        height: 100vh;
-    }
-    100% {
-        top: unset;
-        bottom: 0;
-        height: 0;
-    }
+  0% {
+    top: 0;
+    bottom: unset;
+    height: 0;
+  }
+  33% {
+    top: 0;
+    bottom: unset;
+    height: 100vh;
+  }
+  66% {
+    top: unset;
+    bottom: 0;
+    height: 100vh;
+  }
+  100% {
+    top: unset;
+    bottom: 0;
+    height: 0;
+  }
 }
 
 @keyframes hero-img-1-fade {
-    to {
-        opacity: 1;
-        translate: 20% 0;
-    }
+  to {
+    opacity: 1;
+    translate: 20% 0;
+  }
 }
 
 @keyframes hero-img-2-fade {
-    to {
-        opacity: 1;
-        translate: -20% 0;
-    }
+  to {
+    opacity: 1;
+    translate: -20% 0;
+  }
 }
 
 @keyframes reset-translate {
-    to {
-        translate: 0 0;
-    }
+  to {
+    translate: 0 0;
+  }
 }
 
 @keyframes collapse-width {
-    to {
-        width: 0;
-    }
+  to {
+    width: 0;
+  }
 }
 
 @keyframes loading-dot {
-    0% {
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes platform-text-bar {
-    0% {
-        top: 0;
-        bottom: unset;
-        height: 0;
-    }
-    33% {
-        top: 0;
-        bottom: unset;
-        height: 100%;
-    }
-    66% {
-        top: unset;
-        bottom: 0;
-        height: 100%;
-    }
-    100% {
-        top: unset;
-        bottom: 0;
-        height: 0;
-    }
+  0% {
+    top: 0;
+    bottom: unset;
+    height: 0;
+  }
+  33% {
+    top: 0;
+    bottom: unset;
+    height: 100%;
+  }
+  66% {
+    top: unset;
+    bottom: 0;
+    height: 100%;
+  }
+  100% {
+    top: unset;
+    bottom: 0;
+    height: 0;
+  }
 }
 
 @keyframes cta-2-default {
-    0% {
-        left: unset;
-        right: 0;
-        width: 0;
-    }
-    33% {
-        left: unset;
-        right: 0;
-        width: 100%;
-    }
-    66% {
-        left: 0;
-        right: unset;
-        width: 100%;
-    }
-    100% {
-        left: 0;
-        right: unset;
-        width: 0;
-    }
+  0% {
+    left: unset;
+    right: 0;
+    width: 0;
+  }
+  33% {
+    left: unset;
+    right: 0;
+    width: 100%;
+  }
+  66% {
+    left: 0;
+    right: unset;
+    width: 100%;
+  }
+  100% {
+    left: 0;
+    right: unset;
+    width: 0;
+  }
 }
 
 @keyframes cta-2-hover {
-    0% {
-        left: 0;
-        right: unset;
-        width: 0;
-    }
-    33% {
-        left: 0;
-        right: unset;
-        width: 100%;
-    }
-    66% {
-        left: unset;
-        right: 0;
-        width: 100%;
-    }
-    100% {
-        left: unset;
-        right: 0;
-        width: 0;
-    }
+  0% {
+    left: 0;
+    right: unset;
+    width: 0;
+  }
+  33% {
+    left: 0;
+    right: unset;
+    width: 100%;
+  }
+  66% {
+    left: unset;
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    left: unset;
+    right: 0;
+    width: 0;
+  }
 }
 
 @keyframes underline-item-default {
-    0% {
-        left: unset;
-        right: 0;
-        width: 100%;
-    }
-    100% {
-        left: unset;
-        right: 0;
-        width: 0;
-    }
+  0% {
+    left: unset;
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    left: unset;
+    right: 0;
+    width: 0;
+  }
 }
 
 @keyframes underline-item-hover {
-    0% {
-        left: 0;
-        right: unset;
-        width: 0;
-    }
-    100% {
-        left: 0;
-        right: unset;
-        width: 100%;
-    }
+  0% {
+    left: 0;
+    right: unset;
+    width: 0;
+  }
+  100% {
+    left: 0;
+    right: unset;
+    width: 100%;
+  }
 }
