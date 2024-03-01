@@ -279,7 +279,6 @@ nav .nav-footer-links,
 nav .nav-social-media {
   left: 64px;
   position: absolute;
-  list-style: none;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0s ease 0.3s;
@@ -402,22 +401,18 @@ nav .nav-footer-links li .nav-footer-link:hover, nav .nav-footer-links li .nav-f
   border-color: #6ca793;
 }
 nav .nav-social-media {
-  display: flex;
-  gap: 48px;
   bottom: 64px;
   right: 64px;
   left: unset;
 }
 @media screen and (max-width: 1024px) {
   nav .nav-social-media {
-    gap: 32px;
     right: 40px;
     translate: 0 4px;
   }
 }
 @media screen and (max-width: 768px) {
   nav .nav-social-media {
-    gap: 12px;
     bottom: 24px;
     right: 24px;
     translate: 0 -12px;
@@ -425,42 +420,8 @@ nav .nav-social-media {
 }
 @media screen and (max-width: 480px) {
   nav .nav-social-media {
-    gap: 24px;
     translate: 0 0;
   }
-}
-nav .nav-social-media .social-media-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  overflow: hidden;
-  transition: 0.25s ease;
-}
-@media screen and (max-width: 480px) {
-  nav .nav-social-media .social-media-link {
-    width: 24px;
-    height: 24px;
-  }
-}
-nav .nav-social-media .social-media-link:hover .social-media-icon-wrapper, nav .nav-social-media .social-media-link:focus .social-media-icon-wrapper {
-  translate: 0 -40%;
-}
-nav .nav-social-media .social-media-link:hover .social-media-icon-wrapper .social-media-icon path, nav .nav-social-media .social-media-link:focus .social-media-icon-wrapper .social-media-icon path {
-  fill: #6ca793;
-}
-nav .nav-social-media .social-media-link .social-media-icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  translate: 0 36%;
-  transition: 0.25s ease;
-}
-nav .nav-social-media .social-media-link .social-media-icon-wrapper .social-media-icon path {
-  transition: 0.2s ease;
 }
 nav .nav-abstract {
   position: absolute;
@@ -542,6 +503,10 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+ul {
+  list-style: none;
 }
 
 .headline-wrapper > * {
@@ -692,6 +657,59 @@ button {
 .cta-2 svg path {
   fill: #6ca793;
   transition: 0.3s ease;
+}
+
+.social-media-links {
+  display: flex;
+  gap: 48px;
+}
+@media screen and (max-width: 1024px) {
+  .social-media-links {
+    gap: 32px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .social-media-links {
+    gap: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .social-media-links {
+    gap: 24px;
+  }
+}
+.social-media-links .social-media-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+@media screen and (max-width: 480px) {
+  .social-media-links .social-media-link {
+    width: 24px;
+    height: 24px;
+  }
+}
+.social-media-links .social-media-link:hover .social-media-icon-wrapper, .social-media-links .social-media-link:focus .social-media-icon-wrapper {
+  translate: 0 -40%;
+}
+.social-media-links .social-media-link:hover .social-media-icon-wrapper .social-media-icon path, .social-media-links .social-media-link:focus .social-media-icon-wrapper .social-media-icon path {
+  fill: #6ca793;
+}
+.social-media-links .social-media-link .social-media-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  translate: 0 36%;
+  transition: 0.25s ease;
+}
+.social-media-links .social-media-link .social-media-icon-wrapper .social-media-icon path {
+  transition: 0.2s ease;
 }
 
 .loading-screen {
@@ -2409,15 +2427,23 @@ button {
 }
 @media screen and (max-width: 768px) {
   #pre-footer .contact-block .contact-title {
+    font-size: 48px;
     margin-bottom: 24px;
   }
 }
-#pre-footer .contact-block .contact-method-wrapper {
-  display: flex;
-  gap: 48px;
+#pre-footer .contact-block .contact-link {
+  border-left: 3px solid transparent;
+  transition: 0.2s ease;
+}
+#pre-footer .contact-block .contact-link:hover, #pre-footer .contact-block .contact-link:focus {
+  border-color: #6ca793;
+  padding-left: 8px;
+}
+#pre-footer .contact-block .social-media-links {
+  gap: 32px;
 }
 @media screen and (max-width: 768px) {
-  #pre-footer .contact-block .contact-method-wrapper {
-    gap: 24px;
+  #pre-footer .contact-block .social-media-links {
+    gap: 16px;
   }
 }/*# sourceMappingURL=styles.css.map */

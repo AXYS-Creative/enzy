@@ -1377,16 +1377,27 @@
       }
 
       @include mq-max("md") {
+        font-size: 48px;
         margin-bottom: 24px;
       }
     }
 
-    .contact-method-wrapper {
-      display: flex;
-      gap: 48px;
+    .contact-link {
+      border-left: 3px solid transparent;
+      transition: 0.2s ease;
+
+      &:hover,
+      &:focus {
+        border-color: $green;
+        padding-left: 8px;
+      }
+    }
+
+    .social-media-links {
+      gap: 32px;
 
       @include mq-max("md") {
-        gap: 24px;
+        gap: 16px;
       }
     }
   }
