@@ -1524,88 +1524,93 @@ button {
   width: 4px;
   height: 0;
 }
-#platform-section .headline-wrapper .base-headline {
+#platform-section .headline-wrapper .headline-text-base {
   transition: 0.3s ease 0.2s;
 }
 @media screen and (max-width: 768px) {
-  #platform-section .headline-wrapper .base-headline {
+  #platform-section .headline-wrapper .headline-text-base {
     order: 0;
   }
 }
-#platform-section .headline-wrapper .base-headline .headline-title,
-#platform-section .headline-wrapper .base-headline .headline-subtext {
+#platform-section .headline-wrapper .headline-text-base .headline-title,
+#platform-section .headline-wrapper .headline-text-base .headline-subtext {
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper .device-text {
+#platform-section .headline-wrapper .headline-text-device {
   height: 262px;
   pointer-events: none;
 }
 @media screen and (max-width: 1512px) {
-  #platform-section .headline-wrapper .device-text {
+  #platform-section .headline-wrapper .headline-text-device {
     height: 213px;
   }
 }
 @media screen and (max-width: 1200px) {
-  #platform-section .headline-wrapper .device-text {
+  #platform-section .headline-wrapper .headline-text-device {
     height: 196px;
   }
 }
 @media screen and (max-width: 1024px) {
-  #platform-section .headline-wrapper .device-text {
+  #platform-section .headline-wrapper .headline-text-device {
     height: 216px;
   }
 }
 @media screen and (max-width: 768px) {
-  #platform-section .headline-wrapper .device-text {
+  #platform-section .headline-wrapper .headline-text-device {
     height: auto;
     border: none;
   }
 }
-#platform-section .headline-wrapper .device-text .headline-title,
-#platform-section .headline-wrapper .device-text .headline-subtext {
+@media screen and (max-width: 480px) {
+  #platform-section .headline-wrapper .headline-text-device {
+    margin-bottom: 0;
+  }
+}
+#platform-section .headline-wrapper .headline-text-device .headline-title,
+#platform-section .headline-wrapper .headline-text-device .headline-subtext {
   opacity: 0;
   transition: 0.3s ease;
 }
 @media screen and (max-width: 768px) {
-  #platform-section .headline-wrapper .device-text .headline-title,
-  #platform-section .headline-wrapper .device-text .headline-subtext {
+  #platform-section .headline-wrapper .headline-text-device .headline-title,
+  #platform-section .headline-wrapper .headline-text-device .headline-subtext {
     opacity: 1 !important;
   }
 }
-#platform-section .headline-wrapper .device-text .headline-title {
+#platform-section .headline-wrapper .headline-text-device .headline-title {
   font-size: 80px;
   font-weight: 400;
   text-transform: uppercase;
 }
 @media screen and (max-width: 1512px) {
-  #platform-section .headline-wrapper .device-text .headline-title {
+  #platform-section .headline-wrapper .headline-text-device .headline-title {
     font-size: 56px;
   }
 }
 @media screen and (max-width: 1200px) {
-  #platform-section .headline-wrapper .device-text .headline-title {
+  #platform-section .headline-wrapper .headline-text-device .headline-title {
     font-size: 48px;
   }
 }
 @media screen and (max-width: 768px) {
-  #platform-section .headline-wrapper .device-text .headline-title {
+  #platform-section .headline-wrapper .headline-text-device .headline-title {
     font-size: 36px;
   }
 }
 @media screen and (max-width: 480px) {
-  #platform-section .headline-wrapper .device-text .headline-title {
+  #platform-section .headline-wrapper .headline-text-device .headline-title {
     font-size: 32px;
   }
 }
-#platform-section .headline-wrapper.device-1 .base-headline, #platform-section .headline-wrapper.device-2 .base-headline, #platform-section .headline-wrapper.device-3 .base-headline, #platform-section .headline-wrapper.device-4 .base-headline, #platform-section .headline-wrapper.device-5 .base-headline {
+#platform-section .headline-wrapper.device-1 .headline-text-base, #platform-section .headline-wrapper.device-2 .headline-text-base, #platform-section .headline-wrapper.device-3 .headline-text-base, #platform-section .headline-wrapper.device-4 .headline-text-base, #platform-section .headline-wrapper.device-5 .headline-text-base {
   pointer-events: none;
 }
-#platform-section .headline-wrapper.device-1 .base-headline .headline-title,
-#platform-section .headline-wrapper.device-1 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-2 .base-headline .headline-title,
-#platform-section .headline-wrapper.device-2 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-3 .base-headline .headline-title,
-#platform-section .headline-wrapper.device-3 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-4 .base-headline .headline-title,
-#platform-section .headline-wrapper.device-4 .base-headline .headline-subtext, #platform-section .headline-wrapper.device-5 .base-headline .headline-title,
-#platform-section .headline-wrapper.device-5 .base-headline .headline-subtext {
+#platform-section .headline-wrapper.device-1 .headline-text-base .headline-title,
+#platform-section .headline-wrapper.device-1 .headline-text-base .headline-subtext, #platform-section .headline-wrapper.device-2 .headline-text-base .headline-title,
+#platform-section .headline-wrapper.device-2 .headline-text-base .headline-subtext, #platform-section .headline-wrapper.device-3 .headline-text-base .headline-title,
+#platform-section .headline-wrapper.device-3 .headline-text-base .headline-subtext, #platform-section .headline-wrapper.device-4 .headline-text-base .headline-title,
+#platform-section .headline-wrapper.device-4 .headline-text-base .headline-subtext, #platform-section .headline-wrapper.device-5 .headline-text-base .headline-title,
+#platform-section .headline-wrapper.device-5 .headline-text-base .headline-subtext {
   opacity: 0;
   transition: 0.3s ease;
 }
@@ -1617,105 +1622,105 @@ button {
   opacity: 0;
   transition: 0.3s ease 0s;
 }
-#platform-section .headline-wrapper.device-1 .device-text-1 {
+#platform-section .headline-wrapper.device-1 .headline-text-device-1 {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-1 .device-text-1::before {
+#platform-section .headline-wrapper.device-1 .headline-text-device-1::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
 }
-#platform-section .headline-wrapper.device-1 .device-text-1 .headline-title,
-#platform-section .headline-wrapper.device-1 .device-text-1 .headline-subtext {
+#platform-section .headline-wrapper.device-1 .headline-text-device-1 .headline-title,
+#platform-section .headline-wrapper.device-1 .headline-text-device-1 .headline-subtext {
   opacity: 1;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-2 .device-text-1 {
+#platform-section .headline-wrapper.device-2 .headline-text-device-1 {
   pointer-events: none;
 }
-#platform-section .headline-wrapper.device-2 .device-text-1 .headline-title,
-#platform-section .headline-wrapper.device-2 .device-text-1 .headline-subtext {
+#platform-section .headline-wrapper.device-2 .headline-text-device-1 .headline-title,
+#platform-section .headline-wrapper.device-2 .headline-text-device-1 .headline-subtext {
   opacity: 0;
   transition: 0.3s ease 0s;
 }
-#platform-section .headline-wrapper.device-2 .device-text-2 {
+#platform-section .headline-wrapper.device-2 .headline-text-device-2 {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-2 .device-text-2::before {
+#platform-section .headline-wrapper.device-2 .headline-text-device-2::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
 }
-#platform-section .headline-wrapper.device-2 .device-text-2 .headline-title,
-#platform-section .headline-wrapper.device-2 .device-text-2 .headline-subtext {
+#platform-section .headline-wrapper.device-2 .headline-text-device-2 .headline-title,
+#platform-section .headline-wrapper.device-2 .headline-text-device-2 .headline-subtext {
   opacity: 1;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-3 .device-text-2 {
+#platform-section .headline-wrapper.device-3 .headline-text-device-2 {
   pointer-events: none;
 }
-#platform-section .headline-wrapper.device-3 .device-text-2 .headline-title,
-#platform-section .headline-wrapper.device-3 .device-text-2 .headline-subtext {
+#platform-section .headline-wrapper.device-3 .headline-text-device-2 .headline-title,
+#platform-section .headline-wrapper.device-3 .headline-text-device-2 .headline-subtext {
   opacity: 0;
   transition: 0.3s ease 0s;
 }
-#platform-section .headline-wrapper.device-3 .device-text-3 {
+#platform-section .headline-wrapper.device-3 .headline-text-device-3 {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-3 .device-text-3::before {
+#platform-section .headline-wrapper.device-3 .headline-text-device-3::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
 }
-#platform-section .headline-wrapper.device-3 .device-text-3 .headline-title,
-#platform-section .headline-wrapper.device-3 .device-text-3 .headline-subtext {
+#platform-section .headline-wrapper.device-3 .headline-text-device-3 .headline-title,
+#platform-section .headline-wrapper.device-3 .headline-text-device-3 .headline-subtext {
   opacity: 1;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-4 .device-text-3 {
+#platform-section .headline-wrapper.device-4 .headline-text-device-3 {
   pointer-events: none;
 }
-#platform-section .headline-wrapper.device-4 .device-text-3 .headline-title,
-#platform-section .headline-wrapper.device-4 .device-text-3 .headline-subtext {
+#platform-section .headline-wrapper.device-4 .headline-text-device-3 .headline-title,
+#platform-section .headline-wrapper.device-4 .headline-text-device-3 .headline-subtext {
   opacity: 0;
   transition: 0.3s ease 0s;
 }
-#platform-section .headline-wrapper.device-4 .device-text-4 {
+#platform-section .headline-wrapper.device-4 .headline-text-device-4 {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-4 .device-text-4::before {
+#platform-section .headline-wrapper.device-4 .headline-text-device-4::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
 }
-#platform-section .headline-wrapper.device-4 .device-text-4 .headline-title,
-#platform-section .headline-wrapper.device-4 .device-text-4 .headline-subtext {
+#platform-section .headline-wrapper.device-4 .headline-text-device-4 .headline-title,
+#platform-section .headline-wrapper.device-4 .headline-text-device-4 .headline-subtext {
   opacity: 1;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-5 .device-text-4 {
+#platform-section .headline-wrapper.device-5 .headline-text-device-4 {
   pointer-events: none;
 }
-#platform-section .headline-wrapper.device-5 .device-text-4 .headline-title,
-#platform-section .headline-wrapper.device-5 .device-text-4 .headline-subtext {
+#platform-section .headline-wrapper.device-5 .headline-text-device-4 .headline-title,
+#platform-section .headline-wrapper.device-5 .headline-text-device-4 .headline-subtext {
   opacity: 0;
   transition: 0.3s ease 0s;
 }
-#platform-section .headline-wrapper.device-5 .device-text-5 {
+#platform-section .headline-wrapper.device-5 .headline-text-device-5 {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.device-5 .device-text-5::before {
+#platform-section .headline-wrapper.device-5 .headline-text-device-5::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
 }
-#platform-section .headline-wrapper.device-5 .device-text-5 .headline-title,
-#platform-section .headline-wrapper.device-5 .device-text-5 .headline-subtext {
+#platform-section .headline-wrapper.device-5 .headline-text-device-5 .headline-title,
+#platform-section .headline-wrapper.device-5 .headline-text-device-5 .headline-subtext {
   opacity: 1;
   pointer-events: all;
   transition: 0.3s ease 0.2s;
@@ -1725,7 +1730,15 @@ button {
 }
 @media screen and (max-width: 768px) {
   #platform-section .headline-wrapper .device-img-mobile {
+    padding-left: unset;
     display: block;
+    align-self: center;
+    width: 60%;
+    margin-bottom: 64px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #platform-section .headline-wrapper .device-img-mobile {
     width: 90%;
     margin-bottom: 64px;
   }
@@ -2364,5 +2377,47 @@ button {
 @media screen and (max-width: 1512px) {
   #demo-section .mail-form .submit-btn:hover::before, #demo-section .mail-form .submit-btn:focus::before {
     width: 50%;
+  }
+}
+
+#pre-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media screen and (max-width: 1024px) {
+  #pre-footer {
+    padding: 124px 96px;
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pre-footer {
+    padding: 148px 24px;
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+#pre-footer .contact-block .contact-title {
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 1512px) {
+  #pre-footer .contact-block .contact-title {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #pre-footer .contact-block .contact-title {
+    margin-bottom: 24px;
+  }
+}
+#pre-footer .contact-block .contact-method-wrapper {
+  display: flex;
+  gap: 48px;
+}
+@media screen and (max-width: 768px) {
+  #pre-footer .contact-block .contact-method-wrapper {
+    gap: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */

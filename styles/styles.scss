@@ -144,7 +144,6 @@
 
     p {
       font-family: $primary-font;
-      // font-size: min(45vw, 800px); // Revisit to determine max font-size
       font-size: min(42vw, 800px);
       opacity: 0.025;
       line-height: 0;
@@ -305,20 +304,15 @@
   }
 
   .video-paragraph {
-    // border: $test;
     width: min(85%, 1440px);
     text-align: justify;
-    // position: absolute;
-    // bottom: 196px;
     // translate: 0 -100%; // Distorts the animation start
     max-width: $content-width;
     font-family: $primary-font;
-    // font-size: 68px;
     font-size: min(3.7vw, 68.9px);
     font-weight: 700;
     line-height: 100%;
     text-transform: uppercase;
-    // text-align: center;
 
     background-repeat: no-repeat;
     background-clip: text;
@@ -350,11 +344,6 @@
       font-size: 15px;
       width: 96%;
     }
-
-    // span {
-    //   width: 100%;
-    //   text-align: justify;
-    // }
   }
 }
 
@@ -408,7 +397,6 @@
       @include column-left;
       position: static;
       translate: unset;
-      // width: 80%;
       width: 100%;
       height: unset;
 
@@ -451,8 +439,7 @@
         height: 0;
       }
     }
-
-    .base-headline {
+    .headline-text-base {
       transition: 0.3s ease 0.2s;
 
       @include mq-max("md") {
@@ -464,8 +451,7 @@
         transition: 0.3s ease 0.2s;
       }
     }
-
-    .device-text {
+    .headline-text-device {
       height: 262px;
       pointer-events: none;
 
@@ -484,6 +470,10 @@
       @include mq-max("md") {
         height: auto;
         border: none;
+      }
+
+      @include mq-max("sm") {
+        margin-bottom: 0;
       }
 
       .headline-title,
@@ -524,15 +514,12 @@
     &.device-3,
     &.device-4,
     &.device-5 {
-      .base-headline {
-        // opacity: 0;
+      .headline-text-base {
         pointer-events: none;
-        // transition: 0.3s ease 0s;
 
         .headline-title,
         .headline-subtext {
           opacity: 0;
-          // pointer-events: none;
           transition: 0.3s ease;
         }
       }
@@ -549,7 +536,7 @@
         }
       }
 
-      .device-text-1 {
+      .headline-text-device-1 {
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -568,7 +555,7 @@
     }
 
     &.device-2 {
-      .device-text-1 {
+      .headline-text-device-1 {
         pointer-events: none;
 
         .headline-title,
@@ -578,7 +565,7 @@
         }
       }
 
-      .device-text-2 {
+      .headline-text-device-2 {
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -597,7 +584,7 @@
     }
 
     &.device-3 {
-      .device-text-2 {
+      .headline-text-device-2 {
         pointer-events: none;
 
         .headline-title,
@@ -607,7 +594,7 @@
         }
       }
 
-      .device-text-3 {
+      .headline-text-device-3 {
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -626,7 +613,7 @@
     }
 
     &.device-4 {
-      .device-text-3 {
+      .headline-text-device-3 {
         pointer-events: none;
 
         .headline-title,
@@ -636,7 +623,7 @@
         }
       }
 
-      .device-text-4 {
+      .headline-text-device-4 {
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -655,7 +642,7 @@
     }
 
     &.device-5 {
-      .device-text-4 {
+      .headline-text-device-4 {
         pointer-events: none;
 
         .headline-title,
@@ -665,7 +652,7 @@
         }
       }
 
-      .device-text-5 {
+      .headline-text-device-5 {
         z-index: 1;
         opacity: 1;
         pointer-events: all;
@@ -690,14 +677,17 @@
       display: none;
 
       @include mq-max("md") {
+        padding-left: unset;
         display: block;
-        width: 90%;
+        align-self: center;
+        width: 60%;
         margin-bottom: 64px;
       }
 
-      // @include mq-max('sm') {
-      //   margin-bottom: 64px;
-      // }
+      @include mq-max("sm") {
+        width: 90%;
+        margin-bottom: 64px;
+      }
     }
   }
 
@@ -988,17 +978,6 @@
           width: 84%;
         }
       }
-
-      // .faq-inner-link {
-      //   text-decoration: underline;
-
-      //   svg {
-
-      //     path {
-      //       fill: $white;
-      //     }
-      //   }
-      // }
     }
 
     /* 
@@ -1193,7 +1172,6 @@
     }
 
     @include mq-max("lg") {
-      // gap: 32px;
       width: 100%;
     }
 
@@ -1262,10 +1240,6 @@
       border-radius: 0;
       transition: border 0.36s ease;
       padding-left: $input-spacing;
-
-      // &:focus {
-      //   border-color: $blue;
-      // }
     }
 
     .label {
@@ -1374,5 +1348,46 @@
     //     // }
     //   }
     // }
+  }
+}
+
+#pre-footer {
+  display: flex;
+  justify-content: space-evenly;
+
+  @include mq-max("lg") {
+    padding: $vertical-section-padding-lg 96px; // Make me global
+    justify-content: space-between;
+  }
+
+  @include mq-max("md") {
+    padding: $vertical-section-padding-md $body-padding-md;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .contact-block {
+    .contact-title {
+      font-size: 48px;
+      font-weight: 500;
+      margin-bottom: 32px;
+
+      @include mq-max("xxl") {
+        font-size: 36px;
+      }
+
+      @include mq-max("md") {
+        margin-bottom: 24px;
+      }
+    }
+
+    .contact-method-wrapper {
+      display: flex;
+      gap: 48px;
+
+      @include mq-max("md") {
+        gap: 24px;
+      }
+    }
   }
 }
