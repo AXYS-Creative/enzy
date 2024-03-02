@@ -524,6 +524,27 @@ section {
   }
 }
 
+footer {
+  @include row-between;
+  padding: 64px $body-padding;
+
+  // @include mq-max("xxl") {
+  //   padding: $vertical-section-padding-xxl $body-padding;
+  // }
+
+  @include mq-max("lg") {
+    padding: 24px $body-padding-lg;
+  }
+
+  @include mq-max("md") {
+    padding: 24px $body-padding-md;
+  }
+
+  // @include mq-max("sm") {
+  //   padding: 24px $body-padding-md;
+  // }
+}
+
 h1,
 h2,
 h3 {

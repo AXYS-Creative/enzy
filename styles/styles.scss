@@ -1383,13 +1383,30 @@
     }
 
     .contact-link {
-      border-left: 3px solid transparent;
+      position: relative;
+      display: block;
+      translate: 4px 0;
       transition: 0.2s ease;
 
       &:hover,
       &:focus {
-        border-color: $green;
-        padding-left: 8px;
+        translate: 12px 0;
+
+        &::before {
+          translate: -12px 0;
+          background: $green;
+        }
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        translate: -4px 0;
+        width: 3px;
+        height: 100%;
+        transition: 0.2s ease;
       }
     }
 
