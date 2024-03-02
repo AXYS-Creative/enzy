@@ -57,10 +57,6 @@
         font-size: 80px;
       }
 
-      @include mq-max("xxl") {
-        font-size: 72px;
-      }
-
       @include mq-max("xl") {
         font-size: 64px;
       }
@@ -106,10 +102,6 @@
   .hero-img {
     width: 50%;
     translate: 12% -4%;
-
-    @include mq-max("xxl") {
-      width: 46%;
-    }
 
     @include mq-max("xl") {
       translate: 8% 0;
@@ -349,26 +341,19 @@
   }
 }
 
-// fix global padding
 #platform-section {
-  border: $test;
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 548px 196px $vertical-section-padding;
+  padding-top: 548px;
 
   @include mq-max("xxl") {
     padding-top: 420px;
-    // padding: 420px 96px $vertical-section-padding 148px;
-  }
-
-  @include mq-max("xl") {
-    padding: 420px 0 $vertical-section-padding 96px;
   }
 
   @include mq-max("lg") {
-    padding: 320px 0 $vertical-section-padding $body-padding;
+    padding-top: 320px;
   }
 
   @include mq-max("md") {
@@ -390,9 +375,9 @@
       height: 296px;
     }
 
-    @include mq-max("xl") {
-      height: 264px;
-    }
+    // @include mq-max("xl") {
+    //   height: 320px;
+    // }
 
     @include mq-max("lg") {
       height: 296px;
@@ -461,15 +446,17 @@
       pointer-events: none;
 
       @include mq-max("xxl") {
-        height: 213px;
+        height: 216px;
       }
 
       @include mq-max("xl") {
         height: 196px;
+        width: 112%;
       }
 
       @include mq-max("lg") {
         height: 216px;
+        width: 120%;
       }
 
       @include mq-max("md") {
@@ -715,10 +702,10 @@
 
     img {
       width: min(15vw, 288px);
-      translate: 96% 0;
+      translate: 124% 0;
 
       @include mq-max("xxl") {
-        translate: 108% 0;
+        translate: 128% 0;
       }
 
       @include mq-max("xl") {
@@ -726,7 +713,7 @@
       }
 
       @include mq-max("lg") {
-        translate: 132% 0;
+        translate: 128% 0;
       }
     }
   }
@@ -734,22 +721,22 @@
   .device-showcase {
     @include column-center;
     width: 50%;
+    translate: 12% 0;
     margin-top: 360px;
-    margin-left: 56px;
 
-    @include mq-max("lg") {
-      margin-left: 48px;
-    }
+    // @include mq-max("lg") {
+    //   margin-left: 48px;
+    // }
 
     @include mq-max("md") {
       display: none;
     }
 
     img {
-      width: 68%;
+      width: 64%;
 
       @include mq-max("xxl") {
-        margin: 64px 0;
+        margin: 24px 0;
       }
 
       @include mq-max("lg") {

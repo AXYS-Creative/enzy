@@ -30,10 +30,10 @@ const siteHeader = document.querySelector(".site-header"),
   menuBtn = document.querySelector(".menu-btn"),
   headerCta1 = headerCtaWrapper.querySelector(".cta-1"),
   headerCta2 = headerCtaWrapper.querySelector(".cta-2"),
-  vidText = document.querySelector('.video-paragraph'),
-  platformHeadline = document.querySelector('.platform-headline');
+  vidText = document.querySelector(".video-paragraph"),
+  platformHeadline = document.querySelector(".platform-headline");
 
-const allDeviceText = document.querySelectorAll('.device-text');
+const allDeviceText = document.querySelectorAll(".headline-text-device");
 
 // Video Section Defaults
 const vidTextOffsetTop = vidText.offsetTop;
@@ -43,7 +43,9 @@ const vidTextHeight = vidText.offsetHeight;
 menuBtn.setAttribute("tabindex", "-1");
 
 // Platform Section Defaults
-allDeviceText.forEach(textblock => textblock.setAttribute("aria-hidden", "true"))
+allDeviceText.forEach((textblock) =>
+  textblock.setAttribute("aria-hidden", "true")
+);
 
 // Scroll Animations
 
@@ -71,19 +73,23 @@ const checkScroll = () => {
   }
 
   if (scrollPosition < 24 && isNavOpen) {
-    menuBtnWrapper.classList.add('menu-wrapper-page-top');
+    menuBtnWrapper.classList.add("menu-wrapper-page-top");
   } else {
-    menuBtnWrapper.classList.remove('menu-wrapper-page-top');
+    menuBtnWrapper.classList.remove("menu-wrapper-page-top");
   }
 
   // Video Section scroll logic
-  const isVidTextVisible = (scrollPosition + windowHeight) > vidTextOffsetTop && scrollPosition < (vidTextOffsetTop + vidTextHeight);
+  const isVidTextVisible =
+    scrollPosition + windowHeight > vidTextOffsetTop &&
+    scrollPosition < vidTextOffsetTop + vidTextHeight;
 
   if (isVidTextVisible) {
     // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight);
-    let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop - 56) / (vidTextHeight + (windowHeight / 16)); // Tweak the start and end of the animation
+    let scrollProgress =
+      (scrollPosition + windowHeight - vidTextOffsetTop - 56) /
+      (vidTextHeight + windowHeight / 16); // Tweak the start and end of the animation
     scrollProgress = Math.min(scrollProgress, 1);
-    const backgroundSize = (scrollProgress * 100) + '% 100%';
+    const backgroundSize = scrollProgress * 100 + "% 100%";
     vidText.style.backgroundSize = backgroundSize;
   }
 };
@@ -92,31 +98,34 @@ window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle check
 
 // Platform Intersection Observer
 
-const platformDeviceObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const targetId = entry.target.dataset.id;
-    const deviceClass = `device-${targetId}`;
-    const deviceTextSelector = `.device-text-${targetId}`;
-    const deviceTextElement = document.querySelector(deviceTextSelector);
+const platformDeviceObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const targetId = entry.target.dataset.id;
+      const deviceClass = `device-${targetId}`;
+      const deviceTextSelector = `.headline-text-device-${targetId}`;
+      const deviceTextElement = document.querySelector(deviceTextSelector);
 
-    if (entry.isIntersecting) {
-      platformHeadline.classList.add(deviceClass);
-      deviceTextElement.setAttribute('aria-hidden', 'false');
-    } else {
-      platformHeadline.classList.remove(deviceClass);
-      if (!platformHeadline.classList.contains(deviceClass)) {
-        deviceTextElement.setAttribute('aria-hidden', 'true');
+      if (entry.isIntersecting) {
+        platformHeadline.classList.add(deviceClass);
+        deviceTextElement.setAttribute("aria-hidden", "false");
+      } else {
+        platformHeadline.classList.remove(deviceClass);
+        if (!platformHeadline.classList.contains(deviceClass)) {
+          deviceTextElement.setAttribute("aria-hidden", "true");
+        }
       }
-    }
-  });
-}, {
-  root: null, // Viewport
-  rootMargin: '0px',
-  threshold: window.innerHeight < 580 ? 0.1 : 0.5
-});
+    });
+  },
+  {
+    root: null, // Viewport
+    rootMargin: "0px",
+    threshold: window.innerHeight < 580 ? 0.1 : 0.5,
+  }
+);
 
-document.querySelectorAll('.device-img').forEach((img, index) => {
-  img.setAttribute('data-id', index + 1);
+document.querySelectorAll(".device-img").forEach((img, index) => {
+  img.setAttribute("data-id", index + 1);
   platformDeviceObserver.observe(img);
 });
 
@@ -125,7 +134,7 @@ document.querySelectorAll('.device-img').forEach((img, index) => {
 
 // const platformScrollSnap = () => {
 //   const deviceImg = document.querySelectorAll('.device-img');
-  
+
 //   const scrollSnapObserver = new IntersectionObserver((entries, observer) => {
 //     entries.forEach(entry => {
 //       if (entry.isIntersecting && allowScrollSnap) {
@@ -140,7 +149,7 @@ document.querySelectorAll('.device-img').forEach((img, index) => {
 //     rootMargin: '0px',
 //     threshold: 0.5
 //   });
-  
+
 //   deviceImg.forEach(image => {
 //     scrollSnapObserver.observe(image);
 //   });
