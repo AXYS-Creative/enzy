@@ -24,4 +24,5 @@ import "./loading.js";
   const currentYear = new Date().getFullYear();
 
   yearText.innerHTML = currentYear;
+  yearText.setAttribute("datetime", currentYear);
 })();

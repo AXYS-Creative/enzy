@@ -78,8 +78,8 @@ $min-breakpoints: (
 @mixin left-spacing {
   left: $body-padding;
 
-  @include mq-max("lg") {
-    left: $body-padding-lg;
+  @include mq-max("xxl") {
+    left: $body-padding-xxl;
   }
 
   @include mq-max("md") {

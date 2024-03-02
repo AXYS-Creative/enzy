@@ -26,12 +26,6 @@ body {
   color: $black;
 }
 
-header,
-section {
-  max-width: $content-width;
-  margin: auto;
-}
-
 header {
   & > * {
     z-index: 5;
@@ -88,6 +82,10 @@ header {
       right: calc(50% - calc(1920px / 2) + $body-padding);
     }
 
+    @include mq-max("xxl") {
+      right: $body-padding-xxl;
+    }
+
     @include mq-max("lg") {
       display: none;
     }
@@ -126,7 +124,7 @@ header {
     }
 
     @include mq-max("lg") {
-      right: $body-padding-lg;
+      right: $body-padding-xxl;
       opacity: 1;
       pointer-events: all;
     }
@@ -383,7 +381,7 @@ nav {
     @include mq-max("md") {
       @include column-left;
       gap: 12px;
-      bottom: $body-padding-lg;
+      bottom: $body-padding-xxl;
     }
 
     @include mq-max("sm") {
@@ -414,7 +412,7 @@ nav {
 
     @include mq-max("lg") {
       // gap: 32px;
-      right: $body-padding-lg;
+      right: $body-padding-xxl;
       translate: 0 4px;
     }
 
@@ -504,15 +502,25 @@ nav {
   }
 }
 
-section {
-  padding: $vertical-section-padding $body-padding;
+section,
+footer {
+  // border: $test;
+  max-width: $content-width;
+  margin: auto;
+
+  // padding-top: $vertical-section-padding;
+  // padding-bottom: $vertical-section-padding;
+  // padding-left: $horizontal-section-padding;
+  // padding-right: $horizontal-section-padding;
+  padding: $vertical-section-padding $horizontal-section-padding;
 
   @include mq-max("xxl") {
-    padding: $vertical-section-padding-xxl $body-padding;
+    padding: $vertical-section-padding-xxl $horizontal-section-padding-xxl;
+    // padding: $vertical-section-padding-xxl $body-padding;
   }
 
   @include mq-max("lg") {
-    padding: $vertical-section-padding-lg $body-padding-lg;
+    padding: $vertical-section-padding-lg $horizontal-section-padding-xl;
   }
 
   @include mq-max("md") {
@@ -522,6 +530,10 @@ section {
   @include mq-max("sm") {
     padding: $vertical-section-padding-sm $body-padding-md;
   }
+
+  // & > * {
+  //   border: $test;
+  // }
 }
 
 footer {
@@ -533,7 +545,7 @@ footer {
   // }
 
   @include mq-max("lg") {
-    padding: 24px $body-padding-lg;
+    padding: 24px $body-padding-xxl;
   }
 
   @include mq-max("md") {
@@ -754,7 +766,7 @@ ul {
 
   @include mq-max("lg") {
     gap: 32px;
-    // right: $body-padding-lg;
+    // right: $body-padding-xxl;
     // translate: 0 4px;
   }
 

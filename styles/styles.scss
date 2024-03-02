@@ -33,7 +33,7 @@
       }
 
       @include mq-max("lg") {
-        padding-left: 48px;
+        padding-left: 36px;
       }
 
       @include mq-max("md") {
@@ -48,12 +48,13 @@
     h1 {
       @include column-left;
       border-left: 4px solid $green;
-      font-size: 104px;
+      // font-size: 104px;
+      font-size: 96px;
       font-weight: 500;
       margin-bottom: 48px;
 
       @media (max-width: 1664px) {
-        font-size: 86px;
+        font-size: 80px;
       }
 
       @include mq-max("xxl") {
@@ -65,7 +66,7 @@
       }
 
       @include mq-max("lg") {
-        font-size: 72px;
+        font-size: 80px;
       }
 
       @include mq-max("md") {
@@ -104,9 +105,14 @@
 
   .hero-img {
     width: 50%;
+    translate: 12% -4%;
 
     @include mq-max("xxl") {
       width: 46%;
+    }
+
+    @include mq-max("xl") {
+      translate: 8% 0;
     }
 
     @include mq-max("lg") {
@@ -135,17 +141,13 @@
     z-index: -1;
 
     @include mq-max("lg") {
-      top: 12%;
-    }
-
-    @include mq-max("md") {
       display: none;
     }
 
     p {
       font-family: $primary-font;
-      font-size: min(42vw, 800px);
-      opacity: 0.025;
+      font-size: min(36vw, 720px);
+      opacity: 0.02;
       line-height: 0;
       user-select: none;
     }
@@ -347,7 +349,9 @@
   }
 }
 
+// fix global padding
 #platform-section {
+  border: $test;
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -355,7 +359,8 @@
   padding: 548px 196px $vertical-section-padding;
 
   @include mq-max("xxl") {
-    padding: 420px 96px $vertical-section-padding 148px;
+    padding-top: 420px;
+    // padding: 420px 96px $vertical-section-padding 148px;
   }
 
   @include mq-max("xl") {
@@ -764,6 +769,7 @@
   }
 }
 
+// fix global padding
 #faq-section {
   @include column-center;
   padding: $vertical-section-padding 196px $body-padding;
@@ -1011,7 +1017,7 @@
   }
 
   @include mq-max("lg") {
-    padding: $vertical-section-padding-lg $body-padding-lg;
+    padding: $vertical-section-padding-lg $body-padding-xxl;
   }
 
   @include mq-max("md") {
@@ -1090,6 +1096,7 @@
   }
 }
 
+// fix global padding
 #demo-section {
   position: relative;
   @include row-between;
