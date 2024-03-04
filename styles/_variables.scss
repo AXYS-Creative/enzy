@@ -20,9 +20,10 @@ $vertical-section-padding-sm: 96px;
 
 $horizontal-section-padding: 148px;
 $horizontal-section-padding-xxl: 96px;
-$horizontal-section-padding-xl: 72px;
+$horizontal-section-padding-xl: 124px; // used only on slim section
+$horizontal-section-padding-lg: 80px;
 $horizontal-section-padding-md: 48px;
 // $horizontal-section-padding-sm: 96px;
 
-$test: 2px dashed coral;
-$test-bg: cornflowerblue;
+$test: 2px dashed rgba(coral, 0.5);
+$test-bg: rgba(cornflowerblue, 0.5);

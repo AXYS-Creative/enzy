@@ -29,12 +29,39 @@
   translate: -50% -50%;
 }
 
+// header logo, nav items
+@mixin left-spacing {
+  left: $body-padding;
+
+  @include mq-max("xxl") {
+    left: $body-padding-xxl;
+  }
+
+  @include mq-max("md") {
+    left: $body-padding-md;
+  }
+}
+
+// header menu button, nav social items
+@mixin right-spacing {
+  right: $body-padding;
+
+  @include mq-max("xxl") {
+    right: $body-padding-xxl;
+  }
+
+  @include mq-max("md") {
+    right: $body-padding-md;
+  }
+}
+
+// Media Queries
 $max-breakpoints: (
   "xs": 390px,
   "sm": 480px,
   "md": 768px,
   "lg": 1024px,
-  "xl": 1200px,
+  "xl": 1280px,
   "xxl": 1512px,
   "xxxl": 1920px,
 );
@@ -72,17 +99,5 @@ $min-breakpoints: (
 @mixin mq-mouse {
   @media (hover: hover) {
     @content;
-  }
-}
-
-@mixin left-spacing {
-  left: $body-padding;
-
-  @include mq-max("xxl") {
-    left: $body-padding-xxl;
-  }
-
-  @include mq-max("md") {
-    left: $body-padding-md;
   }
 }

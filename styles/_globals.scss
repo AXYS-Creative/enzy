@@ -110,9 +110,9 @@ header {
   }
 
   .menu-btn-wrapper {
+    @include right-spacing;
     position: fixed;
     top: 64px;
-    right: $body-padding;
     translate: 0 -50%;
     opacity: 0;
     pointer-events: none;
@@ -124,14 +124,12 @@ header {
     }
 
     @include mq-max("lg") {
-      right: $body-padding-xxl;
       opacity: 1;
       pointer-events: all;
     }
 
     @include mq-max("md") {
       top: 48px;
-      right: $body-padding-md;
     }
 
     .menu-btn {
@@ -404,69 +402,22 @@ nav {
   }
 
   .nav-social-media {
-    // display: flex;
-    // gap: 48px;
+    @include right-spacing;
     bottom: $body-padding;
-    right: $body-padding;
     left: unset;
 
     @include mq-max("lg") {
-      // gap: 32px;
-      right: $body-padding-xxl;
       translate: 0 4px;
     }
 
     @include mq-max("md") {
-      // gap: 12px;
       bottom: $body-padding-md;
-      right: $body-padding-md;
       translate: 0 -12px;
     }
 
     @include mq-max("sm") {
-      // gap: 24px;
       translate: 0 0;
     }
-
-    // .social-media-link {
-    //   @include row-center;
-    //   width: 36px;
-    //   height: 36px;
-    //   border-radius: 50%;
-    //   overflow: hidden;
-    //   transition: 0.25s ease;
-
-    //   @include mq-max("sm") {
-    //     width: 24px;
-    //     height: 24px;
-    //   }
-
-    //   &:hover,
-    //   &:focus {
-    //     .social-media-icon-wrapper {
-    //       translate: 0 -40%;
-
-    //       .social-media-icon {
-    //         path {
-    //           fill: $green;
-    //         }
-    //       }
-    //     }
-    //   }
-
-    //   .social-media-icon-wrapper {
-    //     @include column-center;
-    //     gap: 24px;
-    //     translate: 0 36%;
-    //     transition: 0.25s ease;
-
-    //     .social-media-icon {
-    //       path {
-    //         transition: 0.2s ease;
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   .nav-abstract {
@@ -504,23 +455,17 @@ nav {
 
 section,
 footer {
-  // border: $test;
   max-width: $content-width;
   margin: auto;
 
-  // padding-top: $vertical-section-padding;
-  // padding-bottom: $vertical-section-padding;
-  // padding-left: $horizontal-section-padding;
-  // padding-right: $horizontal-section-padding;
   padding: $vertical-section-padding $horizontal-section-padding;
 
   @include mq-max("xxl") {
     padding: $vertical-section-padding-xxl $horizontal-section-padding-xxl;
-    // padding: $vertical-section-padding-xxl $body-padding;
   }
 
   @include mq-max("lg") {
-    padding: $vertical-section-padding-lg $horizontal-section-padding-xl;
+    padding: $vertical-section-padding-lg $horizontal-section-padding-lg;
   }
 
   @include mq-max("md") {
@@ -531,26 +476,47 @@ footer {
     padding: $vertical-section-padding-sm $body-padding-md;
   }
 
-  // & > * {
-  //   border: $test;
-  // }
+  &.slim-content {
+    padding: $vertical-section-padding calc($horizontal-section-padding * 1.5);
+
+    @include mq-max("xxl") {
+      padding: $vertical-section-padding-xxl
+        calc($horizontal-section-padding-xxl * 2);
+    }
+
+    @include mq-max("xl") {
+      padding: $vertical-section-padding-xxl $horizontal-section-padding-xl;
+    }
+
+    @include mq-max("lg") {
+      padding: $vertical-section-padding-lg $horizontal-section-padding-lg;
+    }
+
+    @include mq-max("md") {
+      padding: $vertical-section-padding-md $body-padding-md;
+    }
+
+    @include mq-max("sm") {
+      padding: $vertical-section-padding-sm $body-padding-md;
+    }
+  }
 }
 
 footer {
   @include row-between;
-  padding: 64px $body-padding;
+  // padding: 64px $body-padding;
 
   // @include mq-max("xxl") {
   //   padding: $vertical-section-padding-xxl $body-padding;
   // }
 
-  @include mq-max("lg") {
-    padding: 24px $body-padding-xxl;
-  }
+  // @include mq-max("lg") {
+  //   padding: 24px $body-padding-xxl;
+  // }
 
-  @include mq-max("md") {
-    padding: 24px $body-padding-md;
-  }
+  // @include mq-max("md") {
+  //   padding: 24px $body-padding-md;
+  // }
 
   // @include mq-max("sm") {
   //   padding: 24px $body-padding-md;
