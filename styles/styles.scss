@@ -18,6 +18,14 @@
     padding-bottom: 360px;
   }
 
+  @include mq-max("md") {
+    padding-bottom: 280px;
+  }
+
+  @include mq-max("sm") {
+    padding-bottom: 420px;
+  }
+
   .hero-headline {
     width: 50%;
     @include column-left;
@@ -138,15 +146,29 @@
       gap: 24px;
       position: absolute;
       bottom: 0;
+      left: 0;
       translate: 0 36%;
+    }
+
+    @include mq-max("sm") {
+      translate: 0 -48%;
+      gap: 16px;
     }
 
     img {
       width: 20%;
 
+      @include mq-max("md") {
+        width: 26%;
+      }
+
       &:first-of-type,
       &:last-of-type {
         translate: 0 32%;
+
+        @include mq-max("md") {
+          display: none;
+        }
       }
 
       &:nth-of-type(even) {
