@@ -19,7 +19,7 @@
   }
 
   @include mq-max("md") {
-    padding-bottom: 280px;
+    padding-bottom: 320px;
   }
 
   @include mq-max("sm") {
@@ -32,8 +32,7 @@
     gap: 24px;
 
     @include mq-max("lg") {
-      // border: $test;
-      width: 92%;
+      width: 100%;
     }
 
     & > * {
@@ -350,7 +349,7 @@
   }
 
   .video-paragraph-wrapper {
-    padding-top: 520px; // Alter pinning
+    padding-top: 360px; // Alter pinning
     max-width: calc($content-width - $horizontal-section-padding * 2);
     z-index: 2;
     pointer-events: none;
@@ -409,13 +408,13 @@
     padding-top: 420px;
   }
 
-  // @include mq-max("lg") {
-  //   padding-top: 320px;
-  // }
+  @include mq-max("lg") {
+    padding-top: calc($vertical-section-padding-lg * 2);
+  }
 
-  // @include mq-max("md") {
-  //   padding: $vertical-section-padding-md $body-padding-md;
-  // }
+  @include mq-max("md") {
+    padding-top: $vertical-section-padding-md;
+  }
 
   // @include mq-max("sm") {
   //   padding: 128px $body-padding-md;
@@ -725,8 +724,13 @@
         padding-left: unset;
         display: block;
         align-self: center;
-        width: 25%;
-        margin-bottom: 64px;
+        width: 30%;
+        margin: 64px 0 128px;
+      }
+
+      @include mq-max("md") {
+        width: 40%;
+        // margin-bottom: 64px;
       }
 
       @include mq-max("sm") {
