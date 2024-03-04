@@ -482,7 +482,7 @@ footer {
 @media screen and (max-width: 1024px) {
   section,
   footer {
-    padding: 124px 80px;
+    padding: 124px 96px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -516,7 +516,7 @@ footer.slim-content {
 @media screen and (max-width: 1024px) {
   section.slim-content,
   footer.slim-content {
-    padding: 124px 80px;
+    padding: 124px 96px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1138,6 +1138,7 @@ ul {
   align-items: center;
   align-items: flex-start;
   margin-top: 96px;
+  overflow: hidden;
 }
 @media screen and (max-width: 1512px) {
   #hero-section {
@@ -1149,6 +1150,7 @@ ul {
     flex-direction: column;
     align-items: center;
     gap: 96px;
+    padding-bottom: 360px;
   }
 }
 #hero-section .hero-headline {
@@ -1160,7 +1162,7 @@ ul {
 }
 @media screen and (max-width: 1024px) {
   #hero-section .hero-headline {
-    width: 100%;
+    width: 92%;
   }
 }
 #hero-section .hero-headline > * {
@@ -1207,12 +1209,12 @@ ul {
 }
 @media screen and (max-width: 1024px) {
   #hero-section .hero-headline h1 {
-    font-size: 80px;
+    font-size: 8vw;
   }
 }
 @media screen and (max-width: 768px) {
   #hero-section .hero-headline h1 {
-    font-size: 56px;
+    font-size: 10vw;
     border-width: 3px;
   }
 }
@@ -1254,7 +1256,7 @@ ul {
 }
 @media screen and (max-width: 1024px) {
   #hero-section .hero-img {
-    width: 80%;
+    display: none;
   }
 }
 #hero-section .hero-img img {
@@ -1266,6 +1268,29 @@ ul {
 }
 #hero-section .hero-img img:last-of-type {
   translate: -20% -6%;
+}
+#hero-section .hero-img-mobile {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  #hero-section .hero-img-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    position: absolute;
+    bottom: 0;
+    translate: 0 36%;
+  }
+}
+#hero-section .hero-img-mobile img {
+  width: 20%;
+}
+#hero-section .hero-img-mobile img:first-of-type, #hero-section .hero-img-mobile img:last-of-type {
+  translate: 0 32%;
+}
+#hero-section .hero-img-mobile img:nth-of-type(even) {
+  translate: 0 16%;
 }
 #hero-section .hero-background-text {
   position: absolute;
@@ -1780,7 +1805,7 @@ ul {
     padding-left: unset;
     display: block;
     align-self: center;
-    width: 60%;
+    width: 25%;
     margin-bottom: 64px;
   }
 }
