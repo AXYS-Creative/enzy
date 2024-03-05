@@ -86,8 +86,8 @@ const checkScroll = () => {
   if (isVidTextVisible) {
     // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight);
     let scrollProgress =
-      (scrollPosition + windowHeight - vidTextOffsetTop - 56) /
-      (vidTextHeight + windowHeight / 16); // Tweak the start and end of the animation
+      (scrollPosition + windowHeight - vidTextOffsetTop - 64) /
+      (vidTextHeight + windowHeight / 16); // Tweak the start and end of the animation. First number: further negative, later it starts. Second number, greater the number the faster the animation ends.
     scrollProgress = Math.min(scrollProgress, 1);
     const backgroundSize = scrollProgress * 100 + "% 100%";
     vidText.style.backgroundSize = backgroundSize;

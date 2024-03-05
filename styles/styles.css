@@ -17,11 +17,12 @@
 }
 
 html {
+  background: #d6d6d6;
   scroll-behavior: smooth;
+  scrollbar-color: #6ca793 transparent;
 }
 
 body {
-  background: #d6d6d6;
   color: #020202;
 }
 
@@ -536,6 +537,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 64px 64px;
 }
 
 h1,
@@ -1354,14 +1356,16 @@ ul {
   background: #000;
   max-width: unset;
   width: 100vw;
+  padding-top: 560px;
 }
 #video-section .video-wrapper {
+  border: 2px dashed rgba(255, 127, 80, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
-  top: 64px;
-  margin-bottom: 112px;
+  top: 50%;
+  translate: 0 -50%;
   width: 480px;
   z-index: 1;
 }
@@ -1500,13 +1504,19 @@ ul {
   display: none;
 }
 #video-section .video-paragraph-wrapper {
+  border: 2px dashed rgba(255, 127, 80, 0.5);
   padding-top: 360px;
   max-width: 1624px;
   z-index: 2;
   pointer-events: none;
   text-align: center;
 }
-#video-section .video-paragraph {
+@media screen and (max-width: 1024px) {
+  #video-section .video-paragraph-wrapper {
+    padding-top: 280px;
+  }
+}
+#video-section .video-paragraph-wrapper .video-paragraph {
   font-family: "Saira", sans-serif;
   font-size: min(3.85vw, 77.5px);
   font-weight: 700;
@@ -1518,30 +1528,26 @@ ul {
   -webkit-background-clip: text;
   background-image: linear-gradient(#f8f8f8, #f8f8f8);
   -webkit-text-fill-color: rgba(248, 248, 248, 0.36);
+  background-size: 0% 100%;
   transition: background 1s cubic-bezier(0.12, 0.76, 0.64, 1);
 }
 @media screen and (max-width: 1512px) {
-  #video-section .video-paragraph {
+  #video-section .video-paragraph-wrapper .video-paragraph {
     font-size: 4vw;
   }
 }
 @media screen and (max-width: 1280px) {
-  #video-section .video-paragraph {
-    font-size: 3.5vw;
+  #video-section .video-paragraph-wrapper .video-paragraph {
+    font-size: 56px;
   }
 }
 @media screen and (max-width: 1024px) {
-  #video-section .video-paragraph {
-    font-size: 3.6vw;
-  }
-}
-@media screen and (max-width: 768px) {
-  #video-section .video-paragraph {
-    font-size: 3.64vw;
+  #video-section .video-paragraph-wrapper .video-paragraph {
+    font-size: 48px;
   }
 }
 @media screen and (max-width: 480px) {
-  #video-section .video-paragraph {
+  #video-section .video-paragraph-wrapper .video-paragraph {
     font-size: 15px;
     width: 96%;
   }

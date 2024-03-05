@@ -18,11 +18,13 @@
 }
 
 html {
+  background: $grey-light;
   scroll-behavior: smooth;
+  scrollbar-color: $green transparent;
 }
 
 body {
-  background: $grey-light;
+  // background: $grey-light;
   color: $black;
 }
 
@@ -457,7 +459,6 @@ section,
 footer {
   max-width: $content-width;
   margin: auto;
-
   padding: $vertical-section-padding $horizontal-section-padding;
 
   @include mq-max("xxl") {
@@ -504,7 +505,7 @@ footer {
 
 footer {
   @include row-between;
-  // padding: 64px $body-padding;
+  padding: 64px $body-padding;
 
   // @include mq-max("xxl") {
   //   padding: $vertical-section-padding-xxl $body-padding;
