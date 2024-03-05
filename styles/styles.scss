@@ -225,19 +225,33 @@
     top: 50%;
     translate: 0 -50%;
     margin-bottom: -248px; // Adjust space between video and paragraph
-    width: 480px;
+    // width: 480px;
+    width: 24%;
     z-index: 1;
 
     @include mq-max("xxl") {
-      width: 360px;
+      // width: 360px;
+      width: 28%;
+      margin-bottom: -196px;
+    }
+
+    @include mq-max("xl") {
+      width: 32%;
+    }
+
+    @include mq-max("lg") {
+      margin-bottom: -124px;
+      width: 36%;
     }
 
     @include mq-max("md") {
-      width: 320px;
+      // width: 320px;
+      width: 40%;
     }
 
     @include mq-max("sm") {
-      margin-bottom: 0;
+      width: 44%;
+      margin-bottom: -164px;
     }
 
     video {
@@ -386,21 +400,15 @@
       }
 
       @include mq-max("xl") {
-        font-size: 56px;
-      }
-
-      @include mq-max("lg") {
-        // font-size: 3.6vw;
         font-size: 48px;
       }
 
       @include mq-max("md") {
-        // font-size: 3.64vw;
+        font-size: 40px;
       }
 
       @include mq-max("sm") {
-        font-size: 15px;
-        width: 96%;
+        font-size: 28px;
       }
     }
   }

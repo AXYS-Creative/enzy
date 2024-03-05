@@ -20,7 +20,7 @@
 html {
   background: #d9dadb;
   scroll-behavior: smooth;
-  scrollbar-color: #90ffd7 transparent;
+  scrollbar-color: #4c7567 transparent;
 }
 
 body {
@@ -1367,22 +1367,35 @@ ul {
   top: 50%;
   translate: 0 -50%;
   margin-bottom: -248px;
-  width: 480px;
+  width: 24%;
   z-index: 1;
 }
 @media screen and (max-width: 1512px) {
   #video-section .video-wrapper {
-    width: 360px;
+    width: 28%;
+    margin-bottom: -196px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #video-section .video-wrapper {
+    width: 32%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #video-section .video-wrapper {
+    margin-bottom: -124px;
+    width: 36%;
   }
 }
 @media screen and (max-width: 768px) {
   #video-section .video-wrapper {
-    width: 320px;
+    width: 40%;
   }
 }
 @media screen and (max-width: 480px) {
   #video-section .video-wrapper {
-    margin-bottom: 0;
+    width: 44%;
+    margin-bottom: -164px;
   }
 }
 #video-section .video-wrapper video {
@@ -1538,18 +1551,17 @@ ul {
 }
 @media screen and (max-width: 1280px) {
   #video-section .video-paragraph-wrapper .video-paragraph {
-    font-size: 56px;
+    font-size: 48px;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   #video-section .video-paragraph-wrapper .video-paragraph {
-    font-size: 48px;
+    font-size: 40px;
   }
 }
 @media screen and (max-width: 480px) {
   #video-section .video-paragraph-wrapper .video-paragraph {
-    font-size: 15px;
-    width: 96%;
+    font-size: 28px;
   }
 }
 
