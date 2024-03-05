@@ -4,7 +4,7 @@
   box-sizing: border-box;
 
   &::selection {
-    background: rgba($green, 0.5);
+    background: rgba($green-light, 0.5);
   }
 
   // Autofill for form fields: input, textarea, select, etc.
@@ -20,7 +20,7 @@
 html {
   background: $grey-light;
   scroll-behavior: smooth;
-  scrollbar-color: $green transparent;
+  scrollbar-color: $pale transparent;
 }
 
 body {
@@ -360,7 +360,7 @@ nav {
       &:hover,
       &:focus {
         padding-left: 24px;
-        border-color: $green;
+        border-color: $green-light;
 
         @include mq-max("xxl") {
           padding-left: 16px;
@@ -397,7 +397,7 @@ nav {
 
         &:hover,
         &:focus {
-          border-color: $green;
+          border-color: $green-light;
         }
       }
     }
@@ -566,7 +566,7 @@ ul {
   }
 
   .headline-text {
-    border-left: 4px solid $green;
+    border-left: 4px solid $green-light;
     margin-bottom: 48px;
 
     .headline-title {
@@ -648,7 +648,7 @@ ul {
     width: 100%;
     height: 100%;
     border-radius: 4px;
-    background-color: $green;
+    background-color: $green-light;
     transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
     z-index: -1;
   }
@@ -681,7 +681,7 @@ ul {
     }
 
     svg {
-      background: $green;
+      background: $green-light;
       translate: 6px 0;
 
       path {
@@ -701,14 +701,14 @@ ul {
       left: 0;
       width: 0;
       height: 3px;
-      background-color: $green;
+      background-color: $green-light;
       animation: cta-2-default 0.5s ease forwards;
       // transition: 0.3s ease;
     }
   }
 
   svg {
-    // border: 2px solid $green;
+    // border: 2px solid $green-light;
     width: 14px;
     height: 14px;
     padding: 4px;
@@ -718,7 +718,7 @@ ul {
     transition: 0.3s ease;
 
     path {
-      fill: $green;
+      fill: $green-light;
       transition: 0.3s ease;
     }
   }
@@ -769,7 +769,7 @@ ul {
 
         .social-media-icon {
           path {
-            fill: $green;
+            fill: $green-light;
           }
         }
       }

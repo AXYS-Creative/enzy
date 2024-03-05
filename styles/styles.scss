@@ -57,7 +57,7 @@
 
     h1 {
       @include column-left;
-      border-left: 4px solid $green;
+      border-left: 4px solid $green-light;
       font-size: 96px;
       font-weight: 500;
       margin-bottom: 48px;
@@ -219,13 +219,12 @@
   padding-top: 560px;
 
   .video-wrapper {
-    border: $test;
+    // border: $test;
     @include row-center;
     position: sticky;
-    // top: $body-padding;
     top: 50%;
     translate: 0 -50%;
-    // margin-bottom: 112px; // Adjust space between video and paragraph
+    margin-bottom: -248px; // Adjust space between video and paragraph
     width: 480px;
     z-index: 1;
 
@@ -353,7 +352,7 @@
   }
 
   .video-paragraph-wrapper {
-    border: $test;
+    // border: $test;
     padding-top: 360px; // Alter pinning of video
     max-width: calc($content-width - $horizontal-section-padding * 2);
     z-index: 2;
@@ -853,7 +852,7 @@
     }
 
     .faq-item {
-      border-bottom: 3px solid $green;
+      border-bottom: 3px solid $green-light;
       position: relative;
       padding-top: 56px;
       display: grid;
@@ -1105,7 +1104,7 @@
   .statement-divider {
     width: 520px;
     height: 2px;
-    background-color: $green;
+    background-color: $green-light;
     border: none;
 
     @include mq-max("xxl") {
@@ -1192,7 +1191,7 @@
       border: none;
 
       @include mq-max("lg") {
-        border-left: 4px solid $green;
+        border-left: 4px solid $green-light;
       }
     }
   }
@@ -1201,7 +1200,7 @@
     @include absolute-center;
     height: 448px;
     width: 4px;
-    background: $green;
+    background: $green-light;
 
     @include mq-max("xxl") {
       height: 360px;
@@ -1262,7 +1261,7 @@
         left: 0;
         width: 0;
         height: 3px;
-        background: $green;
+        background: $green-light;
         transition: 0.3s ease;
         z-index: 1;
         animation: underline-item-default 0.3s ease-in-out forwards;
@@ -1356,7 +1355,7 @@
     //   @include row-between;
     //   gap: 12px;
     //   font-size: 14px;
-    //   color: $green;
+    //   color: $green-light;
     //   opacity: 0;
     //   pointer-events: none;
     //   transition: 0.24s ease 0.12s;
@@ -1379,14 +1378,14 @@
     //   .error-icon {
     //     width: 24px;
     //     height: 24px;
-    //     border: 1px solid $green;
+    //     border: 1px solid $green-light;
     //     border-radius: 50%;
     //     padding: 4px;
     //     scale: 0.5;
     //     transition: 0.3s ease 0.24s;
 
     //     path {
-    //       fill: $green;
+    //       fill: $green-light;
     //     }
     //   }
     // }
@@ -1450,7 +1449,7 @@
 
         &::before {
           translate: -12px 0;
-          background: $green;
+          background: $green-light;
         }
       }
 
