@@ -1,10 +1,11 @@
 const navMenu = document.querySelector(".nav-menu"),
   menuBtn = document.querySelector(".menu-btn"),
   navLinks = document.querySelectorAll(".nav-link"),
+  siteHeader = document.querySelector(".site-header"),
+  headerLogo = document.querySelector(".header-logo"),
   //   navFooterLinks = document.querySelectorAll(".nav-footer-link"),
   tabElementsPage = document.querySelectorAll(".tab-element-page"),
-  tabElementsNav = document.querySelectorAll(".tab-element-nav"),
-  siteHeader = document.querySelector(".site-header");
+  tabElementsNav = document.querySelectorAll(".tab-element-nav");
 
 tabElementsNav.forEach((elem) => elem.setAttribute("tabIndex", "-1"));
 
@@ -53,3 +54,5 @@ function closeNav() {
 });
 
 menuBtn.addEventListener("click", toggleNav);
+
+headerLogo.addEventListener("click", closeNav);

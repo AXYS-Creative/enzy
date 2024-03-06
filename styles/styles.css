@@ -18,12 +18,12 @@
 }
 
 html {
-  background: #d9dadb;
   scroll-behavior: smooth;
   scrollbar-color: #4c7567 transparent;
 }
 
 body {
+  background: #d9dadb;
   color: #020202;
 }
 
@@ -1359,6 +1359,16 @@ ul {
   width: 100vw;
   padding-top: 560px;
 }
+@media screen and (max-width: 1512px) {
+  #video-section {
+    padding-top: 520px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #video-section {
+    padding-top: 320px;
+  }
+}
 #video-section .video-wrapper {
   display: flex;
   justify-content: center;
@@ -1366,14 +1376,13 @@ ul {
   position: sticky;
   top: 50%;
   translate: 0 -50%;
-  margin-bottom: -248px;
-  width: 24%;
+  margin-bottom: -196px;
+  width: 28%;
   z-index: 1;
 }
 @media screen and (max-width: 1512px) {
   #video-section .video-wrapper {
-    width: 28%;
-    margin-bottom: -196px;
+    margin-bottom: -148px;
   }
 }
 @media screen and (max-width: 1280px) {
@@ -1383,7 +1392,8 @@ ul {
 }
 @media screen and (max-width: 1024px) {
   #video-section .video-wrapper {
-    margin-bottom: -124px;
+    border: 2px dashed rgba(255, 127, 80, 0.8);
+    margin-bottom: -64px;
     width: 36%;
   }
 }
@@ -1394,8 +1404,8 @@ ul {
 }
 @media screen and (max-width: 480px) {
   #video-section .video-wrapper {
-    width: 44%;
-    margin-bottom: -164px;
+    width: 64%;
+    margin-bottom: 48px;
   }
 }
 #video-section .video-wrapper video {
@@ -1875,8 +1885,8 @@ ul {
 }
 @media screen and (max-width: 480px) {
   #platform-section .headline-wrapper .device-img-mobile {
-    width: 90%;
-    margin-bottom: 64px;
+    width: 56%;
+    margin: 48px 0 128px;
   }
 }
 #platform-section .platform-headline-img {
@@ -1974,14 +1984,14 @@ ul {
 #faq-section .faq-list .faq-item {
   border-bottom: 3px solid #6ca793;
   position: relative;
-  padding-top: 56px;
+  padding-top: 40px;
   display: grid;
   grid-template-rows: 0fr;
-  transition: all 0.3s ease, margin 0.4s ease;
+  transition: all 0.3s ease;
 }
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .faq-item {
-    padding-top: 42px;
+    padding-top: 28px;
   }
 }
 #faq-section .faq-list .faq-item:hover::before, #faq-section .faq-list .faq-item:focus-within::before {
@@ -2007,13 +2017,13 @@ ul {
 #faq-section .faq-list .faq-item.active .answer {
   opacity: 1;
   pointer-events: all;
-  padding: 12px 0 16px;
+  padding: 40px 0 16px;
   translate: 0 0;
   transition: 0.3s ease 0.12s;
 }
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .faq-item.active .answer {
-    padding: 16px 0 8px;
+    padding: 40px 0 12px;
   }
 }
 #faq-section .faq-list .question {
@@ -2023,7 +2033,7 @@ ul {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 32px 0;
+  padding: 36px 0 20px;
   z-index: 1;
 }
 #faq-section .faq-list .question h3 {
@@ -2044,7 +2054,7 @@ ul {
 }
 @media screen and (max-width: 768px) {
   #faq-section .faq-list .question h3 {
-    font-size: 13px;
+    font-size: 14px;
     gap: 4px;
   }
 }
@@ -2111,7 +2121,7 @@ ul {
   opacity: 0;
   pointer-events: none;
   translate: 0 0;
-  padding: 12px 0;
+  padding: 24px 0 12px;
   display: flex;
   font-size: 20px;
   line-height: 150%;
@@ -2121,6 +2131,7 @@ ul {
 @media screen and (max-width: 1512px) {
   #faq-section .faq-list .answer {
     font-size: 16px;
+    padding: 32px 0 12px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -2156,12 +2167,23 @@ ul {
 }
 @media screen and (max-width: 480px) {
   #faq-section .faq-list .long-faq-item {
-    padding-top: 56px;
+    padding-top: 32px;
   }
   #faq-section .faq-list .long-faq-item .question {
     padding: 20px 0;
   }
   #faq-section .faq-list .long-faq-item .question h3 {
+    line-height: 150%;
+  }
+}
+@media screen and (max-width: 389px) {
+  #faq-section .faq-list .long-faq-item-xs {
+    padding-top: 32px;
+  }
+  #faq-section .faq-list .long-faq-item-xs .question {
+    padding: 20px 0;
+  }
+  #faq-section .faq-list .long-faq-item-xs .question h3 {
     line-height: 150%;
   }
 }
