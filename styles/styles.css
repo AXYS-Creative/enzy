@@ -1,4 +1,15 @@
 /* 300-700 only, according to their brand guide */
+:root {
+  --background: #d9dadb;
+  --primary-font-color: #020202;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #231f20;
+    --primary-font-color: #fcfeff;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -23,8 +34,8 @@ html {
 }
 
 body {
-  background: #d9dadb;
-  color: #020202;
+  background: var(--background);
+  color: var(--primary-font-color);
 }
 
 header > * {
@@ -574,7 +585,7 @@ a {
 }
 
 a {
-  color: #020202;
+  color: var(--primary-font-color);
   text-decoration: none;
 }
 @media screen and (max-width: 1512px) {
@@ -1674,7 +1685,7 @@ ul {
 }
 #platform-section .headline-wrapper .headline-text::before {
   content: "";
-  background-color: #d9dadb;
+  background-color: var(--background);
   position: absolute;
   top: 0;
   left: 0;
@@ -2057,7 +2068,7 @@ ul {
   z-index: 1;
 }
 #faq-section .faq-list .question h3 {
-  color: #020202;
+  color: var(--primary-font-color);
   font-size: 20px;
   font-weight: 500;
   text-transform: capitalize;
@@ -2129,7 +2140,7 @@ ul {
   }
 }
 #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow path {
-  fill: #020202;
+  fill: var(--primary-font-color);
 }
 @media screen and (max-width: 480px) {
   #faq-section .faq-list .question .angle-arrow-wrapper .angle-arrow {

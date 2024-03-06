@@ -23,8 +23,10 @@ html {
 }
 
 body {
-  background: $grey-light;
-  color: $black;
+  // background: $grey-light;
+  // color: $black;
+  background: var(--background);
+  color: var(--primary-font-color);
 }
 
 header {
@@ -542,7 +544,8 @@ a {
 }
 
 a {
-  color: $black;
+  // color: $black;
+  color: var(--primary-font-color);
   text-decoration: none;
 
   @include mq-max("xxl") {

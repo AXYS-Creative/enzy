@@ -9,6 +9,18 @@ $pale: #90ffd7;
 $green-light: #6ca793;
 $green-dark: #4c7567;
 
+:root {
+  --background: #{$grey-light};
+  --primary-font-color: #{$black};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #{$grey-dark};
+    --primary-font-color: #{$white};
+  }
+}
+
 // Site Scaffolding
 
 $content-width: 1920px;

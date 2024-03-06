@@ -489,7 +489,8 @@
 
       &::before {
         content: "";
-        background-color: $grey-light;
+        // background-color: $grey-light;
+        background-color: var(--background);
         position: absolute;
         top: 0;
         left: 0;
@@ -912,7 +913,8 @@
       z-index: 1;
 
       h3 {
-        color: $black;
+        // color: $black;
+        color: var(--primary-font-color);
         font-size: 20px;
         font-weight: 500;
         text-transform: capitalize;
@@ -977,7 +979,8 @@
           }
 
           path {
-            fill: $black;
+            // fill: $black;
+            fill: var(--primary-font-color);
           }
 
           @include mq-max("sm") {

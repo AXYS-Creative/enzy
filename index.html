@@ -473,9 +473,20 @@
           </div>
         </div>
 
-        <figure class="platform-headline-img" role="complementary">
+        <!-- <figure class="platform-headline-img" role="complementary">
           <img src="./public/enzy-logo-icon-dark.svg" alt="Enzy Logo" />
-        </figure>
+        </figure> -->
+
+        <picture class="platform-headline-img">
+          <source
+            srcset="./public/enzy-logo-icon-dark"
+            media="(prefers-color-scheme: light)"
+          />
+          <source
+            srcset="./public/enzy-logo-icon-light"
+            media="(prefers-color-scheme: dark)"
+          />
+        </picture>
 
         <div class="device-showcase" aria-hidden="false">
           <img
