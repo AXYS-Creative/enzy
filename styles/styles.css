@@ -541,8 +541,23 @@ footer {
   padding-top: 64px;
   padding-bottom: 64px;
 }
+footer .footer-link,
 footer .copyright {
+  padding-bottom: 8px;
   font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  footer .footer-link,
+  footer .copyright {
+    font-size: 12px;
+  }
+}
+footer .footer-link {
+  border-bottom: 2px solid transparent;
+  transition: 0.2s ease;
+}
+footer .footer-link:hover, footer .footer-link:focus {
+  border-color: #6ca793;
 }
 
 h1,
@@ -1986,7 +2001,7 @@ ul {
   }
 }
 #faq-section .faq-list .faq-item {
-  border-bottom: 3px solid #6ca793;
+  border-bottom: 3px solid #231f20;
   position: relative;
   padding-top: 40px;
   display: grid;
@@ -2009,11 +2024,12 @@ ul {
   translate: 0 100%;
   width: 0;
   height: 3px;
-  background: #020202;
+  background: #6ca793;
   animation: underline-item-default 0.3s ease-in-out forwards;
 }
 #faq-section .faq-list .faq-item.active {
   grid-template-rows: 1fr;
+  border-color: #6ca793;
 }
 #faq-section .faq-list .faq-item.active .question .angle-arrow {
   rotate: 135deg;
@@ -2440,12 +2456,12 @@ ul {
 }
 @media screen and (max-width: 1512px) {
   #demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
-    transform: translate(0, -80%);
+    transform: translate(0, -60%);
     font-size: 14px;
   }
   #demo-section .mail-form .input:focus ~ .label,
   #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
-    transform: translate(0, -80%);
+    transform: translate(0, -60%);
     font-size: 14px;
   }
 }

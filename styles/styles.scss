@@ -849,9 +849,9 @@
     }
 
     .faq-item {
-      border-bottom: 3px solid $green-light;
+      border-bottom: 3px solid $grey-dark;
       position: relative;
-      padding-top: 40px; // Same height as ...
+      padding-top: 40px;
       display: grid;
       grid-template-rows: 0fr;
       transition: all 0.3s ease;
@@ -875,12 +875,13 @@
         translate: 0 100%;
         width: 0;
         height: 3px;
-        background: $black;
+        background: $green-light;
         animation: underline-item-default 0.3s ease-in-out forwards;
       }
 
       &.active {
         grid-template-rows: 1fr;
+        border-color: $green-light;
 
         .question {
           .angle-arrow {
@@ -1294,7 +1295,7 @@
       padding-left: $input-spacing;
 
       @include mq-max("xxl") {
-        transform: translate(0, -80%);
+        transform: translate(0, -60%);
         font-size: 14px;
       }
     }
