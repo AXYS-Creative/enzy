@@ -10,14 +10,22 @@ $green-light: #6ca793;
 $green-dark: #4c7567;
 
 :root {
-  --background: #{$grey-light};
+  --background-color: #{$grey-light};
   --primary-font-color: #{$black};
+  --primary-accent-color: #{$green-light};
+
+  --cta-1-text-color-hover: #{$black};
+  --underline-item-color: #{$grey-dark};
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #{$grey-dark};
+    --background-color: #{$grey-dark};
     --primary-font-color: #{$white};
+    --primary-accent-color: #{$green-dark};
+
+    --cta-1-text-color-hover: #{$white};
+    --underline-item-color: #{$grey-light};
   }
 }
 

@@ -1,13 +1,19 @@
 /* 300-700 only, according to their brand guide */
 :root {
-  --background: #d9dadb;
+  --background-color: #d9dadb;
   --primary-font-color: #020202;
+  --primary-accent-color: #6ca793;
+  --cta-1-text-color-hover: #020202;
+  --underline-item-color: #231f20;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #231f20;
+    --background-color: #231f20;
     --primary-font-color: #fcfeff;
+    --primary-accent-color: #4c7567;
+    --cta-1-text-color-hover: #fcfeff;
+    --underline-item-color: #d9dadb;
   }
 }
 * {
@@ -34,7 +40,7 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: var(--background-color);
   color: var(--primary-font-color);
 }
 
@@ -456,13 +462,13 @@ nav .nav-abstract {
   bottom: 0;
   width: 100vw;
   height: 24px;
-  background: #231f20;
+  background: #020202;
   animation: nav-abstract-default 0.75s ease 0s forwards;
 }
 nav.menu-active {
   opacity: 1;
   pointer-events: all;
-  background: #d9dadb;
+  background: var(--background-color);
   transition: background 0s ease 0.4s;
 }
 nav.menu-active .nav-abstract {
@@ -613,7 +619,7 @@ ul {
   }
 }
 .headline-wrapper .headline-text {
-  border-left: 4px solid #6ca793;
+  border-left: 4px solid var(--primary-accent-color);
   margin-bottom: 48px;
 }
 .headline-wrapper .headline-text .headline-title {
@@ -692,12 +698,12 @@ ul {
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  background-color: #6ca793;
+  background-color: var(--primary-accent-color);
   transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
   z-index: -1;
 }
 .cta-1:hover, .cta-1:focus {
-  color: #020202;
+  color: var(--cta-1-text-color-hover);
   transition: color 0.3s ease 0s;
 }
 .cta-1:hover::before, .cta-1:focus::before {
@@ -718,11 +724,11 @@ ul {
   animation: cta-2-hover 0.5s ease forwards;
 }
 .cta-2:hover svg, .cta-2:focus svg {
-  background: #6ca793;
+  background: var(--primary-accent-color);
   translate: 6px 0;
 }
 .cta-2:hover svg path, .cta-2:focus svg path {
-  fill: #d9dadb;
+  fill: var(--background-color);
 }
 .cta-2-text {
   display: flex;
@@ -737,7 +743,7 @@ ul {
   left: 0;
   width: 0;
   height: 3px;
-  background-color: #6ca793;
+  background: var(--primary-accent-color);
   animation: cta-2-default 0.5s ease forwards;
 }
 .cta-2 svg {
@@ -793,7 +799,7 @@ ul {
   translate: 0 -40%;
 }
 .social-media-links .social-media-link:hover .social-media-icon-wrapper .social-media-icon path, .social-media-links .social-media-link:focus .social-media-icon-wrapper .social-media-icon path {
-  fill: #6ca793;
+  fill: var(--primary-accent-color);
 }
 .social-media-links .social-media-link .social-media-icon-wrapper {
   display: flex;
@@ -804,6 +810,7 @@ ul {
   transition: 0.25s ease;
 }
 .social-media-links .social-media-link .social-media-icon-wrapper .social-media-icon path {
+  fill: var(--primary-font-color);
   transition: 0.2s ease;
 }
 
@@ -820,7 +827,7 @@ ul {
   z-index: 10;
 }
 .loading-screen-text-content {
-  background: #d9dadb;
+  background: var(--background-color);
   width: 100%;
   height: 100%;
   display: flex;
@@ -1685,7 +1692,7 @@ ul {
 }
 #platform-section .headline-wrapper .headline-text::before {
   content: "";
-  background-color: var(--background);
+  background-color: var(--background-color);
   position: absolute;
   top: 0;
   left: 0;
@@ -1694,7 +1701,7 @@ ul {
   height: 0;
 }
 #platform-section .headline-wrapper .headline-text-base {
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 @media screen and (max-width: 1024px) {
   #platform-section .headline-wrapper .headline-text-base {
@@ -1703,7 +1710,7 @@ ul {
 }
 #platform-section .headline-wrapper .headline-text-base .headline-title,
 #platform-section .headline-wrapper .headline-text-base .headline-subtext {
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper .headline-text-device {
   height: 262px;
@@ -1740,7 +1747,7 @@ ul {
 #platform-section .headline-wrapper .headline-text-device .headline-title,
 #platform-section .headline-wrapper .headline-text-device .headline-subtext {
   opacity: 0;
-  transition: 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 @media screen and (max-width: 1024px) {
   #platform-section .headline-wrapper .headline-text-device .headline-title,
@@ -1797,7 +1804,7 @@ ul {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-1 .headline-text-device-1::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
@@ -1805,7 +1812,7 @@ ul {
 #platform-section .headline-wrapper.device-1 .headline-text-device-1 .headline-title,
 #platform-section .headline-wrapper.device-1 .headline-text-device-1 .headline-subtext {
   opacity: 1;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-2 .headline-text-device-1 {
   pointer-events: none;
@@ -1819,7 +1826,7 @@ ul {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-2 .headline-text-device-2::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
@@ -1827,7 +1834,7 @@ ul {
 #platform-section .headline-wrapper.device-2 .headline-text-device-2 .headline-title,
 #platform-section .headline-wrapper.device-2 .headline-text-device-2 .headline-subtext {
   opacity: 1;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-3 .headline-text-device-2 {
   pointer-events: none;
@@ -1841,7 +1848,7 @@ ul {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-3 .headline-text-device-3::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
@@ -1849,7 +1856,7 @@ ul {
 #platform-section .headline-wrapper.device-3 .headline-text-device-3 .headline-title,
 #platform-section .headline-wrapper.device-3 .headline-text-device-3 .headline-subtext {
   opacity: 1;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-4 .headline-text-device-3 {
   pointer-events: none;
@@ -1863,7 +1870,7 @@ ul {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-4 .headline-text-device-4::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
@@ -1871,7 +1878,7 @@ ul {
 #platform-section .headline-wrapper.device-4 .headline-text-device-4 .headline-title,
 #platform-section .headline-wrapper.device-4 .headline-text-device-4 .headline-subtext {
   opacity: 1;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-5 .headline-text-device-4 {
   pointer-events: none;
@@ -1885,7 +1892,7 @@ ul {
   z-index: 1;
   opacity: 1;
   pointer-events: all;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper.device-5 .headline-text-device-5::before {
   animation: platform-text-bar 0.6s ease 0.1s forwards;
@@ -1894,7 +1901,7 @@ ul {
 #platform-section .headline-wrapper.device-5 .headline-text-device-5 .headline-subtext {
   opacity: 1;
   pointer-events: all;
-  transition: 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s;
 }
 #platform-section .headline-wrapper .device-img-mobile {
   display: none;
@@ -1934,17 +1941,21 @@ ul {
     display: none;
   }
 }
-#platform-section .platform-headline-img img {
+#platform-section .platform-headline-img img,
+#platform-section .platform-headline-img source {
+  opacity: 0.1;
   width: min(15vw, 288px);
   translate: 108% 0;
 }
 @media screen and (max-width: 1512px) {
-  #platform-section .platform-headline-img img {
+  #platform-section .platform-headline-img img,
+  #platform-section .platform-headline-img source {
     translate: 104% 0;
   }
 }
 @media screen and (max-width: 1280px) {
-  #platform-section .platform-headline-img img {
+  #platform-section .platform-headline-img img,
+  #platform-section .platform-headline-img source {
     translate: 116% 0;
   }
 }
@@ -2012,7 +2023,7 @@ ul {
   }
 }
 #faq-section .faq-list .faq-item {
-  border-bottom: 3px solid #231f20;
+  border-bottom: 3px solid var(--underline-item-color);
   position: relative;
   padding-top: 40px;
   display: grid;
