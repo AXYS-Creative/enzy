@@ -244,7 +244,6 @@
     }
 
     @include mq-max("lg") {
-      border: $test;
       margin-bottom: -64px;
       width: 36%;
     }
@@ -397,6 +396,7 @@
       -webkit-text-fill-color: rgba($white, 0.36);
       background-size: 0% 100%; // Set with JS
 
+      filter: drop-shadow(0px 0px 1px $grey-dark);
       transition: background 1s cubic-bezier(0.12, 0.76, 0.64, 1);
 
       @include mq-max("xxl") {
@@ -1070,23 +1070,6 @@
 #statement-section {
   @include column-center;
   gap: 48px;
-  // padding: calc($vertical-section-padding * 2) $body-padding;
-
-  // @include mq-max("xxl") {
-  //   padding: $vertical-section-padding-xxl $body-padding;
-  // }
-
-  // @include mq-max("lg") {
-  //   padding: $vertical-section-padding-lg $body-padding-xxl;
-  // }
-
-  // @include mq-max("md") {
-  //   padding: $vertical-section-padding-md $body-padding-md;
-  // }
-
-  // @include mq-max("sm") {
-  //   padding: $vertical-section-padding-sm $body-padding-md;
-  // }
 
   .statement-text {
     font-family: $primary-font;
@@ -1159,38 +1142,20 @@
 #demo-section {
   position: relative;
   @include row-between;
-  // padding: $vertical-section-padding 124px;
-
-  // @media (max-width: 1668px) {
-  //   padding: $vertical-section-padding 80px;
-  // }
-
-  // @include mq-max("xxl") {
-  //   padding: $vertical-section-padding-xxl $body-padding;
-  // }
 
   @include mq-max("lg") {
     flex-direction: column;
-    // padding: $vertical-section-padding-lg 96px;
   }
 
-  // @include mq-max("md") {
-  //   padding: $vertical-section-padding-md $body-padding-md;
-  // }
-
-  // @include mq-max('sm') {
-  //   padding: $vertical-section-padding-sm $body-padding-md;
-  // }
-
   .headline-wrapper {
-    width: 43%;
-
-    @media (max-width: 1668px) {
-      width: 48%;
-    }
+    width: 586px;
 
     @include mq-max("xxl") {
-      width: 45%;
+      width: 440px;
+    }
+
+    @include mq-max("xl") {
+      width: 412px;
     }
 
     @include mq-max("lg") {
@@ -1199,9 +1164,11 @@
     }
 
     .headline-text {
+      padding-left: unset;
       border: none;
 
       @include mq-max("lg") {
+        padding-left: 24px;
         border-left: 4px solid $green-light;
       }
     }
@@ -1422,12 +1389,10 @@
   justify-content: space-evenly;
 
   @include mq-max("lg") {
-    // padding: $vertical-section-padding-lg 96px; // Make me global
     justify-content: space-between;
   }
 
   @include mq-max("md") {
-    // padding: $vertical-section-padding-md $body-padding-md;
     flex-direction: column;
     gap: 48px;
   }

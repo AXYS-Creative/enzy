@@ -504,23 +504,12 @@ footer {
 
 footer {
   @include row-between;
-  padding: 64px $body-padding;
+  padding-top: $body-padding;
+  padding-bottom: $body-padding;
 
-  // @include mq-max("xxl") {
-  //   padding: $vertical-section-padding-xxl $body-padding;
-  // }
-
-  // @include mq-max("lg") {
-  //   padding: 24px $body-padding-xxl;
-  // }
-
-  // @include mq-max("md") {
-  //   padding: 24px $body-padding-md;
-  // }
-
-  // @include mq-max("sm") {
-  //   padding: 24px $body-padding-md;
-  // }
+  .copyright {
+    font-size: 14px;
+  }
 }
 
 h1,
