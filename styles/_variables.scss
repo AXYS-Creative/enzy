@@ -1,7 +1,7 @@
-$primary-font: "Saira", sans-serif; /* 300-700 only, according to their brand guide */
-$secondary-font: "Plus Jakarta Sans", sans-serif; // Not listed in their brand guide
+$primary-font: "Saira", sans-serif; /* 300-700 only, per brand guide */
+$secondary-font: "Plus Jakarta Sans", sans-serif; // Not listed
 
-$black: #020202; // Not listed in their brand guide
+$black: #020202; // Not listed
 $white: #fcfeff;
 $grey-dark: #231f20;
 $grey-light: #d9dadb;
@@ -9,10 +9,19 @@ $pale: #90ffd7;
 $green-light: #6ca793;
 $green-dark: #4c7567;
 
+// $black: rgb(2, 2, 2); // #020202 Not listed
+// $white: rgb(252, 254, 255); // #fcfeff
+// $grey-dark: rgb(35, 31, 32); // #231f20
+// $grey-light: rgb(217, 218, 219); // #d9dadb
+// $pale: rgb(144, 255, 215); // #90ffd7
+// $green-light: rgb(108, 167, 147); // #6ca793
+// $green-dark: rgb(76, 117, 103); // #4c7567
+
 :root {
   --background-color: #{$grey-light};
   --primary-font-color: #{$black};
   --primary-accent-color: #{$green-light};
+  --secondary-accent-color: #{$pale};
 
   --cta-1-text-color-hover: #{$black};
   --underline-item-color: #{$grey-dark};
@@ -23,6 +32,7 @@ $green-dark: #4c7567;
     --background-color: #{$grey-dark};
     --primary-font-color: #{$white};
     --primary-accent-color: #{$green-dark};
+    --secondary-accent-color: #{$green-light};
 
     --cta-1-text-color-hover: #{$white};
     --underline-item-color: #{$grey-light};

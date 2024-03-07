@@ -473,10 +473,6 @@
           </div>
         </div>
 
-        <!-- <figure class="platform-headline-img" role="complementary">
-          <img src="./public/enzy-logo-icon-dark.svg" alt="Enzy Logo" />
-        </figure> -->
-
         <picture class="platform-headline-img">
           <source
             srcset="./public/enzy-logo-icon-dark.svg"
@@ -796,12 +792,20 @@
           <br class="md-screen-and-up" />
           actionable insights, and get the results you want.
         </p>
+
         <hr class="statement-divider" />
-        <img
-          class="statement-img"
-          src="./public/enzy-logo-icon-dark.svg"
-          alt="enzy logo icon"
-        />
+
+        <picture class="statement-img">
+          <source
+            srcset="./public/enzy-logo-icon-dark.svg"
+            media="(prefers-color-scheme: light)"
+          />
+          <source
+            srcset="./public/enzy-logo-icon-light.svg"
+            media="(prefers-color-scheme: dark)"
+          />
+          <img src="./public/enzy-logo-icon-dark.svg" alt="Enzy Logo" />
+        </picture>
       </section>
 
       <section id="demo-section">

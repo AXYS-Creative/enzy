@@ -57,7 +57,7 @@
 
     h1 {
       @include column-left;
-      border-left: 4px solid $green-light;
+      border-left: 4px solid var(--primary-accent-color);
       font-size: 96px;
       font-weight: 500;
       margin-bottom: 48px;
@@ -71,12 +71,10 @@
       }
 
       @include mq-max("lg") {
-        // font-size: 80px;
         font-size: 8vw;
       }
 
       @include mq-max("md") {
-        // font-size: 56px;
         font-size: 10vw;
         border-width: 3px;
       }
@@ -120,7 +118,6 @@
 
     @include mq-max("lg") {
       display: none;
-      // width: 80%;
     }
 
     img {
@@ -232,7 +229,7 @@
     top: 50%;
     translate: 0 -50%;
     margin-bottom: -196px; // Adjust space between video and paragraph
-    width: 28%;
+    width: min(28%, 456px);
     z-index: 1;
 
     @include mq-max("xxl") {
@@ -369,7 +366,6 @@
   }
 
   .video-paragraph-wrapper {
-    // border: $test;
     padding-top: 360px; // Alter pinning of video
     max-width: calc($content-width - $horizontal-section-padding * 2);
     z-index: 2;
@@ -383,7 +379,7 @@
 
     .video-paragraph {
       font-family: $primary-font;
-      font-size: min(3.85vw, 77.5px);
+      font-size: min(3.85vw, 72px);
       font-weight: 700;
       line-height: 100%;
 
@@ -489,7 +485,6 @@
 
       &::before {
         content: "";
-        // background-color: $grey-light;
         background-color: var(--background-color);
         position: absolute;
         top: 0;
@@ -803,10 +798,6 @@
         margin: 96px 0;
       }
 
-      // @include mq-max("lg") {
-      //   width: 80%;
-      // }
-
       &:last-of-type {
         @include mq-max("xxl") {
           margin-bottom: 0;
@@ -843,7 +834,6 @@
     }
 
     .faq-item {
-      // border-bottom: 3px solid $grey-dark;
       border-bottom: 3px solid var(--underline-item-color);
       position: relative;
       padding-top: 40px;
@@ -870,13 +860,13 @@
         translate: 0 100%;
         width: 0;
         height: 3px;
-        background: $green-light;
+        background: var(--primary-accent-color);
         animation: underline-item-default 0.3s ease-in-out forwards;
       }
 
       &.active {
         grid-template-rows: 1fr;
-        border-color: $green-light;
+        border-color: var(--primary-accent-color);
 
         .question {
           .angle-arrow {
@@ -907,7 +897,6 @@
       z-index: 1;
 
       h3 {
-        // color: $black;
         color: var(--primary-font-color);
         font-size: 20px;
         font-weight: 500;
@@ -973,7 +962,6 @@
           }
 
           path {
-            // fill: $black;
             fill: var(--primary-font-color);
           }
 
@@ -1096,7 +1084,7 @@
   .statement-divider {
     width: 520px;
     height: 2px;
-    background-color: $green-light;
+    background-color: var(--primary-accent-color);
     border: none;
 
     @include mq-max("xxl") {
@@ -1167,7 +1155,7 @@
 
       @include mq-max("lg") {
         padding-left: 24px;
-        border-left: 4px solid $green-light;
+        border-left: 4px solid var(--primary-accent-color);
       }
     }
   }
@@ -1176,7 +1164,7 @@
     @include absolute-center;
     height: 448px;
     width: 4px;
-    background: $green-light;
+    background: var(--primary-accent-color);
 
     @include mq-max("xxl") {
       height: 360px;
@@ -1237,7 +1225,7 @@
         left: 0;
         width: 0;
         height: 3px;
-        background: $green-light;
+        background: var(--primary-accent-color);
         transition: 0.3s ease;
         z-index: 1;
         animation: underline-item-default 0.3s ease-in-out forwards;
@@ -1264,10 +1252,11 @@
 
     .input {
       bottom: 0;
-      color: $black;
+      color: var(--primary-font-color);
       background: transparent;
       border: none;
-      border-bottom: 3px solid $grey-dark;
+      // border-bottom: 3px solid var(--primary-font-color);
+      border-bottom: 3px solid var(--underline-item-color);
       border-radius: 0;
       transition: border 0.36s ease;
       padding-left: $input-spacing;
@@ -1275,7 +1264,8 @@
 
     .label {
       top: 12px;
-      color: rgba($grey-dark, 0.36);
+      color: var(--primary-font-color);
+      opacity: 0.36;
       pointer-events: none;
       transition: 0.24s ease;
 
@@ -1286,7 +1276,8 @@
 
     .input:focus ~ .label,
     .input:not(:placeholder-shown).input:not(focus) ~ .label {
-      color: rgba($grey-dark, 0.75);
+      color: var(--primary-font-color);
+      opacity: 0.8;
       transform: translate(0, -75%);
       font-size: 16px;
       padding-left: $input-spacing;
@@ -1423,7 +1414,7 @@
 
         &::before {
           translate: -12px 0;
-          background: $green-light;
+          background: var(--primary-accent-color);
         }
       }
 

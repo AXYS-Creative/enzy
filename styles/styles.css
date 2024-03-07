@@ -1,8 +1,9 @@
-/* 300-700 only, according to their brand guide */
+/* 300-700 only, per brand guide */
 :root {
   --background-color: #d9dadb;
   --primary-font-color: #020202;
   --primary-accent-color: #6ca793;
+  --secondary-accent-color: #90ffd7;
   --cta-1-text-color-hover: #020202;
   --underline-item-color: #231f20;
 }
@@ -12,6 +13,7 @@
     --background-color: #231f20;
     --primary-font-color: #fcfeff;
     --primary-accent-color: #4c7567;
+    --secondary-accent-color: #6ca793;
     --cta-1-text-color-hover: #fcfeff;
     --underline-item-color: #d9dadb;
   }
@@ -22,16 +24,22 @@
   box-sizing: border-box;
 }
 *::-moz-selection {
-  background: rgba(108, 167, 147, 0.5);
+  background: rgba(144, 255, 215, 0.75);
 }
 *::selection {
-  background: rgba(108, 167, 147, 0.5);
+  background: rgba(144, 255, 215, 0.75);
+}
+@media (prefers-color-scheme: dark) {
+  *::-moz-selection {
+    background: rgba(108, 167, 147, 0.75);
+  }
+  *::selection {
+    background: rgba(108, 167, 147, 0.75);
+  }
 }
 *:-webkit-autofill, *:-webkit-autofill:hover, *:-webkit-autofill:focus {
-  -webkit-text-fill-color: #020202;
-  -webkit-box-shadow: 0 0 0px 1000px #d9dadb inset;
-  -webkit-transition: background-color 5000s ease-in-out 0s;
-  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--primary-font-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
 }
 
 html {
@@ -42,6 +50,11 @@ html {
 body {
   background: var(--background-color);
   color: var(--primary-font-color);
+}
+body:has(nav.menu-active) {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 header > * {
@@ -279,6 +292,9 @@ nav {
   overflow: auto;
   opacity: 0;
   pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   z-index: 4;
   transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 }
@@ -468,6 +484,9 @@ nav .nav-abstract {
 nav.menu-active {
   opacity: 1;
   pointer-events: all;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
   background: var(--background-color);
   transition: background 0s ease 0.4s;
 }
@@ -756,7 +775,7 @@ ul {
   transition: 0.3s ease;
 }
 .cta-2 svg path {
-  fill: #6ca793;
+  fill: var(--primary-accent-color);
   transition: 0.3s ease;
 }
 
@@ -1242,7 +1261,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-left: 4px solid #6ca793;
+  border-left: 4px solid var(--primary-accent-color);
   font-size: 96px;
   font-weight: 500;
   margin-bottom: 48px;
@@ -1414,7 +1433,7 @@ ul {
   top: 50%;
   translate: 0 -50%;
   margin-bottom: -196px;
-  width: 28%;
+  width: min(28%, 456px);
   z-index: 1;
 }
 @media screen and (max-width: 1512px) {
@@ -1577,7 +1596,7 @@ ul {
 }
 #video-section .video-paragraph-wrapper .video-paragraph {
   font-family: "Saira", sans-serif;
-  font-size: min(3.85vw, 77.5px);
+  font-size: min(3.85vw, 72px);
   font-weight: 700;
   line-height: 100%;
   display: inline;
@@ -2046,12 +2065,12 @@ ul {
   translate: 0 100%;
   width: 0;
   height: 3px;
-  background: #6ca793;
+  background: var(--primary-accent-color);
   animation: underline-item-default 0.3s ease-in-out forwards;
 }
 #faq-section .faq-list .faq-item.active {
   grid-template-rows: 1fr;
-  border-color: #6ca793;
+  border-color: var(--primary-accent-color);
 }
 #faq-section .faq-list .faq-item.active .question .angle-arrow {
   rotate: 135deg;
@@ -2266,7 +2285,7 @@ ul {
 #statement-section .statement-divider {
   width: 520px;
   height: 2px;
-  background-color: #6ca793;
+  background-color: var(--primary-accent-color);
   border: none;
 }
 @media screen and (max-width: 1512px) {
@@ -2350,7 +2369,7 @@ ul {
 @media screen and (max-width: 1024px) {
   #demo-section .headline-wrapper .headline-text {
     padding-left: 24px;
-    border-left: 4px solid #6ca793;
+    border-left: 4px solid var(--primary-accent-color);
   }
 }
 #demo-section .demo-divider {
@@ -2360,7 +2379,7 @@ ul {
   translate: -50% -50%;
   height: 448px;
   width: 4px;
-  background: #6ca793;
+  background: var(--primary-accent-color);
 }
 @media screen and (max-width: 1512px) {
   #demo-section .demo-divider {
@@ -2419,7 +2438,7 @@ ul {
   left: 0;
   width: 0;
   height: 3px;
-  background: #6ca793;
+  background: var(--primary-accent-color);
   transition: 0.3s ease;
   z-index: 1;
   animation: underline-item-default 0.3s ease-in-out forwards;
@@ -2444,17 +2463,18 @@ ul {
 }
 #demo-section .mail-form .input {
   bottom: 0;
-  color: #020202;
+  color: var(--primary-font-color);
   background: transparent;
   border: none;
-  border-bottom: 3px solid #231f20;
+  border-bottom: 3px solid var(--underline-item-color);
   border-radius: 0;
   transition: border 0.36s ease;
   padding-left: 8px;
 }
 #demo-section .mail-form .label {
   top: 12px;
-  color: rgba(35, 31, 32, 0.36);
+  color: var(--primary-font-color);
+  opacity: 0.36;
   pointer-events: none;
   transition: 0.24s ease;
 }
@@ -2464,14 +2484,16 @@ ul {
   }
 }
 #demo-section .mail-form .input:not(:-moz-placeholder-shown).input:not(focus) ~ .label {
-  color: rgba(35, 31, 32, 0.75);
+  color: var(--primary-font-color);
+  opacity: 0.8;
   transform: translate(0, -75%);
   font-size: 16px;
   padding-left: 8px;
 }
 #demo-section .mail-form .input:focus ~ .label,
 #demo-section .mail-form .input:not(:placeholder-shown).input:not(focus) ~ .label {
-  color: rgba(35, 31, 32, 0.75);
+  color: var(--primary-font-color);
+  opacity: 0.8;
   transform: translate(0, -75%);
   font-size: 16px;
   padding-left: 8px;
@@ -2554,7 +2576,7 @@ ul {
 }
 #pre-footer .contact-block .contact-link:hover::before, #pre-footer .contact-block .contact-link:focus::before {
   translate: -12px 0;
-  background: #6ca793;
+  background: var(--primary-accent-color);
 }
 #pre-footer .contact-block .contact-link::before {
   content: "";

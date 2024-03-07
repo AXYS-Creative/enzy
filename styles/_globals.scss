@@ -4,16 +4,19 @@
   box-sizing: border-box;
 
   &::selection {
-    background: rgba($green-light, 0.5);
+    background: rgba($pale, 0.75);
+
+    @include mq-dark {
+      background: rgba($green-light, 0.75);
+    }
   }
 
   // Autofill for form fields: input, textarea, select, etc.
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    -webkit-text-fill-color: $black;
-    -webkit-box-shadow: 0 0 0px 1000px $grey-light inset;
-    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--primary-font-color);
+    -webkit-box-shadow: 0 0 0px 1000px var(--background-color) inset;
   }
 }
 
@@ -23,10 +26,12 @@ html {
 }
 
 body {
-  // background: $grey-light;
-  // color: $black;
   background: var(--background-color);
   color: var(--primary-font-color);
+
+  &:has(nav.menu-active) {
+    user-select: none;
+  }
 }
 
 header {
@@ -270,6 +275,7 @@ nav {
   overflow: auto;
   opacity: 0;
   pointer-events: none;
+  user-select: none;
   z-index: 4;
   transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 
@@ -428,7 +434,6 @@ nav {
     bottom: 0;
     width: 100vw;
     height: 24px;
-    // background: $grey-dark;
     background: $black;
     animation: nav-abstract-default 0.75s ease 0s forwards;
   }
@@ -436,7 +441,7 @@ nav {
   &.menu-active {
     opacity: 1;
     pointer-events: all;
-    // background: $grey-light;
+    user-select: all;
     background: var(--background-color);
     transition: background 0s ease 0.4s;
 
@@ -545,7 +550,6 @@ a {
 }
 
 a {
-  // color: $black;
   color: var(--primary-font-color);
   text-decoration: none;
 
@@ -574,7 +578,6 @@ ul {
   }
 
   .headline-text {
-    // border-left: 4px solid $green-light;
     border-left: 4px solid var(--primary-accent-color);
     margin-bottom: 48px;
 
@@ -592,7 +595,7 @@ ul {
       }
 
       @include mq-max("sm") {
-        font-size: 36px; // Revist me
+        font-size: 36px;
       }
     }
 
@@ -648,7 +651,6 @@ ul {
     width: 100%;
     height: 100%;
     border-radius: 4px;
-    // background-color: $green-light;
     background-color: var(--primary-accent-color);
     transition: height 0.24s ease 0.2s, width 0.24s ease 0s;
     z-index: -1;
@@ -656,7 +658,6 @@ ul {
 
   &:hover,
   &:focus {
-    // color: $black;
     color: var(--cta-1-text-color-hover);
     transition: color 0.3s ease 0s;
 
@@ -683,12 +684,10 @@ ul {
     }
 
     svg {
-      // background: $green-light;
       background: var(--primary-accent-color);
       translate: 6px 0;
 
       path {
-        // fill: $grey-light;
         fill: var(--background-color);
       }
     }
@@ -705,7 +704,6 @@ ul {
       left: 0;
       width: 0;
       height: 3px;
-      // background-color: $green-light;
       background: var(--primary-accent-color);
       animation: cta-2-default 0.5s ease forwards;
     }
@@ -721,7 +719,7 @@ ul {
     transition: 0.3s ease;
 
     path {
-      fill: $green-light;
+      fill: var(--primary-accent-color);
       transition: 0.3s ease;
     }
   }
@@ -763,7 +761,6 @@ ul {
 
         .social-media-icon {
           path {
-            // fill: $green-light;
             fill: var(--primary-accent-color);
           }
         }
@@ -797,7 +794,6 @@ ul {
   z-index: 10;
 
   &-text-content {
-    // background: $grey-light;
     background: var(--background-color);
     width: 100%;
     height: 100%;
