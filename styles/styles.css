@@ -297,9 +297,6 @@ nav {
   overflow: auto;
   opacity: 0;
   pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   z-index: 4;
   transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 }
@@ -323,7 +320,8 @@ nav .width-constraint {
 }
 nav .nav-links,
 nav .nav-footer-links,
-nav .nav-social-media {
+nav .nav-social-media,
+nav .theme-toggle-wrapper {
   left: 64px;
   position: absolute;
   opacity: 0;
@@ -333,20 +331,23 @@ nav .nav-social-media {
 @media screen and (max-width: 1512px) {
   nav .nav-links,
   nav .nav-footer-links,
-  nav .nav-social-media {
+  nav .nav-social-media,
+  nav .theme-toggle-wrapper {
     left: 40px;
   }
 }
 @media screen and (max-width: 768px) {
   nav .nav-links,
   nav .nav-footer-links,
-  nav .nav-social-media {
+  nav .nav-social-media,
+  nav .theme-toggle-wrapper {
     left: 24px;
   }
 }
 nav .nav-links li a,
 nav .nav-footer-links li a,
-nav .nav-social-media li a {
+nav .nav-social-media li a,
+nav .theme-toggle-wrapper li a {
   font-family: "Saira", sans-serif;
 }
 nav .nav-links {
@@ -478,6 +479,24 @@ nav .nav-social-media {
     translate: 0 0;
   }
 }
+nav .theme-toggle-wrapper {
+  border: 2px solid vaR(--primary-accent-color);
+  top: 56px;
+  left: 50%;
+  translate: -50% 0;
+  width: 128px;
+  height: 128px;
+}
+nav .theme-toggle-wrapper .theme-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+nav .theme-toggle-wrapper .theme-toggle-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-font-color);
+}
 nav .nav-abstract {
   position: absolute;
   bottom: 0;
@@ -489,9 +508,6 @@ nav .nav-abstract {
 nav.menu-active {
   opacity: 1;
   pointer-events: all;
-  -webkit-user-select: all;
-     -moz-user-select: all;
-          user-select: all;
   background: var(--background-color);
   transition: background 0s ease 0.4s;
 }
@@ -500,13 +516,15 @@ nav.menu-active .nav-abstract {
 }
 nav.menu-active .nav-links,
 nav.menu-active .nav-footer-links,
-nav.menu-active .nav-social-media {
+nav.menu-active .nav-social-media,
+nav.menu-active .theme-toggle-wrapper {
   opacity: 1;
   pointer-events: all;
 }
 nav.menu-active .nav-links .nav-link,
 nav.menu-active .nav-footer-links .nav-link,
-nav.menu-active .nav-social-media .nav-link {
+nav.menu-active .nav-social-media .nav-link,
+nav.menu-active .theme-toggle-wrapper .nav-link {
   translate: 0 0;
 }
 

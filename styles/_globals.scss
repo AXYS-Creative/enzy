@@ -279,7 +279,7 @@ nav {
   overflow: auto;
   opacity: 0;
   pointer-events: none;
-  user-select: none;
+  // user-select: none;
   z-index: 4;
   transition: background 0s ease 0.4s, opacity 0s ease 0.75s;
 
@@ -302,11 +302,13 @@ nav {
 
   .nav-links,
   .nav-footer-links,
-  .nav-social-media {
+  .nav-social-media,
+  .theme-toggle-wrapper {
     @include left-spacing;
     position: absolute;
     opacity: 0;
     pointer-events: none;
+    // user-select: none;
     transition: opacity 0s ease 0.3s;
 
     li {
@@ -433,6 +435,27 @@ nav {
     }
   }
 
+  .theme-toggle-wrapper {
+    border: 2px solid vaR(--primary-accent-color);
+    top: 56px;
+    left: 50%;
+    translate: -50% 0;
+    width: 128px;
+    height: 128px;
+
+    .theme-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--primary-font-color);
+      }
+    }
+  }
+
   .nav-abstract {
     position: absolute;
     bottom: 0;
@@ -445,7 +468,7 @@ nav {
   &.menu-active {
     opacity: 1;
     pointer-events: all;
-    user-select: all;
+    // user-select: all;
     background: var(--background-color);
     transition: background 0s ease 0.4s;
 
@@ -455,9 +478,11 @@ nav {
 
     .nav-links,
     .nav-footer-links,
-    .nav-social-media {
+    .nav-social-media,
+    .theme-toggle-wrapper {
       opacity: 1;
       pointer-events: all;
+      // user-select: all;
 
       .nav-link {
         translate: 0 0;
