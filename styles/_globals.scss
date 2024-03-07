@@ -23,6 +23,10 @@
 html {
   scroll-behavior: smooth;
   scrollbar-color: $green-dark transparent;
+
+  @include mq-dark {
+    scrollbar-color: $green-light transparent;
+  }
 }
 
 body {
@@ -367,7 +371,7 @@ nav {
       &:hover,
       &:focus {
         padding-left: 24px;
-        border-color: $green-light;
+        border-color: var(--primary-accent-color);
 
         @include mq-max("xxl") {
           padding-left: 16px;
@@ -404,7 +408,7 @@ nav {
 
         &:hover,
         &:focus {
-          border-color: $green-light;
+          border-color: var(--primary-accent-color);
         }
       }
     }
@@ -531,7 +535,7 @@ footer {
 
     &:hover,
     &:focus {
-      border-color: $green-light;
+      border-color: var(--primary-accent-color);
     }
   }
 }

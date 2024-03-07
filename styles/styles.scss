@@ -190,6 +190,10 @@
       opacity: 0.02;
       line-height: 0;
       user-select: none;
+
+      @include mq-dark {
+        opacity: 0.0075;
+      }
     }
   }
 

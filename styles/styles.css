@@ -46,6 +46,11 @@ html {
   scroll-behavior: smooth;
   scrollbar-color: #4c7567 transparent;
 }
+@media (prefers-color-scheme: dark) {
+  html {
+    scrollbar-color: #6ca793 transparent;
+  }
+}
 
 body {
   background: var(--background-color);
@@ -400,7 +405,7 @@ nav .nav-links .nav-link {
 }
 nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
   padding-left: 24px;
-  border-color: #6ca793;
+  border-color: var(--primary-accent-color);
 }
 @media screen and (max-width: 1512px) {
   nav .nav-links .nav-link:hover, nav .nav-links .nav-link:focus {
@@ -440,7 +445,7 @@ nav .nav-footer-links li .nav-footer-link {
   transition: 0.2s ease;
 }
 nav .nav-footer-links li .nav-footer-link:hover, nav .nav-footer-links li .nav-footer-link:focus {
-  border-color: #6ca793;
+  border-color: var(--primary-accent-color);
 }
 nav .nav-social-media {
   right: 64px;
@@ -593,7 +598,7 @@ footer .footer-link {
   transition: 0.2s ease;
 }
 footer .footer-link:hover, footer .footer-link:focus {
-  border-color: #6ca793;
+  border-color: var(--primary-accent-color);
 }
 
 h1,
@@ -1398,6 +1403,11 @@ ul {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+@media (prefers-color-scheme: dark) {
+  #hero-section .hero-background-text p {
+    opacity: 0.0075;
+  }
 }
 #hero-section.load-complete .hero-img img:first-of-type {
   animation: hero-img-1-fade 0.8s ease 0.6s forwards;
