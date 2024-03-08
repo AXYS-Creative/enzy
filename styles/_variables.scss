@@ -1,14 +1,6 @@
 $primary-font: "Saira", sans-serif; /* 300-700 only, per brand guide */
 $secondary-font: "Plus Jakarta Sans", sans-serif; // Not listed
 
-$black: #020202; // Not listed
-$white: #fcfeff;
-$grey-dark: #231f20;
-$grey-light: #d9dadb;
-$pale: #90ffd7;
-$green-light: #6ca793;
-$green-dark: #4c7567;
-
 // $black: rgb(2, 2, 2); // #020202 Not listed
 // $white: rgb(252, 254, 255); // #fcfeff
 // $grey-dark: rgb(35, 31, 32); // #231f20
@@ -16,6 +8,14 @@ $green-dark: #4c7567;
 // $pale: rgb(144, 255, 215); // #90ffd7
 // $green-light: rgb(108, 167, 147); // #6ca793
 // $green-dark: rgb(76, 117, 103); // #4c7567
+
+$black: #020202; // Not listed
+$white: #fcfeff;
+$grey-dark: #231f20;
+$grey-light: #d9dadb;
+$pale: #90ffd7;
+$green-light: #6ca793;
+$green-dark: #4c7567;
 
 :root {
   --background-color: #{$grey-light};

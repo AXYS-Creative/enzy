@@ -33,8 +33,34 @@ body {
   background: var(--background-color);
   color: var(--primary-font-color);
 
+  &.theme-swap {
+    // Dark variables for the 'theme-swap' class
+
+    --background-color: #{$grey-dark};
+    --primary-font-color: #{$white};
+    --primary-accent-color: #{$green-dark};
+    --secondary-accent-color: #{$green-light};
+
+    --cta-1-text-color-hover: #{$white};
+    --underline-item-color: #{$grey-light};
+
+    @include mq-dark {
+      // Light variables for the 'theme-swap' class
+      --background-color: #{$grey-light};
+      --primary-font-color: #{$black};
+      --primary-accent-color: #{$green-light};
+      --secondary-accent-color: #{$pale};
+
+      --cta-1-text-color-hover: #{$black};
+      --underline-item-color: #{$grey-dark};
+    }
+  }
+
   &:has(nav.menu-active) {
-    user-select: none;
+    main,
+    footer {
+      user-select: none;
+    }
   }
 }
 
@@ -304,7 +330,6 @@ nav {
   .nav-footer-links,
   .nav-social-media,
   .theme-toggle-wrapper {
-    @include left-spacing;
     position: absolute;
     opacity: 0;
     pointer-events: none;
@@ -319,6 +344,7 @@ nav {
   }
 
   .nav-links {
+    @include left-spacing;
     @include column-left;
     gap: 12px;
     top: 50%;
@@ -383,6 +409,7 @@ nav {
   }
 
   .nav-footer-links {
+    @include left-spacing;
     @include row-center;
     bottom: $body-padding;
     gap: 48px;
@@ -436,17 +463,25 @@ nav {
   }
 
   .theme-toggle-wrapper {
-    border: 2px solid vaR(--primary-accent-color);
-    top: 56px;
-    left: 50%;
-    translate: -50% 0;
-    width: 128px;
-    height: 128px;
+    @include right-spacing;
+    @include row-center;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    width: 48px;
+    height: 48px;
 
     .theme-toggle-btn {
-      width: 36px;
-      height: 36px;
+      background: var(--primary-accent-color);
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
+      transition: 0.16s ease;
+
+      &:active {
+        width: 20px;
+        height: 20px;
+      }
 
       svg {
         width: 24px;

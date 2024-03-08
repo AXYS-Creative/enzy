@@ -1,8 +1,8 @@
 const navMenu = document.querySelector(".nav-menu"),
   menuBtn = document.querySelector(".menu-btn"),
-  navLinks = document.querySelectorAll(".nav-link"),
   siteHeader = document.querySelector(".site-header"),
   headerLogo = document.querySelector(".header-logo"),
+  navLinks = document.querySelectorAll(".nav-link"),
   //   navFooterLinks = document.querySelectorAll(".nav-footer-link"),
   tabElementsPage = document.querySelectorAll(".tab-element-page"),
   tabElementsNav = document.querySelectorAll(".tab-element-nav");

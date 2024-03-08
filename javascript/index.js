@@ -3,8 +3,9 @@ import "./video.js";
 import "./faq.js";
 import "./scroll.js";
 import "./loading.js";
+import "./theme.js";
 
-// Clear focus from any element on mousemove (remove button :focus styles)
+// Clear focus from any element (except inputs) on mousemove
 (function clearFocusOnMouseMove() {
   function removeFocus() {
     if (
