@@ -34,8 +34,6 @@ body {
   color: var(--primary-font-color);
 
   &.theme-swap {
-    // Dark variables for the 'theme-swap' class
-
     --background-color: #{$grey-dark};
     --primary-font-color: #{$white};
     --primary-accent-color: #{$green-dark};
@@ -45,7 +43,6 @@ body {
     --underline-item-color: #{$grey-light};
 
     @include mq-dark {
-      // Light variables for the 'theme-swap' class
       --background-color: #{$grey-light};
       --primary-font-color: #{$black};
       --primary-accent-color: #{$green-light};
@@ -476,17 +473,46 @@ nav {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      transition: 0.16s ease;
+      transition: all 0.3s ease, width 0.16s ease, width 0.16s ease;
+
+      &:hover,
+      &:focus {
+        & ~ .theme-toggle-tooltip {
+          opacity: 1;
+          translate: 0 0;
+        }
+      }
 
       &:active {
         width: 20px;
         height: 20px;
       }
+    }
 
-      svg {
-        width: 24px;
-        height: 24px;
-        fill: var(--primary-font-color);
+    .theme-toggle-tooltip {
+      @include row-center;
+      width: 96px;
+      font-family: $primary-font;
+      font-size: 14px;
+      position: absolute;
+      right: 200%;
+      opacity: 0;
+      translate: 12px 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+      z-index: -1;
+
+      @include mq-max("sm") {
+        display: none;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -46%;
+        width: 32px;
+        height: 1px;
+        background: var(--primary-font-color);
       }
     }
   }
