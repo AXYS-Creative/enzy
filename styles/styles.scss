@@ -938,6 +938,10 @@
           @include mq-max("md") {
             width: 20px;
           }
+
+          @include mq-max("sm") {
+            display: none;
+          }
         }
       }
 
@@ -1014,6 +1018,10 @@
         @include mq-max("md") {
           padding-right: 24px;
         }
+
+        @include mq-max("sm") {
+          display: none;
+        }
       }
 
       p {
@@ -1021,6 +1029,10 @@
 
         @include mq-max("xxl") {
           width: 84%;
+        }
+
+        @include mq-max("xxl") {
+          width: 100%;
         }
       }
     }
@@ -1133,8 +1145,17 @@
 }
 
 #demo-section {
+  scroll-margin-top: 124px;
   position: relative;
   @include row-between;
+
+  @include mq-max("xxl") {
+    scroll-margin-top: 80px;
+  }
+
+  @include mq-max("xl") {
+    scroll-margin-top: 0;
+  }
 
   @include mq-max("lg") {
     flex-direction: column;
