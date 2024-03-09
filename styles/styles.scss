@@ -80,7 +80,7 @@
       }
 
       @include mq-max("sm") {
-        font-size: 40px;
+        font-size: 10.6vw;
       }
 
       span:last-of-type {
@@ -98,6 +98,10 @@
 
       @include mq-max("md") {
         font-size: 14px;
+      }
+
+      @include mq-max("sm") {
+        font-size: 4vw;
       }
     }
 
