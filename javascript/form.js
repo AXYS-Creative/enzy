@@ -1,5 +1,5 @@
 const mailForm = document.querySelector(".mail-form"),
-  confirmation = document.querySelector(".confirmation-message"),
+  successMessage = document.querySelector(".success-message"),
   errorMessage = document.querySelector(".error-message"),
   emailInputField = document.querySelector(".email-input-field");
 
@@ -11,12 +11,10 @@ const handleSubmit = (event) => {
     JSON.parse(localStorage.getItem("submittedEmails")) || [];
 
   if (submittedEmails.includes(email)) {
-    mailForm.classList.add("active");
     errorMessage.classList.add("active");
     errorMessage.setAttribute("aria-hidden", false);
 
     setTimeout(function () {
-      mailForm.classList.remove("active");
       errorMessage.classList.remove("active");
       errorMessage.setAttribute("aria-hidden", true);
     }, 5000);
@@ -36,14 +34,12 @@ const handleSubmit = (event) => {
     body: new URLSearchParams(formData).toString(),
   })
     .then(() => {
-      mailForm.classList.add("active");
-      confirmation.classList.add("active");
-      confirmation.setAttribute("aria-hidden", false);
+      successMessage.classList.add("active");
+      successMessage.setAttribute("aria-hidden", false);
 
       setTimeout(function () {
-        mailForm.classList.remove("active");
-        confirmation.classList.remove("active");
-        confirmation.setAttribute("aria-hidden", true);
+        successMessage.classList.remove("active");
+        successMessage.setAttribute("aria-hidden", true);
       }, 5000);
     })
     .catch((error) => {

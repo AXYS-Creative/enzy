@@ -1,6 +1,7 @@
 import "./nav.js";
 import "./video.js";
 import "./faq.js";
+import "./form.js";
 import "./scroll.js";
 import "./loading.js";
 import "./theme.js";

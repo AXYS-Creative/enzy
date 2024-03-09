@@ -1223,9 +1223,9 @@
       width: 100%;
     }
 
-    &.active {
-      translate: 0 -24px;
-    }
+    // &.active {
+    //   translate: 0 -24px;
+    // }
 
     .form-input-block {
       position: relative;
@@ -1342,7 +1342,7 @@
       }
     }
 
-    .confirmation-message,
+    .success-message,
     .error-message {
       display: flex;
       align-items: center;
@@ -1392,7 +1392,7 @@
       }
     }
 
-    .confirmation-message {
+    .success-message {
       .check-icon {
         border: 1px solid var(--success);
         border-radius: 50%;

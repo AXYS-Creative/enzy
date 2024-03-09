@@ -2597,9 +2597,6 @@ ul {
     width: 100%;
   }
 }
-#demo-section .mail-form.active {
-  translate: 0 -24px;
-}
 #demo-section .mail-form .form-input-block {
   position: relative;
   width: 100%;
@@ -2718,7 +2715,7 @@ ul {
     width: 50%;
   }
 }
-#demo-section .mail-form .confirmation-message,
+#demo-section .mail-form .success-message,
 #demo-section .mail-form .error-message {
   display: flex;
   align-items: center;
@@ -2734,7 +2731,7 @@ ul {
   transition: 0.24s ease 0.12s;
 }
 @media screen and (max-width: 1512px) {
-  #demo-section .mail-form .confirmation-message,
+  #demo-section .mail-form .success-message,
   #demo-section .mail-form .error-message {
     bottom: 8%;
     font-size: 13px;
@@ -2742,7 +2739,7 @@ ul {
   }
 }
 @media screen and (max-width: 480px) {
-  #demo-section .mail-form .confirmation-message,
+  #demo-section .mail-form .success-message,
   #demo-section .mail-form .error-message {
     width: 100%;
     justify-content: center;
@@ -2751,19 +2748,19 @@ ul {
     translate: -50% 64px;
   }
 }
-#demo-section .mail-form .confirmation-message.active,
+#demo-section .mail-form .success-message.active,
 #demo-section .mail-form .error-message.active {
   opacity: 1;
   pointer-events: all;
 }
-#demo-section .mail-form .confirmation-message.active .check-icon,
-#demo-section .mail-form .confirmation-message.active .error-icon,
+#demo-section .mail-form .success-message.active .check-icon,
+#demo-section .mail-form .success-message.active .error-icon,
 #demo-section .mail-form .error-message.active .check-icon,
 #demo-section .mail-form .error-message.active .error-icon {
   scale: 1.2;
 }
-#demo-section .mail-form .confirmation-message .check-icon,
-#demo-section .mail-form .confirmation-message .error-icon,
+#demo-section .mail-form .success-message .check-icon,
+#demo-section .mail-form .success-message .error-icon,
 #demo-section .mail-form .error-message .check-icon,
 #demo-section .mail-form .error-message .error-icon {
   flex-shrink: 0;
@@ -2773,11 +2770,11 @@ ul {
   scale: 0.5;
   transition: 0.3s ease 0.24s;
 }
-#demo-section .mail-form .confirmation-message .check-icon {
+#demo-section .mail-form .success-message .check-icon {
   border: 1px solid var(--success);
   border-radius: 50%;
 }
-#demo-section .mail-form .confirmation-message .check-icon path {
+#demo-section .mail-form .success-message .check-icon path {
   fill: var(--success);
 }
 #demo-section .mail-form .error-message .error-icon path {
