@@ -756,7 +756,7 @@
     }
   }
 
-  .platform-headline-img {
+  .platform-headline-img-wrapper {
     position: sticky;
     top: 50%;
     translate: 0 -50%;
@@ -768,9 +768,8 @@
       display: none;
     }
 
-    img,
-    source {
-      opacity: 0.1;
+    .platform-headline-img {
+      opacity: 1;
       width: min(15vw, 288px);
       translate: 108% 0;
 

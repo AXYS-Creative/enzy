@@ -535,9 +535,16 @@ nav .theme-toggle-wrapper .theme-toggle-btn:hover ~ .theme-toggle-tooltip, nav .
   opacity: 1;
   translate: 0 0;
 }
+nav .theme-toggle-wrapper .theme-toggle-btn:hover ~ .theme-toggle-tooltip::after, nav .theme-toggle-wrapper .theme-toggle-btn:focus ~ .theme-toggle-tooltip::after {
+  width: 32px;
+  rotate: 0deg;
+}
 nav .theme-toggle-wrapper .theme-toggle-btn:active {
   width: 20px;
   height: 20px;
+}
+nav .theme-toggle-wrapper .theme-toggle-btn:active ~ .theme-toggle-tooltip {
+  translate: -12px 0;
 }
 nav .theme-toggle-wrapper .theme-toggle-tooltip {
   display: flex;
@@ -563,9 +570,11 @@ nav .theme-toggle-wrapper .theme-toggle-tooltip::after {
   content: "";
   position: absolute;
   right: -46%;
-  width: 32px;
+  width: 12px;
+  rotate: 90deg;
   height: 1px;
   background: var(--primary-font-color);
+  transition: 0.3s ease;
 }
 nav .nav-abstract {
   position: absolute;
@@ -2043,7 +2052,7 @@ ul {
     margin: 48px 0 128px;
   }
 }
-#platform-section .platform-headline-img {
+#platform-section .platform-headline-img-wrapper {
   position: sticky;
   top: 50%;
   translate: 0 -50%;
@@ -2054,25 +2063,22 @@ ul {
           user-select: none;
 }
 @media screen and (max-width: 1024px) {
-  #platform-section .platform-headline-img {
+  #platform-section .platform-headline-img-wrapper {
     display: none;
   }
 }
-#platform-section .platform-headline-img img,
-#platform-section .platform-headline-img source {
-  opacity: 0.1;
+#platform-section .platform-headline-img-wrapper .platform-headline-img {
+  opacity: 1;
   width: min(15vw, 288px);
   translate: 108% 0;
 }
 @media screen and (max-width: 1512px) {
-  #platform-section .platform-headline-img img,
-  #platform-section .platform-headline-img source {
+  #platform-section .platform-headline-img-wrapper .platform-headline-img {
     translate: 104% 0;
   }
 }
 @media screen and (max-width: 1280px) {
-  #platform-section .platform-headline-img img,
-  #platform-section .platform-headline-img source {
+  #platform-section .platform-headline-img-wrapper .platform-headline-img {
     translate: 116% 0;
   }
 }

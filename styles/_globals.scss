@@ -480,12 +480,21 @@ nav {
         & ~ .theme-toggle-tooltip {
           opacity: 1;
           translate: 0 0;
+
+          &::after {
+            width: 32px;
+            rotate: 0deg;
+          }
         }
       }
 
       &:active {
         width: 20px;
         height: 20px;
+
+        & ~ .theme-toggle-tooltip {
+          translate: -12px 0;
+        }
       }
     }
 
@@ -510,9 +519,11 @@ nav {
         content: "";
         position: absolute;
         right: -46%;
-        width: 32px;
+        width: 12px;
+        rotate: 90deg;
         height: 1px;
         background: var(--primary-font-color);
+        transition: 0.3s ease;
       }
     }
   }
