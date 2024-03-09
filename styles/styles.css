@@ -6,6 +6,8 @@
   --secondary-accent-color: #90ffd7;
   --cta-1-text-color-hover: #020202;
   --underline-item-color: #231f20;
+  --success: #4c7567;
+  --error: #737000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +18,8 @@
     --secondary-accent-color: #6ca793;
     --cta-1-text-color-hover: #fcfeff;
     --underline-item-color: #d9dadb;
+    --success: #6ca793;
+    --error: #79e076;
   }
 }
 * {
@@ -63,6 +67,8 @@ body.theme-swap {
   --secondary-accent-color: #6ca793;
   --cta-1-text-color-hover: #fcfeff;
   --underline-item-color: #d9dadb;
+  --success: #6ca793;
+  --error: #79e076;
 }
 @media (prefers-color-scheme: dark) {
   body.theme-swap {
@@ -72,6 +78,8 @@ body.theme-swap {
     --secondary-accent-color: #90ffd7;
     --cta-1-text-color-hover: #020202;
     --underline-item-color: #231f20;
+    --success: #4c7567;
+    --error: #737000;
   }
 }
 body:has(nav.menu-active) main,
@@ -679,11 +687,17 @@ footer {
   padding-top: 64px;
   padding-bottom: 64px;
 }
+@media screen and (max-width: 768px) {
+  footer {
+    padding-bottom: 24px;
+  }
+}
 @media screen and (max-width: 480px) {
   footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-bottom: 64px;
   }
 }
 footer .footer-link,
@@ -2443,7 +2457,7 @@ ul {
 }
 #statement-section .statement-divider {
   width: 520px;
-  height: 2px;
+  height: 4px;
   background-color: var(--primary-accent-color);
   border: none;
 }
@@ -2492,11 +2506,11 @@ ul {
 }
 
 #demo-section {
-  scroll-margin-top: 124px;
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  scroll-margin-top: 124px;
+  position: relative;
 }
 @media screen and (max-width: 1512px) {
   #demo-section {
@@ -2562,6 +2576,7 @@ ul {
   }
 }
 #demo-section .mail-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2702,6 +2717,71 @@ ul {
   #demo-section .mail-form .submit-btn:hover::before, #demo-section .mail-form .submit-btn:focus::before {
     width: 50%;
   }
+}
+#demo-section .mail-form .confirmation-message,
+#demo-section .mail-form .error-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: absolute;
+  bottom: 6%;
+  left: 164px;
+  translate: 0 50%;
+  font-size: 14px;
+  color: var(--primary-font-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.24s ease 0.12s;
+}
+@media screen and (max-width: 1512px) {
+  #demo-section .mail-form .confirmation-message,
+  #demo-section .mail-form .error-message {
+    bottom: 8%;
+    font-size: 13px;
+    left: 136px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #demo-section .mail-form .confirmation-message,
+  #demo-section .mail-form .error-message {
+    width: 100%;
+    justify-content: center;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 64px;
+  }
+}
+#demo-section .mail-form .confirmation-message.active,
+#demo-section .mail-form .error-message.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#demo-section .mail-form .confirmation-message.active .check-icon,
+#demo-section .mail-form .confirmation-message.active .error-icon,
+#demo-section .mail-form .error-message.active .check-icon,
+#demo-section .mail-form .error-message.active .error-icon {
+  scale: 1.2;
+}
+#demo-section .mail-form .confirmation-message .check-icon,
+#demo-section .mail-form .confirmation-message .error-icon,
+#demo-section .mail-form .error-message .check-icon,
+#demo-section .mail-form .error-message .error-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  scale: 0.5;
+  transition: 0.3s ease 0.24s;
+}
+#demo-section .mail-form .confirmation-message .check-icon {
+  border: 1px solid var(--success);
+  border-radius: 50%;
+}
+#demo-section .mail-form .confirmation-message .check-icon path {
+  fill: var(--success);
+}
+#demo-section .mail-form .error-message .error-icon path {
+  fill: var(--error);
 }
 
 #pre-footer {

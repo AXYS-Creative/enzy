@@ -41,6 +41,8 @@ body {
 
     --cta-1-text-color-hover: #{$white};
     --underline-item-color: #{$grey-light};
+    --success: #{$green-light};
+    --error: #{$yellow-light};
 
     @include mq-dark {
       --background-color: #{$grey-light};
@@ -50,6 +52,8 @@ body {
 
       --cta-1-text-color-hover: #{$black};
       --underline-item-color: #{$grey-dark};
+      --success: #{$green-dark};
+      --error: #{$yellow-dark};
     }
   }
 
@@ -616,8 +620,13 @@ footer {
   padding-top: $body-padding;
   padding-bottom: $body-padding;
 
+  @include mq-max("md") {
+    padding-bottom: $body-padding-md;
+  }
+
   @include mq-max("sm") {
     @include column-left;
+    padding-bottom: $body-padding;
   }
 
   .footer-link,

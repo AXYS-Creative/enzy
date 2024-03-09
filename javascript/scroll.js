@@ -163,7 +163,7 @@ const disableScrollSnapTemporarily = () => {
   allowScrollSnap = false;
   setTimeout(() => {
     allowScrollSnap = true;
-  }, 1200);
+  }, 2000);
 };
 
 const handleSmoothScroll = (e) => {

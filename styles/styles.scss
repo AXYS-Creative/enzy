@@ -1102,7 +1102,7 @@
 
   .statement-divider {
     width: 520px;
-    height: 2px;
+    height: 4px;
     background-color: var(--primary-accent-color);
     border: none;
 
@@ -1145,9 +1145,9 @@
 }
 
 #demo-section {
+  @include row-between;
   scroll-margin-top: 124px;
   position: relative;
-  @include row-between;
 
   @include mq-max("xxl") {
     scroll-margin-top: 80px;
@@ -1206,6 +1206,7 @@
   .mail-form {
     $input-spacing: 8px;
 
+    position: relative;
     @include column-left;
     gap: 48px;
     width: 36%;
@@ -1283,7 +1284,6 @@
       color: var(--primary-font-color);
       background: transparent;
       border: none;
-      // border-bottom: 3px solid var(--primary-font-color);
       border-bottom: 3px solid var(--underline-item-color);
       border-radius: 0;
       transition: border 0.36s ease;
@@ -1342,62 +1342,74 @@
       }
     }
 
-    // .confirmation-message,
-    // .error-message {
-    //   position: absolute;
-    //   bottom: 0;
-    //   translate: 0 148%;
-    //   @include row-between;
-    //   gap: 12px;
-    //   font-size: 14px;
-    //   color: $green-light;
-    //   opacity: 0;
-    //   pointer-events: none;
-    //   transition: 0.24s ease 0.12s;
+    .confirmation-message,
+    .error-message {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: absolute;
+      bottom: 6%;
+      left: 164px;
+      translate: 0 50%;
+      font-size: 14px;
+      color: var(--primary-font-color);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.24s ease 0.12s;
 
-    //   @include mq-max('sm') {
-    //     font-size: 13px;
-    //   }
+      @include mq-max("xxl") {
+        bottom: 8%;
+        font-size: 13px;
+        left: 136px;
+      }
 
-    //   &.active {
-    //     opacity: 1;
-    //     pointer-events: all;
+      @include mq-max("sm") {
+        width: 100%;
+        justify-content: center;
+        bottom: 0;
+        left: 50%;
+        translate: -50% 64px;
+      }
 
-    //     .check-icon,
-    //     .error-icon {
-    //       scale: 1.2;
-    //     }
-    //   }
+      &.active {
+        opacity: 1;
+        pointer-events: all;
 
-    //   .check-icon,
-    //   .error-icon {
-    //     width: 24px;
-    //     height: 24px;
-    //     border: 1px solid $green-light;
-    //     border-radius: 50%;
-    //     padding: 4px;
-    //     scale: 0.5;
-    //     transition: 0.3s ease 0.24s;
+        .check-icon,
+        .error-icon {
+          scale: 1.2;
+        }
+      }
 
-    //     path {
-    //       fill: $green-light;
-    //     }
-    //   }
-    // }
+      .check-icon,
+      .error-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        padding: 4px;
+        scale: 0.5;
+        transition: 0.3s ease 0.24s;
+      }
+    }
 
-    // .error-message {
-    //   // color: $yellow;
+    .confirmation-message {
+      .check-icon {
+        border: 1px solid var(--success);
+        border-radius: 50%;
 
-    //   .error-icon {
-    //     border-color: transparent;
-    //     border-radius: 0;
-    //     margin-right: -6px;
+        path {
+          fill: var(--success);
+        }
+      }
+    }
 
-    //     // path {
-    //     //   fill: $yellow;
-    //     // }
-    //   }
-    // }
+    .error-message {
+      .error-icon {
+        path {
+          fill: var(--error);
+        }
+      }
+    }
   }
 }
 

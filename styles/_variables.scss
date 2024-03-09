@@ -1,15 +1,12 @@
 $primary-font: "Saira", sans-serif; /* 300-700 only, per brand guide */
 $secondary-font: "Plus Jakarta Sans", sans-serif; // Not listed
 
-// $black: rgb(2, 2, 2); // #020202 Not listed
-// $white: rgb(252, 254, 255); // #fcfeff
-// $grey-dark: rgb(35, 31, 32); // #231f20
-// $grey-light: rgb(217, 218, 219); // #d9dadb
-// $pale: rgb(144, 255, 215); // #90ffd7
-// $green-light: rgb(108, 167, 147); // #6ca793
-// $green-dark: rgb(76, 117, 103); // #4c7567
+// Utility Colors
+$black: #020202;
+$yellow-light: #79e076;
+$yellow-dark: #737000;
 
-$black: #020202; // Not listed
+// Enzy Brand
 $white: #fcfeff;
 $grey-dark: #231f20;
 $grey-light: #d9dadb;
@@ -25,6 +22,8 @@ $green-dark: #4c7567;
 
   --cta-1-text-color-hover: #{$black};
   --underline-item-color: #{$grey-dark};
+  --success: #{$green-dark};
+  --error: #{$yellow-dark};
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,6 +35,8 @@ $green-dark: #4c7567;
 
     --cta-1-text-color-hover: #{$white};
     --underline-item-color: #{$grey-light};
+    --success: #{$green-light};
+    --error: #{$yellow-light};
   }
 }
 
