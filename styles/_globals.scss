@@ -1023,6 +1023,17 @@ ul {
   }
 }
 
+// Title Animation
+
+.word-wrapper {
+  display: flex;
+  overflow: hidden;
+
+  span {
+    translate: 0 100%;
+  }
+}
+
 // Utility
 
 .sr-only {

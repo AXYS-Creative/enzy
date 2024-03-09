@@ -190,3 +190,19 @@ const watchQueryMd = (e) => {
 minMd.addEventListener("change", watchQueryMd);
 
 watchQueryMd(minMd);
+
+// Section headline scroll animation
+
+const sectionHeadlineObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("scroll-animate");
+    } else {
+      entry.target.classList.remove("scroll-animate");
+    }
+  });
+});
+
+document.querySelectorAll(".headline-wrapper").forEach((elem, index) => {
+  sectionHeadlineObserver.observe(elem);
+});
