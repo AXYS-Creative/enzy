@@ -129,67 +129,68 @@ document.querySelectorAll(".device-img").forEach((img, index) => {
   platformDeviceObserver.observe(img);
 });
 
-// Platform Section Scroll Snap
-let allowScrollSnap = true;
+// // Platform Section Scroll Snap
+// let allowScrollSnap = true;
 
-const platformScrollSnap = () => {
-  const deviceImg = document.querySelectorAll(".device-img");
+// const platformScrollSnap = () => {
+//   const deviceImg = document.querySelectorAll(".device-img");
 
-  const scrollSnapObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && allowScrollSnap) {
-          entry.target.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }
-      });
-    },
-    {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.5,
-    }
-  );
+//   const scrollSnapObserver = new IntersectionObserver(
+//     (entries, observer) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting && allowScrollSnap) {
+//           entry.target.scrollIntoView({
+//             behavior: "smooth",
+//             block: "center",
+//           });
+//         }
+//       });
+//     },
+//     {
+//       root: null,
+//       rootMargin: "0px",
+//       threshold: 0.5,
+//     }
+//   );
 
-  deviceImg.forEach((image) => {
-    scrollSnapObserver.observe(image);
-  });
-};
+//   deviceImg.forEach((image) => {
+//     scrollSnapObserver.observe(image);
+//   });
+// };
 
-// Used for page links and keyboard actions
-const disableScrollSnapTemporarily = () => {
-  allowScrollSnap = false;
-  setTimeout(() => {
-    allowScrollSnap = true;
-  }, 2000);
-};
+// // Used for page links and keyboard actions
+// const disableScrollSnapTemporarily = () => {
+//   allowScrollSnap = false;
+//   setTimeout(() => {
+//     allowScrollSnap = true;
+//   }, 2000);
+// };
 
-const handleSmoothScroll = (e) => {
-  const target = e.target.closest('a[href^="#"]');
-  if (target) {
-    disableScrollSnapTemporarily();
-  }
-};
+// const handleSmoothScroll = (e) => {
+//   const target = e.target.closest('a[href^="#"]');
+//   if (target) {
+//     disableScrollSnapTemporarily();
+//   }
+// };
 
-const handleTabNavigation = (e) => {
-  if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
-    disableScrollSnapTemporarily();
-  }
-};
+// const handleTabNavigation = (e) => {
+//   if (e.key === "Tab" || e.key === "ArrowDown" || e.key === "ArrowUp") {
+//     disableScrollSnapTemporarily();
+//   }
+// };
 
-const watchQueryMd = (e) => {
-  if (e.matches) {
-    document.addEventListener("click", handleSmoothScroll);
-    document.addEventListener("keydown", handleTabNavigation);
-    window.addEventListener("scroll", throttle(platformScrollSnap, 500));
-  }
-};
+// const watchQueryMd = (e) => {
+//   if (e.matches) {
+//     document.addEventListener("click", handleSmoothScroll);
+//     document.addEventListener("keydown", handleTabNavigation);
+//     window.addEventListener("scroll", throttle(platformScrollSnap, 500));
+//   }
+// };
 
-minMd.addEventListener("change", watchQueryMd);
+// minMd.addEventListener("change", watchQueryMd);
 
-watchQueryMd(minMd);
+// watchQueryMd(minMd);
+// End Platform Scroll
 
 // Section headline scroll animation
 

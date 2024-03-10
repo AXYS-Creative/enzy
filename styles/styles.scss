@@ -1025,10 +1025,6 @@
           }
 
           @include mq-max("md") {
-            width: 20px;
-          }
-
-          @include mq-max("sm") {
             display: none;
           }
         }
@@ -1094,7 +1090,7 @@
       }
 
       .answer-indicator {
-        padding-right: 150px;
+        padding-right: 148px;
 
         @include mq-max("xxl") {
           padding-right: 80px;
@@ -1105,22 +1101,18 @@
         }
 
         @include mq-max("md") {
-          padding-right: 24px;
-        }
-
-        @include mq-max("sm") {
           display: none;
         }
       }
 
       p {
-        width: 76%;
+        width: 82%;
 
         @include mq-max("xxl") {
-          width: 84%;
+          width: 88%;
         }
 
-        @include mq-max("xxl") {
+        @include mq-max("md") {
           width: 100%;
         }
       }
