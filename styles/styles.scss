@@ -262,7 +262,7 @@
     translate: 0 -50%;
     margin-bottom: -196px; // Adjust space between video and paragraph
     width: min(28%, 456px);
-    z-index: 1;
+    opacity: 0;
 
     @include mq-max("xxl") {
       margin-bottom: -148px;
@@ -273,7 +273,7 @@
     }
 
     @include mq-max("lg") {
-      margin-bottom: -64px;
+      margin-bottom: -48px;
       width: 36%;
     }
 
@@ -283,7 +283,7 @@
 
     @include mq-max("sm") {
       width: 64%;
-      margin-bottom: 48px;
+      margin-bottom: -64px;
     }
 
     video {
@@ -400,7 +400,7 @@
   .video-paragraph-wrapper {
     padding-top: 360px; // Alter pinning of video
     max-width: calc($content-width - $horizontal-section-padding * 2);
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
     text-align: center;
     // text-align: justify;
@@ -434,16 +434,16 @@
         font-size: 4vw;
       }
 
-      @include mq-max("xl") {
-        font-size: 48px;
+      @include mq-max("lg") {
+        font-size: 5vw;
       }
 
       @include mq-max("md") {
-        font-size: 40px;
+        font-size: 5.8vw;
       }
 
       @include mq-max("sm") {
-        font-size: 28px;
+        font-size: 6.8vw;
       }
     }
   }

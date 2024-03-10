@@ -30,24 +30,28 @@ const siteHeader = document.querySelector(".site-header"),
   menuBtn = document.querySelector(".menu-btn"),
   headerCta1 = headerCtaWrapper.querySelector(".cta-1"),
   headerCta2 = headerCtaWrapper.querySelector(".cta-2"),
+  vidWrapper = document.querySelector(".video-wrapper"),
   vidText = document.querySelector(".video-paragraph"),
   platformHeadline = document.querySelector(".platform-headline");
 
 const allDeviceText = document.querySelectorAll(".headline-text-device");
 
-// Video Section Defaults
-const vidTextOffsetTop = vidText.offsetTop;
-const vidTextHeight = vidText.offsetHeight;
-
 // Header Defaults
 menuBtn.setAttribute("tabindex", "-1");
+
+// Video Section Defaults
+const vidWrapperOffsetTop = vidWrapper.offsetTop;
+const vidWrapperHeight = vidWrapper.offsetHeight;
+
+const vidTextOffsetTop = vidText.offsetTop;
+const vidTextHeight = vidText.offsetHeight;
 
 // Platform Section Defaults
 allDeviceText.forEach((textblock) =>
   textblock.setAttribute("aria-hidden", "true")
 );
 
-// Scroll Animations
+// Scroll Animations that require SCRUBBING
 
 const checkScroll = () => {
   const scrollPosition = window.scrollY;
@@ -91,6 +95,20 @@ const checkScroll = () => {
     scrollProgress = Math.min(scrollProgress, 1);
     const backgroundSize = scrollProgress * 100 + "% 100%";
     vidText.style.backgroundSize = backgroundSize;
+  }
+
+  // Video Shrink
+  const isVideoVisible =
+    scrollPosition + windowHeight > vidWrapperOffsetTop &&
+    scrollPosition < vidWrapperOffsetTop + vidWrapperHeight;
+
+  if (isVideoVisible) {
+    let scrollProgress =
+      (scrollPosition + windowHeight - vidWrapperOffsetTop - 64) /
+      (vidWrapperHeight + windowHeight / 16); // Tweak the start and end of the animation. First number: further negative, later it starts. Second number, greater the number the faster the animation ends.
+    scrollProgress = Math.min(scrollProgress, 1);
+    const videoOpacity = scrollProgress;
+    vidWrapper.style.opacity = videoOpacity;
   }
 };
 
@@ -204,6 +222,6 @@ const sectionHeadlineObserver = new IntersectionObserver((entries) => {
   });
 });
 
-document.querySelectorAll(".headline-wrapper").forEach((elem, index) => {
+document.querySelectorAll(".headline-wrapper").forEach((elem) => {
   sectionHeadlineObserver.observe(elem);
 });
