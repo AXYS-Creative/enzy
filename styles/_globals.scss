@@ -1023,14 +1023,16 @@ ul {
   }
 }
 
-// Title Animation
+// Headline Animations (Hero, Platform, Demo)
 
-.word-wrapper {
-  display: flex;
-  overflow: hidden;
+@media (prefers-reduced-motion: no-preference) {
+  .word-wrapper {
+    display: flex;
+    overflow: hidden;
 
-  span {
-    translate: 0 100%;
+    span {
+      translate: 0 100%;
+    }
   }
 }
 
