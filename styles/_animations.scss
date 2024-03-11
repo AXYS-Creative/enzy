@@ -70,6 +70,12 @@
   }
 }
 
+@keyframes extend-height {
+  to {
+    height: 100%;
+  }
+}
+
 @keyframes loading-dot {
   0% {
     opacity: 0;

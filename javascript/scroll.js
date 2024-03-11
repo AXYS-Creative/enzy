@@ -32,7 +32,8 @@ const siteHeader = document.querySelector(".site-header"),
   headerCta2 = headerCtaWrapper.querySelector(".cta-2"),
   vidWrapper = document.querySelector(".video-wrapper"),
   vidText = document.querySelector(".video-paragraph"),
-  platformHeadline = document.querySelector(".platform-headline");
+  platformHeadline = document.querySelector(".platform-headline"),
+  faqSubtext = document.querySelector(".headline-subtext-faq");
 
 const allDeviceText = document.querySelectorAll(".headline-text-device");
 
@@ -50,6 +51,11 @@ const vidTextHeight = vidText.offsetHeight;
 allDeviceText.forEach((textblock) =>
   textblock.setAttribute("aria-hidden", "true")
 );
+
+// FAQ Section Defaults
+
+const faqSubtextOffsetTop = faqSubtext.offsetTop;
+const faqSubtextHeight = faqSubtext.offsetHeight;
 
 // Scroll Animations that require SCRUBBING
 
@@ -97,22 +103,40 @@ const checkScroll = () => {
     vidText.style.backgroundSize = backgroundSize;
   }
 
-  // Video Shrink
+  // Video visibility
   const isVideoVisible =
     scrollPosition + windowHeight > vidWrapperOffsetTop &&
     scrollPosition < vidWrapperOffsetTop + vidWrapperHeight;
 
   if (isVideoVisible) {
     let scrollProgress =
-      (scrollPosition + windowHeight - vidWrapperOffsetTop - 64) /
-      (vidWrapperHeight + windowHeight / 16); // Tweak the start and end of the animation. First number: further negative, later it starts. Second number, greater the number the faster the animation ends.
-    scrollProgress = Math.min(scrollProgress, 1);
+      (vidWrapperOffsetTop - scrollPosition + 360) / (windowHeight / 2);
+    scrollProgress = Math.min(Math.max(scrollProgress, 0.25), 1); // Change the max() second argument to determine min opacity
     const videoOpacity = scrollProgress;
     vidWrapper.style.opacity = videoOpacity;
   }
+
+  // // Platform subtext
+  const isFaqSubtextVisible =
+    scrollPosition + windowHeight > faqSubtextOffsetTop &&
+    scrollPosition < faqSubtextOffsetTop + faqSubtextHeight;
+
+  if (isFaqSubtextVisible) {
+    console.log("yes");
+  } else {
+    console.log("no");
+  }
+
+  // if (isVideoVisible) {
+  //   let scrollProgress =
+  //     (vidWrapperOffsetTop - scrollPosition + 360) / (windowHeight / 2);
+  //   scrollProgress = Math.min(Math.max(scrollProgress, 0.25), 1); // Change the max() second argument to determine min opacity
+  //   const videoOpacity = scrollProgress;
+  //   vidWrapper.style.opacity = videoOpacity;
+  // }
 };
 
-window.addEventListener("scroll", throttle(checkScroll, 100)); // Throttle checkScroll, adjust 100ms as needed
+window.addEventListener("scroll", throttle(checkScroll, 50)); // Throttle checkScroll, adjust 100ms as needed
 
 // Platform Intersection Observer
 

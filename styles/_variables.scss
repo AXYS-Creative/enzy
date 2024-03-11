@@ -59,6 +59,10 @@ $horizontal-section-padding-xl: 124px; // used only on slim section
 $horizontal-section-padding-lg: 96px;
 $horizontal-section-padding-md: 48px;
 
+// Easing
+
+$cubic-ease: cubic-bezier(0.06, 0.88, 0.34, 1);
+
 // Debugging
 
 $test: 2px dashed rgba(coral, 0.8);
