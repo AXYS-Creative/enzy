@@ -1838,6 +1838,7 @@ ul {
   background-image: linear-gradient(#fcfeff, #fcfeff);
   -webkit-text-fill-color: rgba(252, 254, 255, 0.36);
   transition: background 1s cubic-bezier(0.12, 0.76, 0.64, 1);
+  filter: drop-shadow(0px 0px 1px #231f20);
   font-family: "Saira", sans-serif;
   font-size: min(3.85vw, 72px);
   font-weight: 700;
@@ -2531,6 +2532,9 @@ ul {
   align-items: center;
   gap: 48px;
 }
+#statement-section .statement-text-wrapper {
+  text-align: center;
+}
 #statement-section .statement-text {
   display: inline;
   background-repeat: no-repeat;
@@ -2542,7 +2546,6 @@ ul {
   font-family: "Saira", sans-serif;
   font-size: 36px;
   font-weight: 300;
-  text-align: center;
 }
 @media (prefers-reduced-motion: reduce) {
   #statement-section .statement-text {
