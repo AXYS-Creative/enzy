@@ -29,7 +29,9 @@
   translate: -50% -50%;
 }
 
-// Companion to fillTextEffect in scroll.js
+/* Companion to fillTextEffect in scroll.js
+Ensure that the parent doesn't have any display: flex, 
+this will interfere witht he line by line animation */
 @mixin fill-text($fill-color, $empty-color) {
   display: inline;
   background-repeat: no-repeat;

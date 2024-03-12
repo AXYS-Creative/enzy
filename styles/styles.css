@@ -24,6 +24,9 @@
     --error: #79e076;
   }
 }
+/* Companion to fillTextEffect in scroll.js
+Ensure that the parent doesn't have any display: flex, 
+this will interfere witht he line by line animation */
 * {
   margin: 0;
   padding: 0;
@@ -1510,7 +1513,7 @@ ul {
 }
 @media screen and (max-width: 480px) {
   #hero-section .hero-headline .companion-text {
-    font-size: 4vw;
+    font-size: 3.6vw;
   }
 }
 @media screen and (max-width: 480px) {
