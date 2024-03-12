@@ -34,6 +34,7 @@ const siteHeader = document.querySelector(".site-header"),
   vidText = document.querySelector(".video-paragraph"),
   platformHeadline = document.querySelector(".platform-headline"),
   faqSubtext = document.querySelector(".headline-subtext-faq"),
+  statementText = document.querySelector(".statement-text"),
   demoSubtext = document.querySelector(".headline-subtext-demo");
 
 const allDeviceText = document.querySelectorAll(".headline-text-device");
@@ -119,6 +120,11 @@ const checkScroll = () => {
 
   fillTextEffect(vidText, vidText.offsetTop, vidText.offsetHeight);
   fillTextEffect(faqSubtext, faqSubtext.offsetTop, faqSubtext.offsetHeight);
+  fillTextEffect(
+    statementText,
+    statementText.offsetTop,
+    statementText.offsetHeight
+  );
 
   const demoSubtextOffsetTop = getOffsetTop(demoSubtext);
   fillTextEffect(demoSubtext, demoSubtextOffsetTop, demoSubtext.offsetHeight);

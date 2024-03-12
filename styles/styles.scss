@@ -444,25 +444,12 @@
     }
 
     .video-paragraph {
+      @include fill-text($white, rgba($white, 0.36));
       font-family: $primary-font;
       font-size: min(3.85vw, 72px);
       font-weight: 700;
       line-height: 100%;
-
-      display: inline;
       text-transform: uppercase;
-      background-repeat: no-repeat;
-      background-clip: text;
-      -webkit-background-clip: text;
-      background-image: linear-gradient($white, $white);
-      -webkit-text-fill-color: rgba($white, 0.36);
-
-      filter: drop-shadow(0px 0px 1px $grey-dark);
-      transition: background 1s cubic-bezier(0.12, 0.76, 0.64, 1);
-
-      @include mq-motion-reduce {
-        background-size: 100% 100% !important; // Override JS
-      }
 
       @include mq-max("xxl") {
         font-size: 4vw;
@@ -1192,6 +1179,10 @@
   gap: 48px;
 
   .statement-text {
+    @include fill-text(
+      var(--primary-font-color),
+      var(--primary-font-color-opaque)
+    );
     font-family: $primary-font;
     font-size: 36px;
     font-weight: 300;
