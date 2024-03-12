@@ -33,7 +33,8 @@ const siteHeader = document.querySelector(".site-header"),
   vidWrapper = document.querySelector(".video-wrapper"),
   vidText = document.querySelector(".video-paragraph"),
   platformHeadline = document.querySelector(".platform-headline"),
-  faqSubtext = document.querySelector(".headline-subtext-faq");
+  faqSubtext = document.querySelector(".headline-subtext-faq"),
+  demoSubtext = document.querySelector(".headline-subtext-demo");
 
 const allDeviceText = document.querySelectorAll(".headline-text-device");
 
@@ -44,20 +45,35 @@ menuBtn.setAttribute("tabindex", "-1");
 const vidWrapperOffsetTop = vidWrapper.offsetTop;
 const vidWrapperHeight = vidWrapper.offsetHeight;
 
-const vidTextOffsetTop = vidText.offsetTop;
-const vidTextHeight = vidText.offsetHeight;
-
 // Platform Section Defaults
 allDeviceText.forEach((textblock) =>
   textblock.setAttribute("aria-hidden", "true")
 );
 
-// FAQ Section Defaults
+// Fill text animation
 
-const faqSubtextOffsetTop = faqSubtext.offsetTop;
-const faqSubtextHeight = faqSubtext.offsetHeight;
+const fillTextEffect = (element, offsetTop, elementHeight) => {
+  const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
 
-// Scroll Animations that require SCRUBBING
+  const isVisible =
+    scrollPosition + windowHeight > offsetTop &&
+    scrollPosition < offsetTop + elementHeight;
+
+  if (isVisible) {
+    let scrollProgress =
+      (scrollPosition + windowHeight - offsetTop - 64) /
+      (elementHeight + windowHeight / 16);
+    scrollProgress = Math.min(Math.max(scrollProgress, 0), 1); // Clamp between 0 and 1
+    const backgroundSize = scrollProgress * 100 + "% 100%";
+    element.style.backgroundSize = backgroundSize;
+  } else if (scrollPosition < offsetTop) {
+    element.style.backgroundSize = "0% 100%";
+  }
+};
+
+//
+// All Scroll Animations that require SCRUBBING
 
 const checkScroll = () => {
   const scrollPosition = window.scrollY;
@@ -88,20 +104,24 @@ const checkScroll = () => {
     menuBtnWrapper.classList.remove("menu-wrapper-page-top");
   }
 
-  // Video Section scroll logic
-  const isVidTextVisible =
-    scrollPosition + windowHeight > vidTextOffsetTop &&
-    scrollPosition < vidTextOffsetTop + vidTextHeight;
+  // Text background-size
 
-  if (isVidTextVisible) {
-    // let scrollProgress = (scrollPosition + windowHeight - vidTextOffsetTop) / (vidTextHeight + windowHeight);
-    let scrollProgress =
-      (scrollPosition + windowHeight - vidTextOffsetTop - 64) /
-      (vidTextHeight + windowHeight / 16); // Tweak the start and end of the animation. First number: further negative, later it starts. Second number, greater the number the faster the animation ends.
-    scrollProgress = Math.min(scrollProgress, 1);
-    const backgroundSize = scrollProgress * 100 + "% 100%";
-    vidText.style.backgroundSize = backgroundSize;
+  // Helper function for broken demo text offset
+  function getOffsetTop(elem) {
+    let offsetTop = 0;
+    do {
+      if (!isNaN(elem.offsetTop)) {
+        offsetTop += elem.offsetTop;
+      }
+    } while ((elem = elem.offsetParent));
+    return offsetTop;
   }
+
+  fillTextEffect(vidText, vidText.offsetTop, vidText.offsetHeight);
+  fillTextEffect(faqSubtext, faqSubtext.offsetTop, faqSubtext.offsetHeight);
+
+  const demoSubtextOffsetTop = getOffsetTop(demoSubtext);
+  fillTextEffect(demoSubtext, demoSubtextOffsetTop, demoSubtext.offsetHeight);
 
   // Video visibility
   const isVideoVisible =
@@ -115,25 +135,6 @@ const checkScroll = () => {
     const videoOpacity = scrollProgress;
     vidWrapper.style.opacity = videoOpacity;
   }
-
-  // // Platform subtext
-  const isFaqSubtextVisible =
-    scrollPosition + windowHeight > faqSubtextOffsetTop &&
-    scrollPosition < faqSubtextOffsetTop + faqSubtextHeight;
-
-  if (isFaqSubtextVisible) {
-    console.log("yes");
-  } else {
-    console.log("no");
-  }
-
-  // if (isVideoVisible) {
-  //   let scrollProgress =
-  //     (vidWrapperOffsetTop - scrollPosition + 360) / (windowHeight / 2);
-  //   scrollProgress = Math.min(Math.max(scrollProgress, 0.25), 1); // Change the max() second argument to determine min opacity
-  //   const videoOpacity = scrollProgress;
-  //   vidWrapper.style.opacity = videoOpacity;
-  // }
 };
 
 window.addEventListener("scroll", throttle(checkScroll, 50)); // Throttle checkScroll, adjust 100ms as needed

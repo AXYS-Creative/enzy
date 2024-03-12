@@ -14,9 +14,14 @@ $pale: #90ffd7;
 $green-light: #6ca793;
 $green-dark: #4c7567;
 
+// Partial Opacity | 40 = 25%, 80 = 50%, BF = 75%
+$black-opaque: #02020240;
+$white-opaque: #fcfeff40;
+
 :root {
   --background-color: #{$grey-light};
   --primary-font-color: #{$black};
+  --primary-font-color-opaque: #{$black-opaque};
   --primary-accent-color: #{$green-light};
   --secondary-accent-color: #{$pale};
 
@@ -30,6 +35,7 @@ $green-dark: #4c7567;
   :root {
     --background-color: #{$grey-dark};
     --primary-font-color: #{$white};
+    --primary-font-color-opaque: #{$white-opaque};
     --primary-accent-color: #{$green-dark};
     --secondary-accent-color: #{$green-light};
 

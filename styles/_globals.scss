@@ -36,6 +36,7 @@ body {
   &.theme-swap {
     --background-color: #{$grey-dark};
     --primary-font-color: #{$white};
+    --primary-font-color-opaque: #{$white-opaque};
     --primary-accent-color: #{$green-dark};
     --secondary-accent-color: #{$green-light};
 
@@ -47,6 +48,7 @@ body {
     @include mq-dark {
       --background-color: #{$grey-light};
       --primary-font-color: #{$black};
+      --primary-font-color-opaque: #{$black-opaque};
       --primary-accent-color: #{$green-light};
       --secondary-accent-color: #{$pale};
 
@@ -720,6 +722,22 @@ ul {
 
     .headline-subtext {
       font-size: 18px;
+
+      display: inline;
+      background-repeat: no-repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-image: linear-gradient(
+        var(--primary-font-color),
+        var(--primary-font-color)
+      );
+      -webkit-text-fill-color: var(--primary-font-color-opaque);
+
+      transition: background 1s cubic-bezier(0.12, 0.76, 0.64, 1);
+
+      @include mq-motion-reduce {
+        background-size: 100% 100% !important; // Override JS
+      }
 
       @include mq-max("xxl") {
         font-size: 16px;
