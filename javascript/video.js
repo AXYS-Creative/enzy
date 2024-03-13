@@ -1,5 +1,4 @@
-// let minSm = window.matchMedia("(min-width: 480px)");
-let mqTouch = window.matchMedia("(hover: none)");
+let mqTouch = window.matchMedia("(hover: none) and (pointer: coarse)");
 
 const enzyVideo = document.querySelector(".enzy-video"),
   videoToggleBtn = document.querySelector(".video-toggle-btn"),
@@ -29,14 +28,10 @@ enzyVideo.addEventListener("keydown", (e) => {
   }
 });
 
-// Remove on mobile
+// Remove on touch screen devices
 
-const watchQueryTouch = () => {
+if (mqTouch.matches) {
   videoToggleBtn.addEventListener("click", () => {
     videoToggleBtn.style.display = "none";
   });
-};
-
-mqTouch.addEventListener("change", watchQueryTouch);
-
-watchQueryTouch(mqTouch);
+}

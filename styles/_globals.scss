@@ -699,8 +699,14 @@ ul {
   }
 
   .headline-text {
-    border-left: 4px solid var(--primary-accent-color);
+    // border-left: 4px solid var(--primary-accent-color);
+    position: relative;
     margin-bottom: 48px;
+
+    &::before {
+      @include headline-abstract;
+      transition: 0.3s ease 0s;
+    }
 
     .headline-title {
       font-size: 96px;
@@ -733,6 +739,15 @@ ul {
 
       @include mq-max("sm") {
         font-size: 14px;
+      }
+    }
+  }
+
+  &.scroll-animate {
+    .headline-text {
+      &::before {
+        height: 100%;
+        transition: 0.6s $cubic-ease 0.6s;
       }
     }
   }

@@ -29,6 +29,25 @@
   translate: -50% -50%;
 }
 
+// Abstract line to the left of each section header
+@mixin headline-abstract {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--primary-accent-color);
+
+  @include mq-motion-reduce {
+    height: 100%;
+  }
+
+  @include mq-max("md") {
+    width: 3px;
+  }
+}
+
 /* Companion to fillTextEffect in scroll.js
 Ensure that the parent doesn't have any display: flex, 
 this will interfere witht he line by line animation */
@@ -108,30 +127,35 @@ $min-breakpoints: (
   }
 }
 
+// Users that prefer dark theme
 @mixin mq-dark {
   @media (prefers-color-scheme: dark) {
     @content;
   }
 }
 
+// Users on tables and smart phones
 @mixin mq-touch {
-  @media (hover: none) {
+  @media (hover: none) and (pointer: coarse) {
     @content;
   }
 }
 
+// Users on computers and laptops
 @mixin mq-mouse {
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     @content;
   }
 }
 
+// Users that don't mind animations (motion)
 @mixin mq-motion-allow {
   @media (prefers-reduced-motion: no-preference) {
     @content;
   }
 }
 
+// Users that are sensitive to motion. Use this to remove animations.
 @mixin mq-motion-reduce {
   @media (prefers-reduced-motion: reduce) {
     @content;

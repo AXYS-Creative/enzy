@@ -119,12 +119,15 @@ const checkScroll = () => {
   }
 
   fillTextEffect(vidText, vidText.offsetTop, vidText.offsetHeight);
-  fillTextEffect(faqSubtext, faqSubtext.offsetTop, faqSubtext.offsetHeight);
+  // fillTextEffect(faqSubtext, faqSubtext.offsetTop, faqSubtext.offsetHeight);
   fillTextEffect(
     statementText,
     statementText.offsetTop,
     statementText.offsetHeight
   );
+
+  const faqSubtextOffsetTop = getOffsetTop(faqSubtext);
+  fillTextEffect(faqSubtext, faqSubtextOffsetTop, faqSubtext.offsetHeight);
 
   const demoSubtextOffsetTop = getOffsetTop(demoSubtext);
   fillTextEffect(demoSubtext, demoSubtextOffsetTop, demoSubtext.offsetHeight);
