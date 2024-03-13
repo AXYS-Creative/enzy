@@ -553,7 +553,8 @@
 
       .headline-title,
       .headline-subtext {
-        transition: opacity 0.3s ease 0.2s;
+        transition: opacity 0.3s ease 0.2s,
+          background 1s cubic-bezier(0.12, 0.76, 0.64, 1);
       }
     }
     .headline-text-device {
@@ -852,7 +853,7 @@
     @include column-center;
     width: 50%;
     translate: 12% 0;
-    margin-top: 360px;
+    margin-top: 396px;
 
     @include mq-max("lg") {
       display: none;

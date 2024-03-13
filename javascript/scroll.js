@@ -33,6 +33,7 @@ const siteHeader = document.querySelector(".site-header"),
   vidWrapper = document.querySelector(".video-wrapper"),
   vidText = document.querySelector(".video-paragraph"),
   platformHeadline = document.querySelector(".platform-headline"),
+  platformSubtext = document.querySelector(".platform-subtext"),
   faqSubtext = document.querySelector(".headline-subtext-faq"),
   statementText = document.querySelector(".statement-text"),
   demoSubtext = document.querySelector(".headline-subtext-demo");
@@ -119,11 +120,18 @@ const checkScroll = () => {
   }
 
   fillTextEffect(vidText, vidText.offsetTop, vidText.offsetHeight);
-  // fillTextEffect(faqSubtext, faqSubtext.offsetTop, faqSubtext.offsetHeight);
+
   fillTextEffect(
     statementText,
     statementText.offsetTop,
     statementText.offsetHeight
+  );
+
+  const platformSubtextOffsetTop = getOffsetTop(platformSubtext);
+  fillTextEffect(
+    platformSubtext,
+    platformSubtextOffsetTop,
+    platformSubtext.offsetHeight
   );
 
   const faqSubtextOffsetTop = getOffsetTop(faqSubtext);
