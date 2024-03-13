@@ -1,8 +1,8 @@
 @import "variables", "mixins", "globals", "animations";
 
 #hero-section {
-  position: relative;
   @include row-between;
+  position: relative;
   align-items: flex-start;
   margin-top: 96px;
   overflow: hidden;
@@ -938,11 +938,15 @@
   .faq-list {
     display: flex;
     flex-direction: column;
-    margin: 64px 124px;
+    margin: 64px 124px 0;
+
+    @include mq-max("xxl") {
+      margin: 24px 124px 0;
+    }
 
     @include mq-max("md") {
       width: 100%;
-      margin: 48px 0 64px;
+      margin: 0;
     }
 
     .faq-item {
@@ -1172,6 +1176,25 @@
 #statement-section {
   @include column-center;
   gap: 48px;
+  padding: calc($vertical-section-padding * 2) $horizontal-section-padding;
+
+  @include mq-max("xxl") {
+    padding: calc($vertical-section-padding-xxl * 2)
+      $horizontal-section-padding-xxl;
+  }
+
+  @include mq-max("lg") {
+    padding: calc($vertical-section-padding-lg * 2)
+      $horizontal-section-padding-lg;
+  }
+
+  @include mq-max("md") {
+    padding: calc($vertical-section-padding-md * 2) $body-padding-md;
+  }
+
+  @include mq-max("sm") {
+    padding: calc($vertical-section-padding-sm * 2) $body-padding-md;
+  }
 
   .statement-text-wrapper {
     text-align: center;

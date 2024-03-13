@@ -217,12 +217,12 @@ header .menu-btn-wrapper {
 }
 @media screen and (max-width: 768px) {
   header .menu-btn-wrapper {
-    top: 48px;
+    top: 44px;
   }
 }
 header .menu-btn-wrapper .menu-btn {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   transition: 0.2s ease 0s;
 }
 header .menu-btn-wrapper .menu-btn:hover, header .menu-btn-wrapper .menu-btn:focus {
@@ -246,7 +246,7 @@ header .menu-btn-wrapper .menu-btn .menu-btn-dots-wrapper {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  padding: 8px;
+  padding: 4px;
   transition: 0.2s ease;
 }
 header .menu-btn-wrapper .menu-btn .menu-btn-text-wrapper {
@@ -1399,10 +1399,10 @@ ul {
   }
 }
 #hero-section {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   align-items: flex-start;
   margin-top: 96px;
   overflow: hidden;
@@ -2332,17 +2332,22 @@ ul {
 #faq-section .faq-list {
   display: flex;
   flex-direction: column;
-  margin: 64px 124px;
+  margin: 64px 124px 0;
   /* 
     Experimental style for long FAQ questions.
     Ideally the height will be dynamic
     and this wouldn't be needed.
    */
 }
+@media screen and (max-width: 1512px) {
+  #faq-section .faq-list {
+    margin: 24px 124px 0;
+  }
+}
 @media screen and (max-width: 768px) {
   #faq-section .faq-list {
     width: 100%;
-    margin: 48px 0 64px;
+    margin: 0;
   }
 }
 #faq-section .faq-list .faq-item {
@@ -2563,6 +2568,27 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  padding: 392px 148px;
+}
+@media screen and (max-width: 1512px) {
+  #statement-section {
+    padding: 312px 96px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #statement-section {
+    padding: 248px 96px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #statement-section {
+    padding: 296px 24px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #statement-section {
+    padding: 192px 24px;
+  }
 }
 #statement-section .statement-text-wrapper {
   text-align: center;
