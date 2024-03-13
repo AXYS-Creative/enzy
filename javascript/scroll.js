@@ -108,7 +108,7 @@ const checkScroll = () => {
 
   // Text background-size
 
-  // Helper function for broken demo text offset
+  // Helper function for broken subtext
   function getOffsetTop(elem) {
     let offsetTop = 0;
     do {
@@ -120,7 +120,6 @@ const checkScroll = () => {
   }
 
   fillTextEffect(vidText, vidText.offsetTop, vidText.offsetHeight);
-
   fillTextEffect(
     statementText,
     statementText.offsetTop,
@@ -133,10 +132,8 @@ const checkScroll = () => {
     platformSubtextOffsetTop,
     platformSubtext.offsetHeight
   );
-
   const faqSubtextOffsetTop = getOffsetTop(faqSubtext);
   fillTextEffect(faqSubtext, faqSubtextOffsetTop, faqSubtext.offsetHeight);
-
   const demoSubtextOffsetTop = getOffsetTop(demoSubtext);
   fillTextEffect(demoSubtext, demoSubtextOffsetTop, demoSubtext.offsetHeight);
 
@@ -254,7 +251,7 @@ document.querySelectorAll(".device-img").forEach((img, index) => {
 
 // Section headline scroll animation
 
-const sectionHeadlineObserver = new IntersectionObserver((entries) => {
+const scrollAnimateObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("scroll-animate");
@@ -264,6 +261,6 @@ const sectionHeadlineObserver = new IntersectionObserver((entries) => {
   });
 });
 
-document.querySelectorAll(".headline-wrapper").forEach((elem) => {
-  sectionHeadlineObserver.observe(elem);
+document.querySelectorAll(".animate-on-scroll").forEach((elem) => {
+  scrollAnimateObserver.observe(elem);
 });
