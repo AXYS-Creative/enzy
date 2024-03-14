@@ -26,7 +26,7 @@
 }
 /* Companion to fillTextEffect in scroll.js
 Ensure that the parent doesn't have any display: flex, 
-this will interfere witht he line by line animation */
+this will interfere with the line by line animation */
 * {
   margin: 0;
   padding: 0;
@@ -842,7 +842,7 @@ ul {
     font-size: 14px;
   }
 }
-.headline-wrapper.scroll-animate .headline-text::before {
+.headline-wrapper .headline-text.scroll-animate::before {
   height: 100%;
   transition: 0.6s cubic-bezier(0.06, 0.88, 0.34, 1) 0.6s;
 }
@@ -2007,6 +2007,14 @@ ul {
   width: 4px;
   height: 0;
 }
+#platform-section .headline-wrapper .headline-text.scroll-animate h2 .word-wrapper span,
+#platform-section .headline-wrapper .headline-text.scroll-animate h3 .word-wrapper span {
+  animation: reset-translate 0.4s ease 0.2s forwards;
+}
+#platform-section .headline-wrapper .headline-text.scroll-animate h2 .word-wrapper:nth-of-type(2) span,
+#platform-section .headline-wrapper .headline-text.scroll-animate h3 .word-wrapper:nth-of-type(2) span {
+  animation: reset-translate 0.5s ease 0.3s forwards;
+}
 #platform-section .headline-wrapper .headline-text-base {
   transition: opacity 0.3s ease 0.2s;
 }
@@ -2210,12 +2218,6 @@ ul {
   pointer-events: all;
   transition: opacity 0.3s ease 0.2s;
 }
-#platform-section .headline-wrapper.scroll-animate .headline-text-base h2 .word-wrapper span {
-  animation: reset-translate 0.4s ease 0.2s forwards;
-}
-#platform-section .headline-wrapper.scroll-animate .headline-text-base h2 .word-wrapper:nth-of-type(2) span {
-  animation: reset-translate 0.5s ease 0.3s forwards;
-}
 #platform-section .headline-wrapper .device-img-mobile {
   display: none;
 }
@@ -2336,13 +2338,13 @@ ul {
     gap: 0;
   }
 }
-#faq-section .headline-wrapper.scroll-animate .headline-title .title-top-row .word-wrapper span {
+#faq-section .headline-wrapper .headline-text.scroll-animate .title-top-row .word-wrapper span {
   animation: reset-translate 0.4s ease 0.2s forwards;
 }
-#faq-section .headline-wrapper.scroll-animate .headline-title .title-top-row .word-wrapper:nth-of-type(2) span {
+#faq-section .headline-wrapper .headline-text.scroll-animate .title-top-row .word-wrapper:nth-of-type(2) span {
   animation: reset-translate 0.5s ease 0.3s forwards;
 }
-#faq-section .headline-wrapper.scroll-animate .headline-title > .word-wrapper span {
+#faq-section .headline-wrapper .headline-text.scroll-animate .word-wrapper span {
   animation: reset-translate 0.6s ease 0.4s forwards;
 }
 #faq-section .faq-list {

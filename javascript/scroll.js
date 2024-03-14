@@ -106,7 +106,7 @@ const checkScroll = () => {
     menuBtnWrapper.classList.remove("menu-wrapper-page-top");
   }
 
-  // Text background-size
+  // Text background fill animations
 
   // Helper function for broken subtext
   function getOffsetTop(elem) {
