@@ -64,6 +64,12 @@
   }
 }
 
+@keyframes reset-margin {
+  to {
+    margin: 0;
+  }
+}
+
 @keyframes collapse-width {
   to {
     width: 0;
