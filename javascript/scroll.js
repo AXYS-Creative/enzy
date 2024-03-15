@@ -1,6 +1,4 @@
 let minMd = window.matchMedia("(min-width: 768px)");
-// let mqMaxSm = window.matchMedia("(max-width: 480px)");
-// let mqMouse = window.matchMedia("(hover: hover)");
 
 const throttle = (func, limit) => {
   let lastFunc;
@@ -31,14 +29,10 @@ const siteHeader = document.querySelector(".site-header"),
   headerCta1 = headerCtaWrapper.querySelector(".cta-1"),
   headerCta2 = headerCtaWrapper.querySelector(".cta-2"),
   vidWrapper = document.querySelector(".video-wrapper"),
-  vidText = document.querySelector(".video-paragraph"),
-  platformHeadline = document.querySelector(".platform-headline"),
-  platformSubtext = document.querySelector(".platform-subtext"),
-  faqSubtext = document.querySelector(".headline-subtext-faq"),
-  statementText = document.querySelector(".statement-text"),
-  demoSubtext = document.querySelector(".headline-subtext-demo");
+  platformHeadline = document.querySelector(".platform-headline");
 
-const allDeviceText = document.querySelectorAll(".headline-text-device");
+const fillTextElements = document.querySelectorAll(".animation-fill-text"),
+  allDeviceText = document.querySelectorAll(".headline-text-device");
 
 // Header Defaults
 menuBtn.setAttribute("tabindex", "-1");
@@ -119,23 +113,11 @@ const checkScroll = () => {
     return offsetTop;
   }
 
-  fillTextEffect(vidText, vidText.offsetTop, vidText.offsetHeight);
-  fillTextEffect(
-    statementText,
-    statementText.offsetTop,
-    statementText.offsetHeight
-  );
+  fillTextElements.forEach((elem) => {
+    const fillElementOffsetTop = getOffsetTop(elem);
 
-  const platformSubtextOffsetTop = getOffsetTop(platformSubtext);
-  fillTextEffect(
-    platformSubtext,
-    platformSubtextOffsetTop,
-    platformSubtext.offsetHeight
-  );
-  const faqSubtextOffsetTop = getOffsetTop(faqSubtext);
-  fillTextEffect(faqSubtext, faqSubtextOffsetTop, faqSubtext.offsetHeight);
-  const demoSubtextOffsetTop = getOffsetTop(demoSubtext);
-  fillTextEffect(demoSubtext, demoSubtextOffsetTop, demoSubtext.offsetHeight);
+    fillTextEffect(elem, fillElementOffsetTop, elem.offsetHeight);
+  });
 
   // Video visibility
   const isVideoVisible =
