@@ -46,7 +46,32 @@ allDeviceText.forEach((textblock) =>
   textblock.setAttribute("aria-hidden", "true")
 );
 
+//
+//
+//
+//
+
+//
+// General Scroll Animation
+//
+
+const scrollAnimateObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("scroll-animate");
+    } else {
+      entry.target.classList.remove("scroll-animate");
+    }
+  });
+});
+
+document.querySelectorAll(".animate-on-scroll").forEach((elem) => {
+  scrollAnimateObserver.observe(elem);
+});
+
+//
 // Fill text animation
+//
 
 const fillTextEffect = (element, offsetTop, elementHeight) => {
   const scrollPosition = window.scrollY;
@@ -70,6 +95,7 @@ const fillTextEffect = (element, offsetTop, elementHeight) => {
 
 //
 // All Scroll Animations that require SCRUBBING
+//
 
 const checkScroll = () => {
   const scrollPosition = window.scrollY;
@@ -135,7 +161,9 @@ const checkScroll = () => {
 
 window.addEventListener("scroll", throttle(checkScroll, 50)); // Throttle checkScroll, adjust 100ms as needed
 
+//
 // Platform Intersection Observer
+//
 
 const platformDeviceObserver = new IntersectionObserver(
   (entries) => {
@@ -230,19 +258,3 @@ document.querySelectorAll(".device-img").forEach((img, index) => {
 
 // watchQueryMd(minMd);
 // End Platform Scroll
-
-// Section headline scroll animation
-
-const scrollAnimateObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("scroll-animate");
-    } else {
-      entry.target.classList.remove("scroll-animate");
-    }
-  });
-});
-
-document.querySelectorAll(".animate-on-scroll").forEach((elem) => {
-  scrollAnimateObserver.observe(elem);
-});

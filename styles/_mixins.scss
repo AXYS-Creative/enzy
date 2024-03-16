@@ -66,6 +66,43 @@ this will interfere with the line by line animation */
   }
 }
 
+@mixin blur-content {
+  @include mq-motion-allow {
+    filter: blur(8px);
+    opacity: 0.05;
+    transition: 0.5s ease 0.2s, translate 0s, width 0s;
+  }
+}
+
+@mixin blur-content-active {
+  filter: blur(0px);
+  opacity: 1;
+}
+
+@mixin statement-divider-width {
+  width: 520px;
+
+  @include mq-max("xxl") {
+    width: 464px;
+  }
+
+  @include mq-max("xl") {
+    width: 412px;
+  }
+
+  @include mq-max("lg") {
+    width: 348px;
+  }
+
+  @include mq-max("md") {
+    width: 280px;
+  }
+
+  @include mq-max("sm") {
+    width: 224px;
+  }
+}
+
 // header logo, nav items
 @mixin left-spacing {
   left: $body-padding;

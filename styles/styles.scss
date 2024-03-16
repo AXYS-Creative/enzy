@@ -824,6 +824,8 @@
         align-self: center;
         width: 30%;
         margin: 64px 0 128px;
+        opacity: 0;
+        @include blur-content;
       }
 
       @include mq-max("md") {
@@ -833,6 +835,10 @@
       @include mq-max("sm") {
         width: 56%;
         margin: 48px 0 128px;
+      }
+
+      &.scroll-animate {
+        @include blur-content-active;
       }
     }
   }
@@ -853,6 +859,7 @@
       opacity: 1;
       width: min(15vw, 288px);
       translate: 108% 0;
+      @include blur-content;
 
       @include mq-max("xxl") {
         translate: 104% 0;
@@ -860,6 +867,12 @@
 
       @include mq-max("xl") {
         translate: 116% 0;
+      }
+    }
+
+    &.scroll-animate {
+      .platform-headline-img {
+        @include blur-content-active;
       }
     }
   }
@@ -1243,34 +1256,30 @@
   }
 
   .statement-divider {
-    width: 520px;
+    width: 0; // animated below
     height: 4px;
     background-color: var(--primary-accent-color);
     border: none;
+    transition: 1s $cubic-ease 0.25s;
 
-    @include mq-max("xxl") {
-      width: 464px;
-    }
-
-    @include mq-max("xl") {
-      width: 412px;
-    }
-
-    @include mq-max("lg") {
-      width: 348px;
+    @include mq-motion-reduce {
+      @include statement-divider-width;
     }
 
     @include mq-max("md") {
-      width: 280px;
+      height: 3px;
     }
 
-    @include mq-max("sm") {
-      width: 224px;
+    &.scroll-animate {
+      @include mq-motion-allow {
+        @include statement-divider-width;
+      }
     }
   }
 
   .statement-img {
     width: 148px;
+    @include blur-content;
 
     @include mq-max("xxl") {
       width: 96px;
@@ -1282,6 +1291,10 @@
 
     @include mq-max("lg") {
       width: 64px;
+    }
+
+    &.scroll-animate {
+      @include blur-content-active;
     }
   }
 }
@@ -1375,17 +1388,35 @@
   }
 
   .demo-divider {
-    @include absolute-center;
-    height: 448px;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    translate: -50% 0;
     width: 4px;
+    height: 0;
     background: var(--primary-accent-color);
+    transition: 1s $cubic-ease 0.5s;
 
-    @include mq-max("xxl") {
-      height: 360px;
+    @include mq-motion-reduce {
+      height: 448px;
+
+      @include mq-max("xxl") {
+        height: 360px;
+      }
     }
 
     @include mq-max("lg") {
       display: none;
+    }
+
+    &.scroll-animate {
+      @include mq-motion-allow {
+        height: 448px;
+
+        @include mq-max("xxl") {
+          height: 360px;
+        }
+      }
     }
   }
 
