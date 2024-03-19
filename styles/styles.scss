@@ -312,6 +312,7 @@
     translate: 0 -50%;
     margin-bottom: -196px; // Adjust space between video and paragraph
     width: min(28%, 456px);
+    aspect-ratio: 1 / 1.8;
 
     @include mq-max("xxl") {
       margin-bottom: -148px;

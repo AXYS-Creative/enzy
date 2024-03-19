@@ -1724,6 +1724,7 @@ ul {
   translate: 0 -50%;
   margin-bottom: -196px;
   width: min(28%, 456px);
+  aspect-ratio: 1/1.8;
 }
 @media screen and (max-width: 1512px) {
   #video-section .video-wrapper {
