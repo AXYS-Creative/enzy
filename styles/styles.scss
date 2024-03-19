@@ -221,28 +221,34 @@
   }
 
   &.load-complete {
+    $load-delay: 500ms; // Adjust this if the load time is adjusted
+
     .hero-headline {
       h1 {
         &::before {
           @include mq-motion-allow {
-            animation: extend-height 0.8s $cubic-ease 1s forwards;
+            animation: extend-height 0.8s $cubic-ease calc(1s + $load-delay)
+              forwards;
           }
         }
 
         .word-wrapper {
           span {
-            animation: reset-translate 0.4s ease 0.6s forwards;
+            animation: reset-translate 0.4s ease calc(0.6s + $load-delay)
+              forwards;
           }
 
           &:nth-of-type(2) {
             span {
-              animation: reset-translate 0.5s ease 0.7s forwards;
+              animation: reset-translate 0.5s ease calc(0.7s + $load-delay)
+                forwards;
             }
           }
 
           &:nth-of-type(3) {
             span {
-              animation: reset-translate 0.6s ease 0.8s forwards;
+              animation: reset-translate 0.6s ease calc(0.8s + $load-delay)
+                forwards;
             }
           }
         }
@@ -253,11 +259,13 @@
       img {
         @include mq-motion-allow {
           &:first-of-type {
-            animation: hero-img-1-fade 0.8s ease 0.6s forwards;
+            animation: hero-img-1-fade 0.8s ease calc(0.6s + $load-delay)
+              forwards;
           }
 
           &:last-of-type {
-            animation: hero-img-2-fade 0.8s ease 0.6s forwards;
+            animation: hero-img-2-fade 0.8s ease calc(0.6s + $load-delay)
+              forwards;
           }
         }
       }
@@ -266,15 +274,15 @@
     .hero-img-mobile {
       img {
         @include mq-motion-allow {
-          animation: reset-margin 0.4s ease 0.48s forwards;
+          animation: reset-margin 0.4s ease calc(0.48s + $load-delay) forwards;
 
           &:first-of-type,
           &:last-of-type {
-            animation: reset-margin 0.6s ease 0.64s forwards;
+            animation: reset-margin 0.6s ease calc(0.64s + $load-delay) forwards;
           }
 
           &:nth-of-type(even) {
-            animation: reset-margin 0.5s ease 0.56s forwards;
+            animation: reset-margin 0.5s ease calc(0.56s + $load-delay) forwards;
           }
         }
       }
@@ -1334,15 +1342,17 @@
 
     .headline-text {
       padding-left: unset;
-      border: none;
 
       @include mq-max("lg") {
         padding-left: 24px;
-        border-left: 4px solid var(--primary-accent-color);
       }
 
       &::before {
         display: none;
+
+        @include mq-max("lg") {
+          display: block;
+        }
       }
 
       .title-bottom-row {

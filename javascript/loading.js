@@ -9,6 +9,7 @@ const attemptCompleteLoading = () => {
 
     if (loadingScreen) {
       loadingScreen.classList.add("load-complete");
+      loadingScreen.setAttribute("aria-hidden", "true");
       hero.classList.add("load-complete");
       document.body.style = "overflow: auto;";
     }
@@ -23,4 +24,4 @@ window.addEventListener("load", () => {
 setTimeout(() => {
   timerDone = true;
   attemptCompleteLoading();
-}, 1800);
+}, 2000);
