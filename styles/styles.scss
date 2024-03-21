@@ -306,33 +306,22 @@
   }
 
   .video-wrapper {
+    @include video-wrapper-portrait;
     @include row-center;
     position: sticky;
     top: 50%;
     translate: 0 -50%;
     margin-bottom: -196px; // Adjust space between video and paragraph
-    width: min(28%, 456px);
-    aspect-ratio: 1 / 1.8;
 
     @include mq-max("xxl") {
       margin-bottom: -148px;
     }
 
-    @include mq-max("xl") {
-      width: 32%;
-    }
-
     @include mq-max("lg") {
       margin-bottom: -48px;
-      width: 36%;
-    }
-
-    @include mq-max("md") {
-      width: 40%;
     }
 
     @include mq-max("sm") {
-      width: 64%;
       margin-bottom: -64px;
     }
 

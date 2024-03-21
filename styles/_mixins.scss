@@ -29,6 +29,41 @@
   translate: -50% -50%;
 }
 
+// Video Section - width/height
+@mixin video-wrapper-portrait {
+  aspect-ratio: 1 / 1.8;
+  width: min(28%, 456px);
+
+  @include mq-max("xl") {
+    width: 32%;
+  }
+
+  @include mq-max("lg") {
+    width: 36%;
+  }
+
+  @include mq-max("md") {
+    width: 40%;
+  }
+
+  @include mq-max("sm") {
+    width: 64%;
+  }
+}
+
+@mixin video-wrapper-landscape {
+  aspect-ratio: 3 / 1;
+  width: min(64%, 1024px);
+
+  @include mq-max("xl") {
+    width: 68%;
+  }
+
+  @include mq-max("md") {
+    width: 80%;
+  }
+}
+
 // Abstract line to the left of each section header
 @mixin headline-abstract {
   content: "";

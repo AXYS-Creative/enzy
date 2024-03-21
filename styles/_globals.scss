@@ -68,6 +68,8 @@ body {
 }
 
 header {
+  $logo-text-width: 52px;
+
   & > * {
     z-index: 5;
   }
@@ -99,7 +101,7 @@ header {
     }
 
     .logo-text {
-      width: 52px;
+      width: $logo-text-width;
       height: 20px;
       translate: 0 2px;
       object-fit: cover;
@@ -280,7 +282,7 @@ header {
   &.menu-active {
     .header-logo {
       .logo-text {
-        width: 52px;
+        width: $logo-text-width;
         transition: 0.2s ease 0.65s;
       }
     }
